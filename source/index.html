@@ -1,0 +1,30 @@
+---
+layout: default
+title: TicObj-C
+description: "Sneak peek of how ObjC looks from small Costa Rica."
+categories: [ObjC, Costa Rica, Code, Esteban Torres, blog, modern, tech, hacks]
+keywords: ObjC Costa Rica Code "Esteban Torres" blog modern tech hacks
+image:
+  feature: /images/abstract-12.jpg
+---
+
+{% assign index = true %}
+{% for post in paginator.posts %}
+<article class="hentry">
+  {% include article.html %}
+</article><!-- /.hentry -->
+{% endfor %}
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a href="/" class="btn">Previous</a>
+    {% else %}
+      <a href="{{ root_url }}{ paginator.previous_page_path }}" class="btn">Previous</a>
+    {% endif %}
+  {% endif %}
+  <a href="{{ root_url }}/archives">Blog Archives</a>
+  {% if paginator.next_page %}
+    <a href="{{ root_url }}{{ paginator.next_page_path }}" class="btn">Next</a>
+  {% endif %}
+</div><!-- /.pagination -->
