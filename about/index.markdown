@@ -1,9 +1,10 @@
 ---
-layout: post
-title: "About Me"
-date: 2014-12-11 20:56:10 +0000
+layout: page
+title: "about"
+date: 2014-12-12 13:22
 comments: true
-categories: OS, Costa Rica, Esteban Torres, TicObjC
+sharing: true
+footer: true
 ---
 Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**.
 

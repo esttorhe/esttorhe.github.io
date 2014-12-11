@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://esttorhe.github.io
+url: https://blog.estebantorr.es
 title: TicObj-C
 avatar: /images/avatar-bones.jpg
 subtitle: Sneak peek of how ObjC looks from small Costa Rica.
@@ -10,7 +10,36 @@ author: Esteban Torres
 author_bio: "iOS Developer by Day; completely destroyed human being by night.</br>I'm what you call a nerd…"
 simple_search: https://www.google.com/search
 description: Sneak peek of how `Obj-C` looks from small Costa Rica.
-background: /images/images/abstract-12.jpg
+timezone: America/Costa_Rica
+future:      true
+markdown:    kramdown
+reading_time:     true
+words_per_minute: 200
+
+# Owner/author information
+owner:
+  name:           Esteban Torres
+  avatar:         avatar-bones.jpg
+  bio:            "iOS Developer by Day; completely destroyed human being by night.</br>I'm what you call a nerd…"
+  email:          me@estebantorr.es
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        esttorhe
+  facebook:       
+  github:         esttorhe
+  stackexchange:  
+  linkedin:       
+  instagram:      
+  flickr:         
+  tumblr:         
+  # For Google Authorship https://plus.google.com/authorship
+  # google plus id, include the '+', eg +mmistakes
+  google_plus:    
+
+gems:
+  - jekyll-sitemap
+sass:
+  sass_dir: _sass
+  style: compressed
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -24,14 +53,31 @@ subscribe_email:
 # RSS feeds can list your email address if you like
 email: me@estebantorr.es
 
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: true
+
+  coderay:
+    coderay_line_numbers: nil
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
-root: /
-permalink: /blog/:year/:month/:day/:title/
-source: source
+root: //
+permalink: blog/:year/:month/:day/:title/
+source: ./
 destination: public
 plugins: plugins
 code_dir: downloads/code
@@ -94,11 +140,22 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: ticobjc
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-47828981-1
 
 # Facebook Like
 facebook_like: true
+
+
+# ------------------------- #
+# YAML FrontMatter defaults #
+# ------------------------- #
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      author: "Esteban Torres"

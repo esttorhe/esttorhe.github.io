@@ -17,8 +17,8 @@ deploy_branch  = "master"
 ## -- Misc Configs -- ##
 
 public_dir      = "public"    # compiled site directory
-source_dir      = "source"    # source file directory
-blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
+source_dir      = "."    # source file directory
+blog_index_dir  = '.'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
 deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
 stash_dir       = "_stash"    # directory to stash posts for speedy generation
 posts_dir       = "_posts"    # directory for blog files
@@ -57,7 +57,7 @@ task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
-  system "jekyll build"
+  system "jekyll build --verbose -t"
 end
 
 desc "Watch the site and regenerate when it changes"

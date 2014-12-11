@@ -3,7 +3,7 @@
 apt-get update
 
 # # Install git and curl
-apt-get -y install curl git node.js unzip tcl8.5 build-essential
+apt-get -y install curl git nodejs unzip tcl8.5 build-essential
 
 # Install zsh and Configure zsh as the default shell
 apt-get -y install zsh 
