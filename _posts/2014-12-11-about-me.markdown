@@ -3,7 +3,7 @@ layout: post
 title: "About Me"
 date: 2014-12-11 20:56:10 +0000
 comments: true
-categories: OS TicObjC About
+categories: iOS TicObjC About
 tags: OS "Costa Rica" "Esteban Torres" TicObjC
 author: "Esteban Torres"
 published: true
