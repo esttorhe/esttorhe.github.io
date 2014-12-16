@@ -9,7 +9,6 @@ tags: iOS, radar, bug, segue
 image:
     feature: /images/posts/20141216/segue.png
 ---
-
 On our projects we use multiple `UIStoryboard` files to break our apps; yes, we use storyboards, we are drinking Apple's "Kool-Aid" and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
 
 
@@ -23,7 +22,9 @@ Let's open `Xcode` and launch the simulator… nope, everything works as expecte
 
 
 Time to connect our device; load the latest build, run and… nope, can't reproduce.
+
 <!-- more -->
+
 After writing back to the reporter we got word that the issue is happening on an `iPhone` running `7.1`.
 
 
@@ -31,6 +32,7 @@ With that we go to `Xcode`, rinse and repeat with the exception that this time t
 
 
 We immediately noticed that the `UINavigationBar` was missing from the "sharing" view controller and internally we were presenting the `UIActivityController` like this:
+
 ```objc
 UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.currentUser.myList.itemProvider] applicationActivities:nil];
 // Adding some exclusions, etc 
@@ -38,6 +40,7 @@ UIActivityViewController *activityViewController = [[UIActivityViewController al
     // Do some other stuff
 }];
 ```
+
 Just from looking at the code plus the lack of navigation bar we can infer that our `navigationController` property was `nil`.
 
 After debugging its confirmed; it is `nil`; but not just that; the child view controller is being presented **modally**… so… `iOS` somewhere is taking the child view controller out of its hierarchy and its presenting it completely isolated as a "modal" leaving the user stuck (because it was coded assuming a `Back` button on `UINavigationBar` added after the push).
@@ -45,14 +48,7 @@ After debugging its confirmed; it is `nil`; but not just that; the child view co
 
 But **why?**…
 I went to Apple's documentation regarding this new "adaptive segues" (because if you didn't know `Push`, `Modal`, `Popover` & `Replace` are now deprecated) and this is what I found:
-
-| Name | Interface Builder Symbol | Description | 
-| --- |: --- :| --- |
-| `Show` | ![](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/art/SB_H_segue_push_2x.png =30x30) | Present the content in the detail or master area depending on the content of the screen. If the app is displaying a master and detail view, the content is pushed onto the detail area. If the app is only displaying the master or the detail, the content is pushed on top of the current view controller stack. |
-| `Show Detail` | ![](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/art/SB_H_segue_push_2x.png =30x30) | Present the content in the detail area. If the app is displaying a master and detail view, the new content replaces the current detail. If the app is only displaying the master or the detail, the content replaces the top of the current view controller stack. |
-| `Present Modally` | ![](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/art/SB_H_segue_modal_2x.png =30x30) | Present the content modally. There are options to choose a presentation style (UIModalPresentationStyle) and a transition style (UIModalTransitionStyle). |
-| `Present as Popover` | ![](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/art/SB_H_segue_popover_2x.png =30x30) | Present the content as a popover anchored to an existing view. There is an option to specify the possible directions of the arrow shown on one edge of the popover view (UIPopoverArrowDirection). There is also an option to specify the anchor view. |
-
+![](/images/posts/20141216/segues-table.png)
 *From Apple's Documentation: [https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html)*
 
 
@@ -66,6 +62,7 @@ With that in mind I went to `Xcode` with the sole idea of generating a project t
 
 
 New Project, open the storyboard; throw a `UINavigationController`; set its `rootViewController`, one `UIButton`, connect its action to `Show` and that to another `UIViewController`; now lets create some code for that child view controller that should display a `UIActivityController` upon `viewDidAppear:`:
+
 ```objc
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -77,6 +74,7 @@ New Project, open the storyboard; throw a `UINavigationController`; set its `roo
     }];
 }
 ```
+
 
 And voilà; compile and run on `iOS8`; everything works.
 
@@ -90,6 +88,7 @@ Perhaps that's the issue; let's make a couple of modifications.
 
 
 First let's add an "extra" level on our storyboards; so that we now have something like this:
+
 ```
 --- UINavigationController
     --- Root View Controller
@@ -98,8 +97,10 @@ First let's add an "extra" level on our storyboards; so that we now have somethi
 ```
 
 And from the 1st view controller let's push the 2nd one with some boilerplate code:
+
 ```objc
-UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+UIViewController *vc = 
+[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
 [self.navigationController pushViewController:vc animated:YES];
 ```
 
