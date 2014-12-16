@@ -15,6 +15,7 @@ future:      true
 markdown:    kramdown
 reading_time:     true
 words_per_minute: 200
+learn_more_link: blog/2014/12/11/about-me/
 
 # Owner/author information
 owner:
