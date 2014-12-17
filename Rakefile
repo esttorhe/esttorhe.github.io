@@ -58,7 +58,7 @@ task :test do
   puts "# Generates the site and then previews it"
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
-  system "jekyll build --verbose -t"
+  system "jekyll build --safe --verbose -t"
 
   system "bundle exec rake preview"
 end

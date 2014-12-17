@@ -1,4 +1,7 @@
-.*/
-_site/
-_source/*
-public/
+/.awestruct/
+/.sass-cache/
+/_site/
+/_tmp/
+Gemfile.lock
+/.themes
+/.vagrant

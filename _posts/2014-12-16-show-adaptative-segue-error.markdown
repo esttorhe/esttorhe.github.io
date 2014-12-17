@@ -6,6 +6,9 @@ author: Esteban Torres
 comments: true
 categories: iOS radar bug segue
 tags: iOS, radar, bug, segue
+github-url: https://www.github.com/esttorhe
+twitter-url: http://twitter.com/esttorhe
+blog-url: http://estebantorr.es
 image:
     feature: /images/posts/20141216/segue.png
 ---
@@ -24,6 +27,7 @@ Let's open `Xcode` and launch the simulator… nope, everything works as expecte
 Time to connect our device; load the latest build, run and… nope, can't reproduce.
 
 <!-- more -->
+
 
 After writing back to the reporter we got word that the issue is happening on an `iPhone` running `7.1`.
 

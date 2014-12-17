@@ -1,10 +1,16 @@
 ---
 layout: page
-title: "about"
+title: "About Me"
 date: 2014-12-12 13:22
 comments: true
 sharing: true
 footer: true
+categories: iOS TicObjC About
+tags: OS "Costa Rica" "Esteban Torres" TicObjC
+author: "Esteban Torres"
+published: true
+image:
+    feature: /images/page/about/header.png
 ---
 Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**.
 
@@ -15,4 +21,4 @@ Consider myself a [`CocoaPods`](http://cocoapods.org) "evangelist" since I first
 
 I'll try to keep an up to date "journal" on this `iOS` journey from a country located in the middle of a continent (no kidding; fire up [GoogleMaps](http://maps.google.com/) and look for Costa Rica).
 
-You can find me on GitHub and pretty much always lurkin on Twitter here [@esttorhe](https://twitter.com/esttorhe)
+You can find me on GitHub and pretty much always lurking on Twitter here [@esttorhe](https://twitter.com/esttorhe)
