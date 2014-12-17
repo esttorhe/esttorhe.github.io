@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: https://www.estebantorr.es
+url: https://blog.estebantorr.es
 title: TicObj-C
 avatar: /images/avatar-bones.jpg
 subtitle: Sneak peek of how ObjC looks from small Costa Rica.
@@ -11,6 +11,12 @@ author_bio: "iOS Developer by Day; completely destroyed human being by night.</b
 simple_search: https://www.google.com/search
 description: Sneak peek of how `Obj-C` looks from small Costa Rica.
 timezone: America/Costa_Rica
+future: true
+markdown: redcarpet
+redcarpet:
+ extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "tables"]
+reading_time:     true
+words_per_minute: 200
 learn_more_link: /about/
 
 # Owner/author information
@@ -51,7 +57,7 @@ subscribe_email:
 email: me@estebantorr.es
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "provision", ".vagrant"]
+exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -121,26 +127,6 @@ google_analytics_tracking_id: UA-47828981-1
 # Facebook Like
 facebook_like: true
 
-#Markdown
-future:      true
-reading_time:     true
-words_per_minute: 200
-
-markdown:    kramdown
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: true
-
-  coderay:
-    coderay_break_lines: true
-    coderay_line_numbers: table
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
 
 # ------------------------- #
 # YAML FrontMatter defaults #
