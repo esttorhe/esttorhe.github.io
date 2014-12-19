@@ -4,3 +4,7 @@
 /_tmp/
 Gemfile.lock
 /.themes
+/public
+public*
+_deploy/
+_deploy/*
