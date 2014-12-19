@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Radar | TicObj-C]]></title>
   <link href="https://www.estebantorr.es/blog/categories/radar/atom.xml" rel="self"/>
   <link href="https://www.estebantorr.es/"/>
-  <updated>2014-12-18T19:22:11-06:00</updated>
+  <updated>2014-12-18T22:00:31-06:00</updated>
   <id>https://www.estebantorr.es/</id>
   <author>
     <name><![CDATA[Esteban Torres]]></name>
@@ -20,6 +20,7 @@
     <id>https://www.estebantorr.es/blog/2014/12/16/show-adaptative-segue-error</id>
     <content type="html"><![CDATA[<p>On our projects we use multiple <code>UIStoryboard</code> files to break our apps; yes, we use storyboards, we are drinking Apple’s “Kool-Aid” and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.</p>
 
+<h1 id="fist-glimpse-of-the-problem">Fist Glimpse Of The Problem</h1>
 <p>Although this “embracing the change” would come to hunts us with a weird bug that was reported to us; hitting a “share” button was yielding no actions…</p>
 
 <p>That’s weird since we have it “wired” to launch a <code>UIActivityController</code> that will handle our sharing list.</p>
@@ -30,6 +31,7 @@
 
 <!-- more -->
 
+<h1 id="isolating-the-bug">Isolating The Bug</h1>
 <p>After writing back to the reporter we got word that the issue is happening on an <code>iPhone</code> running <code>7.1</code>.</p>
 
 <p>With that we go to <code>Xcode</code>, rinse and repeat with the exception that this time there’s nothing happening after hitting the share button.</p>
@@ -48,8 +50,8 @@ UIActivityViewController *activityViewController = [[UIActivityViewController al
 
 <p>After debugging its confirmed; it is <code>nil</code>; but not just that; the child view controller is being presented <strong>modally</strong>… so… <code>iOS</code> somewhere is taking the child view controller out of its hierarchy and its presenting it completely isolated as a “modal” leaving the user stuck (because it was coded assuming a <code>Back</code> button on <code>UINavigationBar</code> added after the push).</p>
 
-<p>But <strong>why?</strong>…
-I went to Apple’s documentation regarding this new “adaptive segues” (because if you didn’t know <code>Push</code>, <code>Modal</code>, <code>Popover</code> &amp; <code>Replace</code> are now deprecated) and this is what I found:
+<h1 id="but-why">But <strong>WHY??</strong>…</h1>
+<p>I went to Apple’s documentation regarding this new “adaptive segues” (because if you didn’t know <code>Push</code>, <code>Modal</code>, <code>Popover</code> &amp; <code>Replace</code> are now deprecated) and this is what I found:
 <img src="/images/posts/20141216/segues-table.png" alt="" />
 <em>From Apple’s Documentation: <a href="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html">https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html</a></em></p>
 
@@ -76,7 +78,10 @@ I went to Apple’s documentation regarding this new “adaptive segues” (beca
 
 <p>Close, compile and run on <code>iOS7</code>… everything works.</p>
 
-<p>YES… no wait… code is working correctly on both environments. Cleaning and building again did not introduce the issue. I was just about to give hope on this when I remembered something. In our project we have a “hamburger” menu (something for another post) which “replaces” the top view controller via code before using all the segues from the storyboard.</p>
+<p><strong>YES</strong>… no wait… the code is working correctly on both environments. Cleaning and building again did not introduce the issue. </p>
+
+<h1 id="consistently-reproducing-the-bug">Consistently Reproducing The Bug</h1>
+<p>I was just about to give hope on this when I remembered something. In our project we have a “hamburger” menu (something for another post) which “replaces” the top view controller via code before using all the segues from the storyboard.</p>
 
 <p>Perhaps that’s the issue; let’s make a couple of modifications.</p>
 

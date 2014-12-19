@@ -14,7 +14,7 @@ image:
 ---
 On our projects we use multiple `UIStoryboard` files to break our apps; yes, we use storyboards, we are drinking Apple's "Kool-Aid" and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
 
-
+# Fist Glimpse Of The Problem
 Although this "embracing the change" would come to hunts us with a weird bug that was reported to us; hitting a "share" button was yielding no actions…
 
 
@@ -28,7 +28,7 @@ Time to connect our device; load the latest build, run and… nope, can't reprod
 
 <!-- more -->
 
-
+# Isolating The Bug
 After writing back to the reporter we got word that the issue is happening on an `iPhone` running `7.1`.
 
 
@@ -50,7 +50,7 @@ Just from looking at the code plus the lack of navigation bar we can infer that 
 After debugging its confirmed; it is `nil`; but not just that; the child view controller is being presented **modally**… so… `iOS` somewhere is taking the child view controller out of its hierarchy and its presenting it completely isolated as a "modal" leaving the user stuck (because it was coded assuming a `Back` button on `UINavigationBar` added after the push).
 
 
-But **why?**…
+# But **WHY??**…
 I went to Apple's documentation regarding this new "adaptive segues" (because if you didn't know `Push`, `Modal`, `Popover` & `Replace` are now deprecated) and this is what I found:
 ![](/images/posts/20141216/segues-table.png)
 *From Apple's Documentation: [https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html](https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html)*
@@ -85,7 +85,10 @@ And voilà; compile and run on `iOS8`; everything works.
 Close, compile and run on `iOS7`… everything works.
 
 
-YES… no wait… code is working correctly on both environments. Cleaning and building again did not introduce the issue. I was just about to give hope on this when I remembered something. In our project we have a "hamburger" menu (something for another post) which "replaces" the top view controller via code before using all the segues from the storyboard.
+**YES**… no wait… the code is working correctly on both environments. Cleaning and building again did not introduce the issue. 
+
+# Consistently Reproducing The Bug
+I was just about to give hope on this when I remembered something. In our project we have a "hamburger" menu (something for another post) which "replaces" the top view controller via code before using all the segues from the storyboard.
 
 
 Perhaps that's the issue; let's make a couple of modifications.
