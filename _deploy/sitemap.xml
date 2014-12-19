@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.estebantorr.es/blog/2014/12/16/show-adaptative-segue-error/</loc>
+    <lastmod>2014-12-16T12:43:03-06:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/categories/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/blog/archives/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/archives/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/about/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.estebantorr.es/posts/</loc>
+    <lastmod>2014-12-18T19:17:35-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

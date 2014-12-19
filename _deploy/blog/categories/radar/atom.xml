@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Radar | TicObj-C]]></title>
+  <link href="https://www.estebantorr.es/blog/categories/radar/atom.xml" rel="self"/>
+  <link href="https://www.estebantorr.es/"/>
+  <updated>2014-12-18T19:17:35-06:00</updated>
+  <id>https://www.estebantorr.es/</id>
+  <author>
+    <name><![CDATA[Esteban Torres]]></name>
+    <email><![CDATA[me@estebantorr.es]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA['Show' Adaptative Segue Error]]></title>
+    <link href="https://www.estebantorr.es/blog/2014/12/16/show-adaptative-segue-error/"/>
+    <updated>2014-12-16T12:43:03-06:00</updated>
+    <id>https://www.estebantorr.es/blog/2014/12/16/show-adaptative-segue-error</id>
+    <content type="html"><![CDATA[<p>On our projects we use multiple <code>UIStoryboard</code> files to break our apps; yes, we use storyboards, we are drinking Apple’s “Kool-Aid” and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.</p>
+
+<p>Although this “embracing the change” would come to hunts us with a weird bug that was reported to us; hitting a “share” button was yielding no actions…</p>
+
+<p>That’s weird since we have it “wired” to launch a <code>UIActivityController</code> that will handle our sharing list.</p>
+
+<p>Let’s open <code>Xcode</code> and launch the simulator… nope, everything works as expected.</p>
+
+<p>Time to connect our device; load the latest build, run and… nope, can’t reproduce.</p>
+
+<!-- more -->
+
+<p>After writing back to the reporter we got word that the issue is happening on an <code>iPhone</code> running <code>7.1</code>.</p>
+
+<p>With that we go to <code>Xcode</code>, rinse and repeat with the exception that this time there’s nothing happening after hitting the share button.</p>
+
+<p>We immediately noticed that the <code>UINavigationBar</code> was missing from the “sharing” view controller and internally we were presenting the <code>UIActivityController</code> like this:</p>
+
+<p><code>objc
+UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.currentUser.myList.itemProvider] applicationActivities:nil];
+// Adding some exclusions, etc 
+[self.navigationController presentViewController:activityViewController animated:YES completion:^{
+    // Do some other stuff
+}];
+</code></p>
+
+<p>Just from looking at the code plus the lack of navigation bar we can infer that our <code>navigationController</code> property was <code>nil</code>.</p>
+
+<p>After debugging its confirmed; it is <code>nil</code>; but not just that; the child view controller is being presented <strong>modally</strong>… so… <code>iOS</code> somewhere is taking the child view controller out of its hierarchy and its presenting it completely isolated as a “modal” leaving the user stuck (because it was coded assuming a <code>Back</code> button on <code>UINavigationBar</code> added after the push).</p>
+
+<p>But <strong>why?</strong>…
+I went to Apple’s documentation regarding this new “adaptive segues” (because if you didn’t know <code>Push</code>, <code>Modal</code>, <code>Popover</code> &amp; <code>Replace</code> are now deprecated) and this is what I found:
+<img src="/images/posts/20141216/segues-table.png" alt="" />
+<em>From Apple’s Documentation: <a href="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html">https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html</a></em></p>
+
+<p>From the documentation we can take that during a “regular” usage of the <code>Show</code> segue on an <code>iPhone</code> app that’s not showing a master/detail the segue will behave as a now deprecated <code>Push</code> segue.</p>
+
+<p>To add to the weirdness everything works as expected on <code>iOS8</code> but it doesn’t on <code>iOS7</code>.</p>
+
+<p>With that in mind I went to <code>Xcode</code> with the sole idea of generating a project that could easily reproduce the issue.</p>
+
+<p>New Project, open the storyboard; throw a <code>UINavigationController</code>; set its <code>rootViewController</code>, one <code>UIButton</code>, connect its action to <code>Show</code> and that to another <code>UIViewController</code>; now lets create some code for that child view controller that should display a <code>UIActivityController</code> upon <code>viewDidAppear:</code>:</p>
+
+<p>&#8220;`objc
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];</p>
+
+<pre><code>UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[@"Test"]
+                                                                         applicationActivities:nil];
+[self.navigationController presentViewController:activityVC animated:YES completion:^{
+    NSLog(@"This line will never execute on iOS 7.1");
+}]; } ```
+</code></pre>
+
+<p>And voilà; compile and run on <code>iOS8</code>; everything works.</p>
+
+<p>Close, compile and run on <code>iOS7</code>… everything works.</p>
+
+<p>YES… no wait… code is working correctly on both environments. Cleaning and building again did not introduce the issue. I was just about to give hope on this when I remembered something. In our project we have a “hamburger” menu (something for another post) which “replaces” the top view controller via code before using all the segues from the storyboard.</p>
+
+<p>Perhaps that’s the issue; let’s make a couple of modifications.</p>
+
+<p>First let’s add an “extra” level on our storyboards; so that we now have something like this:</p>
+
+<p><code>
+--- UINavigationController
+    --- Root View Controller
+    --- Pushed 1st View Controller // Via Code
+    --- Pushed 2nd View Controller // Via `Show` segue
+</code></p>
+
+<p>And from the 1st view controller let’s push the 2nd one with some boilerplate code:</p>
+
+<p><code>objc
+UIViewController *vc = 
+[self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+[self.navigationController pushViewController:vc animated:YES];
+</code></p>
+
+<p>Compile and run on <code>iOS8</code> everything works</p>
+
+<p><img src="/images/posts/20141216/iOS8.png" alt="" /></p>
+
+<p>close compile and run on <code>iOS7</code> and… there you go.
+<img src="/images/posts/20141216/iOS7.png" alt="" /></p>
+
+<p>Last <code>UIViewController</code> is being presented modally instead of pushed to the current stack; thus, its <code>navigationController</code> property is <code>nil</code>.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>This is obviously a bug introduced by Apple that does not support “retro compatiblity” of this new <code>adaptative segues</code>.</p>
+
+<p>We should be able to replace the deprecated <code>Push</code> with this <code>Show</code> and it should behave the same unless we are taking advantage of this whole new “master/detail” containers approach.</p>
+
+<p>I filed a <a href="http://www.openradar.me/19259764">radar</a> with this issue, please feel free to duplicate with that hopes that Apple fixes it.</p>
+
+<p>Also <a href="https://github.com/esttorhe/ShowNotWorking_Radar">here’s the code</a> with a project that easily reproduces the issue.</p>
+
+<h1 id="workaround">Workaround</h1>
+<p>For now the only “solution” is changing the <code>Show</code> segue for a <code>Deprecated</code> <code>Push</code>; this looks like (and <strong><em>is</em></strong> ) code smell but its the only viable solution for now.</p>
+]]></content>
+  </entry>
+  
+</feed>
