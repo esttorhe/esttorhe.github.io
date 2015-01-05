@@ -33,7 +33,7 @@ This lead to me writing more and better tests in my apps, playing with some `Rub
 
 
 Stepping back might not seem like a big deal but it actually was.
-As for next year's resolutinos; here they are:
+As for next year's resolutions; here they are:
 
 1. Finally devote more time to my writing (this blog for example) since I've been delaying it for quite some time now and I really enjoy doing this.
 2. Keep on pushing my limits, learning, contributing and exchanging words with as many great devs as I can.
