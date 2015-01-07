@@ -9,12 +9,6 @@ github-url: https://www.github.com/esttorhe
 twitter-url: http://twitter.com/esttorhe
 blog-url: http://estebantorr.es
 ---
-[orta]:https://twitter.com/orta
-[ash]:https://twitter.com/ashfurrow
-[krause]:https://twitter.com/krausefx
-[artsy]:https://twitter.com/artsy
-[andrea]:https://twitter.com/dredayli
-
 I've got the opportunity to read [Ash Furrow][ash]'s post about his 5 years doing `iOS` development and read (as much as I could from my phone) [Orta][orta]'s blog about his 28 and came to think about **MY** year and decided I was going to write something.
 
 <!-- more -->
@@ -43,3 +37,9 @@ As for next year's resolutions; here they are:
 
 
 All in all a __**GREAT**__ year; can't wait to see what next one will have in store for me but I do know what I have in store for it :)
+
+[orta]:https://twitter.com/orta
+[ash]:https://twitter.com/ashfurrow
+[krause]:https://twitter.com/krausefx
+[artsy]:https://twitter.com/artsy
+[andrea]:https://twitter.com/dredayli
