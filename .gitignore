@@ -7,7 +7,7 @@ Gemfile.lock
 /public
 public*
 _deploy/
-_deploy/*
+_deploy/*/*
 .pygments-cache/objc-aff3d7316b03636de9c666f72167883b.html
 .pygments-cache/objc-a4030c006589973eaa95f3de8d6eef4a.html
 .pygments-cache/objc-59d21308197fdbe1b7b47c9f3a9d5876.html
