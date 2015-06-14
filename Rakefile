@@ -55,6 +55,7 @@ end
 desc "Test-Drive jekyll site"
 task :test do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  Rake::Task["clean"].invoke
   puts "# Generates the site and then previews it"
   puts "## Generating Site with Jekyll"
   system "compass compile --css-dir #{source_dir}/stylesheets"
