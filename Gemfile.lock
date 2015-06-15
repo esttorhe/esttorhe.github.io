@@ -122,3 +122,6 @@ DEPENDENCIES
   sass-globbing
   sinatra (~> 1.4.2)
   stringex (~> 1.4.0)
+
+BUNDLED WITH
+   1.10.3
