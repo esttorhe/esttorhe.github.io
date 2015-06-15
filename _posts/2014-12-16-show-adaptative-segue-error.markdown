@@ -139,11 +139,11 @@ Also [here's the code](https://github.com/esttorhe/ShowNotWorking_Radar) with a 
 For now the only "solution" is changing the `Show` segue for a `Deprecated` `Push`; this looks like (and ***is*** ) code smell but its the only viable solution for now.
 
 # UPDATE
-So; recently I got an update on my radar from  with the following response:
+Recently I got an update on my radar from  with the following response:
 > Adaptive segues like Show are only supported when running on iOS 8 or later. Interface Builder is failing to warn that this segue will not be properly unarchived on iOS 7.
 >
 >We are continuing to work on this issue, and will follow up with you again.
 
 So there you have it;  kind of accepted it as a bug (at least on IB not warning) but at the same time is telling us that pre `iOS8` adaptative segues could have unexpected behavior.
 
-Long story short; DON'T USE THEM if you need to support older OS versions.
+Long story short; *DON'T USE THEM* if you need to support older OS versions.
