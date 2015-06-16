@@ -17,6 +17,8 @@ As you might know (or not) whenever you do a `do`/`catch` block the `catch` bloc
 
 It doesn't mean you __necessarily__ need to specify each and every single error type in your `catch` block (even though ideally you should react differently for each type of error) but you can add an exhaustive `catch` that will represent «every single error».
 
+<!--more-->
+
 # The Problem
 
 Apparently `Swift` internally «reserves» the `error` variable on the exhaustive `catch` block without documenting it anywhere on the book.
