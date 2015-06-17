@@ -8,12 +8,5 @@ Gemfile.lock
 public*
 _deploy/
 _deploy/*/*
-.pygments-cache/objc-aff3d7316b03636de9c666f72167883b.html
-.pygments-cache/objc-a4030c006589973eaa95f3de8d6eef4a.html
-.pygments-cache/objc-59d21308197fdbe1b7b47c9f3a9d5876.html
-.pygments-cache/objc-562d2548620ec5d5aac7572cce2fbbd7.html
-.pygments-cache/objc-4da46572eae438f16710d59c6e2d67de.html
-.pygments-cache/objc-26754913607a74c6ad75dbcdea83f483.html
-.pygments-cache/objc-0a4d871d7b1682edb79f4e813980ab9c.html
+.pygments-cache/
 .vagrant/machines/default/virtualbox/private_key
-.pygments-cache/swift-ed7d2beb0dcf4ec865a01011e7baa8f2.html
