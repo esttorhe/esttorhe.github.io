@@ -1,6 +1,11 @@
 title: New Website
 date: 2015-06-20 17:09:02
 tags:
+- blog
+- hugo
+- octopress
+- jekyll
+- hexo
 author: Esteban Torres
 ---
 «Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).
@@ -9,15 +14,15 @@ I started the blog with [`Jekyll`][jekyll] and quickly «moved» to [`Octopress`
 
 After some time having to deal with it and then having to create a blog for [Log(n)][logn]'s employees (being that I'm one of them at the moment) gave me some insights as to how convoluted the process is.
 <!--more-->
-Honestly it felt harder than it should have and made re-consider my previous choice of static generator.
+Honestly it felt harder than it should have and made me re-consider my previous choice of static generator.
 
-I started looking and read some good things about [`Hugo`][hugo] but wasn't sold on the idea of migrating; the only thing I knew was that I wanted to give my blog a new «face» and that it should be a static website that could easily reside on [`Github`][blog].
+I started looking and read some good things about [`Hugo`][hugo] but wasn't sold on the idea of migrating; the only thing I knew was that I wanted to give my blog a new «face» and that it should be a static website that could easily reside on my [`Github`][blog] account.
 
-Back to the «new face» quest I looked everywhere under the sun for new [`Octopress`][octopress] templates that I would think where «different», clean and obviously pretty… no luck.
+Back to the «new face» quest I looked everywhere under the sun for new [`Octopress`][octopress] templates that I would think where «different», clean and obviously pretty… no luck. Mostly all themes for [`Octopress`][octopress] templates are pretty much the same with maybe 3 or 4 variations and almost all of them are not under my definition of pretty for a website.
 
-After a couple of weeks I gave up; fired up Google with «static site generators» as the search criteria and landed on a page that listed a bunch and you could sort by popularity.
+After a couple of weeks I gave up; fired up Google with «static site generators» as the search criteria and landed on a page that listed a bunch that you could sort by popularity.
 
-Long story short the top 4 hits were (perhaps not in that *EXACT* order:
+Long story short the top 4 hits sorted by popularity were (perhaps not in that *EXACT* order:
 
 1. [`Jekyll`][jekyll]
 2. [`Octopress`][octopress]
@@ -26,9 +31,9 @@ Long story short the top 4 hits were (perhaps not in that *EXACT* order:
 
 I already knew the first 2 and wasn't happy with them; [`Hugo`][hugo] seemed like a nice option but to be perfectly honest [`Hexo`][hexo]'s list of themes was what caught my eye.
 
-Without much delay I created a «temp» folder on my computer; installed all the requirements for [`Hexo`][hexo] and REALLY quickly I had my blog running locally with this new generator.
+Without much delay I created a «temp» folder on my computer; installed all the requirements for [`Hexo`][hexo] and _REALLY_ quickly I had my blog running locally with this new generator.
 
-Took me a couple of hours to fully configure it the way I wanted and correctly set up my `CNAME` file for my custom domain (in case you didn't know this blog is served under http://esttorhe.github.io).
+Took me a couple of hours to fully configure it the way I wanted it to look and correctly setting up my `CNAME` file for my custom domain (in case you didn't know this blog is served under http://esttorhe.github.io).
 
 # Caveats
 
@@ -52,3 +57,4 @@ Hope you like the new layout/design and I'm open to suggestions.
 [hugo]:https://github.com/spf13/hugo
 [blog]:https://github.com/esttorhe/esttorhe.github.io
 [hexo]:https://hexo.io
+[disqus]:http://disqs.com
