@@ -8,7 +8,7 @@ author: Esteban Torres
 I started the blog with [`Jekyll`][jekyll] and quickly «moved» to [`Octopress`][octopress] for its «simplicity» to make new posts, pages and change themes; or so I thought.
 
 After some time having to deal with it and then having to create a blog for [Log(n)][logn]'s employees (being that I'm one of them at the moment) gave me some insights as to how convoluted the process is.
-
+<!--more-->
 Honestly it felt harder than it should have and made re-consider my previous choice of static generator.
 
 I started looking and read some good things about [`Hugo`][hugo] but wasn't sold on the idea of migrating; the only thing I knew was that I wanted to give my blog a new «face» and that it should be a static website that could easily reside on [`Github`][blog].
