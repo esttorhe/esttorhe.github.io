@@ -1,139 +1,83 @@
-# ----------------------- #
-#      Main Configs       #
-# ----------------------- #
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
 
-url: https://www.estebantorr.es
+# Site
 title: TicObj-C
-avatar: /images/avatar-bones.jpg
-subtitle: Sneak peek of how ObjC looks from small Costa Rica.
-author: Esteban Torres
+subtitle: "Sneak peek of how ObjC looks from small Costa Rica."
+description: "Sneak peek of how ObjC looks from small Costa Rica."
 author_bio: "iOS Developer by Day; completely destroyed human being by night.</br>I'm what you call a nerd…"
-simple_search: https://www.google.com/search
-description: Sneak peek of how `Obj-C` looks from small Costa Rica.
+author: Esteban Torres
+language:
 timezone: America/Costa_Rica
-future: true
-markdown: redcarpet
-redcarpet:
- extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "tables"]
-reading_time:     true
-words_per_minute: 200
-learn_more_link: /about/
 
-# Owner/author information
-owner:
-  name:           Esteban Torres
-  avatar:         avatar-bones.jpg
-  bio:            "iOS Developer by Day; completely destroyed human being by night.</br>I'm what you call a nerd…"
-  email:          me@estebantorr.es
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        esttorhe
-  facebook:       
-  github:         esttorhe
-  stackexchange:  
-  linkedin:       
-  instagram:      
-  flickr:         
-  tumblr:         
-  # For Google Authorship https://plus.google.com/authorship
-  # google plus id, include the '+', eg +mmistakes
-  google_plus:    
-
-gems:
-  - jekyll-sitemap
-sass:
-  sass_dir: _sass
-  style: compressed
-
-# Default date format is "ordinal" (resulting in "July 22nd 2007")
-# You can customize the format as defined in
-# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
-# Additionally, %o will give you the ordinal representation of the day
-date_format: "ordinal"
-
-# RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email: me@estebantorr.es
-
-include: [".htaccess"]
-exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
-
-# ----------------------- #
-#    Jekyll & Plugins     #
-# ----------------------- #
-
-# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://estebantorr.es
 root: /
 permalink: blog/:year/:month/:day/:title/
-source: ./
-destination: public
-plugins: plugins
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
 code_dir: downloads/code
-category_dir: blog/categories
+i18n_dir: :lang
+skip_render:
 
-paginate: 10          # Posts per page on the blog index
-paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
-recent_posts: 5       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
-excerpt_separator: "<!--more-->"
+# Writing
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: true
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace: true
 
-titlecase: true       # Converts page and post titles to titlecase
+# Category & Tag
+default_category: code
+category_map:
+tag_map:
 
-# Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
-# and add an array with the asides you want to use.
-# blog_index_asides:
-# post_asides:
-# page_asides:
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
 
-# ----------------------- #
-#   3rd Party Settings    #
-# ----------------------- #
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 5
+pagination_dir: page
 
-# Github repositories
-github_user: esttorhe
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: apollo
 
-# Twitter
-twitter_user: esttorhe
-twitter_tweet_button: true
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:esttorhe/esttorhe.github.io.git
+  branch: master
 
-# Google +1
-google_plus_one: false
-google_plus_one_size: medium
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user:
-googleplus_hidden: true
-
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# Disqus Comments
-disqus_short_name: ticobjc
-disqus_show_comment_count: true
-
-# Google Analytics
-google_analytics_tracking_id: UA-47828981-1
-
-# Facebook Like
-facebook_like: true
-
-
-# ------------------------- #
-# YAML FrontMatter defaults #
-# ------------------------- #
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      author: "Esteban Torres"
+# CNAME
+## https://github.com/bapti/hexo-generator-cname
+cname: estebantorr.es
