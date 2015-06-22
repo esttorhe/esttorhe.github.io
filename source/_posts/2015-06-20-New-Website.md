@@ -49,6 +49,12 @@ Another good thing is that [`Hexo`][hexo] uses [`Disqus`][disqus] as the default
 
 Hope you like the new layout/design and I'm open to suggestions.
 
+# Update
+
+Figured out a way to add support for `tags` and partially for `categories` (although I haven't rolled that out to production).
+
+Will blog about adding support for `tags` and `categories` (its more of a per theme basis).
+
 👋
 
 [jekyll]:http://jekyllrb.com
