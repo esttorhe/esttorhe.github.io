@@ -27,7 +27,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: false
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
@@ -86,3 +86,7 @@ cname: estebantorr.es
 # Disqus Comments
 disqus_shortname: "ticobjc"
 disqus_show_comment_count: true
+
+
+tag_generator:
+  per_page: 10
