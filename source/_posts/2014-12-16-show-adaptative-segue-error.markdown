@@ -18,6 +18,9 @@ blog-url: http://estebantorr.es
 image:
     feature: /images/posts/20141216/segue.png
 ---
+
+{% github esttorhe ShowNotWorking_Radar 5f81558 %}
+
 On our projects we use multiple `UIStoryboard` files to break our apps; yes, we use storyboards, we are drinking Apple's "Kool-Aid" and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
 
 # Fist Glimpse Of The Problem
