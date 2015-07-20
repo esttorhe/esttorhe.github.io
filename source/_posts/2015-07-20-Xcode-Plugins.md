@@ -216,7 +216,7 @@ I know the description says `Xcode 5+` which makes it sound like a dead project 
 
 GREAT way to find your image assets :D
 
-Would to see Olivier's [`SwiftGen`][swiftgen] as a plugin though :D
+Would ❤ to see Olivier's [`SwiftGen`][swiftgen] as a plugin though :D
 
 [alcatraz]:http://alcatraz.io/
 [cocoaheadscr]:https://cocoaheadscr.herokuapp.com/
