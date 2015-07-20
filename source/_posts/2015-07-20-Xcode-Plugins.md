@@ -7,7 +7,6 @@ tags:
 - developer tools
 ---
 
-# Environments
 Everyone of us have our own set of niks & tricks to better find our ways around our everyday activities.
 
 For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.
