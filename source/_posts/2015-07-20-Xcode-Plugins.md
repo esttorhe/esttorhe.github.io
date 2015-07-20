@@ -54,6 +54,7 @@ Without further ado here's my list of plugins:
 | [XcodeExplorer](#XcodeExplorer) | [Source][xplorer]|
 | [XVim](#XVim) | [Source][xvim]|
 | [ColorSense-for-Xcode](#ColorSense-for-Xcode) | [Source][colorsense]|
+| [Fuzzy Autocomplete](#Fuzzy_Autocomplete) | [Source][fuzzy]|
 
 ---
 
@@ -198,6 +199,16 @@ Given the fact that I'm a dork and like the «limitations» the `vim` imposes up
 
 I guess you can see the benefit of this one.
 
+---
+
+## Fuzzy Autocomplete
+![](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin/raw/master/demo.gif)
+>This is a Xcode 5+ plugin that patches the autocomplete filter to work the same way the Open Quickly works. It performs very well, and the fuzzy matching actually uses Xcode's own `IDEOpenQuicklyPattern`.
+
+Who doesn't love fuzzy autocomplete when writing code!? ¯\\\_(ツ)_/¯
+
+I know the description says `Xcode 5+` which makes it sound like a dead project but you can check the source and see that is actively developed and also `Xcode 7` is mostly supported so far; even though is still ß.
+
 [alcatraz]:http://alcatraz.io/
 [cocoaheadscr]:https://cocoaheadscr.herokuapp.com/
 [BBUDebuggerTuckAway]:https://github.com/neonichu/BBUDebuggerTuckAway
@@ -221,3 +232,4 @@ I guess you can see the benefit of this one.
 [xplorer]:https://github.com/edwardaux/XcodeExplorer
 [xvim]:https://github.com/XVimProject/XVim
 [colorsense]:https://github.com/omz/ColorSense-for-Xcode
+[fuzzy]:https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin
