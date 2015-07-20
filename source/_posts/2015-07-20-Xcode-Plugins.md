@@ -53,6 +53,7 @@ Without further ado here's my list of plugins:
 | [XVim](#XVim) | [Source][xvim]|
 | [ColorSense-for-Xcode](#ColorSense-for-Xcode) | [Source][colorsense]|
 | [Fuzzy Autocomplete](#Fuzzy_Autocomplete) | [Source][fuzzy]|
+| [KSImageNamed-Xcode](#KSImageNamed-Xcode) | [Source][KSImageNamed-Xcode]
 
 ---
 
@@ -207,6 +208,16 @@ Who doesn't love fuzzy autocomplete when writing code!? ¯\\\_(ツ)_/¯
 
 I know the description says `Xcode 5+` which makes it sound like a dead project but you can check the source and see that is actively developed and also `Xcode 7` is mostly supported so far; even though is still ß.
 
+---
+
+## KSImageNamed-Xcode
+![](https://camo.githubusercontent.com/c354bf04524df86daeabe7a6d2b9926fac790f85/68747470733a2f2f7261772e6769746875622e636f6d2f6b7375746865722f4b53496d6167654e616d65642d58636f64652f6d61737465722f73637265656e73686f742e676966)
+>Can't remember whether that image you just added to the project was called button-separator-left or button-left-separator? Now you don't have to, because this will autocomplete your imageNamed: calls like you'd expect. Just type in `[NSImage imageNamed:` or `[UIImage imageNamed:` and all the images in your project will conveniently appear in the autocomplete menu. You'll even get a handy preview of the image you're about to select.
+
+GREAT way to find your image assets :D
+
+Would to see Olivier's [`SwiftGen`][swiftgen] as a plugin though :D
+
 [alcatraz]:http://alcatraz.io/
 [cocoaheadscr]:https://cocoaheadscr.herokuapp.com/
 [BBUDebuggerTuckAway]:https://github.com/neonichu/BBUDebuggerTuckAway
@@ -231,3 +242,5 @@ I know the description says `Xcode 5+` which makes it sound like a dead project 
 [xvim]:https://github.com/XVimProject/XVim
 [colorsense]:https://github.com/omz/ColorSense-for-Xcode
 [fuzzy]:https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin
+[KSImageNamed-Xcode]:https://github.com/ksuther/KSImageNamed-Xcode
+[swiftgen]:https://github.com/AliSoftware/SwiftGen
