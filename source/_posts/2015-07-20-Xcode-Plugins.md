@@ -6,9 +6,7 @@ tags:
 - ide
 - developer tools
 ---
-<head>
-<link rel="stylesheet" type="text/css" href="images.css">
-</head>
+
 # Environments
 Everyone of us have our own set of niks & tricks to better find our ways around our everyday activities.
 
