@@ -90,3 +90,10 @@ disqus_show_comment_count: true
 
 tag_generator:
   per_page: 10
+
+# Archive
+## https://github.com/hexojs/hexo-generator-archive
+archive_generator:
+  per_page: 10
+  yearly: true
+  monthly: true
