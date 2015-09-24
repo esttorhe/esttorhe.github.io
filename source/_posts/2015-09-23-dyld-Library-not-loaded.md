@@ -30,11 +30,11 @@ dyld: Library not loaded: @rpath/AFNetworking.framework/AFNetworking
 (lldb) 
 ```
 
-It was pretty straight forward, `rpath` was borked.
+It was pretty straight forward, `@rpath` was borked.
 
-## `rpath` errors
+## `@rpath` errors
 
-If you've had the delight of actually play around with `Swift` and `Dyanmic Frameworks` you've more than likely came across at least one `rpath` error.
+If you've had the delight of actually play around with `Swift` and `Dyanmic Frameworks` you've more than likely came across at least one `@rpath` error.
 
 What this means basically is that either your runtime path(s) are borked or that your frameworks are not getting copied/embedded into the `Frameworks` «section» of your application (let's leave it like this for simplicity's sake).
 
@@ -70,7 +70,7 @@ pod install
 
 And lo and behold… the project compiles and runs on my device as expected…
 
-That was equal parts promising and infuriating… Since I didn't want to move everything to a new clean project (and more so I shouldn't need to do that) I decided to check for differences between `rpath` in both projects.
+That was equal parts promising and infuriating… Since I didn't want to move everything to a new clean project (and more so I shouldn't need to do that) I decided to check for differences between `@rpath` in both projects.
 
 After some time both projects looked the same and I even added some «missing» build phases (run scripts from `CocoaPods`) to my original project and some missing header paths.
 
