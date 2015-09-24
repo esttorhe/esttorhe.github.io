@@ -1,4 +1,4 @@
-title: 'dyld: Library not loaded'
+title: 'dyld: Library not loaded & CocoaPods'
 date: 2015-09-23 15:14:17
 categories:
 - cocoapods
