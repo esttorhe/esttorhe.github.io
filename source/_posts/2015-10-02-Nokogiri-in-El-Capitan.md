@@ -1,4 +1,4 @@
-title: `Nokogiri` on `El Capitan`
+title: Nokogiri on El Capitan
 date: 2015-10-02 10:03:51
 tags:
 - nokogiri
