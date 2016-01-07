@@ -3,7 +3,6 @@ branches:
   only:
   - source
 before_install:
-# Use sed to replace the SSH URL with the public URL, then initialize submodules
 - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 - git submodule update --init --recursive
 - npm -g install npm@latest
@@ -11,6 +10,14 @@ before_install:
 - npm install
 install:
 - hexo generate
-# Handle git submodules yourself
 git:
   submodules: false
+env:
+  global:
+    secure: pg0cuGArjQzHRZ0rqMrkGjI9yTlfyKJ7gRBKh4WtswZJxhFc3VC6PgzNPP/QGG7+OJLx99bwbh8+bg60guLmnzyzBjxNvkVFSYig+7MbzSBgH1fIin0hLJ2zWZPnW8VjNTk7WYc7LHGoYQ2SV3A9gPKcyyEGtiYQaBzcD/PdTyc=
+before_script:
+- git config --global user.name 'Esteban Torres via Travis CI'
+- git config --global user.email 'me@estebantorr.es'
+- sed -i'' "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~" _config.yml
+script:
+- hexo deploy --silent
