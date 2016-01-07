@@ -3,14 +3,14 @@ branches:
   only:
   - source
 before_install:
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
+- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+- git submodule update --init --recursive
+- npm -g install npm@latest
 - npm install -g hexo
 - npm install
 install:
 - hexo generate
 # Handle git submodules yourself
 git:
-    submodules: false
-# Use sed to replace the SSH URL with the public URL, then initialize submodules
-before_install:
-    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-    - git submodule update --init --recursive
+  submodules: false
