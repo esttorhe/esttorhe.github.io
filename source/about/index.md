@@ -12,7 +12,6 @@ author: "Esteban Torres"
 published: true
 image:
     feature: /images/abstract-12.jpg
-published: false
 ---
 Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**.
 
