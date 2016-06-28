@@ -14,6 +14,8 @@ There are many posts covering this and I won't center in the «how to» but rath
 
 <!--more-->
 
+---
+
 ## The basics
 [`Apple`'s documentation on Xcode 8 Source Editor Extensions][appledocs] is pretty «nice» for an upcoming, yet to be released, feature.
 
@@ -22,6 +24,8 @@ There's also [session 414][applevideo] from `WWDC 16` that covers all the detail
 Here's yet another [blog post][extensions-blogpost] about the topic.
 
 As I said earlier there's a lot of information about them and there's no need to duplicate the information but rather to point to the sources.
+
+---
 
 ## Big IF
 
@@ -38,6 +42,8 @@ sudo /usr/libexec/xpccachectl
 And then reboot your computer.
 
 Apparently its related to the `XPC Service` and `El Capitan` not expecting it (which might be related to the issue I encountered while playing with extensions).
+
+---
 
 ## The issue
 
@@ -69,7 +75,25 @@ Simply killing that process will let you keep working on your extension without 
 
 Hopefully this will help others trying to create amazing extensions and will prevent some extensions from never reaching us.
 
+---
+
+# TL;DR
+
+Here's the important bit about all this:
+
+If your extension is not loading and you can't debug it; kill this process:
+
+**`com.apple.dt.Xcode.AttachToXPCService`**
+---
+
+And try again
+
+---
+
+*Thanks [@jseravalli][jseravalli] for the `TL;DR` tip* 🙇
+
 [localizer]:https://github.com/esttorhe/localizer
 [appledocs]:https://developer.apple.com/app-extensions/
 [applevideo]:https://developer.apple.com/videos/play/wwdc2016/414/
 [extensions-blogpost]:http://www.russbishop.net/xcode-extensions
+[jseravalli]:https://github.com/jseravalli
