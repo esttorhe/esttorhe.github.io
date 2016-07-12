@@ -123,23 +123,23 @@ end
 
 desc 'Runs html-proofer against current build/ directory.'
 task :test do
-  puts "⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ HTML Proofer integration pending ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠"
-  # require 'html-proofer'
-  #
-  # puts 'Testing public/ directory.'
-  # # HTMLProofer::Runner.new('public/', {
-  # HTMLProofer.check_directory('./public', {
-  #   allow_hash_href: true,
-  #   ext: '.html',
-  #   :check_html => { :validation => { :report_invalid_tags => false } },
-  #   check_favicon: false,
-  #   checks_to_ignore: [:check_favicon],
-  #   error_sort: :desc,
-  #   disable_external: true,
-  #   alt_ignore: [/.*/],
-  #   parallel: { in_processes: 3},
-  #   verbose: true,
-  #   }).run
+  # puts "⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ HTML Proofer integration pending ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠"
+  require 'html-proofer'
+
+  puts 'Testing public/ directory.'
+  # HTMLProofer::Runner.new('public/', {
+  HTMLProofer.check_directory('./public', {
+    allow_hash_href: true,
+    ext: '.html',
+    :check_html => { :validation => { :report_invalid_tags => false } },
+    check_favicon: false,
+    checks_to_ignore: [:check_favicon],
+    error_sort: :desc,
+    disable_external: true,
+    alt_ignore: [/.*/],
+    parallel: { in_processes: 3},
+    verbose: true,
+    }).run
 end
 
 desc "Create new entry"
