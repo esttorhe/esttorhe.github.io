@@ -11,7 +11,7 @@ Last year I made a [list of resolutions][resolutions] and also [blogged about it
 
 A small round down of my previous year:
 
-* Got turned down by [Slack][slack]: Basically applied to [Slack][slack] and everything went OK but I suck at interviews; I think I don't know how to sell myself properly and was turned down. 
+* Got turned down by [Slack][slack]: Basically applied to [Slack][slack] and everything went OK but I suck at interviews; I think I don't know how to sell myself properly and was turned down.
 <br/>No hard feelings though, they felt I wasn't a good fit for the team and they got to do what's best for the team.
 
 <!--more-->
@@ -29,7 +29,7 @@ A small round down of my previous year:
 * My son is healthy and super happy 😄 He's a bright kid and that tires us down super fast ⚡ Its super cool anyways 😄 He'll be starting school in a couple of weeks; can't wait for all the crazy adventures that will come.
 
 After writing all this and re-reading my resolution's from [last year's post][resolutionsBlog] I'm more than happy with how everything turned out. I really LOVE my current job and everyone I work with, also I get to write `Swift` all day long and get paid to do it 🎉
- 
+
 All is left for this year is keep pushing my limits; last year one goal was to submit a topic to a conference, did it; this year is to actually ***GIVE*** a talk 😄
 
 In the horizon there's always the idea to move abroad; we'll see how things pan out.
@@ -40,7 +40,7 @@ In the horizon there's always the idea to move abroad; we'll see how things pan 
 [brewbot]:http://brewbot.io
 [snapshots]:https://github.com/facebook/ios-snapshot-test-case
 [Moya]:https://github.com/Moya/Moya
-[Cocoapods]:www.cocoapods.org
+[Cocoapods]:http://www.cocoapods.org
 [rxswiftCommunity]:https://github.com/RxSwiftCommunity
 [rxviewmodel]:https://github.com/RxSwiftCommunity/rxswiftcommunity.github.io
 [swiftssh2]:https://github.com/esttorhe/SwiftSSH2

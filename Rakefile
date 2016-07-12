@@ -123,11 +123,9 @@ end
 
 desc 'Runs html-proofer against current build/ directory.'
 task :test do
-  # puts "⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ HTML Proofer integration pending ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠"
   require 'html-proofer'
 
   puts 'Testing public/ directory.'
-  # HTMLProofer::Runner.new('public/', {
   HTMLProofer.check_directory('./public', {
     allow_hash_href: true,
     ext: '.html',
@@ -136,6 +134,7 @@ task :test do
     checks_to_ignore: [:check_favicon],
     error_sort: :desc,
     disable_external: true,
+    file_ignore: [/^.*\b(tags|page)\b.*$/, './public/index.html'],
     alt_ignore: [/.*/],
     parallel: { in_processes: 3},
     verbose: true,

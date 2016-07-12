@@ -9,10 +9,12 @@ tags:
 Lately I've come across multiple tweets and talks about people avoiding jumping over the dreaded `1.0.0` of their `frameworks`, tools, etc.
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?</p>&mdash; Colin Eberhardt (@ColinEberhardt) <a href="https://twitter.com/ColinEberhardt/status/631152832490643457">August 11, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!</p>&mdash; Colin Eberhardt (@ColinEberhardt) <a href="https://twitter.com/ColinEberhardt/status/631152342826663936">August 11, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ---
 

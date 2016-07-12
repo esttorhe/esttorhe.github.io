@@ -27,7 +27,8 @@ Even though my intentions were good my approach was not the correct.
 Tonight I felt short on my «questioning game» again:
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe">@esttorhe</a> Hey, why do you always make public shout-outs for questions? I don’t know, where/how do things get stuck?</p>&mdash; Felix Krause (@KrauseFx) <a href="https://twitter.com/KrauseFx/status/647975598216777728">September 27, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Yet again; I don't think Felix was mad but he was on point. I was kind of shouting a question directly to him while the rest of the world stood there waiting.
 
@@ -52,7 +53,7 @@ To sum up:
 - Be mindful of where you are asking the questions
 - Be mindful of how you are asking said questions
 
-Just keeping those simple pointers will help you get far and would also avoid any potential embarrassments. 
+Just keeping those simple pointers will help you get far and would also avoid any potential embarrassments.
 
 After all I already made an ass of myself, the least you could do is learn from my mistakes.
 

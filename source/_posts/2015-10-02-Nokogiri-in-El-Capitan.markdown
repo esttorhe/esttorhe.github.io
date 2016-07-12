@@ -10,8 +10,9 @@ tags:
 
 Finally `El Capitan` arrived and I couldn't be more eager to install it on my machine; as soon as I read on Twitter that it was available I jump to the `AppStore` and started the download process which seemed like a bad idea at the time:
 
-<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I think downloading «El Capitan» at the same time as the rest of the world was a BAD idea and poor judgement on my part 😂</p>&mdash; NSTorres (@esttorhe) <a href="https://twitter.com/esttorhe/status/649289668773715973">September 30, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">I think downloading «El Capitan» at the same time as the rest of the world was a BAD idea and poor judgement on my part 😂</p> — NSTorres (@esttorhe) <a href="https://twitter.com/esttorhe/status/649289668773715973">September 30, 2015</a></blockquote>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!--more-->
 
@@ -57,7 +58,7 @@ Behold the «magic» command:
 bundle config build.nokogiri --use-system-libraries=true --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include/libxml2
 ```
 
-You can see that all it's doing is specifying that `nokogiri` builds using system libraries and is also telling the full path for `libxml2` under `Xcode`'s content folder. 
+You can see that all it's doing is specifying that `nokogiri` builds using system libraries and is also telling the full path for `libxml2` under `Xcode`'s content folder.
 
 # Disclaimer
 

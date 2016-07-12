@@ -41,7 +41,7 @@ Without further ado here's my list of plugins:
 |[BBUDebuggerTuckAway](#BBUDebuggerTuckAway) | [Source][BBUDebuggerTuckAway]|
 | [RSImageOptimPlugin](#RSImageOptimPlugin) | [Source][RSImageOptimPlugin]|
 | [CodePilot](#CodePilot) | [Source][codepilot]|
-| [DerivedData Exterminator](#DerivedData_Exterminator)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | [Source][ddexterminator]|
+| [DerivedData Exterminator](#DerivedData-Exterminator)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | [Source][ddexterminator]|
 | [Polychromatic](#Polychromatic) | [Source][polychromatic]|
 | [SCXcodeSwitchExpander](#SCXcodeSwitchExpander) | [Source][switchexpander]|
 | [Snapshots](#Snapshots) | [Source][snapshots]|
@@ -51,12 +51,12 @@ Without further ado here's my list of plugins:
 | [XcodeExplorer](#XcodeExplorer) | [Source][xplorer]|
 | [XVim](#XVim) | [Source][xvim]|
 | [ColorSense-for-Xcode](#ColorSense-for-Xcode) | [Source][colorsense]|
-| [Fuzzy Autocomplete](#Fuzzy_Autocomplete) | [Source][fuzzy]|
+| [Fuzzy Autocomplete](#Fuzzy-Autocomplete) | [Source][fuzzy]|
 | [KSImageNamed-Xcode](#KSImageNamed-Xcode) | [Source][KSImageNamed-Xcode]
 
 ---
 
-## BBUDebuggerTuckAway 
+## BBUDebuggerTuckAway
 ![](https://github.com/neonichu/BBUDebuggerTuckAway/raw/master/plugin.gif)
 
 >BBUDebuggerTuckAway - Xcode plugin for auto-hiding the debugger once you start typing in the source code editor.

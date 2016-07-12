@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dbgrandi/danger-proselint
-  revision: 7f97753ea97e6c471b8439bec6d3b5109d457192
+  revision: 12ae98cd50b0836565270f8ed59412d2d6634cbd
   specs:
-    danger-prose (1.0.0)
+    danger-prose (2.0.0)
       danger
 
 GEM

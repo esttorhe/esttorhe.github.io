@@ -32,7 +32,7 @@ It doesn't mean you __necessarily__ need to specify each and every single error 
 Apparently `Swift` internally «reserves» the `error` variable on the exhaustive `catch` block without documenting it anywhere on the book.
 
 To provide context copy and paste the following code in an empty `Playground` on `Xcode 7` and see how the compiler complains with the message:
-> Cannot assign to 'let' value 'error' 
+> Cannot assign to 'let' value 'error'
 
 ```swift
 enum TestError: ErrorType {
@@ -48,7 +48,7 @@ do {
   try throwingFunction()
 } catch {
   error = TestError.HiddenErrorVariable
-  
+
   print(error)
 }
 
@@ -66,14 +66,16 @@ For now the workaround is simple; avoid using a `let error` near an exhaustive `
 In the meantime I filed a radar [`rdar://21396321`][radar] explaining the issue and also asked [Joe Groff][jckarter] (he works on `Swift` compiler at `Apple`) about this and will update when (if) he answers:
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/jckarter">@jckarter</a> is the `error` reservation on exhaustive `catch` documented anywhere - <a href="http://t.co/qgGm1tlX4i">http://t.co/qgGm1tlX4i</a> ? Or a bug?</p>&mdash; ᴡᴀᴛᴄʜ Torres (@esttorhe) <a href="https://twitter.com/esttorhe/status/610667900421152768">June 16, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Update
 
 Well; [Joe][jckarter] answered quicker than expected:
 
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe">@esttorhe</a> It intentionally implicitly binds an &quot;error&quot; variable if you specified none.</p>&mdash; Joe Groff (@jckarter) <a href="https://twitter.com/jckarter/status/610668658105413633">June 16, 2015</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Apparently it is intentional (which is good) but is not documented anywhere.
 

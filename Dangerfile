@@ -43,6 +43,7 @@ def check_spelling(files, ignored_words = [])
     markdown message
   end
 end
+
 # Look through all changed Markdown files
 markdown_files = (modified_files + added_files).select do |line|
   line.start_with?("source/_posts") && line.end_with?(".markdown")
