@@ -3,7 +3,7 @@ language: node_js
 cache:
   - bundler
   - pip
-  
+
 addons:
   apt:
     packages:
@@ -12,18 +12,11 @@ addons:
 
 before_install:
 - rvm install 2.2
-- sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-- git submodule update --init --recursive
-- npm -g install npm@latest
-- npm install -g hexo
-- npm install
-- pip install --user s3cmd
-- s3cmd --version
 - bundle install --path="./.vendor/bundle"
-- echo $TRAVIS_COMMIT_RANGE
+- bundle exec rake config:bootstrap
 
 install:
-- hexo generate
+- hexo --version
 
 git:
   submodules: false
@@ -33,9 +26,7 @@ env:
     secure: pg0cuGArjQzHRZ0rqMrkGjI9yTlfyKJ7gRBKh4WtswZJxhFc3VC6PgzNPP/QGG7+OJLx99bwbh8+bg60guLmnzyzBjxNvkVFSYig+7MbzSBgH1fIin0hLJ2zWZPnW8VjNTk7WYc7LHGoYQ2SV3A9gPKcyyEGtiYQaBzcD/PdTyc=
 
 before_script:
-- git config --global user.name 'Esteban Torres via Travis CI'
-- git config --global user.email 'me@estebantorr.es'
-- sed -i'' "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~" _config.yml
+- bundle exec rake config:environment
 
 script:
 - bundle exec rake build:test

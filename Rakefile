@@ -4,10 +4,25 @@ require 'rake'
 require 'httparty'
 require 'json'
 
-desc "Initial setup"
-task :bootstrap do
+namespace :config do
+  desc "Initial setup"
+  task :bootstrap do
     puts 'Installing dependencies...'
-      puts `bundle install --without distribution`
+    sh 'sed -i \'s/git@github.com:/https:\/\/github.com\//\' .gitmodules'
+    sh 'git submodule update --init --recursive'
+    sh 'npm -g install npm@latest'
+    sh 'npm install -g hexo'
+    sh 'npm install'
+    sh 'pip install --user s3cmd'
+    sh 's3cmd --version'
+  end
+
+  desc "Configures the variables and «seds» the modules"
+  task :environment do
+    sh 'git config --global user.name \'Esteban Torres via Travis CI\''
+    sh 'git config --global user.email \'me@estebantorr.es\''
+    sh 'sed -i\'\' "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~" _config.yml'
+  end
 end
 
 namespace :deploy do
