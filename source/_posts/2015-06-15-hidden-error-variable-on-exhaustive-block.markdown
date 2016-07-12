@@ -23,7 +23,7 @@ Based on that you can rightfully assume that I'm migrating all my `Result<T,U>` 
 
 As you might know (or not) whenever you do a `do`/`catch` block the `catch` block needs to be exhaustive; just like a `switch` and «catch» *all* possible paths.
 
-It doesn't mean you __necessarily__ need to specify each and every single error type in your `catch` block (even though ideally you should react differently for each type of error) but you can add an exhaustive `catch` that will represent «every single error».
+It doesn't mean you __necessarily__ need to specify every single error type in your `catch` block (even though ideally you should react differently for each type of error) but you can add an exhaustive `catch` that will represent «every single error».
 
 <!--more-->
 
@@ -61,7 +61,7 @@ ___
 
 # What now?
 
-For now the workaround is simple; avoid using a `let error` near an exhaustive `catch` block. Although that's not quite a solution but a patch; hopefully `Apple` will eventually fix this issue; `Swift 2.0` its still a ß and can contain a fix for this (or at least document it somewhere other than this blog post) by the time it hits production.
+For now the workaround is simple; avoid using a `let error` near an exhaustive `catch` block. Although that's not quite a solution but a patch; with some luck `Apple` will eventually fix this issue; `Swift 2.0` its still a ß and can contain a fix for this (or at least document it somewhere other than this blog post) by the time it hits production.
 
 In the meantime I filed a radar [`rdar://21396321`][radar] explaining the issue and also asked [Joe Groff][jckarter] (he works on `Swift` compiler at `Apple`) about this and will update when (if) he answers:
 
