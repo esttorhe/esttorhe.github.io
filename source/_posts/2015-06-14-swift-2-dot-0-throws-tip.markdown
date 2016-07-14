@@ -34,7 +34,7 @@ Some examples:
 <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ---
 
-That being said, I'm not going to convince you to use it or avoid it. That's entirely up to you, the app/framework you are working on and wether or not you need to do async calls with `throws` (which is a «fun» thing to accomplish).
+That being said, I'm not going to convince you to use it or avoid it. That's entirely up to you, the app / framework you are working on and wether or not you need to do async calls with `throws` (which is a «fun» thing to accomplish).
 
 <br/>
 

@@ -5,6 +5,7 @@ cache:
   pip: true
   directories:
   - node_modules
+  - .vendor
 
 addons:
   apt:

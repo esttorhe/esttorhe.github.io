@@ -12,7 +12,7 @@ Lately I've come across multiple tweets and talks about people avoiding jumping 
 
 <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!</p>&mdash; Colin Eberhardt (@ColinEberhardt) <a href="https://twitter.com/ColinEberhardt/status/631152342826663936">August 11, 2015</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!</p>– Colin Eberhardt (@ColinEberhardt) <a href="https://twitter.com/ColinEberhardt/status/631152342826663936">August 11, 2015</a></blockquote>
 
 <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -36,7 +36,7 @@ Additional labels for pre-release and build metadata are available as extensions
 ```
 As you can see [semver][semver] specifies a series of numbers (3) to correctly determine the versions of your frameworks.
 
-Notice that its based off of `MAJOR`.`MINOR`.`PATCH` where `MAJOR` should change when you introduce breaking changes (make incompatible changes to the `API` basically).
+Notice that its based off `MAJOR`.`MINOR`.`PATCH` where `MAJOR` should change when you introduce breaking changes (make incompatible changes to the `API` basically).
 
 ## What I propose! 🎉
 Given the fact that most package managers work using [semver][semver] as their «tagging» base and that most «consumers» of your work will most likely update to whichever version you release as long as is not `MAJOR` without having to do much refactoring (e.g. using [CocoaPods][cocoapods] you can specify something like `~> 1.5` which roughly translates to => «update to every new version above 1.5 as long as its < 2.0.0»)

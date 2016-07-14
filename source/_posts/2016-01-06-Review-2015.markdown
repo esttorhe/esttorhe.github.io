@@ -20,9 +20,9 @@ A small round down of my previous year:
 * Got to finally meet in person Ash Furrow, Orta, Chris Eidhof, Agnes Vasarhelyi, Veronica Ray among many other great developers.
 * Got shortlisted for `SwiftSummit` in San Francisco and even wrote a blog post for them that I think hasn't been publish (will probably release it on my blog)
 * Started contributing more to open source; helping with [`RxViewModel`][rxviewmodel], [`RxSwiftCommunity`][rxswiftcommunity], [`Moya`][moya], [`CocoaPods`][cocoapods], [`FBSnapshotTests`][snapshots], [`SwiftGen`][swiftgen], [`SwiftSSH2`][swiftssh2], [DeckRocket][deckrocket], [XcodeServerSDK][xcodeserversdk], [`NaughtyKeyboard`][naughty] and some others which helped me not only learn a lot but to get to know a lot of people from ALL over the world 🌍🌎🌏
-* Made a lot of Twitter/Internet friends which I think is one of the MOST amazing things from last year; if you are reading this and you are one of my new interwebz friend: 👋 hello!! Really appreciate being friends with you 😄
+* Made a lot of Twitter/Internet friends which I think is one of the MOST amazing things from last year; if you are reading this and you are one of my new interwebz friend: 👋 hello! Really appreciate being friends with you 😄
 * Finally organized a [`CocoaHeads`][cocoaheads] meetup :)
-* [`CraftKollective`][ck] started moving again and we are on the path towards generating business!! 🎉
+* [`CraftKollective`][ck] started moving again and we are on the path towards generating business! 🎉
 * Configured [Cloudflare][cloudflare] on my website and now is faster and more secure by defaulting to `https` 😄
 * Moved to a new house: My girldfriend and I moved to a bigger house, located in a gated community (which is great for when our son starts playing outside with friends) and closer to her family. This is a huge milestone because I wasn't 💯 happy with our previous house.
     * On that note we started renting our previous house to a couple of guys that destroyed it and we are now just wanting to sell it and be done with it.

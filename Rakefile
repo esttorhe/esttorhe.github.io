@@ -11,7 +11,7 @@ namespace :config do
     sh 'sed -i \'s/git@github.com:/https:\/\/github.com\//\' .gitmodules'
     sh 'git submodule update --init --recursive'
     sh 'npm -g install npm@latest'
-    sh 'npm install -g hexo'
+    sh 'npm install hexo'
     sh 'npm install'
     sh 'pip install --user s3cmd'
     sh 's3cmd --version'

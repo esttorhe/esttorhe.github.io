@@ -48,5 +48,8 @@ end
 markdown_files = (modified_files + added_files).select do |line|
   line.start_with?("source/_posts") && line.end_with?(".markdown")
 end
+
+prose.ignored_words = ["`Swift 2.0`", "`Either<T,U>`", "`throws`", "ErrorType", "`error`"]
+prose.disable_linters = ["typography.diacritical_marks"]
 prose.lint_files markdown_files
 check_spelling markdown_files

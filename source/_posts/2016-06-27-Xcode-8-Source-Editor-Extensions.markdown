@@ -71,9 +71,9 @@ This process `com.apple.dt.Xcode.AttachToXPCService` appears to be the one in ch
 
 Anyways, some times this process doesn't get properly killed after you finished your debugging session and the next time you try to launch your extension it never gets attached to `Xcode` and thus your menu item is grayed out and the extension is not loaded.
 
-Simply killing that process will let you keep working on your extension without headaches!!
+Simply killing that process will let you keep working on your extension without headaches!
 
-Hopefully this will help others trying to create amazing extensions and will prevent some extensions from never reaching us.
+With some luck this will help others trying to create amazing extensions and will prevent some extensions from never reaching us.
 
 ---
 

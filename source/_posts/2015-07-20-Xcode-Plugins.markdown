@@ -89,7 +89,7 @@ I can quickly navigate through HUGE codebases without effort or actually thinkin
 ![](https://github.com/kattrali/deriveddata-exterminator/raw/master/docs/menu.png)
 >Sometimes Xcode needs a friendly helping hand with cleaning out the Derived Data for a project. The Exterminator makes this quick and easy.
 
-We've all been at that point in life where `Xcode` simply decides to stop giving a crap about the compiling and correct construction of our bundles. Compile warnings, pieces of code we have 💥 nuked into oblivion are giving compile errors and some beheviors we have ensured are no longer present in our code are happening when running on the simulator… :/ and who is to blame!?? none other than `Derived Data` folders with stale files…
+We've all been at that point in life where `Xcode` simply decides to stop giving a crap about the compiling and correct construction of our bundles. Compile warnings, pieces of code we have 💥 nuked into oblivion are giving compile errors and some beheviors we have ensured are no longer present in our code are happening when running on the simulator… :/ and who is to blame? ¯\\\_(ツ)\_/¯ none other than `Derived Data` folders with stale files…
 
 ---
 
@@ -165,7 +165,7 @@ Enter [XAlign][xalign] and my `OCD` kicks in allowing me to neatly organize all 
 ## XcodeColors
 >XcodeColors allows you to use colors in the Xcode debugging console.
 It's designed to aid in the debugging process.
-I use this along with a custom logger with [CocoaLumberjack][cocoalumberjack] to easily know when something being logged into the console is a debugging statement, a warning or even worst!! an error.
+I use this along with a custom logger with [CocoaLumberjack][cocoalumberjack] to easily know when something being logged into the console is a debugging statement, a warning or even *worst* an error.
 
 Assigning colors to each level is the best way to easily check when something goes eerie on your code.
 
@@ -176,7 +176,7 @@ We tend to `DDLogError` everywhere we «expect» an error from any `API` calls a
 ## XcodeExplorer
 >This is a plugin project that allows you, as a developer, to explore the various events and notifications that Xcode4 emits during normal operations.
 
-Since we are talking plugins here; why not have a plugin that helps you build your own plugins?? Meta much?
+Since we are talking plugins here; why not have a plugin that helps you build your own plugins? Meta much?
 
 Well; this plugin is exactly that. It will let you listen and identify different notifications that `Xcode` fires during its normal process; giving you the knowledge to easily intercept something you are interested on and gives you the power to shape it to your own needs.
 
@@ -201,7 +201,7 @@ I guess you can see the benefit of this one.
 
 ## Fuzzy Autocomplete
 ![](https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin/raw/master/demo.gif)
->This is a Xcode 5+ plugin that patches the autocomplete filter to work the same way the Open Quickly works. It performs very well, and the fuzzy matching actually uses Xcode's own `IDEOpenQuicklyPattern`.
+>This is a Xcode 5+ plugin that patches the autocomplete filter to work the same way the Open Quickly works. It performs extremely well, and the fuzzy matching actually uses Xcode's own `IDEOpenQuicklyPattern`.
 
 Who doesn't love fuzzy autocomplete when writing code!? ¯\\\_(ツ)_/¯
 
