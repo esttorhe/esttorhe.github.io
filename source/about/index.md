@@ -1,4 +1,3 @@
----
 layout: page
 title: "About Me"
 date: 2014-12-11 20:56:10 +0000

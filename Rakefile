@@ -142,20 +142,13 @@ task :test do
 end
 
 desc "Create new entry"
-task :layout, :title do |task, args|
+task :create, [:layout, :title] do |task, args|
   title = args[:title]
+  layout = args[:layout]
   abort "You must specify a title." if title.nil? || title.length < 1
 
   output = `hexo new '#{layout}' '#{title}'`
   # output is something like '2014-12-11-from-ghost-to-jekyll-slash-octopress.markdown'
-  dir_name = output.scan(/[0-9]{4}-[0-9]{2}-[0-9]{2}.*\.html\.markdown/)[0][11...-14]
-  full_path = "source/_posts/#{dir_name}"
-  sh "mkdir #{full_path}" unless File.exists? full_path
-  sh "open #{full_path}"
-
-  puts 'Applying article template frontmatter.'
-  new_article_filename = output.scan(/source.*/)[0]
-  File.open(new_article_filename, 'w') { |file| file.puts contents }
 end
 
 task :default => :server
