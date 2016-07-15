@@ -18,7 +18,7 @@ def check_spelling(files, ignored_words = [])
   end
   markdown_files = files ? Dir.glob(files) : (modified_files + added_files)
   markdown_files.select! do |line| line.end_with?(".markdown") end
-  result_texts = Hash[markdown_files.uniq.collect { |md| [md, `mdspell #{md} -r`.strip] }]
+  result_texts = Hash[markdown_files.uniq.collect { |md| [md, `mdspell #{md} -rna --ignored (\`[\w\s]+\`)`.strip] }]
   spell_issues = result_texts.select { |path, output| output.include? "spelling errors found" }
   # Get some metadata about the local setup
   current_branch = env.request_source.pr_json["head"]["ref"]
@@ -49,7 +49,6 @@ markdown_files = (modified_files + added_files).select do |line|
   line.start_with?("source/_posts") && line.end_with?(".markdown")
 end
 
-prose.ignored_words = ["`Swift 2.0`", "`Either<T,U>`", "`throws`", "ErrorType", "`error`"]
 prose.disable_linters = ["typography.diacritical_marks"]
 prose.lint_files markdown_files
 check_spelling markdown_files
