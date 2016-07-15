@@ -4,7 +4,7 @@ categories:
 - cocoapods
 - tools
 - errors
-tags: 
+tags:
 - swift2
 - cocoapods
 - rpath
@@ -27,7 +27,7 @@ It wasn't hard to determine what was the issue given that the console was spitti
 dyld: Library not loaded: @rpath/AFNetworking.framework/AFNetworking
   Referenced from: /var/mobile/Containers/Bundle/Application/6C4D36F9-6481-434C-8713-18EC38A0FBF6/<appname>.app/<appname>
   Reason: image not found
-(lldb) 
+(lldb)
 ```
 
 It was pretty straight forward, `@rpath` was borked.
@@ -46,7 +46,7 @@ I went on to check the runtime paths and sure as hell everything was correct, wi
 
 I was starting to worry and also running out of ideas so I decided to check my `CocoaPods` definition and I noticied a couple of things with how the `Podfile` was structured.
 
-I decided that this was a chance as good as any to refactor the `Podfile` and also fix the issue. And with this in mind I separated the pods by `target` and also created some «shared pods» definition; added some `:exlusive => true` decorations here and there and voilá!! I was ready for the test.
+I decided that this was a chance as good as any to refactor the `Podfile` and also fix the issue. And with this in mind I separated the pods by `target` and also created some «shared pods» definition; added some `:exlusive => true` decorations here and there and voilá! I was ready for the test.
 
 ```ruby
 pod install
@@ -62,7 +62,7 @@ After *successfully* failling at fixing the issue I turned to old and wise inter
 
 # Pre, During and Post Frustration
 
-Closing to 7 or so hours I decided to do what I think I should have done from the beginning… created a new empty project; bare bones with only the `Podfile` being an exact replica of the failing project.
+Closing to 7 or so hours I decided to do what I think I should have done from the beginning… created a new empty project; bare bones with only the `Podfile` being an complete replica of the failing project.
 
 ```console
 pod install
@@ -99,7 +99,7 @@ The application was running smoothly on my 📱…
 
 This issue turned out to be a terrible waste of time but also helped me rearrange my list of steps to follow when debugging errors that should be «obvious» from experience.
 
-If after failing to due what experience tolds me is the answer; try to replicate the issue on a clean slate (or as clean as possible).
+If after failing to due what experience tolds me is the answer; try to replicate the issue on a newly created project (or as clean as possible).
 
 If you succeed in reproducing you are unto something new; if not then your project is borked and you now have a clean and functional project to compare and take bits from here and there.
 
