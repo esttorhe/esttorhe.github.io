@@ -49,6 +49,6 @@ markdown_files = (modified_files + added_files).select do |line|
   line.start_with?("source/_posts") && line.end_with?(".markdown")
 end
 
-prose.disable_linters = ["typography.diacritical_marks"]
+prose.disable_linters = ["typography.diacritical_marks", "misc.scare_quotes"]
 prose.lint_files markdown_files
 check_spelling markdown_files

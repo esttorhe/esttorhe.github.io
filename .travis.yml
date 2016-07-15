@@ -6,6 +6,7 @@ cache:
   directories:
   - node_modules
   - .vendor
+  - /home/travis/.rvm/rubies/ruby-2.2.0
 
 addons:
   apt:
