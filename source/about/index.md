@@ -10,15 +10,20 @@ tags:
 author: "Esteban Torres"
 published: true
 image:
-    feature: /images/abstract-12.jpg
+  feature: /images/abstract-12.jpg
+
 ---
-Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**.
+Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**; moved to Berlin to work @ [`SoundCloud`][soundcloud].
 
 I love innovation and I'm usually an early adopter whenever I can which, more times than none, has bitten me in the ass.
 <!-- more -->
 Mostly wander around `Cocoa` & `Cocoa Touch` "realms" but lately I've been trying to expand towards `Ruby`, `Rails` and obviously `Swift`.
-Consider myself a [`CocoaPods`](http://cocoapods.org) "evangelist" since I first knew about them and have a few `pods` of my own. (You can check them on my [`GitHub` profile](https://github.com/esttorhe)).
+I really **LOVE** _OSS_ and at times try to contribute as much as possible and try to get involved with the community; some times though I find myself too overwhelmed with a lot of projects and thus tend to distance myself for some months.
 
-I'll try to keep an up to date "journal" on this `iOS` journey from a country located in the middle of a continent (no kidding; fire up [GoogleMaps](http://maps.google.com/) and look for Costa Rica).
+I try to be active in conferences but only if I can find a topic I'm super passionate about; try to avoid giving hollow talks just for the sake of giving talks.
 
 You can find me on GitHub and pretty much always lurkin on Twitter here [@esttorhe](https://twitter.com/esttorhe)
+
+
+
+[soundcloud]: https://soundcloud.com
