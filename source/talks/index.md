@@ -10,19 +10,30 @@ Since then I have given many talks at the local CocoaHeads and like to try sendi
 
 ## Upcoming Talks
 
-- [`NSSpain`][nsspain] - September
+- _N/A_
 
 ## Past Talks
 
-| Date | Topic | Conference | Link |
-| :--- | :--- | :---: | :---: |
-| _2016-06-28_&nbsp;&nbsp;&nbsp;&nbsp; | **`Xcode`'s 8 Source Editor Extensions**&nbsp;&nbsp;&nbsp;&nbsp; | CocoaHeads Costa Rica | [Slides][xcodeextensions] |
-| _2016-05-26_&nbsp;&nbsp;&nbsp;&nbsp; | **`MVVM` + `RxSwift` + DataControllers**&nbsp;&nbsp;&nbsp;&nbsp; | iOScon&nbsp;&nbsp;&nbsp; | [Video][ioscon] • [Slides][iosconslides]
-| _2015-04-21_&nbsp;&nbsp;&nbsp;&nbsp; | **Continuos Delivery for iOS Apps**&nbsp;&nbsp;&nbsp;&nbsp; | CocoaHeads Costa Rica | [Slides][fastlane]
-| _2015-06-12_&nbsp;&nbsp;&nbsp;&nbsp; | **Using `Jekyll` & `Octopress`**&nbsp;&nbsp;&nbsp;&nbsp; | Log(n) Tech Talks | [Slides][jekyll] |
+| Date         |                                    Topic |          Conference          |                   Link                   |
+| :----------- | ---------------------------------------: | :--------------------------: | :--------------------------------------: |
+| 2017-02-16   | **`MVVM(DC)`:<br/>Taming your architecture** |        [MobOS][mobos]        |          [Slides][mobosslides]           |
+| _2016-10-16_ |               **Hacking _(?)_ `SiriKi`** | [Mobilization][mobilization] |           [Slides][mobslides]            |
+| _2016-09-16_ | **`MVVM` + `RxSwift`+<br/>DataControllers** |      [NSSpain][nsspain]      |         [Slides][nsspainslides]          |
+| _2016-06-28_ | **`Xcode`'s 8<br/>Source Editor Extensions** |  CocoaHeads<br/>Costa Rica   |        [Slides][xcodeextensions]         |
+| _2016-05-26_ | **`MVVM` + `RxSwift`<br/>+ DataControllers** |       [iOScon][ioscon]       | [Video][iosconvideo] • [Slides][iosconslides] |
+| _2015-04-21_ |  **Continuos Delivery<br/>for iOS Apps** |  CocoaHeads<br/>Costa Rica   |            [Slides][fastlane]            |
+| _2015-06-12_ |     **Using `Jekyll`<br/>& `Octopress`** |      Log(n) Tech Talks       |             [Slides][jekyll]             |
 
+[mobosslides]:https://speakerdeck.com/esttorhe/mvvm-dc-taming-your-architecture
+[mobos]:http://romobos.com/agenda-2
+[mobilization]:http://2016.mobilization.pl
+[mobslides]:https://speakerdeck.com/esttorhe/hacking-siriki-mobilization-2016
 [nsspain]:http://2016.nsspain.com
-[ioscon]:https://skillsmatter.com/skillscasts/7863-mvvm-rxswift-and-datacontrollers
+[nsspainslides]:https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers-1
+
+[ioscon]:https://skillsmatter.com/conferences/7598-ioscon-2016-the-conference-for-ios-and-swift-developers
+
+[iosconvideo]:https://skillsmatter.com/skillscasts/7863-mvvm-rxswift-and-datacontrollers
 [iosconslides]:https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers
 [fastlane]:https://speakerdeck.com/esttorhe/continuos-delivery-for-ios-apps
 [jekyll]:https://speakerdeck.com/esttorhe/using-jekyll-and-octopress
