@@ -9,7 +9,9 @@ tags:
 
 # #iOSGutAtDroidcon
 Last week fellow speaker and good friend Jorge Ortiz-Fuentes[^1] wrote me on `Twitter` to tell me he had an extra ticket for `droidcon` Berlin[^2] since he'll be speaking (Now, as you might know I do `iOS` and know close to **NOTHING** about `Android` development) and since I have always been curious about `Android` development I said _YES_ and embarked on what would be my first ever **droidCon**.
+
 <!--more-->
+
 As many other conferences it started with a party on Saturday (which I missed) and then on Sunday they opened for badge pickups and workshops (I thought about attending but then figured out that I wouldn't be doing much given my lack of knowledge in the topic, and perhaps I would have been taking the spot from someone that might get more benefit out of it; so I passed) which I didn't attend and thus I «skipped» the «1st» day of the conference.
 
 ## Kick-off!
@@ -46,14 +48,14 @@ From my experience (and that of some of other attendeeds I talked with) there is
 Some quick rundown of the ones I can remember
 1. Some of the rooms felt totally disconnected from the conference
 2. The Q&A after each session was not properly handled and due to the «multi track» style of the conference most attendees got up and started leaving while the questions were being asked and the speakers were answering; to me this feels a little bit disrespecful to the speaker and even to the people asking questions
-3. Sharing space and time with `IFA`[^14]: Even though it was nice for me because I could disconnect every now and then and relax from a conference related to something I don't do this caused a lot of «noise», lots of people not related to the conference coming and going through `droidCon` (literally walking through it) which felt weird; also this might have been detrimental to the attendance of some talks (I noticed a few attendees leaving `droidCon` to visit `IFA`[^14])
+3. Sharing space and time with `IFA`[^14]. Even though it was nice for me because I could disconnect every now and then and relax from a conference related to something I don't do this caused a lot of «noise», lots of people not related to the conference coming and going through `droidCon` (literally walking through it) which felt weird; also this might have been detrimental to the attendance of some talks (I noticed a few attendees leaving `droidCon` to visit `IFA`[^14])
 
 All in all I enjoyed `droidCon` Berlin, and who knows; might not be my last.
 I have plans of start dabbling a little on `Kotlin` so perhaps this is the perfect excuse and initial push for me.
 
-[^1]: https://twitter.com/jdortiz
-[^2]: http://droidcon.de/en/program/schedule
-[^3]: http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/
+[^1]: [https://twitter.com/jdortiz](https://twitter.com/jdortiz)
+[^2]: [http://droidcon.de/en/program/schedule](http://droidcon.de/en/program/schedule)
+[^3]: (http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/)[http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/]
 [^4]: http://blog.sqisland.com/
 [^5]: https://developer.android.com/topic/libraries/architecture/room.html
 [^6]: https://medium.com/@florina.muntenescu
