@@ -53,9 +53,9 @@ Some quick rundown of the ones I can remember
 All in all I enjoyed `droidCon` Berlin, and who knows; might not be my last.
 I have plans of start dabbling a little on `Kotlin` so perhaps this is the perfect excuse and initial push for me.
 
-[^1]: [https://twitter.com/jdortiz](https://twitter.com/jdortiz)
-[^2]: [http://droidcon.de/en/program/schedule](http://droidcon.de/en/program/schedule)
-[^3]: (http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/)[http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/]
+[^1]: https://twitter.com/jdortiz
+[^2]: http://droidcon.de/en/program/schedule
+[^3]: http://www.messe-berlin.de/de/Veranstalter/UnsereLocations/CityCubeBerlin/
 [^4]: http://blog.sqisland.com/
 [^5]: https://developer.android.com/topic/libraries/architecture/room.html
 [^6]: https://medium.com/@florina.muntenescu
