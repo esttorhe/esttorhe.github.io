@@ -40,3 +40,5 @@ From now on this is something that I'll definitely be doing on my apps and would
 [sash]:https://twitter.com/zats
 [marin]:https://twitter.com/icanzilb
 [code]:https://github.com/RxSwiftCommunity/RxAnimated/blob/master/RxAnimated/Core/RxAnimated.swift#L95
+
+</br>
