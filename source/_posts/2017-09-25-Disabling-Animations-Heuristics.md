@@ -16,14 +16,11 @@ Checking `Twitter` the other day I stumble this tweets from [Sash Zats][sash] ad
 
 <!--more-->
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[2/4]**<br>• `NSProcessInfo thermalState` - is device already working hard<br>• `NSProcessInfo isLowPowerModeEnabled` - is user trying to safe battery</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125072764960773">September 19, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[2/4]**<br>• NSProcessInfo thermalState - is device already working hard<br>• NSProcessInfo isLowPowerModeEnabled - is user trying to safe battery</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125072764960773">September 19, 2017</a></blockquote>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[3/4]**<br>• `UIAccessibilityIsReduceMotionEnabled` - is user sensitive to motion</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125128385650694">September 19, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[3/4]**<br>• UIAccessibilityIsReduceMotionEnabled - is user sensitive to motion</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125128385650694">September 19, 2017</a></blockquote>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[4/4]**<br>• `UIDevice batteryState` &amp; `batteryLevel` - to know when device is not charging and low on battery<br>Any other heuristics that I&#39;m missing?</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125225622224896">September 19, 2017</a></blockquote>
-<div align="right">
-_Note: Emphasis added_
-</div>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[4/4]**<br>• UIDevice batteryState &amp; batteryLevel - to know when device is not charging and low on battery<br>Any other heuristics that I&#39;m missing?</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125225622224896">September 19, 2017</a></blockquote>
 
 ---
 
