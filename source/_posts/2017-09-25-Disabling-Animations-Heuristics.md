@@ -34,6 +34,8 @@ Below on the thread [Marin Todorov][marin] provided a link to this checks added 
 
 From now on this is something that I'll definitely be doing on my apps and would probably keep updating it as more I find more heuristics to be applied to this check.
 
+_Edit: There isn't much to this blog post other than drawing attention to the heuristics and hopefully raising awareness so more developers start to use them._
+
 [sash]:https://twitter.com/zats
 [marin]:https://twitter.com/icanzilb
 [code]:https://github.com/RxSwiftCommunity/RxAnimated/blob/master/RxAnimated/Core/RxAnimated.swift#L95
