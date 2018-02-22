@@ -1,19 +1,19 @@
 layout: page
 title: "About Me"
-date: 2014-12-11 20:56:10 +0000
+date: 2018-02-22 22:46:10 +0000
 comments: true
 tags:
 - iOS
-- Costa Rica
 - Esteban Torres
-- TicObjC
+- about
+- CV
 author: "Esteban Torres"
-published: true
-image:
-  feature: /images/abstract-12.jpg
 
 ---
+
 Hi; my name is **Esteban Torres** and I'm an `iOS` developer from rainy **Costa Rica**; moved to Berlin to work @ [`SoundCloud`][soundcloud].
+
+You can find a (hopefully updated) version of my `CV` [here][cv]
 
 I love innovation and I'm usually an early adopter whenever I can which, more times than none, has bitten me in the ass.
 <!-- more -->
@@ -25,5 +25,5 @@ I try to be active in conferences but only if I can find a topic I'm super passi
 You can find me on GitHub and pretty much always lurkin on Twitter here [@esttorhe](https://twitter.com/esttorhe)
 
 
-
-[soundcloud]: https://soundcloud.com
+[soundcloud]:https://soundcloud.com
+[cv]:https://estebantorr.es/cv/index.html
