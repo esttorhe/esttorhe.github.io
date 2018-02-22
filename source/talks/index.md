@@ -10,7 +10,7 @@ Since then I have given many talks at the local CocoaHeads and like to try sendi
 
 ## Upcoming Talks
 
-- _N/A_
+- Interconnect all the things! • [iOScon 2018][ioscon]
 
 ## Past Talks
 
@@ -32,7 +32,7 @@ Since then I have given many talks at the local CocoaHeads and like to try sendi
 [nsspain]:http://nsspain.com
 [nsspainslides]:https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers-1
 
-[ioscon]:https://skillsmatter.com/conferences/7598-ioscon-2016-the-conference-for-ios-and-swift-developers
+[ioscon]:https://skillsmatter.com/explore?q=tag%3Aioscon
 
 [iosconvideo]:https://skillsmatter.com/skillscasts/7863-mvvm-rxswift-and-datacontrollers
 [iosconslides]:https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers
