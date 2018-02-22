@@ -39,5 +39,5 @@ Since then I have given many talks at the local CocoaHeads and like to try sendi
 [fastlane]:https://speakerdeck.com/esttorhe/continuos-delivery-for-ios-apps
 [jekyll]:https://speakerdeck.com/esttorhe/using-jekyll-and-octopress
 [xcodeextensions]:https://speakerdeck.com/esttorhe/xcodes-8-source-editor-extensions#
-[nsspainvideo]:https://vimeo.com/album/4786409/video/235312913
-[nsspainslides]:https://speakerdeck.com/esttorhe/facing-the-viper
+[nsspain2017video]:https://vimeo.com/album/4786409/video/235312913
+[nsspain2017slides]:https://speakerdeck.com/esttorhe/facing-the-viper
