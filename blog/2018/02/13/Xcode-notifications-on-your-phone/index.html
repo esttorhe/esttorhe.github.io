@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Xcode notifications on your 📱 | NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Since quite some time now I’ve been working on Xcode projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and">
+<meta name="keywords" content="xcode,productivity,tools,notifications">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode notifications on your 📱">
+<meta property="og:url" content="https://estebantorr.es/blog/2018/02/13/Xcode-notifications-on-your-phone/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="Since quite some time now I’ve been working on Xcode projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and">
+<meta property="og:image" content="https://imgs.xkcd.com/comics/compiling.png">
+<meta property="og:image" content="https://estebantorr.es/blog/2018/02/13/Xcode-notifications-on-your-phone/Xcode_Behaviors.png">
+<meta property="og:image" content="https://estebantorr.es/blog/2018/02/13/Xcode-notifications-on-your-phone/notification.png">
+<meta property="og:updated_time" content="2018-02-23T11:27:37.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode notifications on your 📱">
+<meta name="twitter:description" content="Since quite some time now I’ve been working on Xcode projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and">
+<meta name="twitter:image" content="https://imgs.xkcd.com/comics/compiling.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-Xcode-notifications-on-your-phone" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2018/02/13/Xcode-notifications-on-your-phone/" class="article-date">
+  <time datetime="2018-02-13T17:18:04.000Z" itemprop="datePublished">2018-02-13</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2018/02/13/Xcode-notifications-on-your-phone/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Xcode notifications on your 📱
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>Since quite some time now I’ve been working on <code>Xcode</code> projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.</p>
+<p>I also like to multi-task and do some other stuff while I’m compiling…<br><a href="https://xkcd.com/303/" target="_blank" rel="noopener"><img src="https://imgs.xkcd.com/comics/compiling.png" alt="xkcd comic about compilation times"></a></p>
+<a id="more"></a>
+<p>For the longest time I thought about creating some sort of service that would let me hook up some push notifications whenever <code>Xcode</code> finished doing <em>X</em> or <em>Y</em> task but never came around actually creating it. Time passed and I basically forgot all about this dream of mine.</p>
+<p>That is until today when I found out about <a href="https://github.com/dschep/ntfy" target="_blank" rel="noopener"><code>ntfy</code></a>…</p>
+<h1 id="ntfy"><a href="#ntfy" class="headerlink" title="ntfy"></a>ntfy</h1><blockquote>
+<p><code>ntfy</code> brings notification to your shell. It can automatically provide desktop notifications when long running commands finish or it can send push notifications to your phone when a specific command finishes.</p>
+</blockquote>
+<p><strong>TL,DR</strong>: <code>ntfy</code> is a <code>python</code> 🐍  tool that sends notifications to different configurable backend services.</p>
+<p><strong>TL;DR 2</strong>: <code>ntfy</code> is basically the service I wanted to build and never came around to actually making.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>The tool’s <code>README</code> is pretty nicely done and comes with a <code>Quickstart</code> section that describes how to install it; unfortunately for me it didn’t work due to some obscure error:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Command &quot;python setup.py egg_info&quot; failed with error code 1</div></pre></td></tr></table></figure>
+<p>Which was easily sortable by running <code>pip3</code> instead of <code>pip</code> when installing; effectively making it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip3 install ntfy</div></pre></td></tr></table></figure>
+<h1 id="Hooking-it-into-Xcode"><a href="#Hooking-it-into-Xcode" class="headerlink" title="Hooking it into Xcode"></a>Hooking it into <code>Xcode</code></h1><p>Now that the tool was installed on my machine it was just a matter of hooking it into <code>Xcode</code> behaviors (<em>Xcode -&gt; Preferences -&gt; Behaviors</em>)</p>
+<p><img src="Xcode_Behaviors.png" alt="Xcode Preferences showing the Behaviors tab"></p>
+<p>At the very bottom of the window there’s a <code>Run</code> checkbox where you can choose a script/binary that you want to run whenever a behavior happens.</p>
+<p>At first I had 1 script per behavior but then I discovered that there’s an env variable that gets passed that has all the information I needed.</p>
+<h2 id="Available-variables"><a href="#Available-variables" class="headerlink" title="Available variables"></a>Available variables</h2><p>There are many variables that get passed to the binary/script; here’s a redacted list of them from my own tests:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Apple_PubSub_Socket_Render=&lt;REDACTED&gt;</div><div class="line">CA_DEBUG_TRANSACTIONS=1</div><div class="line">HOME=&lt;REDACTED&gt;</div><div class="line">IDEAlertMessage=Build Succeeded</div><div class="line">LOGNAME=&lt;REDACTED&gt;</div><div class="line">MallocNanoZone=0</div><div class="line">PATH=/Applications/Xcode-9.2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin</div><div class="line">PWD=&lt;REDACTED&gt;</div><div class="line">SECURITYSESSIONID=&lt;REDACTED&gt;</div><div class="line">SHELL=/usr/local/bin/zsh</div><div class="line">SHLVL=1</div><div class="line">SSH_AUTH_SOCK=&lt;REDACTED&gt;</div><div class="line">TMPDIR=/var/folders/g1/&lt;REDACTED&gt;/T/</div><div class="line">USER=estebantorres</div><div class="line">XPC_FLAGS=0x0</div><div class="line">XPC_SERVICE_NAME=0</div><div class="line">XcodeDeveloperApplicationsDirectory=/Applications/Xcode-9.2.app/Contents/Developer/Applications</div><div class="line">XcodeDeveloperDirectory=/Applications/Xcode-9.2.app/Contents/Developer</div><div class="line">XcodeDeveloperPlatformsDirectory=/Applications/Xcode-9.2.app/Contents/Developer/Platforms</div><div class="line">XcodeWorkspace=&lt;REDACTED&gt;.xcworkspace</div><div class="line">XcodeWorkspacePath=/Users/estebantorres/&lt;REDACTED&gt;.xcworkspace</div><div class="line">_=/usr/bin/env</div><div class="line">__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0</div></pre></td></tr></table></figure>
+<p>Whenever a behavior gets executed (depending on which one) the script or binary you want to execute gets feed a set of environment variables; one of them being <code>IDEAlertMessage</code> which basically contains the message that <code>Xcode</code> displays (I also believe is the message that gets passed to the notification that <code>macOS</code> renders whenever <code>Xcode</code> starts, ends, fails to build or run tests; etc.)</p>
+<p>As you can see the see <code>IDEAlertMessage</code> has everything I needed; is just a matter of calling <code>ntfy</code> with the contents of that variable and the <code>Xcode Workspace</code> and then you are set.</p>
+<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h2><p>If you don’t want to play around this is the contents of my script:</p>
+<p><code>ntfy.sh</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#! /bin/sh</span></div><div class="line"></div><div class="line">/usr/<span class="built_in">local</span>/bin/ntfy -b telegram send <span class="string">"<span class="variable">$XcodeWorkspace</span> <span class="variable">$IDEAlertMessage</span>"</span></div></pre></td></tr></table></figure></p>
+<p><em>You might have noticed the <code>-b telegram</code> part. This you can check how to configure on <a href="https://github.com/dschep/ntfy" target="_blank" rel="noopener"><code>ntfy</code></a>‘s <code>README</code>; if you don’t want to use <code>Telegram</code> you can tweak it to use any of the other supported services.</em></p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p><img src="notification.png" alt="macOS notification sent from Xcode using ntfy"></p>
+<p>There are lots of room for improvement here, but this basically satisfy my needs; I can start building and or running my tests; leave to the cafeteria to grab a coffee and know wether or not the build passed or not without having to wait.</p>
+<h2 id="Why-this"><a href="#Why-this" class="headerlink" title="Why this?"></a>Why this?</h2><p>You might not find this all that useful; and perhaps I won’t either, but only time will tell.<br>For now I’m quite happy with the results and pretend to take as much advantage as I can.</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notifications/">notifications</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/productivity/">productivity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017/09/25/Disabling-Animations-Heuristics/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Disabling Animations Heuristics
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  var disqus_url = 'https://estebantorr.es/blog/2018/02/13/Xcode-notifications-on-your-phone/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

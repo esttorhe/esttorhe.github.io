@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift 2.0 - throws tip | NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Quick Swift 2.0 throws tip:There’s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.  Some examples: @cocoaphony Throws types were explicit">
+<meta name="keywords" content="swift2,swift,cocoa,tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 2.0 - throws tip">
+<meta property="og:url" content="https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="Quick Swift 2.0 throws tip:There’s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.  Some examples: @cocoaphony Throws types were explicit">
+<meta property="og:image" content="https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/swif2_throws_documentation.png">
+<meta property="og:updated_time" content="2018-02-23T11:27:37.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift 2.0 - throws tip">
+<meta name="twitter:description" content="Quick Swift 2.0 throws tip:There’s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.  Some examples: @cocoaphony Throws types were explicit">
+<meta name="twitter:image" content="https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/swif2_throws_documentation.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-swift-2-dot-0-throws-tip" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/14/swift-2-dot-0-throws-tip/" class="article-date">
+  <time datetime="2015-06-14T15:39:51.000Z" itemprop="datePublished">2015-06-14</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Swift 2.0 - throws tip
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h1 id="Quick-Swift-2-0-throws-tip"><a href="#Quick-Swift-2-0-throws-tip" class="headerlink" title="Quick Swift 2.0 throws tip:"></a>Quick <code>Swift 2.0</code> <code>throws</code> tip:</h1><p>There’s been <strong><em>a lot</em></strong> of «heated» debates regarding the <code>throws</code> approach added to <code>Swift 2.0</code> in favor of <code>Either&lt;T,U&gt;</code>.</p>
+<hr>
+<p>Some examples:</p>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/cocoaphony" target="_blank" rel="noopener">@cocoaphony</a> Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/</p>&mdash; Tom Brow (@browgrammer) <a href="https://twitter.com/browgrammer/status/609841773284724737" target="_blank" rel="noopener">June 13, 2015</a></blockquote>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a id="more"></a>
+<hr>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</p>&mdash; Justin Spahr-Summers (@jspahrsummers) <a href="https://twitter.com/jspahrsummers/status/608066730250924032" target="_blank" rel="noopener">June 9, 2015</a></blockquote>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script></h2><p>That being said, I’m not going to convince you to use it or avoid it. That’s entirely up to you, the app / framework you are working on and wether or not you need to do async calls with <code>throws</code> (which is a «fun» thing to accomplish).</p>
+<p><br></p>
+<p>If you end up using the <code>throws</code> approach though there’s a big issue along the lines of «What is this function supposed to <code>throw</code> at me?»</p>
+<p>And while this tip won’t «solve» the issue at compile time is sure a nice way to «notify» the consumers of your <code>API</code> somehow.</p>
+<p>My approach so far was to add the following to the header of the apple doc of my functions:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">Do something nice here.</div><div class="line"></div><div class="line">- parameter dragon: 🐉</div><div class="line"></div><div class="line">- returns: A rainbow 🌈</div><div class="line"></div><div class="line">- throws `CustomError`: Thrown when a unicorn is born.</div><div class="line">*/</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">winTheInternet</span><span class="params">(dragon: Dragon)</span></span> <span class="keyword">throws</span> -&gt; <span class="type">Rainbow</span> &#123; …</div></pre></td></tr></table></figure>
+<p>This will turn into something like this:</p>
+<p><img src="swif2_throws_documentation.png" alt=""></p>
+<h2 id="Take-away"><a href="#Take-away" class="headerlink" title="Take away"></a>Take away</h2><p>As you can see this is not a «perfect» solution but is at least a great way of providing documentation for your callers as part of your internal documentation.</p>
+<p>Happy documentation! 😉</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/cocoa/">cocoa</a>»<a class="article-category-link" href="/categories/cocoa/swift/">swift</a>»<a class="article-category-link" href="/categories/cocoa/swift/swift2/">swift2</a>»<a class="article-category-link" href="/categories/cocoa/swift/swift2/tips/">tips</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocoa/">cocoa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift2/">swift2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hidden error variable on exhaustive block
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2014/12/31/new-year-resolutions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          New Year Resolutions
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  var disqus_url = 'https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Xcode 8 Source Editor Extensions | NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="This last WWDC Apple announced that they will be providing us developers with «official» and «legal» ways to create Xcode plugins. There are many posts covering this and I won’t center in the «how to»">
+<meta name="keywords" content="Xcode 8,Extensions,Plugins,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode 8 Source Editor Extensions">
+<meta property="og:url" content="https://estebantorr.es/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="This last WWDC Apple announced that they will be providing us developers with «official» and «legal» ways to create Xcode plugins. There are many posts covering this and I won’t center in the «how to»">
+<meta property="og:image" content="https://estebantorr.es/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/XPC.png">
+<meta property="og:updated_time" content="2018-02-23T11:27:37.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xcode 8 Source Editor Extensions">
+<meta name="twitter:description" content="This last WWDC Apple announced that they will be providing us developers with «official» and «legal» ways to create Xcode plugins. There are many posts covering this and I won’t center in the «how to»">
+<meta name="twitter:image" content="https://estebantorr.es/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/XPC.png">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-Xcode-8-Source-Editor-Extensions" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/" class="article-date">
+  <time datetime="2016-06-27T20:00:49.000Z" itemprop="datePublished">2016-06-27</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Xcode 8 Source Editor Extensions
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>This last <code>WWDC</code> <code>Apple</code> announced that they will be providing us developers with «official» and «legal» ways to create <code>Xcode</code> plugins.</p>
+<p>There are many posts covering this and I won’t center in the «how to» but rather in one single tip that prevented me from going crazy while developing <a href="https://github.com/esttorhe/localizer" target="_blank" rel="noopener"><code>Localizer</code></a>.</p>
+<div id="badge-container-esttorhe-Localizer-3831a799099e3ca98b76cb4bd6f1ddcdba6c35f4" class="hexo-github" style="width: 100%"></div>
+<script src="/hexo-github/badge.js"></script>
+<script type="text/javascript">
+  loadStyle("/hexo-github/style.css");
+  loadStyle("/hexo-github/octicons/octicons.css");
+  new Badge("#badge-container-esttorhe-Localizer-3831a799099e3ca98b76cb4bd6f1ddcdba6c35f4", "esttorhe", "Localizer", "3831a799099e3ca98b76cb4bd6f1ddcdba6c35f4", false);
+</script>
+
+<a id="more"></a>
+<hr>
+<h2 id="The-basics"><a href="#The-basics" class="headerlink" title="The basics"></a>The basics</h2><p><a href="https://developer.apple.com/app-extensions/" target="_blank" rel="noopener"><code>Apple</code>‘s documentation on Xcode 8 Source Editor Extensions</a> is pretty «nice» for an upcoming, yet to be released, feature.</p>
+<p>There’s also <a href="https://developer.apple.com/videos/play/wwdc2016/414/" target="_blank" rel="noopener">session 414</a> from <code>WWDC 16</code> that covers all the details.</p>
+<p>Here’s yet another <a href="http://www.russbishop.net/xcode-extensions" target="_blank" rel="noopener">blog post</a> about the topic.</p>
+<p>As I said earlier there’s a lot of information about them and there’s no need to duplicate the information but rather to point to the sources.</p>
+<hr>
+<h2 id="Big-IF"><a href="#Big-IF" class="headerlink" title="Big IF"></a>Big IF</h2><p>There’s only one thing I consider important enough to «duplicate» here.</p>
+<p>It’s covered in <a href="http://www.russbishop.net/xcode-extensions" target="_blank" rel="noopener">this blog post</a> and its related to developing Source Editor Extensions in <code>macOS</code> 10.11.</p>
+<p><code>Xcode</code> won’t even bother loading your extensions unless you run this command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/libexec/xpccachectl</div></pre></td></tr></table></figure>
+<p>And then reboot your computer.</p>
+<p>Apparently its related to the <code>XPC Service</code> and <code>El Capitan</code> not expecting it (which might be related to the issue I encountered while playing with extensions).</p>
+<hr>
+<h2 id="The-issue"><a href="#The-issue" class="headerlink" title="The issue"></a>The issue</h2><p>I’ve mentioned a couple of times that I found one particular, crazy driving issue while doing <a href="https://github.com/esttorhe/localizer" target="_blank" rel="noopener">Localizer</a>; and this is it:</p>
+<p>My extension failed to load every now and then and no matter how many times I tried, cleaned <code>Derived Data</code>, etc the extension simply refused to load.</p>
+<p>How do I know this?</p>
+<p>Easy, by doing old school «breadcrumbing»… I put this:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">"🎉"</span>)</div></pre></td></tr></table></figure>
+<p>Right in the middle of <code>extensionDidFinishLaunching()</code> which gets called after the extension is loaded.</p>
+<p>And there was no sign of the <code>🎉</code> most of the times, also, my <code>Localizer</code> entry under <code>Editor</code> menu was grayed out…</p>
+<p>I was going to quit after 15 minutes trying to debug/run my extension when I realized something on my <code>Activity Monitor</code>:</p>
+<p><img src="XPC.png" alt=""></p>
+<p>This process <code>com.apple.dt.Xcode.AttachToXPCService</code> appears to be the one in charge of attaching the extension to <code>Xcode</code> (?).</p>
+<p>Anyways, some times this process doesn’t get properly killed after you finished your debugging session and the next time you try to launch your extension it never gets attached to <code>Xcode</code> and thus your menu item is grayed out and the extension is not loaded.</p>
+<p>Simply killing that process will let you keep working on your extension without headaches!</p>
+<p>With some luck this will help others trying to create amazing extensions and will prevent some extensions from never reaching us.</p>
+<hr>
+<h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>Here’s the important bit about all this:</p>
+<p>If your extension is not loading and you can’t debug it; kill this process:</p>
+<h2 id="com-apple-dt-Xcode-AttachToXPCService"><a href="#com-apple-dt-Xcode-AttachToXPCService" class="headerlink" title="com.apple.dt.Xcode.AttachToXPCService"></a><strong><code>com.apple.dt.Xcode.AttachToXPCService</code></strong></h2><p>And try again</p>
+<hr>
+<p><em>Thanks <a href="https://github.com/jseravalli" target="_blank" rel="noopener">@jseravalli</a> for the <code>TL;DR</code> tip</em> 🙇</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Extensions/">Extensions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Plugins/">Plugins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode-8/">Xcode 8</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/12/16/Wrapping-up-2017/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          📦 Wrapping up 2016
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/06/03/iOScon-2016/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          iOScon 2016
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  var disqus_url = 'https://estebantorr.es/blog/2016/06/27/Xcode-8-Source-Editor-Extensions/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

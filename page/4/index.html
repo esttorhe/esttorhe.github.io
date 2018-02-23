@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Sneak peek of how ~~ObjC~~Swift (😉) looks from small Costa Rica.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NSTorres">
+<meta property="og:url" content="https://estebantorr.es/page/4/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="Sneak peek of how ~~ObjC~~Swift (😉) looks from small Costa Rica.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSTorres">
+<meta name="twitter:description" content="Sneak peek of how ~~ObjC~~Swift (😉) looks from small Costa Rica.">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      
+  
+    <article id="post-hidden-error-variable-on-exhaustive-block" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/" class="article-date">
+  <time datetime="2015-06-16T02:15:03.000Z" itemprop="datePublished">2015-06-16</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/">Hidden error variable on exhaustive block</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>On my <a href="http://www.estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/" target="_blank" rel="noopener">previous post</a> I tried to help «solve» in a way the problem with non-typed <code>throws</code> by documenting them on the internal docs as lists with <code>markdown</code>.</p>
+<p>Based on that you can rightfully assume that I’m migrating all my <code>Result&lt;T,U&gt;</code> code to support <code>throws</code> instead, on my <code>2.0</code> branches.</p>
+<p>As you might know (or not) whenever you do a <code>do</code>/<code>catch</code> block the <code>catch</code> block needs to be exhaustive; just like a <code>switch</code> and «catch» <em>all</em> possible paths.</p>
+<p>It doesn’t mean you <strong>necessarily</strong> need to specify every single error type in your <code>catch</code> block (even though ideally you should react differently for each type of error) but you can add an exhaustive <code>catch</code> that will represent «every single error».</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/bug/">bug</a>»<a class="article-category-link" href="/categories/bug/radar/">radar</a>»<a class="article-category-link" href="/categories/bug/radar/swift2/">swift2</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/radar/">radar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift2/">swift2</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-swift-2-dot-0-throws-tip" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/14/swift-2-dot-0-throws-tip/" class="article-date">
+  <time datetime="2015-06-14T15:39:51.000Z" itemprop="datePublished">2015-06-14</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2015/06/14/swift-2-dot-0-throws-tip/">Swift 2.0 - throws tip</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<h1 id="Quick-Swift-2-0-throws-tip"><a href="#Quick-Swift-2-0-throws-tip" class="headerlink" title="Quick Swift 2.0 throws tip:"></a>Quick <code>Swift 2.0</code> <code>throws</code> tip:</h1><p>There’s been <strong><em>a lot</em></strong> of «heated» debates regarding the <code>throws</code> approach added to <code>Swift 2.0</code> in favor of <code>Either&lt;T,U&gt;</code>.</p>
+<hr>
+<p>Some examples:</p>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/cocoaphony" target="_blank" rel="noopener">@cocoaphony</a> Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/</p>&mdash; Tom Brow (@browgrammer) <a href="https://twitter.com/browgrammer/status/609841773284724737" target="_blank" rel="noopener">June 13, 2015</a></blockquote>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			
+				<p class="article-more-link">
+					<a href="/blog/2015/06/14/swift-2-dot-0-throws-tip/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/cocoa/">cocoa</a>»<a class="article-category-link" href="/categories/cocoa/swift/">swift</a>»<a class="article-category-link" href="/categories/cocoa/swift/swift2/">swift2</a>»<a class="article-category-link" href="/categories/cocoa/swift/swift2/tips/">tips</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocoa/">cocoa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift2/">swift2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-new-year-resolutions" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2014/12/31/new-year-resolutions/" class="article-date">
+  <time datetime="2014-12-31T20:21:33.000Z" itemprop="datePublished">2014-12-31</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2014/12/31/new-year-resolutions/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2014/12/31/new-year-resolutions/">New Year Resolutions</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<p>I’ve got the opportunity to read <a href="https://twitter.com/ashfurrow" target="_blank" rel="noopener">Ash Furrow</a>‘s post about his 5 years doing <code>iOS</code> development and read (as much as I could from my phone) <a href="https://twitter.com/orta" target="_blank" rel="noopener">Orta</a>‘s blog about his 28 and came to think about <strong>MY</strong> year and decided I was going to write something.</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2014/12/31/new-year-resolutions/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/personal/">personal</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/new-year/">new year</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/personal/">personal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/professional/">professional</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resolutions/">resolutions</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-show-adaptative-segue-error" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2014/12/16/show-adaptative-segue-error/" class="article-date">
+  <time datetime="2014-12-16T17:43:03.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2014/12/16/show-adaptative-segue-error/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/blog/2014/12/16/show-adaptative-segue-error/">&#39;Show&#39; Adaptative Segue Error</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+			<div id="badge-container-esttorhe-ShowNotWorking_Radar-5f81558" class="hexo-github" style="width: 100%"></div>
+<script src="/hexo-github/badge.js"></script>
+<script type="text/javascript">
+  loadStyle("/hexo-github/style.css");
+  loadStyle("/hexo-github/octicons/octicons.css");
+  new Badge("#badge-container-esttorhe-ShowNotWorking_Radar-5f81558", "esttorhe", "ShowNotWorking_Radar", "5f81558", false);
+</script>
+
+<p>On our projects we use multiple <code>UIStoryboard</code> files to break our apps; yes, we use storyboards, we are drinking Apple’s “Kool-Aid” and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.</p>
+<h1 id="Fist-Glimpse-Of-The-Problem"><a href="#Fist-Glimpse-Of-The-Problem" class="headerlink" title="Fist Glimpse Of The Problem"></a>Fist Glimpse Of The Problem</h1><p>Although this “embracing the change” would come to hunts us with a weird bug that was reported to us; hitting a “share” button was yielding no actions…</p>
+<p>That’s weird since we have it “wired” to launch a <code>UIActivityController</code> that will handle our sharing list.</p>
+<p>Let’s open <code>Xcode</code> and launch the simulator… nope, everything works as expected.</p>
+<p>Time to connect our device; load the latest build, run and… nope, can’t reproduce.</p>
+			
+				<p class="article-more-link">
+					<a href="/blog/2014/12/16/show-adaptative-segue-error/#more">Read More</a>
+				</p>
+      
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/bug/">bug</a>»<a class="article-category-link" href="/categories/bug/radar/">radar</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/radar/">radar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/segue/">segue</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

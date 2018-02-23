@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Small Tip for Debugging Autolayout issues | NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it. The other day I was trying to figure out an Autolay">
+<meta name="keywords" content="tips,ide,ios,xcode,debugging">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Small Tip for Debugging Autolayout issues">
+<meta property="og:url" content="https://estebantorr.es/blog/2016/01/13/Small-Tip-for-Debugging-Autolayout-issues/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it. The other day I was trying to figure out an Autolay">
+<meta property="og:updated_time" content="2018-02-23T11:27:37.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Small Tip for Debugging Autolayout issues">
+<meta name="twitter:description" content="This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it. The other day I was trying to figure out an Autolay">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-Small-Tip-for-Debugging-Autolayout-issues" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2016/01/13/Small-Tip-for-Debugging-Autolayout-issues/" class="article-date">
+  <time datetime="2016-01-13T15:11:38.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2016/01/13/Small-Tip-for-Debugging-Autolayout-issues/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Small Tip for Debugging Autolayout issues
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.</p>
+<p>The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;- v=-&amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&gt;</div></pre></td></tr></table></figure>
+<p>Imagine that but with many interacting <code>UIViews</code> at play; most of the time you can actually figure what’s going on based on the <code>constant</code> value or if you are well versed you can see the <code>Matrix</code> from source code a la Neo; but let’s be honest; more times than none you are left wondering which view is which…</p>
+<h2 id="accessibilityLabel-to-the-rescue"><a href="#accessibilityLabel-to-the-rescue" class="headerlink" title="accessibilityLabel to the rescue"></a><code>accessibilityLabel</code> to the rescue</h2><p>Looking around how to set debug names for views/constraints I found out that setting the <code>accessibilityLabel</code> of <code>UIView</code>s will appear in the console log next to the horrible mess that I showed above in this post making things more «human readable».</p>
+<p>Basically «abusing» <code>accessibilityLabel</code> and <code>accessibilityIdentifier</code> we can help us figure out those pesky autolayout crashes.</p>
+<p>We use <code>Storyboard</code>s in our projects; like I’ve said before:</p>
+<blockquote><p>…yes, we use storyboards, we are drinking Apple’s “Kool-Aid”…</p>
+<footer><strong>Esteban Torres</strong><cite><a href="https://estebantorr.es/blog/2014/12/17/show-adaptative-segue-error/">Show Adaptative Segue Error</a></cite></footer></blockquote>
+<p>Which makes it really easy to set that <code>accessibilityLabel</code> and <code>accessibilityIdentifier</code> directly from <code>InterfaceBuilder</code>; sadly this time the issue was happening while generating some <code>UI</code> via code.<br>This doesn’t make this any less useful; those traits can be set via code as well 🎉</p>
+<p>That way at least you can infer something like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">loginTextView tail constraint of 10 with logoImageView leading</div><div class="line"></div><div class="line">logoImageView top constraint of 15 to topLayout</div></pre></td></tr></table></figure>
+<p><br><br>That’s obviously pseudocode but you get the idea; knowing which views are actually interacting with the crash helps figure out why and how to fix them.</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debugging/">debugging</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ide/">ide</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/06/03/iOScon-2016/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOScon 2016
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/01/06/Review-2015/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Review: 2015
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  var disqus_url = 'https://estebantorr.es/blog/2016/01/13/Small-Tip-for-Debugging-Autolayout-issues/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

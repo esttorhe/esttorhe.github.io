@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hidden error variable on exhaustive block | NSTorres</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="On my previous post I tried to help «solve» in a way the problem with non-typed throws by documenting them on the internal docs as lists with markdown. Based on that you can rightfully assume that I’m">
+<meta name="keywords" content="radar,bug,swift2,coding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hidden error variable on exhaustive block">
+<meta property="og:url" content="https://estebantorr.es/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/index.html">
+<meta property="og:site_name" content="NSTorres">
+<meta property="og:description" content="On my previous post I tried to help «solve» in a way the problem with non-typed throws by documenting them on the internal docs as lists with markdown. Based on that you can rightfully assume that I’m">
+<meta property="og:updated_time" content="2018-02-23T11:27:37.982Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hidden error variable on exhaustive block">
+<meta name="twitter:description" content="On my previous post I tried to help «solve» in a way the problem with non-typed throws by documenting them on the internal docs as lists with markdown. Based on that you can rightfully assume that I’m">
+  
+    <link rel="alternative" href="/atom.xml" title="NSTorres" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-47828981-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  <script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','uwyYBdypyPP1E3sYyyQf','2.0.0');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/tags">Tags</a></li><li><a href="/archives">Archives</a></li><li><a href="/talks">Talks</a></li><li><a href="/about">About Me</a></li><li><a href="https://estebantorr.es/cv">CV</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			<li><a href="/atom.xml" id="nav-rss-link" class="nav-icon" title="RSS Feed"></a></li>
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://estebantorr.es"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-hidden-error-variable-on-exhaustive-block" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/" class="article-date">
+  <time datetime="2015-06-16T02:15:03.000Z" itemprop="datePublished">2015-06-16</time>
+</a>
+		</span>
+		<span class="meta-elements author">Esteban Torres</span>
+		<div class="commentscount">
+			
+				<a href="https://estebantorr.es/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/#disqus_thread" class="article-comment-link">Comments</a>
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Hidden error variable on exhaustive block
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<p>On my <a href="http://www.estebantorr.es/blog/2015/06/14/swift-2-dot-0-throws-tip/" target="_blank" rel="noopener">previous post</a> I tried to help «solve» in a way the problem with non-typed <code>throws</code> by documenting them on the internal docs as lists with <code>markdown</code>.</p>
+<p>Based on that you can rightfully assume that I’m migrating all my <code>Result&lt;T,U&gt;</code> code to support <code>throws</code> instead, on my <code>2.0</code> branches.</p>
+<p>As you might know (or not) whenever you do a <code>do</code>/<code>catch</code> block the <code>catch</code> block needs to be exhaustive; just like a <code>switch</code> and «catch» <em>all</em> possible paths.</p>
+<p>It doesn’t mean you <strong>necessarily</strong> need to specify every single error type in your <code>catch</code> block (even though ideally you should react differently for each type of error) but you can add an exhaustive <code>catch</code> that will represent «every single error».</p>
+<a id="more"></a>
+<h1 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h1><p>Apparently <code>Swift</code> internally «reserves» the <code>error</code> variable on the exhaustive <code>catch</code> block without documenting it anywhere on the book.</p>
+<p>To provide context copy and paste the following code in an empty <code>Playground</code> on <code>Xcode 7</code> and see how the compiler complains with the message:</p>
+<blockquote>
+<p>Cannot assign to ‘let’ value ‘error’</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">TestError</span>: <span class="title">ErrorType</span> </span>&#123;</div><div class="line">  <span class="keyword">case</span> <span class="type">HiddenErrorVariable</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">throwingFunction</span><span class="params">()</span></span> <span class="keyword">throws</span> -&gt; () &#123;</div><div class="line">  <span class="keyword">throw</span> <span class="type">TestError</span>.<span class="type">HiddenErrorVariable</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> error: <span class="type">TestError</span></div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">  <span class="keyword">try</span> throwingFunction()</div><div class="line">&#125; <span class="keyword">catch</span> &#123;</div><div class="line">  error = <span class="type">TestError</span>.<span class="type">HiddenErrorVariable</span></div><div class="line"></div><div class="line">  <span class="built_in">print</span>(error)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">print</span>(error)</div></pre></td></tr></table></figure>
+<hr>
+<p>Keep in mind that this is an oversimplified and reduced code to demonstrate the issue; I’m well aware that without that compile complain it will still complain about using <code>error</code> without being initialized.</p>
+<hr>
+<h1 id="What-now"><a href="#What-now" class="headerlink" title="What now?"></a>What now?</h1><p>For now the workaround is simple; avoid using a <code>let error</code> near an exhaustive <code>catch</code> block. Although that’s not quite a solution but a patch; with some luck <code>Apple</code> will eventually fix this issue; <code>Swift 2.0</code> its still a ß and can contain a fix for this (or at least document it somewhere other than this blog post) by the time it hits production.</p>
+<p>In the meantime I filed a radar <a href="http://openradar.appspot.com/21396321" target="_blank" rel="noopener"><code>rdar://21396321</code></a> explaining the issue and also asked <a href="https://twitter.com/jckarter" target="_blank" rel="noopener">Joe Groff</a> (he works on <code>Swift</code> compiler at <code>Apple</code>) about this and will update when (if) he answers:</p>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/jckarter" target="_blank" rel="noopener">@jckarter</a> is the <code>error</code> reservation on exhaustive <code>catch</code> documented anywhere - <a href="http://t.co/qgGm1tlX4i" target="_blank" rel="noopener">http://t.co/qgGm1tlX4i</a> ? Or a bug?</p>&mdash; ᴡᴀᴛᴄʜ Torres (@esttorhe) <a href="https://twitter.com/esttorhe/status/610667900421152768" target="_blank" rel="noopener">June 16, 2015</a></blockquote>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><p>Well; <a href="https://twitter.com/jckarter" target="_blank" rel="noopener">Joe</a> answered quicker than expected:</p>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe" target="_blank" rel="noopener">@esttorhe</a> It intentionally implicitly binds an &quot;error&quot; variable if you specified none.</p>&mdash; Joe Groff (@jckarter) <a href="https://twitter.com/jckarter/status/610668658105413633" target="_blank" rel="noopener">June 16, 2015</a></blockquote>
+
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Apparently it is intentional (which is good) but is not documented anywhere.</p>
+<p>I suggested adding it to the book/docs and he agreed; perhaps we will see a fix for it before it hits production.</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/bug/">bug</a>»<a class="article-category-link" href="/categories/bug/radar/">radar</a>»<a class="article-category-link" href="/categories/bug/radar/swift2/">swift2</a>
+  </div>
+
+			</span>
+			<span class="tags">
+				
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/radar/">radar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift2/">swift2</a></li></ul>
+
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/06/20/New-Website/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          New Website
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/06/14/swift-2-dot-0-throws-tip/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Swift 2.0 - throws tip
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:estebantorr.es">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">NSTorres</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 Esteban Torres<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+<script>
+  var disqus_shortname = 'ticobjc';
+  
+  var disqus_url = 'https://estebantorr.es/blog/2015/06/16/hidden-error-variable-on-exhaustive-block/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
