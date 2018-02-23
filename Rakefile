@@ -28,7 +28,7 @@ end
 namespace :deploy do
   desc "Deployment to production"
   task :production do
-    sh 'hexo deploy --silent'
+    sh 'node_modules/.bin/hexo deploy --silent'
   end
 
   desc "Deployment to staging"
@@ -97,21 +97,21 @@ desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
 
-  sh 'hexo clean'
+  sh 'node_modules/.bin/hexo clean'
 end
 
 desc "Build site locally"
 task :build do
   puts "Generate the static sites from markdown"
 
-  sh 'hexo generate --verbose'
+  sh 'node_modules/.bin/hexo generate --verbose'
 end
 
 desc "Start hexo server"
 task :server do
   puts "Starting hexo server"
 
-  hexo = Process.spawn("hexo server")
+  hexo = Process.spawn("node_modules/.bin/hexo server")
 
   trap("INT") {
     Process.kill(9, hexo) rescue Errno::ESRCH
@@ -147,7 +147,7 @@ task :create, [:layout, :title] do |task, args|
   layout = args[:layout]
   abort "You must specify a title." if title.nil? || title.length < 1
 
-  output = `hexo new '#{layout}' '#{title}'`
+  output = `node_modules/.bin/hexo new '#{layout}' '#{title}'`
   # output is something like '2014-12-11-from-ghost-to-jekyll-slash-octopress.markdown'
 end
 
