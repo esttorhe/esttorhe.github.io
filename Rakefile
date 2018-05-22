@@ -8,7 +8,7 @@ namespace :config do
   desc "Initial setup"
   task :bootstrap do
     puts 'Installing dependencies...'
-    sh 'sed -i \'s/git@github.com:/https:\/\/github.com\//\' .gitmodules'
+    sh 'sed \'s/git@github.com:/https:\/\/github.com\//\' .gitmodules'
     sh 'git submodule update --init --recursive'
     sh 'npm -g install npm@latest'
     sh 'npm install hexo'
