@@ -1,3 +1,4 @@
+---
 title: Semver intermediate versioning
 date: 2015-08-11 14:07:36
 tags:
