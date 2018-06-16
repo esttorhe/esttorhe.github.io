@@ -742,3 +742,59 @@ article {
   border: 0;
   border-top: 4px solid #ddd;
 }
+
+#header {
+  display: block;
+  margin: 4em 0;
+  position: relative;
+}
+
+.blog-title {
+  float: left;
+  display: inline-block;
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 0.2em;
+  letter-spacing: 0.2em;
+  margin: 10px 0;
+  border-bottom: 5px solid #222;
+}
+
+.nav {
+  margin: 10px 0;
+  font-size: 85%;
+  text-transform: uppercase;
+  float: right;
+  position: relative;
+}
+
+.nav ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.nav li {
+  float: left;
+  margin: 0.3em 0 0.3em 2em;
+}
+
+.nav a {
+  font-weight: bold;
+  color: #4f5759;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #33a6b8;
+}
+
+#container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}

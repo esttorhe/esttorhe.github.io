@@ -2,33 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      display: 'block',
-      margin: '3em 0 4em 0',
-      position: 'relative',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0.45rem 1.0875rem',
-      }}
-    >
-      <h1 
-        style={{ 
-          float: 'left',
-          display: 'inline-block',
-          fontSize: '120%',
-          fontWeight: 'bold',
-          paddingBottom: '0.2em',
-          letterSpacing: '0.25em',
-          margin: '10px 0',
-          borderBottom: '5px solid #222',
-          font: 'inherit',
-        }}
-      >
+    <div id='header'>
+      <h1 className='blog-title'>
         <Link
           to="/"
           style={{
@@ -45,7 +20,18 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
+
+      <nav className="nav">
+		    <ul>
+			    <li><Link to='/tags'>Tags</Link></li>
+			    <li><Link to='/categories'>Categories</Link></li>
+			    <li><Link to='/archives'>Archives</Link></li>
+			    <li><Link to='/talks'>Talks</Link></li>
+			    <li><Link to='/about'>About Me</Link></li>
+			    <li><Link to="/cv">CV</Link></li>
+			    <li><Link to='/atom.xml' id='nav-rss-link' className='nav-icon' title='RSS Feed'></Link></li>
+		    </ul>
+	    </nav>
   </div>
 )
 

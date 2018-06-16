@@ -2,13 +2,14 @@
 title: Xcode Plugins I use
 date: 2015-07-20 11:23:40
 tags:
-- Xcode
+- xcode
 - plugins
 - ide
 - developer tools
 categories:
 - productivity
 - tools
+- ide
 ---
 
 Everyone of us have our own set of niks & tricks to better find our ways around our everyday activities.

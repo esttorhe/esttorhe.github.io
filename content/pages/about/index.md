@@ -3,7 +3,7 @@ title: "About Me"
 date: 2018-02-22 22:46:10 +0000
 comments: true
 tags:
-- iOS
+- ios
 - Esteban Torres
 - about
 - CV

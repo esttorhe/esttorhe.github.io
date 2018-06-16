@@ -2,13 +2,16 @@
 title: Xcode 8 Source Editor Extensions
 date: 2016-06-27 22:00:49
 tags:
-- Xcode 8
-- Extensions
-- Plugins
-- Swift
+- xcode
+- xcode 8
+- extensions
+- plugins
+- swift
+- ide
 categories:
 - productivity
 - tools
+- ide
 
 ---
 This last `WWDC` `Apple` announced that they will be providing us developers with «official» and «legal» ways to create `Xcode` plugins.

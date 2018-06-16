@@ -8,6 +8,7 @@ tags:
 - ide
 categories:
 - tips
+- ide
 
 ---
 

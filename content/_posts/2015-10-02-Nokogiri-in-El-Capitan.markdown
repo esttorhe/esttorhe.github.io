@@ -5,7 +5,7 @@ tags:
 - nokogiri
 - gems
 - el capitan
-- issues
+- bug
 - fix
 categories:
 - tools

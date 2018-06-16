@@ -8,7 +8,7 @@ categories:
 - bug
 - radar
 tags:
-- iOS
+- ios
 - radar
 - bug
 - segue

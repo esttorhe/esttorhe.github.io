@@ -2,11 +2,12 @@
 title: 'dyld: Library not loaded & CocoaPods'
 date: 2015-09-23 15:14:17
 categories:
-- cocoapods
+- dependencies
 - tools
 - errors
 tags:
 - swift2
+- swift
 - cocoapods
 - rpath
 - error

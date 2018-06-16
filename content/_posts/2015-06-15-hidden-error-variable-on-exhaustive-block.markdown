@@ -5,11 +5,10 @@ date: 2015-06-15 22:15:03 -0600
 comments: true
 categories:
 - bug
-- radar
-- swift2
+- swift
 tags:
 - swift2
-- coding
+- swift
 - radar
 - bug
 author: Esteban Torres
