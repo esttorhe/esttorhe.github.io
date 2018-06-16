@@ -104,16 +104,15 @@ export default class BlogIndex extends React.Component {
     return (
       <div id='main'>
         {this.props.data.posts.edges.map(({ node }, i) => (
-          <div key={i}>
-            <article className={'post'}>
-              <PostLeftColumn node={node} internalKey={i} />
-              <PostHeader title={node.frontmatter.title} url={node.url} key='`{i}``{node.frontmatter.title}`' />
-              <div className='entry-content'>
-                {node.excerpt}
-              </div>
-              <PostFooter categories={node.frontmatter.categories} tags={node.frontmatter.tags} />
-            </article>
-          </div>
+          <article className={'post'}>
+            <PostLeftColumn node={node} internalKey={i} />
+            <PostHeader title={node.frontmatter.title} url={node.url} key='`{i}``{node.frontmatter.title}`' />
+            <div className='entry-content'>
+              {node.excerpt}
+            </div>
+            <PostFooter categories={node.frontmatter.categories} tags={node.frontmatter.tags} />
+            <hr className="article-devider" />
+          </article>
         ))}
       </div>
     );

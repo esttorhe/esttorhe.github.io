@@ -696,6 +696,10 @@ pre tt:after {
   margin-right: 0;
 }
 
+article {
+  display: block;
+}
+
 .article-tag-list {
   padding: 0;
 }
@@ -730,4 +734,11 @@ pre tt:after {
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+
+.article-devider {
+  width: 25%;
+  margin: 5em auto;
+  border: 0;
+  border-top: 4px solid #ddd;
 }
