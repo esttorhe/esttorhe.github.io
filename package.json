@@ -9,7 +9,9 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-source-filesystem": "^1.5.38",
     "gatsby-transformer-remark": "^1.7.43",
+    "lodash": "^4.17.10",
     "prismjs": "github:PrismJS/prism",
+    "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
     "react-helmet": "^5.2.0"
   },

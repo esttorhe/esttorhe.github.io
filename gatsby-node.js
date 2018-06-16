@@ -1,6 +1,7 @@
 // gatsby-node.js
 const path = require('path');
 const { match, head, replace, pipe, path: keyPath } = require('ramda');
+const _ = require('lodash');
 const { GraphQLString } = require("graphql");
 
 const getFilename = pipe(
@@ -53,6 +54,8 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
       throw new Error("Things broke, see console output above");
     }
   
+    const posts = result.data.allMarkdownRemark.edges;
+    
     // Create blog posts pages.
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
@@ -61,6 +64,28 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
         context: {
           // Context will be passed in to the page query as graphql vars
           id: node.id,
+        },
+      });
+    });
+
+    // Tag pages:
+    let tags = [];
+    // Iterate through each post, putting all found tags into `tags`
+    _.each(posts, edge => {
+      if (_.get(edge, "node.frontmatter.tags")) {
+        tags = tags.concat(edge.node.frontmatter.tags);
+      }
+    });
+    // Eliminate duplicate tags
+    tags = _.uniq(tags);
+
+    // Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${_.kebabCase(tag)}/`,
+        component: tagTemplate,
+        context: {
+          tag,
         },
       });
     });

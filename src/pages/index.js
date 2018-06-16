@@ -2,12 +2,32 @@
 import React from "react";
 import Link from "gatsby-link";
 
+export default class BlogIndex extends React.Component {
+  render() {
+    // Handle graphql errors
+    if (this.props.errors && this.props.errors.length) {
+      this.props.errors.forEach(({ message }) => {
+        console.error(`BlogIndex render errr: ${message}`);
+      });
+      return <h1>Errors found: Check the console for details</h1>;
+    }
+
+    return (
+      <div id='main'>
+        {this.props.data.posts.edges.map(({ node }, i) => (
+          <Post node={node} key={i} />
+        ))}
+      </div>
+    );
+  }
+}
+
 function TagListItem(props) {
   const value = props.value;
 
   return (
     <li className='article-tag-list-item'>
-      <Link to={'/tags/`{value}`'} key={value}>
+      <Link to={`/tags/${value}`} key={value}>
         {value}
       </Link>
     </li>
@@ -34,7 +54,7 @@ function CategoriesList(props) {
     <span className='category'>
       Categories:&nbsp;
       {categories.map((category) =>
-        <Link to='/categories/`{category}`' key={category}>
+        <Link to={`/categories/${category}`} key={category}>
           {category}
         </Link>
       )}
@@ -91,32 +111,21 @@ function PostHeader(props) {
   );
 }
 
-export default class BlogIndex extends React.Component {
-  render() {
-    // Handle graphql errors
-    if (this.props.errors && this.props.errors.length) {
-      this.props.errors.forEach(({ message }) => {
-        console.error(`BlogIndex render errr: ${message}`);
-      });
-      return <h1>Errors found: Check the console for details</h1>;
-    }
+function Post(props) {
+  const node = props.node;
+  const internalKey = props.key;
 
-    return (
-      <div id='main'>
-        {this.props.data.posts.edges.map(({ node }, i) => (
-          <article className={'post'}>
-            <PostLeftColumn node={node} internalKey={i} />
-            <PostHeader title={node.frontmatter.title} url={node.url} key='`{i}``{node.frontmatter.title}`' />
-            <div className='entry-content'>
-              {node.excerpt}
-            </div>
-            <PostFooter categories={node.frontmatter.categories} tags={node.frontmatter.tags} />
-            <hr className="article-devider" />
-          </article>
-        ))}
+  return (
+    <article className={'post'}>
+      <PostLeftColumn node={node} internalKey={internalKey} />
+      <PostHeader title={node.frontmatter.title} url={node.url} key='`{internalKey}``{node.frontmatter.title}`' />
+      <div className='entry-content'>
+        {node.excerpt}
       </div>
-    );
-  }
+      <PostFooter categories={node.frontmatter.categories} tags={node.frontmatter.tags} />
+      <hr className="article-devider" />
+    </article>
+  );
 }
 
 export const pageQuery = graphql`
