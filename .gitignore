@@ -7,3 +7,4 @@ public/
 .deploy*/
 /vendor
 /.bundle
+.cache/
