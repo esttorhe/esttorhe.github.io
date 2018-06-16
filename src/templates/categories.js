@@ -9,7 +9,7 @@ const Categories = ({ pathContext, data }) => {
   const { edges, totalCount } = data.allMarkdownRemark;
   const categoryHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } categorized as "${category}"`;
+  } categorized as «${category}»`;
 
   return (
     <div>

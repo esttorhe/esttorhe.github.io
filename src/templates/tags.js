@@ -9,7 +9,7 @@ const Tags = ({ pathContext, data }) => {
   const { edges, totalCount } = data.allMarkdownRemark;
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`;
+  } tagged with «${tag}»`;
 
   return (
     <div>
