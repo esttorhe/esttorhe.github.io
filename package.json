@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "esttorhe-website",
+  "description": "Sneak peek of how ~~ObjC~~Swift (😉) looks from small Costa Rica.",
+  "version": "3.0.0",
+  "author": "Esteban Torres <me@estebantorr.es>",
   "dependencies": {
     "gatsby": "^1.9.271",
     "gatsby-link": "^1.6.40",
@@ -30,6 +30,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/esttorhe/esttorhe.github.io"
   }
 }

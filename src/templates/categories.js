@@ -4,38 +4,35 @@ import PropTypes from "prop-types";
 // Components
 import Link from "gatsby-link";
 
-const Tags = ({ pathContext, data }) => {
-  const { tag } = pathContext;
+const Categories = ({ pathContext, data }) => {
+  const { category } = pathContext;
   const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${
+  const categoryHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`;
+  } categorized as "${category}"`;
 
   return (
     <div>
-      <h1>{tagHeader}</h1>
+      <h1>{categoryHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
-          const { path, title } = node.frontmatter;
+          const { title } = node.frontmatter;
+          const { url } = node.url;
           return (
-            <li key={path}>
-              <Link to={path} style={{ textDecoration: 'none', }}>{title}</Link>
+            <li key={url}>
+              <Link to={url} style={{ textDecoration: 'none', }}>{title}</Link>
             </li>
           );
         })}
       </ul>
-      {/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
-      <Link to="/tags">All tags</Link>
+      <Link to="/categories">All categories</Link>
     </div>
   );
 };
 
-Tags.propTypes = {
+Categories.propTypes = {
   pathContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -53,14 +50,14 @@ Tags.propTypes = {
   }),
 };
 
-export default Tags;
+export default Categories;
 
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
+  query CategoryPage($category: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { categories: { in: [$category] } } }
     ) {
       totalCount
       edges {

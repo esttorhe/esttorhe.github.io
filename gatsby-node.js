@@ -35,6 +35,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators;
     const postTemplate = path.resolve("./src/templates/post.js");
     const tagTemplate = path.resolve("src/templates/tags.js");
+    const categoryTemplate = path.resolve("src/templates/categories.js");
   
     // Using async await. Query will likely be very similar to your pageQuery in index.js
     const result = await graphql(`
@@ -46,6 +47,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
               url
               frontmatter {
                 tags
+                categories
               }
             }
           }
@@ -90,6 +92,28 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
         component: tagTemplate,
         context: {
           tag,
+        },
+      });
+    });
+
+    // Categories pages:
+    let categories = [];
+    // Iterate through each post, putting all found categories into `categories`
+    _.each(posts, edge => {
+      if (_.get(edge, "node.frontmatter.categories")) {
+        categories = categories.concat(edge.node.frontmatter.categories);
+      }
+    });
+    // Eliminate duplicate categories
+    categories = _.uniq(categories);
+
+    // Make category pages
+    categories.forEach(category => {
+      createPage({
+        path: `/categories/${_.kebabCase(category)}/`,
+        component: categoryTemplate,
+        context: {
+          category,
         },
       });
     });
