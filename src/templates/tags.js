@@ -19,7 +19,7 @@ const Tags = ({ pathContext, data }) => {
           const { path, title } = node.frontmatter;
           return (
             <li key={path}>
-              <Link to={path}>{title}</Link>
+              <Link to={path} style={{ textDecoration: 'none', }}>{title}</Link>
             </li>
           );
         })}
@@ -55,3 +55,23 @@ Tags.propTypes = {
 };
 
 export default Tags;
+
+export const pageQuery = graphql`
+  query TagPage($tag: String) {
+    allMarkdownRemark(
+      limit: 2000
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          url
+        }
+      }
+    }
+  }
+`;

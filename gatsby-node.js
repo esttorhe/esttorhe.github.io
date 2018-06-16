@@ -34,6 +34,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
 exports.createPages = async ({ graphql, boundActionCreators }) => {
     const { createPage } = boundActionCreators;
     const postTemplate = path.resolve("./src/templates/post.js");
+    const tagTemplate = path.resolve("src/templates/tags.js");
   
     // Using async await. Query will likely be very similar to your pageQuery in index.js
     const result = await graphql(`
@@ -43,6 +44,9 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
             node {
               id
               url
+              frontmatter {
+                tags
+              }
             }
           }
         }
@@ -57,7 +61,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
     const posts = result.data.allMarkdownRemark.edges;
     
     // Create blog posts pages.
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    posts.forEach(({ node }) => {
       createPage({
         path: node.url,
         component: postTemplate,
