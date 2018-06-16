@@ -2,9 +2,14 @@
 title: iOScon 2016
 date: 2016-06-03 14:04:17
 tags:
-    - personal
-    - professional
-    - conferences
+- speaking
+- london
+- ioscon
+categories:
+- personal
+- professional
+- conferences
+
 ---
 
 ![iOScon 2016 Speakers](http://res.cloudinary.com/skillsmatter/image/upload/v1461926676/ioscon_speakers_collage_nxn8qm.jpg)

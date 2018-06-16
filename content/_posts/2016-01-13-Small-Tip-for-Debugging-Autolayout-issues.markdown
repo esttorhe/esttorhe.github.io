@@ -4,9 +4,11 @@ date: 2016-01-13 16:11:38
 tags:
 - ios
 - xcode
-- tips
 - debugging
 - ide
+categories:
+- tips
+
 ---
 
 This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.

@@ -2,10 +2,12 @@
 title: 'Review: 2015'
 date: 2016-01-06 21:46:17
 tags:
-- personal
 - new year
 - resolutions
+categories:
+- personal
 - professional
+
 ---
 
 Last year I made a [list of resolutions][resolutions] and also [blogged about it][resolutionsBlog]; overall it was a great year; completed almost all my resolutions and had the chance to grow **A LOT** professionally (or so I think).

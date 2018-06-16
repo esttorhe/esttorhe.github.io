@@ -6,6 +6,10 @@ tags:
 - programming
 - semver
 - versioning
+categories:
+- tips
+- productivity
+
 ---
 Lately I've come across multiple tweets and talks about people avoiding jumping over the dreaded `1.0.0` of their `frameworks`, tools, etc.
 

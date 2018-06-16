@@ -3,10 +3,11 @@ title: Xcode notifications on your 📱
 date: 2018-02-13 18:18:04
 tags: 
 - xcode
-- productivity
-- tools
 - notifications
-
+- ntfy
+categories:
+- productivity
+- tools 
 ---
 
 Since quite some time now I've been working on `Xcode` projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.

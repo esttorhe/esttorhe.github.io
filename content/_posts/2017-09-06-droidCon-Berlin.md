@@ -5,6 +5,8 @@ tags:
 - droidcon
 - android
 - berlin
+categories:
+- conferences
 
 ---
 

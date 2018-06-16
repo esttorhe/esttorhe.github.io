@@ -6,6 +6,10 @@ tags:
 - Extensions
 - Plugins
 - Swift
+categories:
+- productivity
+- tools
+
 ---
 This last `WWDC` `Apple` announced that they will be providing us developers with «official» and «legal» ways to create `Xcode` plugins.
 

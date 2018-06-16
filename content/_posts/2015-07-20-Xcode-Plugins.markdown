@@ -6,6 +6,9 @@ tags:
 - plugins
 - ide
 - developer tools
+categories:
+- productivity
+- tools
 ---
 
 Everyone of us have our own set of niks & tricks to better find our ways around our everyday activities.
