@@ -8,6 +8,7 @@ categories:
 - personal
 - learnings
 - personal improvement
+issueNumber: 22
 ---
 
 Is it safe to say that I've been «scolded» twice this week due to my technical questions.

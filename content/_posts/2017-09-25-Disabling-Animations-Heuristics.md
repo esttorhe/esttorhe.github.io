@@ -7,7 +7,7 @@ tags:
 categories:
 - strategies
 - performance 
-
+issueNumber: 30
 ---
 
 Checking `Twitter` the other day I stumble this tweets from [Sash Zats][sash] addressing some heuristics for enabling/disabling intensive animations in `iOS` apps:

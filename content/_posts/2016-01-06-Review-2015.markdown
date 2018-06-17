@@ -7,7 +7,7 @@ tags:
 categories:
 - personal
 - professional
-
+issueNumber: 24
 ---
 
 Last year I made a [list of resolutions][resolutions] and also [blogged about it][resolutionsBlog]; overall it was a great year; completed almost all my resolutions and had the chance to grow **A LOT** professionally (or so I think).

@@ -11,6 +11,7 @@ categories:
 - blog
 - tools
 author: Esteban Torres
+issueNumber: 17
 ---
 «Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).
 

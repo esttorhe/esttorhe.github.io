@@ -11,7 +11,7 @@ categories:
 - tools
 - dependencies
 - problem solving
-
+issueNumber: 23
 ---
 
 Finally `El Capitan` arrived and I couldn't be more eager to install it on my machine; as soon as I read on Twitter that it was available I jump to the `AppStore` and started the download process which seemed like a bad idea at the time:

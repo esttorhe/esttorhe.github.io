@@ -8,7 +8,7 @@ tags:
 categories:
 - personal
 - lifestyle
-
+issueNumber: 19
 ---
 Is a «well known» fact that I'm trying to get to 12% body fat; last year I was really close at 14% but then I ricocheted back to 17% and my mental state took a toll and was not able to get back on track. I've been going up & down on my body fat since then.
 

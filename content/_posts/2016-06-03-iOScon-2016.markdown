@@ -9,7 +9,7 @@ categories:
 - personal
 - professional
 - conferences
-
+issueNumber: 26
 ---
 
 ![iOScon 2016 Speakers](http://res.cloudinary.com/skillsmatter/image/upload/v1461926676/ioscon_speakers_collage_nxn8qm.jpg)
