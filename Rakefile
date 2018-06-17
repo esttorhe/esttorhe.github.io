@@ -8,10 +8,7 @@ namespace :config do
   desc "Initial setup"
   task :bootstrap do
     puts 'Installing dependencies...'
-    sh 'sed \'s/git@github.com:/https:\/\/github.com\//\' .gitmodules'
-    sh 'git submodule update --init --recursive'
     sh 'npm -g install npm@latest'
-    sh 'npm install hexo'
     sh 'npm install'
     sh 'pip install --user s3cmd'
     sh 's3cmd --version'
@@ -21,7 +18,8 @@ namespace :config do
   task :environment do
     sh 'git config --global user.name \'Esteban Torres via Travis CI\''
     sh 'git config --global user.email \'me@estebantorr.es\''
-    sh 'sed -i\'\' "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~" _config.yml'
+    # sh 'sed -i "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~"'
+    sh 'git remote set-url origin "https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git"'
   end
 end
 
@@ -97,14 +95,14 @@ desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
 
-  sh 'node_modules/.bin/hexo clean'
+  sh 'rm -rf ./.cache && rm -rf ./public'
 end
 
 desc "Build site locally"
 task :build do
   puts "Generate the static sites from markdown"
 
-  sh 'node_modules/.bin/hexo generate --verbose'
+  sh 'gatsby build'
 end
 
 desc "Start hexo server"
