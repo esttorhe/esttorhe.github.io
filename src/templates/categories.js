@@ -43,6 +43,7 @@ Categories.propTypes = {
             frontmatter: PropTypes.shape({
               title: PropTypes.string.isRequired,
             }),
+            url: PropTypes.string.isRequired,
           }),
         }).isRequired
       ),
