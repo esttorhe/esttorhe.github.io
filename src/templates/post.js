@@ -1,6 +1,6 @@
 // src/templates/post.js
 import React from "react";
-import CommentsSection from '../components/comments/comments_section';
+import PostInfo from '../components/post_info';
 
 export default class BlogPost extends React.Component {
   render() {
@@ -15,7 +15,15 @@ export default class BlogPost extends React.Component {
           className="content"
         />
 
-        <CommentsSection issueNumber={post.frontmatter.issueNumber} url={post.url} githubRepo={githubRepo} />
+        <PostInfo 
+          categories={post.frontmatter.categories} 
+          tags={post.frontmatter.tags} 
+          issueNumber={post.frontmatter.issueNumber} 
+          url={post.url} 
+          githubRepo={githubRepo}
+          author={post.frontmatter.author}
+          posted={post.frontmatter.date}
+        />
       </div>
     );
   }
@@ -28,6 +36,10 @@ export const pageQuery = graphql`
       frontmatter {
         title
         issueNumber
+        categories
+        tags
+        author
+        date
       }
       html
       url

@@ -1,21 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
-import CategoriesList from "../components/categories";
-import TagsList from "../components/tag"
-
-function PostFooter(props) {
-    const categories = props.categories;
-    const tags = props.tags;
-    
-    return (
-      <footer className='entry-footer'>
-        <div className='entry-meta-footer'>
-          <CategoriesList categories={categories} />
-          <TagsList tags={tags} />
-        </div>
-        </footer>
-    );
-  }
+import PostFooter from '../components/post_footer';
   
   function PostLeftColumn(props) {
     const node = props.node;
