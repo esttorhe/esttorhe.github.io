@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'NSTorres',
+    sitUrl: 'https://estebantorr.es',
+    githubRepo: 'https://github.com/esttorhe/esttorhe.github.io',
+    author: 'Esteban Torres'
   },
   plugins: [
     `gatsby-plugin-typescript`,

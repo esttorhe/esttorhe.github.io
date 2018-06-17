@@ -30,6 +30,6 @@ interface AuthorInfoProps {
 
 export class AuthorInfo extends React.Component<AuthorInfoProps> {
     render() {
-        return <p style={{ float: 'right', }}>Posted by <b>{this.props.author || 'Esteban Torres'}</b> on <i>{this.props.posted.toLocaleDateString() }</i></p>
+        return <p style={{ float: 'right', }}>Posted by <b>{this.props.author}</b> on <i>{this.props.posted.toLocaleDateString() }</i></p>
     }
 }

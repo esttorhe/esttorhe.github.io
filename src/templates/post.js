@@ -5,7 +5,7 @@ import PostInfo from '../components/post_info';
 export default class BlogPost extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
-    const githubRepo = 'https://github.com/esttorhe/esttorhe.github.io'
+    const siteMetadata = this.props.data.site.siteMetadata;
 
     return (
       <div className="post">
@@ -20,8 +20,8 @@ export default class BlogPost extends React.Component {
           tags={post.frontmatter.tags} 
           issueNumber={post.frontmatter.issueNumber} 
           url={post.url} 
-          githubRepo={githubRepo}
-          author={post.frontmatter.author}
+          githubRepo={siteMetadata.githubRepo}
+          author={post.frontmatter.author || siteMetadata.author}
           posted={post.frontmatter.date}
         />
       </div>
@@ -32,6 +32,12 @@ export default class BlogPost extends React.Component {
 // NOTE: The $id var is passed in via context when calling createPage in gatsby-node.js
 export const pageQuery = graphql`
   query PostById($id: String!) {
+    site {
+      siteMetadata {
+        githubRepo
+        author
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
