@@ -18,7 +18,7 @@ This last `WWDC` `Apple` announced that they will be providing us developers wit
 
 There are many posts covering this and I won't center in the «how to» but rather in one single tip that prevented me from going crazy while developing [`Localizer`][localizer].
 
-{% github esttorhe Localizer 3831a799099e3ca98b76cb4bd6f1ddcdba6c35f4 %}
+<!-- {% github esttorhe Localizer 3831a799099e3ca98b76cb4bd6f1ddcdba6c35f4 %} -->
 
 <!--more-->
 

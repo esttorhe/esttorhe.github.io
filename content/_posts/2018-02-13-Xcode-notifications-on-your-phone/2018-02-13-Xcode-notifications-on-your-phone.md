@@ -2,18 +2,19 @@
 title: Xcode notifications on your 📱
 date: 2018-02-13 18:18:04
 tags: 
-- xcode
-- notifications
-- ntfy
+    - xcode
+    - notifications
+    - ntfy
 categories:
-- productivity
-- tools 
+    - productivity
+    - tools
 ---
 
 Since quite some time now I've been working on `Xcode` projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.
 
 I also like to multi-task and do some other stuff while I'm compiling…
-[![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)](https://xkcd.com/303/)
+<!-- [![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)](https://xkcd.com/303/) -->
+![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)
 
 <!--more-->
 

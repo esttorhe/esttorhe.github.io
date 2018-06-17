@@ -14,7 +14,8 @@ const getFilename = pipe(
   const getSlug = pipe(
     getFilename,
     replace(/^\d\d\d\d-\d\d-\d\d-/, ''), // Strip leading date
-    replace(/\.markdown$/, '') // Strip trailing extension
+    replace(/\.markdown$/, ''), // Strip trailing extension
+    replace(/\.md$/, '') // Strip trailing extension
   );
 
 exports.setFieldsOnGraphQLNodeType = ({ type }) => {
@@ -50,7 +51,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
               id
               url
               timeToRead
-              excerpt
+              excerpt(pruneLength: 280)
               frontmatter {
                 title
                 date

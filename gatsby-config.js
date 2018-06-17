@@ -11,17 +11,21 @@ module.exports = {
         path: `${__dirname}/content/_posts/`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: `pages`,
-    //     path: `${__dirname}/content/pages/`,
-    //   },
-    // },
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        plugins: [],
+        plugins: [
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-copy-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+        ],
       },
     },
   ],

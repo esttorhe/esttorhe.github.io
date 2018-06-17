@@ -4,17 +4,24 @@
   "version": "3.0.0",
   "author": "Esteban Torres <me@estebantorr.es>",
   "dependencies": {
-    "gatsby": "^1.9.271",
-    "gatsby-link": "^1.6.40",
+    "gatsby": "^1.9.272",
+    "gatsby-link": "^1.6.44",
     "gatsby-paginate": "^1.0.16",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-source-filesystem": "^1.5.38",
-    "gatsby-transformer-remark": "^1.7.43",
+    "gatsby-plugin-react-helmet": "^2.0.11",
+    "gatsby-plugin-sharp": "^1.6.48",
+    "gatsby-remark-autolink-headers": "^1.4.19",
+    "gatsby-remark-copy-images": "^0.2.1",
+    "gatsby-remark-copy-linked-files": "^1.5.37",
+    "gatsby-remark-images": "^1.5.67",
+    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-remark": "^1.7.44",
     "lodash": "^4.17.10",
     "prismjs": "github:PrismJS/prism",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "tunnel-agent": "^0.6.0",
+    "ws": "^3.3.1"
   },
   "keywords": [
     "gatsby"
@@ -27,7 +34,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.12.0"
+    "prettier": "^1.13.5"
   },
   "repository": {
     "type": "git",
