@@ -628,6 +628,7 @@ pre tt:after {
 
 #main {
   padding-left: 200px;
+  padding-top: 3%;
 }
 
 .entry-meta-header {
@@ -694,6 +695,19 @@ pre tt:after {
 }
 .entry-meta-footer .category a:last-child {
   margin-right: 0;
+}
+
+.entry-content p {
+  margin: 0 0 1em 0;
+}
+
+.entry-content p a {
+  color: #33a6b8;
+  text-decoration: none;
+}
+
+.read-more {
+  padding-top: 2%;
 }
 
 article {
@@ -838,4 +852,28 @@ ol, ul {
 
 #footer .copyright a:hover {
   color: #777;
+}
+
+#page-nav {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 95%;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+#page-nav a {
+  color: #4f5759;
+  text-decoration: none;
+}
+
+#page-nav a, #page-nav span {
+  display: inline-block;
+  min-width: 1.2em;
+  padding: 6px 8px;
+  margin: 1px 5px 1px 5px;
+  border-radius: 3px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
 }

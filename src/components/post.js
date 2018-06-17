@@ -62,6 +62,12 @@ function PostFooter(props) {
         <PostHeader title={node.frontmatter.title} url={node.url} key='`{internalKey}``{node.frontmatter.title}`' />
         <div className='entry-content'>
           {node.excerpt}
+
+					<div className='read-more'>
+						<p className="article-more-link">
+							<Link to={node.url}>Read More</Link>
+						</p>
+					</div>
         </div>
         <PostFooter categories={node.frontmatter.categories} tags={node.frontmatter.tags} />
         <hr className="article-devider" />

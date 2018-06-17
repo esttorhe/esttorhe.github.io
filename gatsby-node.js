@@ -3,6 +3,7 @@ const path = require('path');
 const { match, head, replace, pipe, path: keyPath } = require('ramda');
 const _ = require('lodash');
 const { GraphQLString } = require("graphql");
+const createPaginatedPages = require("gatsby-paginate");
 
 const getFilename = pipe(
     keyPath(['fileAbsolutePath']),
@@ -40,14 +41,22 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
     // Using async await. Query will likely be very similar to your pageQuery in index.js
     const result = await graphql(`
       query {
-        allMarkdownRemark {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { frontmatter: { layout: { ne: "post" } } }
+        ) {
           edges {
             node {
               id
               url
+              timeToRead
+              excerpt
               frontmatter {
-                tags
+                title
+                date
                 categories
+                tags
+                layout
               }
             }
           }
@@ -61,6 +70,15 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
     }
   
     const posts = result.data.allMarkdownRemark.edges;
+
+    createPaginatedPages({
+      edges: posts,
+      createPage: createPage,
+      pageTemplate: "src/templates/index.js",
+      pageLength: 3, // This is optional and defaults to 10 if not used
+      pathPrefix: "", // This is optional and defaults to an empty string if not used
+      context: {}
+    });
     
     // Create blog posts pages.
     posts.forEach(({ node }) => {
