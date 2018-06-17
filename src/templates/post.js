@@ -1,9 +1,11 @@
 // src/templates/post.js
 import React from "react";
+import CommentsSection from '../components/comments/comments_section';
 
 export default class BlogPost extends React.Component {
   render() {
     const post = this.props.data.markdownRemark;
+    const githubRepo = 'https://github.com/esttorhe/esttorhe.github.io'
 
     return (
       <div className="post">
@@ -12,6 +14,8 @@ export default class BlogPost extends React.Component {
           dangerouslySetInnerHTML={{ __html: post.html }}
           className="content"
         />
+
+        <CommentsSection issueNumber={post.frontmatter.issueNumber} url={post.url} githubRepo={githubRepo} />
       </div>
     );
   }
@@ -23,8 +27,10 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
+        issueNumber
       }
       html
+      url
     }
   }
 `;
