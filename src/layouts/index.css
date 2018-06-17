@@ -798,3 +798,44 @@ ol, ul {
   margin-left: auto;
   margin-right: auto;
 }
+
+#footer {
+  margin: 3em 0;
+  font-size: 70%;
+  display: block;
+  line-height: 1.3;
+  padding-top: 2%;
+  border-top: 3px double #ddd;
+}
+
+#footer .footer-blog-title {
+  float: left;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 120%;
+  padding-bottom: 0.2em;
+  letter-spacing: 0.2em;
+  margin: 1em 1.5em 0 0;
+  border-bottom: 3px solid #777;
+}
+
+#footer .footer-blog-title a {
+  position: relative;
+  left: 0.1em;
+  padding: 0.4em 0;
+  color: #777;
+}
+
+#footer .copyright {
+  display: block;
+  font-weight: lighter !important;
+}
+
+#footer .copyright a {
+  color: #33a6b8;
+  text-decoration: none;
+}
+
+#footer .copyright a:hover {
+  color: #777;
+}
