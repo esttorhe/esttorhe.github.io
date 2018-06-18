@@ -1,5 +1,6 @@
 ---
 title: Talks
+name: talks
 date: 2016-07-15 09:10:02
 ---
 

@@ -57,6 +57,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
     const postTemplate = path.resolve("./src/templates/post.js");
     const tagTemplate = path.resolve("src/templates/tags.js");
     const categoryTemplate = path.resolve("src/templates/categories.js");
+    const pageTemplate = path.resolve('src/templates/page.js');
   
     // Using async await. Query will likely be very similar to your pageQuery in index.js
     const result = await graphql(`
@@ -152,6 +153,45 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
         component: categoryTemplate,
         context: {
           category,
+        },
+      });
+    });
+
+    // Create all unique pages
+    // Using async await. Query will likely be very similar to your pageQuery in index.js
+    const pagesResult = await graphql(`
+      query {
+        allMarkdownRemark(
+          filter: { fields: { group: { eq: "pages" } } }
+        ) {
+          edges {
+            node {
+              timeToRead
+              frontmatter {
+                title
+                name
+              }
+              html
+              url
+            }
+          }
+        }
+      }
+    `);
+  
+    if (pagesResult.errors) {
+      console.log(pagesResult.errors);
+      throw new Error("Things broke, see console output above");
+    }
+  
+    const pages = pagesResult.data.allMarkdownRemark.edges;
+    pages.forEach(( { node } ) => {
+      createPage({
+        path: `/${_.kebabCase(node.frontmatter.name)}/`,
+        component: pageTemplate,
+        context: {
+          // Context will be passed in to the page query as graphql vars
+          html: node.html,
         },
       });
     });
