@@ -7,3 +7,5 @@ public/
 .deploy*/
 /vendor
 /.bundle
+.cache/
+.vscode

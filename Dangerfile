@@ -1,5 +1,5 @@
 # Make it more obvious that a PR is a work in progress and shouldn't be merged yet
-warn("PR is classed as Draft") if pr_title.include? "[Draft]"
+warn("PR is classed as Draft") if github.pr_title.include? "[Draft]"
 # From https://github.com/artsy/artsy.github.io/blob/source/Dangerfile
 # Determine if proselint is currently installed in the system paths.
 # @return  [Bool]
@@ -16,7 +16,7 @@ def check_spelling(files, ignored_words = [])
     fail "mdspell is not in the user's PATH, or it failed to install"
     return
   end
-  markdown_files = files ? Dir.glob(files) : (modified_files + added_files)
+  markdown_files = files ? Dir.glob(files) : (git.modified_files + git.added_files)
   markdown_files.select! do |line| line.end_with?(".markdown") end
   result_texts = Hash[markdown_files.uniq.collect { |md| [md, `mdspell #{md} -rna --ignored (\`[\w\s]+\`)`.strip] }]
   spell_issues = result_texts.select { |path, output| output.include? "spelling errors found" }
@@ -45,8 +45,8 @@ def check_spelling(files, ignored_words = [])
 end
 
 # Look through all changed Markdown files
-markdown_files = (modified_files + added_files).select do |line|
-  line.start_with?("source/_posts") && line.end_with?(".markdown")
+markdown_files = (git.modified_files + git.added_files).select do |line|
+  line.start_with?("content/_posts") && line.end_with?(".markdown")
 end
 
 prose.disable_linters = ["typography.diacritical_marks", "butterick.symbols.curly_quotes", "butterick.symbols.multiplication_symbol"]

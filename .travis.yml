@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - "10"
 
 cache:
   bundler: true
@@ -14,15 +16,14 @@ addons:
       - aspell-en
 
 before_install:
-- rvm install 2.2
-- bundle install --path="./.vendor/bundle"
+- sudo apt-get update
+- sudo apt-get install curl
+- rvm install 2.5.0
+- bundle install --path="./.vendor/bundle" --jobs 3
 - bundle exec rake config:bootstrap
 
 install:
-- hexo --version
-
-git:
-  submodules: false
+- gatsby --version
 
 env:
   global:
