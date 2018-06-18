@@ -18,7 +18,6 @@ namespace :config do
   task :environment do
     sh 'git config --global user.name \'Esteban Torres via Travis CI\''
     sh 'git config --global user.email \'me@estebantorr.es\''
-    # sh 'sed -i "s~git@github.com:esttorhe/esttorhe.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git~"'
     sh 'git remote set-url origin "https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git"'
   end
 end
@@ -132,9 +131,9 @@ task :test do
     checks_to_ignore: [:check_favicon],
     error_sort: :desc,
     disable_external: true,
-    file_ignore: [/^.*\b(tags|page)\b.*$/, './public/index.html'],
+    file_ignore: [/^.*\b(tags|page)\b.*$/, /^.*\b(categories|page)\b.*$/, './public/index.html'],
     alt_ignore: [/.*/],
-    parallel: { in_processes: 3},
+    parallel: { in_processes: 6 },
     verbose: true,
     }).run
 end
