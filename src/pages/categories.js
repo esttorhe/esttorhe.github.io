@@ -29,7 +29,7 @@ const CategoriesPage = ({
             <ul>
             {category.edges.map((node) =>
               <li key={node.node.frontmatter.title}>
-                <Link to={node.node.url} style={{ textDecoration: 'none', }}>
+                <Link to={`/${node.node.url}`} style={{ textDecoration: 'none', }}>
                   {node.node.frontmatter.title}
                 </Link>
               </li>

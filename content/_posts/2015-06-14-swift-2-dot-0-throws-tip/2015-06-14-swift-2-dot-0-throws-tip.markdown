@@ -12,6 +12,7 @@ tags:
 - cocoa
 - tips
 author: Esteban Torres
+issueNumber: 36
 ---
 
 # Quick `Swift 2.0` `throws` tip:

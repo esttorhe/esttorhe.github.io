@@ -19,11 +19,11 @@ Checking `Twitter` the other day I stumble this tweets from [Sash Zats][sash] ad
 
 <!--more-->
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[2/4]**<br>• NSProcessInfo thermalState - is device already working hard<br>• NSProcessInfo isLowPowerModeEnabled - is user trying to safe battery</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125072764960773">September 19, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[2/4]**<br/>• NSProcessInfo thermalState - is device already working hard<br/>• NSProcessInfo isLowPowerModeEnabled - is user trying to safe battery</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125072764960773">September 19, 2017</a></blockquote>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[3/4]**<br>• UIAccessibilityIsReduceMotionEnabled - is user sensitive to motion</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125128385650694">September 19, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[3/4]**<br/>• UIAccessibilityIsReduceMotionEnabled - is user sensitive to motion</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125128385650694">September 19, 2017</a></blockquote>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[4/4]**<br>• UIDevice batteryState &amp; batteryLevel - to know when device is not charging and low on battery<br>Any other heuristics that I&#39;m missing?</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125225622224896">September 19, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">**[4/4]**<br/>• UIDevice batteryState &amp; batteryLevel - to know when device is not charging and low on battery<br/>Any other heuristics that I&#39;m missing?</p>&mdash; Sash Zats (@zats) <a href="https://twitter.com/zats/status/910125225622224896">September 19, 2017</a></blockquote>
 
 ---
 
@@ -36,11 +36,8 @@ Below on the thread [Marin Todorov][marin] provided a link to this checks added 
 ---
 
 From now on this is something that I'll definitely be doing on my apps and would probably keep updating it as more I find more heuristics to be applied to this check.
-
 _Edit: There isn't much to this blog post other than drawing attention to the heuristics and hopefully raising awareness so more developers start to use them._
 
 [sash]:https://twitter.com/zats
 [marin]:https://twitter.com/icanzilb
 [code]:https://github.com/RxSwiftCommunity/RxAnimated/blob/master/RxAnimated/Core/RxAnimated.swift#L95
-
-</br>

@@ -131,7 +131,7 @@ task :test do
     checks_to_ignore: [:check_favicon],
     error_sort: :desc,
     disable_external: true,
-    file_ignore: [/^.*\b(tags|page)\b.*$/, /^.*\b(categories|page)\b.*$/, './public/index.html'],
+    file_ignore: [],
     alt_ignore: [/.*/],
     parallel: { in_processes: 6 },
     verbose: true,

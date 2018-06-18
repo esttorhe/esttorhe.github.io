@@ -13,6 +13,7 @@ tags:
 github-url: https://www.github.com/esttorhe
 twitter-url: http://twitter.com/esttorhe
 blog-url: http://estebantorr.es
+issueNumber: 34
 ---
 I've got the opportunity to read [Ash Furrow][ash]'s post about his 5 years doing `iOS` development and read (as much as I could from my phone) [Orta][orta]'s blog about his 28 and came to think about **MY** year and decided I was going to write something.
 

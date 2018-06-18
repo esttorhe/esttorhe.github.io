@@ -17,6 +17,7 @@ twitter-url: http://twitter.com/esttorhe
 blog-url: http://estebantorr.es
 image:
     feature: /images/posts/20141216/segue.png
+issueNumber: 33
 ---
 
 {% github esttorhe ShowNotWorking_Radar 5f81558 %}

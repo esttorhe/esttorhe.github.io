@@ -14,6 +14,7 @@ tags:
 author: Esteban Torres
 image:
     feature: https://developer.apple.com/assets/elements/icons/128x128/swift_2x.png
+issueNumber: 35
 ---
 
 On my [previous post][throwDoc] I tried to help «solve» in a way the problem with non-typed `throws` by documenting them on the internal docs as lists with `markdown`.
