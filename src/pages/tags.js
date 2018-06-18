@@ -62,6 +62,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       limit: 2000
+      filter: { fields: { group: { eq: "posts" } } }
     ) {
       group(field: frontmatter___tags) {
         fieldValue

@@ -31,6 +31,25 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
   });
 };
 
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+  const { createNodeField } = boundActionCreators
+
+  if (_.get(node, 'internal.type') === `MarkdownRemark`) {
+    // Get the parent node
+    const parent = getNode(_.get(node, 'parent'))
+
+    // Create a field on this node for the "collection" of the parent
+    // NOTE: This is necessary so we can filter `allMarkdownRemark` by
+    // `collection` otherwise there is no way to filter for only markdown
+    // documents of type `post`.
+    createNodeField({
+      node,
+      name: 'group',
+      value: _.get(parent, 'sourceInstanceName'),
+    });
+  }
+};
+
 // NOTE: I'm using async/await to simplify the code since it's now natively supported
 // in Node 8.x. This means that our function will return a promise
 exports.createPages = async ({ graphql, boundActionCreators }) => {
@@ -44,7 +63,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
       query {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          filter: { frontmatter: { layout: { ne: "post" } } }
+          filter: { fields: { group: { eq: "posts" } } }
         ) {
           edges {
             node {
