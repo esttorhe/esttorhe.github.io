@@ -16,6 +16,8 @@ addons:
       - aspell-en
 
 before_install:
+- apt-get update
+- apt-get install curl
 - rvm install 2.5.0
 - bundle install --path="./.vendor/bundle" --jobs 3
 - bundle exec rake config:bootstrap
