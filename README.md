@@ -42,11 +42,54 @@ For that I followed this blogpost [Using GitHub Issues for Blog Comments][migrat
 
 ## Acknowledgements
 
-- Here's [Pedro][pepi]'s `LICENSE`:
-<iframe src="https://github.com/pepibumur/pepibumur.github.io/blob/master/LICENSE"></iframe>
+### [Pedro][pepi]'s `LICENSE` - [link][pepi_license]:
 
-- And here's [Ian][iansinnot]'s `LICENSE`:
-<iframe src="https://github.com/iansinnott/iansinnott.github.io/blob/source/LICENSE"></iframe>
+>The MIT License (MIT)
+>
+>Copyright (c) 2014 Michael Rose
+>
+>Permission is hereby granted, free of charge, to any person obtaining a copy
+>of this software and associated documentation files (the "Software"), to deal
+>in the Software without restriction, including without limitation the rights
+>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+>copies of the Software, and to permit persons to whom the Software is
+>furnished to do so, subject to the following conditions:
+>
+>The above copyright notice and this permission notice shall be included in all
+>copies or substantial portions of the Software.
+>
+>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+>SOFTWARE.
+
+
+### [Ian][iansinnot]'s `LICENSE` - [link][ian_license]:
+
+>The MIT License (MIT)
+>
+>Copyright (c) 2015 gatsbyjs
+>
+>Permission is hereby granted, free of charge, to any person obtaining a copy
+>of this software and associated documentation files (the "Software"), to deal
+>in the Software without restriction, including without limitation the rights
+>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+>copies of the Software, and to permit persons to whom the Software is
+>furnished to do so, subject to the following conditions:
+>
+>The above copyright notice and this permission notice shall be included in all
+>copies or substantial portions of the Software.
+>
+>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+>SOFTWARE.
 
 [gatsby]:https://gatsby.org
 [migrating]:https://www.gatsbyjs.org/blog/2017-10-01-migrating-my-blog-from-hexo-to-gatsby/
@@ -56,3 +99,5 @@ For that I followed this blogpost [Using GitHub Issues for Blog Comments][migrat
 [orta]:http://orta.io/
 [pepi]:https://ppinera.es/
 [pepi_repo]:https://github.com/pepibumur/pepibumur.github.io
+[pepi_license]:https://github.com/pepibumur/pepibumur.github.io/blob/master/LICENSE
+[ian_license]:https://github.com/iansinnott/iansinnott.github.io/blob/source/LICENSE
