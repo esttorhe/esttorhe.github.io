@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'NSTorres',
-    sitUrl: 'https://estebantorr.es',
+    siteUrl: 'https://estebantorr.es/',
+    description: 'Sneak peek of how ~~ObjC~~Swift (😉) looks from the perspective of a person borned & raised in Costa Rica.',
     githubRepo: 'https://github.com/esttorhe/esttorhe.github.io',
     author: 'Esteban Torres'
   },
@@ -39,5 +40,6 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-feed`,
   ],
 }

@@ -28,8 +28,8 @@ const Header = ({ siteTitle }) => (
 			    <li><Link to='/archives'>Archives</Link></li>
 			    <li><Link to='/talks'>Talks</Link></li>
 			    <li><Link to='/about'>About Me</Link></li>
-			    <li><Link to="/cv">CV</Link></li>
-			    <li><Link to='/atom.xml' id='nav-rss-link' className='nav-icon' title='RSS Feed'></Link></li>
+			    {/* <li><Link to="/cv">CV</Link></li> */}
+			    <li><Link to='/rss.xml'>Feed</Link></li>
 		    </ul>
 	    </nav>
   </div>

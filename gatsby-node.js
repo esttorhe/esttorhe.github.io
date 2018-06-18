@@ -47,6 +47,12 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       name: 'group',
       value: _.get(parent, 'sourceInstanceName'),
     });
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: getSlug(node),
+    });
   }
 };
 

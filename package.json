@@ -4,6 +4,7 @@
   "version": "3.0.0",
   "author": "Esteban Torres <me@estebantorr.es>",
   "dependencies": {
+    "date-fns": "^1.29.0",
     "gatsby": "^1.9.272",
     "gatsby-link": "^1.6.44",
     "gatsby-paginate": "^1.0.16",
