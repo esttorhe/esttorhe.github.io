@@ -51,7 +51,7 @@ From my experience (and that of some of other attendeeds I talked with) there is
 Some quick rundown of the ones I can remember
 1. Some of the rooms felt totally disconnected from the conference
 2. The Q&A after each session was not properly handled and due to the «multi track» style of the conference most attendees got up and started leaving while the questions were being asked and the speakers were answering; to me this feels a little bit disrespecful to the speaker and even to the people asking questions
-3. Sharing space and time with `IFA`[^14]. Even though it was nice for me because I could disconnect every now and then and relax from a conference related to something I don't do this caused a lot of «noise», lots of people not related to the conference coming and going through `droidCon` (literally walking through it) which felt weird; also this might have been detrimental to the attendance of some talks (I noticed a few attendees leaving `droidCon` to visit `IFA`[^14])
+3. Sharing space and time with `IFA`. Even though it was nice for me because I could disconnect every now and then and relax from a conference related to something I don't do this caused a lot of «noise», lots of people not related to the conference coming and going through `droidCon` (literally walking through it) which felt weird; also this might have been detrimental to the attendance of some talks (I noticed a few attendees leaving `droidCon` to visit `IFA`)
 
 All in all I enjoyed `droidCon` Berlin, and who knows; might not be my last.
 I have plans of start dabbling a little on `Kotlin` so perhaps this is the perfect excuse and initial push for me.
