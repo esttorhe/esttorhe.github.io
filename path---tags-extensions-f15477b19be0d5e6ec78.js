@@ -1,0 +1,2 @@
+webpackJsonp([0xc053e4e4d328],{569:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Xcode 8 Source Editor Extensions"},url:"Xcode-8-Source-Editor-Extensions"}}]}},pathContext:{tag:"extensions"}}}});
+//# sourceMappingURL=path---tags-extensions-f15477b19be0d5e6ec78.js.map

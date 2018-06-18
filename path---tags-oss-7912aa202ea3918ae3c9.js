@@ -1,0 +1,2 @@
+webpackJsonp([39730095190315],{589:function(t,a){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"📦 Wrapping up 2016"},url:"Wrapping-up-2017"}}]}},pathContext:{tag:"oss"}}}});
+//# sourceMappingURL=path---tags-oss-7912aa202ea3918ae3c9.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([0xe25fd46c156b],{586:function(o,t){o.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Xcode notifications on your 📱"},url:"Xcode-notifications-on-your-phone"}}]}},pathContext:{tag:"notifications"}}}});
+//# sourceMappingURL=path---tags-notifications-1b710df5b043053cd309.js.map

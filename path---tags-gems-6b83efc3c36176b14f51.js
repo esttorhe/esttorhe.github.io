@@ -1,0 +1,2 @@
+webpackJsonp([0x6342ac2b4203],{572:function(t,a){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Nokogiri on El Capitan"},url:"Nokogiri-in-El-Capitan"}}]}},pathContext:{tag:"gems"}}}});
+//# sourceMappingURL=path---tags-gems-6b83efc3c36176b14f51.js.map

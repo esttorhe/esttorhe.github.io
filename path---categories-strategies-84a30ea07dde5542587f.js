@@ -1,0 +1,2 @@
+webpackJsonp([0xd84b9556fe1e],{534:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Disabling Animations Heuristics"},url:"Disabling-Animations-Heuristics"}}]}},pathContext:{category:"strategies"}}}});
+//# sourceMappingURL=path---categories-strategies-84a30ea07dde5542587f.js.map

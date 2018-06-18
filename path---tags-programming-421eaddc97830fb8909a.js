@@ -1,0 +1,2 @@
+webpackJsonp([20956934260092],{593:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Semver intermediate versioning"},url:"Semver-intermediate-versioning"}}]}},pathContext:{tag:"programming"}}}});
+//# sourceMappingURL=path---tags-programming-421eaddc97830fb8909a.js.map

@@ -1,0 +1,2 @@
+webpackJsonp([0x66169914a8e6],{557:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"droidCon Berlin"},url:"droidCon-Berlin"}}]}},pathContext:{tag:"berlin"}}}});
+//# sourceMappingURL=path---tags-berlin-8d41a1fe15531f1045e0.js.map
