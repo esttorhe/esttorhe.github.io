@@ -6,8 +6,10 @@ cache:
   bundler: true
   pip: true
   directories:
-  - node_modules
-  - .vendor
+    - node_modules
+    - .vendor
+    - /home/travis/.rvm/
+    - /home/travis/.nvm/
 
 addons:
   apt:

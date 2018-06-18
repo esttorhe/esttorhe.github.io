@@ -951,3 +951,25 @@ ol, ul {
   position: relative;
   overflow: hidden;
 }
+
+.archive_year {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg) translate(-50%,-50%);
+  line-height: 1;
+  z-index: 1;
+  font-weight: bold;
+}
+
+.archive_wrapper {
+  position: relative;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  line-height: 2em;
+}
+
+.archive_post {
+  margin-bottom: 10px;
+}

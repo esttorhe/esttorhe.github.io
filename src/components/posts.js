@@ -44,11 +44,11 @@ const renderPosts = pipe(
   map(prop('node')),
   nodesByYear,
   map(([ year, posts ]) => (
-    <div key={year}>
-      <div>{year}</div>
+    <div key={year} className='archive_wrapper'>
+      <div className='archive_year'>{year}</div>
       <div>
         {posts.map(node => (
-          <BlogPostListItem post={node} key={node.url} />
+          <BlogPostListItem className='archive_post' post={node} key={node.url} />
         ))}
       </div>
     </div>
