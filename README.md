@@ -32,4 +32,27 @@ rake --tasks
 | rake server             | # Start gatsby server |
 | rake test               | # Runs html-proofer against current `build` directory (./public) |
 
+
+# Inspiration
+
+I mostly followed the blogpost [Migrating My Blog From Hexo To Gatsby][migrating] from [Ian Sinnott][iansinnot] since the previous incarnation of my blog was written using [`Hexo`][hexo].
+
+I also wanted to get rid of `Disqus` for comments and wanted to migrate them to `Github` for quite a while now.
+For that I followed this blogpost [Using GitHub Issues for Blog Comments][migrate_comments] from [Orta Therox][orta] and also grabbed bits of inspiration (and some code) from [Pedro's Blog][pepi] ([here's][pepi_repo] his repository).
+
+## Acknowledgements
+
+- Here's [Pedro][pepi]'s `LICENSE`:
+<iframe src="https://github.com/pepibumur/pepibumur.github.io/blob/master/LICENSE"></iframe>
+
+- And here's [Ian][iansinnot]'s `LICENSE`:
+<iframe src="https://github.com/iansinnott/iansinnott.github.io/blob/source/LICENSE"></iframe>
+
 [gatsby]:https://gatsby.org
+[migrating]:https://www.gatsbyjs.org/blog/2017-10-01-migrating-my-blog-from-hexo-to-gatsby/
+[iansinnot]:https://www.iansinnott.com
+[hexo]:https://hexo.io/
+[migrate_comments]:http://artsy.github.io/blog/2017/07/15/Comments-are-on/
+[orta]:http://orta.io/
+[pepi]:https://ppinera.es/
+[pepi_repo]:https://github.com/pepibumur/pepibumur.github.io
