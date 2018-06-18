@@ -55,12 +55,6 @@ namespace :publish do
     Rake::Task['build'].invoke
     Rake::Task['deploy:production'].invoke
   end
-
-  desc "Build and deploy to production"
-  task :all do
-    Rake::Task['build'].invoke
-    Rake::Task['deploy:production'].invoke
-  end
 end
 
 
@@ -101,7 +95,7 @@ task :server do
   Process.wait(gatsby)
 end
 
-desc 'Runs html-proofer against current build/ directory.'
+desc 'Runs html-proofer against current `build` directory (./public)'
 task :test do
   require 'html-proofer'
 
