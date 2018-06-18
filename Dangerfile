@@ -45,7 +45,7 @@ def check_spelling(files, ignored_words = [])
 end
 
 # Look through all changed Markdown files
-markdown_files = (modified_files + added_files).select do |line|
+markdown_files = (git.modified_files + git.added_files).select do |line|
   line.start_with?("content/_posts") && line.end_with?(".markdown")
 end
 
