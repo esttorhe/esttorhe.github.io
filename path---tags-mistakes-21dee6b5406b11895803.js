@@ -1,2 +1,2 @@
-webpackJsonp([0xfd87445a1878],{583:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"How to (and not) ask questions…"},url:"How-to-and-not-ask-questions…"}}]}},pathContext:{tag:"mistakes"}}}});
+webpackJsonp([0xfd87445a1878],{584:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"How to (and not) ask questions…"},url:"How-to-and-not-ask-questions…"}}]}},pathContext:{tag:"mistakes"}}}});
 //# sourceMappingURL=path---tags-mistakes-21dee6b5406b11895803.js.map

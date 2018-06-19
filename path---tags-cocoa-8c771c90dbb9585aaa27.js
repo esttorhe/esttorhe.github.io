@@ -1,2 +1,2 @@
-webpackJsonp([60621151432937],{560:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Swift 2.0 - throws tip"},url:"swift-2-dot-0-throws-tip"}}]}},pathContext:{tag:"cocoa"}}}});
+webpackJsonp([60621151432937],{561:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Swift 2.0 - throws tip"},url:"swift-2-dot-0-throws-tip"}}]}},pathContext:{tag:"cocoa"}}}});
 //# sourceMappingURL=path---tags-cocoa-8c771c90dbb9585aaa27.js.map

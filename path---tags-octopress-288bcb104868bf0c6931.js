@@ -1,2 +1,2 @@
-webpackJsonp([0x6c242538076c],{588:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"octopress"}}}});
+webpackJsonp([0x6c242538076c],{589:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"octopress"}}}});
 //# sourceMappingURL=path---tags-octopress-288bcb104868bf0c6931.js.map

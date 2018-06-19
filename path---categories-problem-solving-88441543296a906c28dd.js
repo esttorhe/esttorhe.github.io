@@ -1,2 +1,2 @@
-webpackJsonp([51329903545636],{530:function(o,t){o.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Nokogiri on El Capitan"},url:"Nokogiri-in-El-Capitan"}}]}},pathContext:{category:"problem solving"}}}});
+webpackJsonp([51329903545636],{531:function(o,t){o.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Nokogiri on El Capitan"},url:"Nokogiri-in-El-Capitan"}}]}},pathContext:{category:"problem solving"}}}});
 //# sourceMappingURL=path---categories-problem-solving-88441543296a906c28dd.js.map

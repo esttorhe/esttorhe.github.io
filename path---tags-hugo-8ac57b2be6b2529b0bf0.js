@@ -1,2 +1,2 @@
-webpackJsonp([0x6176bff8aeb0],{576:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"hugo"}}}});
+webpackJsonp([0x6176bff8aeb0],{577:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"hugo"}}}});
 //# sourceMappingURL=path---tags-hugo-8ac57b2be6b2529b0bf0.js.map

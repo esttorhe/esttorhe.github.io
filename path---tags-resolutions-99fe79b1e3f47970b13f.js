@@ -1,2 +1,2 @@
-webpackJsonp([0x9b2b810ddef9],{596:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:2,edges:[{node:{frontmatter:{title:"Review: 2015"},url:"Review-2015"}},{node:{frontmatter:{title:"New Year Resolutions"},url:"new-year-resolutions"}}]}},pathContext:{tag:"resolutions"}}}});
+webpackJsonp([0x9b2b810ddef9],{597:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:2,edges:[{node:{frontmatter:{title:"Review: 2015"},url:"Review-2015"}},{node:{frontmatter:{title:"New Year Resolutions"},url:"new-year-resolutions"}}]}},pathContext:{tag:"resolutions"}}}});
 //# sourceMappingURL=path---tags-resolutions-99fe79b1e3f47970b13f.js.map

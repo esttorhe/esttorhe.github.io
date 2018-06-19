@@ -1,2 +1,2 @@
-webpackJsonp([0xbafef533fb73],{604:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Semver intermediate versioning"},url:"Semver-intermediate-versioning"}}]}},pathContext:{tag:"versioning"}}}});
+webpackJsonp([0xbafef533fb73],{605:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Semver intermediate versioning"},url:"Semver-intermediate-versioning"}}]}},pathContext:{tag:"versioning"}}}});
 //# sourceMappingURL=path---tags-versioning-9938cc36236312dec74d.js.map
