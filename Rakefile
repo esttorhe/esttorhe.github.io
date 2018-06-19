@@ -67,6 +67,11 @@ namespace :build do
   end
 end
 
+task :develop do
+  puts "Serving local website for development"
+  sh 'npm run develop'
+end
+
 desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
