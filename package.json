@@ -20,7 +20,7 @@
     "gatsby-remark-prismjs": "^2.0.4",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.14",
     "prismjs": "github:PrismJS/prism",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
