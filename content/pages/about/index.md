@@ -28,4 +28,4 @@ You can find me on GitHub and pretty much always lurkin on Twitter here [@esttor
 
 
 [soundcloud]:https://soundcloud.com
-[cv]:https://estebantorr.es/cv/index.html
+[cv]:https://estebantorr.es/cv
