@@ -1,0 +1,708 @@
+.inner article,
+.inner aside,
+.inner details,
+.inner figcaption,
+.inner figure,
+.inner footer,
+.inner header,
+.inner hgroup,
+.inner nav,
+.inner section,
+.inner summary {
+	display: block
+}
+
+.inner audio,
+.inner canvas,
+.inner video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.inner audio:not([controls]) {
+	display: none
+}
+
+[hidden] {
+	display: none
+}
+
+.inner html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%
+}
+
+.inner tml,
+.inner utton,
+.inner nput,
+.inner elect,
+.inner extarea {
+	font-family: sans-serif
+}
+
+.inner body {
+	margin: 0
+}
+
+.inner a:focus {
+	outline: thin dotted
+}
+
+.inner a:hover,
+.inner a:active {
+	outline: 0
+}
+
+.inner h1 {
+	font-size: 2em;
+	margin: 0.67em 0
+}
+
+.inner h2 {
+	font-size: 1.5em;
+	margin: 0.83em 0
+}
+
+.inner h3 {
+	font-size: 1.17em;
+	margin: 1em 0
+}
+
+.inner h4 {
+	font-size: 1em;
+	margin: 1.33em 0
+}
+
+.inner h5 {
+	font-size: 0.83em;
+	margin: 1.67em 0
+}
+
+.inner h6 {
+	font-size: 0.75em;
+	margin: 2.33em 0
+}
+
+.inner abbr[title] {
+	border-bottom: 1px dotted
+}
+
+.inner b,
+.inner strong {
+	font-weight: bold
+}
+
+.inner blockquote {
+	margin: 1em 40px !important;
+}
+
+.inner dfn {
+	font-style: italic
+}
+
+.inner mark {
+	background: #ff0;
+	color: #000
+}
+
+.inner p,
+.inner pre {
+	margin: 1em 0
+}
+
+.inner re,
+.inner ode,
+.inner bd,
+.inner amp {
+	font-family: monospace, serif;
+	_font-family: 'courier new', monospace;
+	font-size: 1em
+}
+
+.inner pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word
+}
+
+.inner q {
+	quotes: none
+}
+
+.inner q:before,
+.inner q:after {
+	content: '';
+	content: none
+}
+
+.inner small {
+	font-size: 75%
+}
+
+.inner sub,
+.inner sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+.inner sup {
+	top: -0.5em
+}
+
+.inner sub {
+	bottom: -0.25em
+}
+
+.inner l,
+.inner enu,
+.inner l,
+.inner l {
+	margin: 1em 0
+}
+
+.inner dd {
+	margin: 0 0 0 40px
+}
+
+.inner enu,
+.inner l,
+.inner l {
+	padding: 0 0 0 40px
+}
+
+.inner nav ul,
+.inner nav ol {
+	list-style: none;
+	list-style-image: none
+}
+
+.inner img {
+	border: 0;
+	-ms-interpolation-mode: bicubic
+}
+
+svg:not(:root) {
+	overflow: hidden
+}
+
+.inner figure {
+	margin: 0
+}
+
+.inner form {
+	margin: 0
+}
+
+.inner fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em
+}
+
+.inner legend {
+	border: 0;
+	padding: 0;
+	white-space: normal;
+	*margin-left: -7px
+}
+
+.inner utton,
+.inner nput,
+.inner elect,
+.inner extarea {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle
+}
+
+.inner utton,
+.inner nput {
+	line-height: normal
+}
+
+.inner utton,
+.inner nput[type="button"],
+.inner nput[type="reset"],
+.inner nput[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	*overflow: visible
+}
+
+.inner utton[disabled],
+.inner nput[disabled] {
+	cursor: default
+}
+
+.inner nput[type="checkbox"],
+.inner nput[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+	*height: 13px;
+	*width: 13px
+}
+
+.inner input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box
+}
+
+.inner nput[type="search"]::-webkit-search-decoration,
+.inner nput[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none
+}
+
+.inner utton::-moz-focus-inner,
+.inner nput::-moz-focus-inner {
+	border: 0;
+	padding: 0
+}
+
+.inner extarea {
+	overflow: auto;
+	vertical-align: top
+}
+
+.inner table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+.inner body.pdf {
+	color: #000
+}
+
+.inner body.pdf a {
+	text-decoration: none;
+	color: #000
+}
+
+.inner body.pdf .container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 0;
+	background: none;
+	border: none;
+	border-width: 8px 0 2px 0;
+	text-align: left
+}
+
+.inner body.pdf .resume {
+	position: relative;
+	padding: 40px 80px
+}
+
+.inner body.pdf a[href$='.pdf'] {
+	display: none
+}
+
+.inner body.pdf h1 {
+	letter-spacing: 0;
+	margin-top: 0;
+	font-size: 48px;
+	text-transform: uppercase;
+	font-weight: normal
+}
+
+.inner body.pdf h2 {
+	letter-spacing: 0;
+	text-transform: uppercase;
+	font-style: italic;
+	font-weight: normal
+}
+
+.inner body.pdf h3 {
+	float: left;
+	width: 16%;
+	font-style: normal
+}
+
+.inner body.pdf h3~p {
+	float: left;
+	margin-left: 16%
+}
+
+.inner body.pdf h3+p {
+	margin-left: inherit;
+	float: left;
+	width: 84%
+}
+
+.inner body.pdf blockquote {
+	top: 40px;
+	right: 50px;
+	position: absolute
+}
+
+.inner body.pdf ul li {
+	width: 28%;
+	float: left
+}
+
+.inner body.pdf ul dl {
+	margin: 0;
+	padding: 0.3em 0 0
+}
+
+.inner body.pdf ul dl dt {
+	font-size: 122%;
+	font-weight: normal;
+	margin: 0 0 0.75em
+}
+
+.inner body.pdf ul dl dd {
+	padding: 0 4em 0 0
+}
+
+.inner body.pdf ol {
+	float: left;
+	width: 84%;
+	margin: 0.7em 0 0
+}
+
+.inner body.pdf ol li {
+	width: 33%;
+	margin: 0
+}
+
+.inner body.pdf ol li:nth-child(3n) {
+	width: 34%
+}
+
+.inner body.pdf ol li:nth-child(1),
+.inner body.pdf ol li:nth-child(2),
+.inner body.pdf ol li:nth-child(3) {
+	border-top: none
+}
+
+.inner body.pdf dl {
+	margin: 0.7em 0 0
+}
+
+.inner body.pdf dl strong {
+	float: right;
+	margin-top: -2em
+}
+
+.inner body.pdf dl em {
+	font-size: 130%;
+	font-style: normal
+}
+
+.inner .container:before,
+.inner .container:after {
+	content: "";
+	display: table
+}
+
+.inner .container:after {
+	clear: both
+}
+
+.inner .container {
+	zoom: 1
+}
+
+.inner body {
+	font-family: 'Hoefler Text', Times New Roman, Times, serif;
+	color: #444
+}
+
+.inner h1,
+.inner h2,
+.inner h3,
+.inner h4,
+.inner ul dl dt {
+	font-family: Futura, "Century Gothic", AppleGothic, sans-serif
+}
+
+.inner .container {
+	margin: 0 auto;
+	padding: 0;
+	border: solid #666;
+	border-width: 8px 0 4px 0;
+	text-align: left;
+}
+
+.inner .resume {
+	position: relative;
+	padding: 10px 20px
+}
+
+.inner a {
+	color: #990003
+}
+
+.inner a[href$='.pdf'] {
+	display: inline-block;
+	background: #666;
+	color: #fff;
+	padding: 6px 12px;
+	margin-bottom: 6px;
+	text-decoration: none
+}
+
+.inner blockquote {
+	margin: 0 !important;
+	padding: 0;
+	line-height: 1.4em;
+}
+
+.inner hr:nth-of-type(1) {
+	margin-top: 32px
+}
+
+.inner hr {
+	display: block;
+	position: relative;
+	padding: 0;
+	margin: 18px auto;
+	width: 100%;
+	clear: both;
+	border: none;
+	border-top: 1px solid #ccc;
+	font-size: 1px;
+	line-height: 0;
+	overflow: visible;
+	page-break-after: avoid
+}
+
+.inner h1 {
+	margin: 0;
+	padding: 0;
+	font-size: 36px;
+	letter-spacing: -1px;
+	font-weight: normal
+}
+
+.inner h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	font-style: italic;
+	letter-spacing: -1px;
+	font-weight: normal
+}
+
+.inner h3 {
+	margin: 0;
+	padding: 0 0 0.5em;
+	font-size: 150%;
+	font-style: italic;
+	font-weight: normal
+}
+
+.inner h3+p {
+	margin: 0.6em 0 16px;
+	padding: 0;
+	display: block;
+	font-size: 104%;
+	line-height: 24px
+}
+
+.inner ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+.inner ul li {
+	margin: 0;
+	padding: 0
+}
+
+.inner ul li p {
+	margin: 1em 0.5em
+}
+
+.inner .inner ul dl {
+	margin: 0.3em 0 0;
+	padding: 0;
+	width: 100%
+}
+
+ul dl dt {
+	font-size: 100%
+}
+
+.inner ul dl dd {
+	margin: 0 0 1em;
+	padding: 0 2em 0 0;
+	font-size: 0.8em;
+	line-height: 1.5em
+}
+
+.inner ol {
+	margin: 0;
+	padding: 0 0 0.75em;
+	width: 84%;
+	display: inline-block
+}
+
+.inner ol li {
+	margin: 0 0 0 1em;
+	padding: 0;
+	width: 100%;
+	float: left;
+	list-style: none;
+	line-height: 24px;
+	font-size: 14px
+}
+
+.inner ol li:nth-child(1) {
+	border-top: none
+}
+
+.inner dl {
+	display: inline-block;
+	width: 75%;
+	margin: 0;
+	padding: 0
+}
+
+.inner dl dt {
+	margin: 0;
+	padding: 0;
+	font-size: 140%
+}
+
+.inner dl dd {
+	margin: 0 0 1.5em;
+	padding: 0;
+	font-size: 80%;
+	line-height: 1.4em
+}
+
+.inner dl strong {
+	display: block
+}
+
+.inner dl em {
+	display: block;
+	font-size: 110%;
+	margin: 0.15em 0 0.5em;
+	font-style: bold
+}
+
+.inner #footer {
+	display: none
+}
+
+.inner #footer+p {
+	width: 100%;
+	font-size: 11px;
+	text-align: center
+}
+
+@media screen and (min-width:37.5em) {
+	.inner body {
+		padding: 2em 0
+	}
+	.inner blockquote {
+		top: 10px;
+		right: 50px;
+		position: absolute
+	}
+	.inner h1 {
+		margin-top: 0.5em
+	}
+	.inner ol {
+		margin: 0 0 0 1em
+	}
+	.inner ol li {
+		width: 50%;
+		margin: 0
+	}
+	.inner ol li:nth-child(1),
+	.inner ol li:nth-child(2) {
+		border-top: none
+	}
+}
+
+@media screen and (min-width:57em) {
+	.inner .container {
+		width: 960px
+	}
+	.inner .resume {
+		position: relative;
+		padding: 40px 50px
+	}
+	.inner blockquote {
+		top: 40px;
+		right: 50px;
+		position: absolute
+	}
+	.inner h1 {
+		margin-top: 0;
+		font-size: 48px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-weight: normal
+	}
+	.inner h2 {
+		text-transform: uppercase;
+		font-style: italic;
+		letter-spacing: 2px;
+		font-weight: normal
+	}
+	.inner h3 {
+		float: left;
+		width: 16%
+	}
+	.inner h3~p {
+		float: left;
+		margin-left: 16%
+	}
+	.inner h3+p {
+		margin-left: inherit;
+		float: left;
+		width: 84%
+	}
+	.inner ul li {
+		width: 28%;
+		float: left
+	}
+	.inner ul dl dt {
+		font-size: 122%;
+		font-weight: normal;
+		margin-bottom: 0.75em
+	}
+	.inner ul dl dd {
+		padding: 0 4em 0 0
+	}
+	.inner ol {
+		float: left;
+		width: 84%;
+		margin: 0.6em 0 0
+	}
+	.inner ol li {
+		width: 33%;
+		margin: 0
+	}
+	.inner ol li:nth-child(3n) {
+		width: 34%
+	}
+	.inner ol li:nth-child(1),
+	.inner ol li:nth-child(2),
+	.inner ol li:nth-child(3) {
+		border-top: none
+	}
+	.inner dl {
+		margin: 0.5em 0 0
+	}
+	.inner dl strong {
+		float: right;
+		margin-top: -2em
+	}
+	.inner dl em {
+		font-size: 130%;
+		font-style: normal
+	}
+}

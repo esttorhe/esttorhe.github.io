@@ -1,0 +1,97 @@
+baseURL = "https://estebantorr.es/"
+languageCode = "en-us"
+title = "Journey through engineering…"
+theme = "anatole"
+
+[params]
+  AuthorName = "Esteban Torres"
+  GitHubUser = "esttorhe"
+  SidebarRecentLimit = 6
+  Subtitle = "From iOS Engineer to Engineering Manager :/"
+  MainSections = ["about"]
+  Intro = true
+  Github = "https://github.com/esttorhe"
+  Twitter = "https://twitter.com/esttorhe"
+  Email = "me+blog@estebantorr.es"
+  ShareTwitter = true
+  ProfilePicture = "assets/images/avatar.png"
+  customCss = ["assets/stylesheets/terminal.css"]
+  custom_css = ["assets/stylesheets/blockquote.css", "assets/stylesheets/cv.css"]
+  Title = "This is Esteban Torres"
+  Description = "& this is my journey through engineering…"
+  Author = "Esteban Torres"
+
+## Social links
+[[params.socialIcons]]
+icon = "fa-linkedin"
+title = "Linkedin"
+url = "https://www.linkedin.com/in/estebantorres"
+
+[[params.socialIcons]]
+icon = "fa-github"
+title = "GitHub"
+url = "https://github.com/esttorhe/"
+
+[[params.socialIcons]]
+icon = "fa-envelope"
+title = "e-mail"
+url = "mailto:me+blog@estebantorr.es"
+
+[permalinks]
+  post = "/:year/:month/:title/"
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = [":git", "lastmod", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+expiryDate = ["expiryDate"]
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 3
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
+## Menu items
+
+[menu]
+
+  [[menu.main]]
+  name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[menu.main]]
+  name = "About"
+  identifier = "about"
+  weight = 200
+  url = "/about"
+
+  [[menu.main]]
+  name = "Blog"
+  weight = 300
+  identifier = "blog"
+  url = "/blog/"
+
+  [[menu.main]]
+  name = "Talks"
+  weight = 400
+  identifier = "talks"
+  url = "/talks/"
+
+  [[menu.main]]
+  name = "CV"
+  weight = 500
+  identifier = "cv"
+  url = "/cv"

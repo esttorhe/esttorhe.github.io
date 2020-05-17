@@ -1,0 +1,71 @@
+---
+title: iOScon 2016
+date: 2016-06-03 14:04:17
+tags:
+- speaking
+- london
+- ioscon
+categories:
+- personal
+- professional
+- conferences
+issueNumber: 26
+---
+
+<!--more-->
+
+![iOScon 2016 Speakers](http://res.cloudinary.com/skillsmatter/image/upload/v1461926676/ioscon_speakers_collage_nxn8qm.jpg)
+
+Last week I had the chance to travel from Costa Rica all the way to London to speak at my first international conference: [`iOScon 2016`][ioscon]
+
+I had the opportunity to share with a lot of **GREAT** developers and more so to make new friends.
+
+My talk was: [`MVVM + RxSwift + DataControllers`][talk] and I think it went pretty well.
+
+Here are the [slides][slides].
+
+<script async class="speakerdeck-embed" data-id="7d5ec318cd9744f69818c716a2fc1642" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+There are still things to improve but overall received good feedback and I **REALLY** enjoyed the experience.
+
+## Travelling
+
+The trip was *SUPER* exhausting to say the least; spend most of the days and nights light headed and trying to fight «jet-lag» but it was such a great experience.
+
+## What I learned
+
+### Approaches to speaking
+
+I was able to witness first hand different styles of presenting a talk; as Marin told me and I wholeheartedly agree, talks that are given from a personal perspective are usually the best.
+
+This pretty much means that I'll try to keep giving my talks from a personal perspective and as if I was having a conversation with the attendees rather than just talking out loud (which honestly doesn't see that great an idea to be honest) ¯\\\_(ツ)_/¯
+
+### Nerves?
+
+I was never too «scared» or nervous about the whole talk thing; I've given my fair share of talks (although this was going to be my first international one) but it was somewhat unnerving to think that perhaps the content that I was creating wasn't worth it or that people would get bored.
+
+However as [Agnes][agnes] told me that [Marin][marin] told her once:
+>«they are in the room, you convinced them already»
+
+I've always thought about that but somehow have forgotten until Agnes reminded me 😄
+
+### Topics
+
+There's no need for **ONLY** speaking about breakthrough discoveries or great `OSS` projects you have created, etc.
+
+Talking about experiences, even non-technical topics are always great if you so happen to deliver them in a way that the attendees can relate to.
+
+Possibly my next talk won't be a technical talk but rather a mix between half-tech and half-personal experiences.
+
+---
+
+Surely I'll get to do this again soon.
+
+🙇
+
+
+[ioscon]:https://skillsmatter.com/conferences/7598-ioscon-2016-the-conference-for-ios-and-swift-developers
+[talk]:https://skillsmatter.com/skillscasts/7863-mvvm-rxswift-and-datacontrollers
+[slides]:https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers
+[agnes]:https://twitter.com/vasarhelyia
+[marin]:https://twitter.com/icanzilb
