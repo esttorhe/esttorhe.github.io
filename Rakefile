@@ -1,8 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'rake'
-require 'httparty'
-require 'json'
 
 namespace :config do
   desc "Configures the variables and «seds» the modules"
@@ -58,11 +56,6 @@ namespace :build do
   end
 end
 
-task :develop do
-  puts "Serving local website for development"
-  sh 'npm run develop'
-end
-
 desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
@@ -74,29 +67,15 @@ desc "Build site locally"
 task :build do
   puts "Generate the static sites from markdown"
 
-  sh 'gatsby build'
-end
-
-desc "Start gatsby server"
-task :server do
-  puts "Starting gatsby server"
-
-  gatsby = Process.spawn("gatsby serve")
-
-  trap("INT") {
-    Process.kill(9, gatsby) rescue Errno::ESRCH
-    exit 0
-  }
-
-  Process.wait(gatsby)
+  sh 'make build'
 end
 
 desc 'Runs html-proofer against current `build` directory (./public)'
 task :test do
   require 'html-proofer'
 
-  puts 'Testing public/ directory.'
-  HTMLProofer.check_directory('./public', {
+  puts 'Testing site/public/ directory.'
+  HTMLProofer.check_directory('site//public', {
     allow_hash_href: true,
     ext: '.html',
     :check_html => { :validation => { :report_invalid_tags => false } },

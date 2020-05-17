@@ -46,7 +46,7 @@ end
 
 # Look through all changed Markdown files
 markdown_files = (git.modified_files + git.added_files).select do |line|
-  line.start_with?("content/_posts") && line.end_with?(".markdown")
+  line.start_with?("site/content") && (line.end_with?(".md") || line.end_with?(".markdown"))
 end
 
 prose.disable_linters = ["typography.diacritical_marks", "butterick.symbols.curly_quotes", "butterick.symbols.multiplication_symbol"]
