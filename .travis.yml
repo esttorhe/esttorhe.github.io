@@ -15,18 +15,16 @@ addons:
       - aspell-en
 
 before_install:
-  - docker pull jojomi/hugo
+  - sudo docker pull jojomi/hugo
   - rvm install 2.5.0
   - bundle install --path="./.vendor/bundle" --jobs 3
-  - bundle exec rake config:bootstrap
-  - 'sudo docker pull ${distribution}:${version}'
 
 script:
   - bundle exec rake build:test
   - bundle exec danger
 
 install:
-- gatsby --version
+- docker run --rm jojomi/hugo hugo version
 
 env:
   global:

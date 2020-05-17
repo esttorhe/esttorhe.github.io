@@ -5,15 +5,6 @@ require 'httparty'
 require 'json'
 
 namespace :config do
-  desc "Initial setup"
-  task :bootstrap do
-    puts 'Installing dependencies...'
-    sh 'npm -g install npm@latest'
-    sh 'npm install'
-    sh 'pip install --user s3cmd'
-    sh 's3cmd --version'
-  end
-
   desc "Configures the variables and «seds» the modules"
   task :environment do
     sh 'git config --global user.name \'Esteban Torres via Travis CI\''
