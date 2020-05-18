@@ -67,13 +67,8 @@ expiryDate = ["expiryDate"]
 [menu]
 
   [[menu.main]]
-  name = "Home"
-  identifier = "home"
-  weight = 100
-  url = "/"
-
   [[menu.main]]
-  name = "About"
+  name = "Home"
   identifier = "about"
   weight = 200
   url = "/about"
