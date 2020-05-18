@@ -8,7 +8,7 @@ theme = "anatole"
   GitHubUser = "esttorhe"
   SidebarRecentLimit = 6
   Subtitle = "From iOS Engineer to Engineering Manager :/"
-  MainSections = ["about"]
+  MainSections = ["blog", "post"]
   Intro = true
   Github = "https://github.com/esttorhe"
   Twitter = "https://twitter.com/esttorhe"
@@ -67,8 +67,13 @@ expiryDate = ["expiryDate"]
 [menu]
 
   [[menu.main]]
-  [[menu.main]]
   name = "Home"
+  identifier = "home"
+  weight = 100
+  url = "/" 
+
+  [[menu.main]]
+  name = "About Me"
   identifier = "about"
   weight = 200
   url = "/about"
