@@ -8,15 +8,14 @@ theme = "anatole"
   GitHubUser = "esttorhe"
   SidebarRecentLimit = 6
   Subtitle = "From iOS Engineer to Engineering Manager :/"
-  MainSections = ["blog", "post"]
+  MainSections = ["management", "post"]
   Intro = true
   Github = "https://github.com/esttorhe"
   Twitter = "https://twitter.com/esttorhe"
   Email = "me+blog@estebantorr.es"
   ShareTwitter = true
   ProfilePicture = "assets/images/avatar.png"
-  customCss = ["assets/stylesheets/terminal.css", "assets/stylesheets/cv.css"]
-  custom_css = ["assets/stylesheets/blockquote.css"]
+  customCss = ["assets/css/terminal.css", "assets/css/cv.css", "assets/css/blockquote.css"]
   Title = "This is Esteban Torres"
   Description = "& this is my journey through engineering…"
   Author = "Esteban Torres"
@@ -73,16 +72,16 @@ expiryDate = ["expiryDate"]
   url = "/" 
 
   [[menu.main]]
-  name = "About Me"
-  identifier = "about"
+  name = "Archive"
   weight = 200
-  url = "/about"
+  identifier = "archive"
+  url = "/blog/"
 
   [[menu.main]]
-  name = "Blog"
+  name = "About Me"
+  identifier = "about"
   weight = 300
-  identifier = "blog"
-  url = "/blog/"
+  url = "/about"
 
   [[menu.main]]
   name = "Talks"
