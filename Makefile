@@ -19,4 +19,4 @@ build:
 	$(COMMAND) hugo
 
 serve:
-	$(COMMAND) hugo server -b ${HUGO_BASE_URL} --bind=$(URL) --watch --buildDrafts
+	$(COMMAND) hugo server -b ${HUGO_BASE_URL} --bind=$(URL) --watch --buildDrafts --disableFastRender

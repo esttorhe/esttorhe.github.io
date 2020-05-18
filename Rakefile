@@ -65,7 +65,7 @@ desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
 
-  sh 'rm -rf ./.cache && rm -rf ./public'
+  sh 'rm -rf ./.cache && rm -rf ./site/public'
 end
 
 desc "Build site locally"
