@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: "Hidden error variable on exhaustive block"
 date: 2015-06-15 22:15:03 -0600
 comments: true

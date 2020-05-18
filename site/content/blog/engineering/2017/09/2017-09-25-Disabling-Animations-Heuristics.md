@@ -1,5 +1,6 @@
 ---
 title: Disabling Animations Heuristics
+type: post
 date: 2017-09-25 13:19:44
 tags:
 - animations

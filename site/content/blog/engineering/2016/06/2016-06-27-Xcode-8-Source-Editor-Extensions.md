@@ -1,5 +1,6 @@
 ---
 title: Xcode 8 Source Editor Extensions
+type: post
 date: 2016-06-27 22:00:49
 tags:
 - xcode

@@ -1,5 +1,6 @@
 ---
 title: Nokogiri on El Capitan
+type: post
 date: 2015-10-02 10:03:51
 tags:
 - nokogiri

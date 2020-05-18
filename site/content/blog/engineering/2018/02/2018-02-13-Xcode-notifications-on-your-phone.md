@@ -1,6 +1,7 @@
 ---
 title: Xcode notifications on your 📱
 date: 2018-02-13 18:18:04
+type: post
 tags: 
     - xcode
     - notifications

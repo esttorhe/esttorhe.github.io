@@ -1,6 +1,7 @@
 ---
 title: 'Review: 2015'
 date: 2016-01-06 21:46:17
+type: post
 tags:
 - new year
 - resolutions

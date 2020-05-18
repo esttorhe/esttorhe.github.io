@@ -1,6 +1,7 @@
 ---
 title: '21DaysChallenge'
 date: 2015-07-30 20:05:26
+type: post
 tags:
 - diet
 - fitness

@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: "Swift 2.0 - throws tip"
 date: 2015-06-14 17:39:51 +0000
 comments: true

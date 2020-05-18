@@ -1,5 +1,6 @@
 ---
 title: New Website
+type: post
 date: 2015-06-20 17:09:02
 tags:
 - blog

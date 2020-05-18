@@ -1,5 +1,6 @@
 ---
 title: Xcode Plugins I use
+type: post
 date: 2015-07-20 11:23:40
 tags:
 - xcode

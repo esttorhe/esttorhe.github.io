@@ -1,5 +1,5 @@
 ---
-layout: post
+type: post
 title: "'Show' Adaptative Segue Error"
 date: 2014-12-16 18:43:03 +0000
 author: Esteban Torres
@@ -18,9 +18,8 @@ blog-url: http://estebantorr.es
 image:
     feature: ./segue.png
 issueNumber: 33
-
-layout:
-  banner: "/assets/images/post/2014/12/show-adaptative-segue-error/segue.png"
+type: post
+banner: "/assets/images/post/2014/12/show-adaptative-segue-error/segue.png"
 ---
 
 On our projects we use multiple `UIStoryboard` files to break our apps; yes, we use storyboards, we are drinking Apple's "Kool-Aid" and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.

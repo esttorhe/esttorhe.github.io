@@ -1,5 +1,6 @@
 ---
 title: Small Tip for Debugging Autolayout issues
+type: post
 date: 2016-01-13 16:11:38
 tags:
 - ios

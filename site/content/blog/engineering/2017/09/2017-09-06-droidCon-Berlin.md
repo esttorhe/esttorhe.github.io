@@ -1,5 +1,6 @@
 ---
 title: droidCon Berlin
+type: post
 date: 2017-09-06 08:55:10
 tags:
 - droidcon
