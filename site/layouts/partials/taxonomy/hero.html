@@ -1,0 +1,38 @@
+<style>
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 15vh;
+    }
+    
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("{{ . | absURL }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        filter: opacity(0.35);
+    }
+    .hero-content {
+        position: relative;
+    }
+
+    .hero h3 {
+        position: absolute;
+        top: 1em;
+        left: 0.5em;
+    }
+
+    .hero .info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+
+<section class="hero">
