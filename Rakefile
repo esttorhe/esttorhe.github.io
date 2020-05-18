@@ -75,7 +75,7 @@ task :test do
   require 'html-proofer'
 
   puts 'Testing site/public/ directory.'
-  HTMLProofer.check_directory('site//public', {
+  HTMLProofer.check_directory('site/public', {
     allow_hash_href: true,
     ext: '.html',
     :check_html => { :validation => { :report_invalid_tags => false } },
