@@ -16,7 +16,7 @@ namespace :deploy do
   task :production do
     Rake::Task['clean'].invoke
     sh 'git worktree add -B master site/public upstream/master'
-    sh 'rm -rf site/public/*'
+    sh 'sudo rm -rf site/public/*'
     Rake::Task['build']
     sh 'cd site/public && git add --all && git commit -m "Publishing blog" && cd ../'
     sh 'git push -f upstream master'
@@ -65,7 +65,7 @@ desc "Cleans the locally generated pages"
 task :clean do
   puts "Cleaning «public» folder"
 
-  sh 'rm -rf ./.cache && rm -rf ./site/public'
+  sh 'sudo rm -rf ./.cache && sudo rm -rf ./site/public'
 end
 
 desc "Build site locally"
