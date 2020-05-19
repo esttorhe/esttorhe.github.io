@@ -6,6 +6,7 @@ node_modules/
 public/
 .deploy*/
 /vendor
+/.vendor
 /.bundle
 .cache/
 .vscode

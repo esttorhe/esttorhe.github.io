@@ -1,6 +1,5 @@
 language: node_js
 
-sudo: required
 services:
   - docker
 
@@ -19,7 +18,7 @@ addons:
       - aspell-en
 
 before_install:
-  - sudo docker pull jojomi/hugo
+  - docker pull jojomi/hugo
   - rvm install 2.5.0
   - bundle install --path="./.vendor/bundle" --jobs 3
 
@@ -35,7 +34,12 @@ env:
     secure: pg0cuGArjQzHRZ0rqMrkGjI9yTlfyKJ7gRBKh4WtswZJxhFc3VC6PgzNPP/QGG7+OJLx99bwbh8+bg60guLmnzyzBjxNvkVFSYig+7MbzSBgH1fIin0hLJ2zWZPnW8VjNTk7WYc7LHGoYQ2SV3A9gPKcyyEGtiYQaBzcD/PdTyc=
 
 before_script:
-  - bundle exec rake config:environment
+- bundle exec rake config:environment
 
-after_success:
-- bundle exec rake deploy:travis
+deploy:
+  - provider: pages
+    keep_history: true
+    github_token: $GH_DEPLOY_TOKEN  # Your GitHub token set in Travis CI console
+    target_branch: master        # Add this line - To push into GitHub master branch
+    on:
+      branch: source            # Your GitHub repo default branch

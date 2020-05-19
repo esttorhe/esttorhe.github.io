@@ -15,11 +15,12 @@ namespace :deploy do
   desc "Deployment to production"
   task :production do
     Rake::Task['clean'].invoke
-    sh 'git worktree add -B master site/public upstream/master'
+    sh 'git remote --verbose'
+    sh 'git worktree add -B master site/public origin/master'
     sh 'sudo rm -rf site/public/*'
     Rake::Task['build']
     sh 'cd site/public && git add --all && git commit -m "Publishing blog" && cd ../'
-    sh 'git push -f upstream master'
+    sh 'git push -f origin master'
   end
 
   desc "Deploy if Travis environment variables are set correctly"
