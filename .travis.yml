@@ -1,12 +1,13 @@
 language: node_js
-node_js:
-  - "10"
+
+sudo: required
+services:
+  - docker
 
 cache:
   bundler: true
   pip: true
   directories:
-    - node_modules
     - .vendor
     - /home/travis/.rvm/
     - /home/travis/.nvm/
@@ -18,23 +19,23 @@ addons:
       - aspell-en
 
 before_install:
-- rvm install 2.5.0
-- bundle install --path="./.vendor/bundle" --jobs 3
-- bundle exec rake config:bootstrap
+  - sudo docker pull jojomi/hugo
+  - rvm install 2.5.0
+  - bundle install --path="./.vendor/bundle" --jobs 3
+
+script:
+  - bundle exec rake build:test
+  - bundle exec danger
 
 install:
-- gatsby --version
+- docker run --rm jojomi/hugo hugo version
 
 env:
   global:
     secure: pg0cuGArjQzHRZ0rqMrkGjI9yTlfyKJ7gRBKh4WtswZJxhFc3VC6PgzNPP/QGG7+OJLx99bwbh8+bg60guLmnzyzBjxNvkVFSYig+7MbzSBgH1fIin0hLJ2zWZPnW8VjNTk7WYc7LHGoYQ2SV3A9gPKcyyEGtiYQaBzcD/PdTyc=
 
 before_script:
-- bundle exec rake config:environment
-
-script:
-- bundle exec rake build:test
-- bundle exec danger
+  - bundle exec rake config:environment
 
 after_success:
 - bundle exec rake deploy:travis

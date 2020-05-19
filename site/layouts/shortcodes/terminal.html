@@ -1,0 +1,22 @@
+{{ $prompt := .Get "prompt" | default "$" }}
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    {{ range split .Inner "\n" }}
+      {{ if hasPrefix . $prompt }}
+        <code class="prompt">{{ $prompt }}</code>
+        <code>{{ strings.TrimPrefix $prompt . }}</code>
+      {{ else }}
+        <pre><code>{{ . }}</code></pre>
+      {{ end }}
+    {{ end }}
+  </main>
+</div>

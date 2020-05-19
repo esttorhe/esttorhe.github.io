@@ -1,0 +1,16 @@
+{{ $user := cond (.IsNamedParams) (.Get "user") (.Get 0) }}
+{{ $repo := cond (.IsNamedParams) (.Get "repo") (.Get 1) }}
+{{ $commit := cond (.IsNamedParams) (.Get "commit") (.Get 2) }}
+{{ $width := default "45%" (cond (.IsNamedParams) (.Get "width") (.Get 3)) }}
+{{ $autoExpand := (cond (.IsNamedParams) (.Get "autoExpand") (.Get 4)) }}
+
+{{ $id := print $user "+" $repo "+" $commit }}
+
+<div id="{{ $id }}" class="hexo-github" style="width: {{ $width }}">
+</div>
+<script src="/github-badge/badge.js"></script>
+<script type="text/javascript">
+  loadStyle("/github-badge/style.css");
+  loadStyle("/github-badge/octicons/octicons.css");
+  new Badge("{{ $id }}", "{{ $user }}", "{{ $repo }}", "{{ $commit }}", "{{ $autoExpand }}");
+</script>
