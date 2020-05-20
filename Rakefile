@@ -5,9 +5,9 @@ require 'rake'
 namespace :config do
   desc "Configures the variables and «seds» the modules"
   task :environment do
-    sh 'git config --global user.name \'Esteban Torres via Travis CI\''
-    sh 'git config --global user.email \'me@estebantorr.es\''
-    sh 'git remote set-url origin "https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git"'
+    # sh 'git config --global user.name \'Esteban Torres via Travis CI\''
+    # sh 'git config --global user.email \'me@estebantorr.es\''
+    # sh 'git remote set-url origin "https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git"'
   end
 end
 
