@@ -2,57 +2,6 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rake'
 
-namespace :config do
-  desc "Configures the variables and «seds» the modules"
-  task :environment do
-    # sh 'git config --global user.name \'Esteban Torres via Travis CI\''
-    # sh 'git config --global user.email \'me@estebantorr.es\''
-    # sh 'git remote set-url origin "https://${GH_TOKEN}:x-oauth-basic@github.com/esttorhe/esttorhe.github.io.git"'
-  end
-end
-
-namespace :deploy do
-  desc "Deployment to production"
-  task :production do
-    Rake::Task['clean'].invoke
-    sh 'git remote --verbose'
-    sh 'git worktree add -B master site/public origin/master'
-    sh 'sudo rm -rf site/public/*'
-    Rake::Task['build']
-    sh 'cd site/public && git add --all && git commit -m "Publishing blog" && cd ../'
-    sh 'git push -f origin master'
-  end
-
-  desc "Deploy if Travis environment variables are set correctly"
-  task :travis do
-    branch = ENV['TRAVIS_BRANCH']
-    pull_request = ENV['TRAVIS_PULL_REQUEST']
-
-    abort 'Must be run on Travis' unless branch
-
-    if pull_request != 'false'
-      puts 'Skipping deploy for pull request; can only be deployed from source branch.'
-      exit 0
-    end
-
-    if branch != 'source'
-      puts "Skipping deploy for #{ branch }; can only be deployed from source branch."
-      exit 0
-    end
-
-    Rake::Task['deploy:production'].invoke
-  end
-end
-
-namespace :publish do
-  desc "Build and deploy to production"
-  task :production do
-    Rake::Task['build'].invoke
-    Rake::Task['deploy:production'].invoke
-  end
-end
-
-
 namespace :build do
   desc 'Builds, then tests'
   task :test do
@@ -95,5 +44,3 @@ task :test do
     verbose: true,
     }).run
 end
-
-task :default => :server

@@ -34,9 +34,6 @@ env:
   global:
     secure: pg0cuGArjQzHRZ0rqMrkGjI9yTlfyKJ7gRBKh4WtswZJxhFc3VC6PgzNPP/QGG7+OJLx99bwbh8+bg60guLmnzyzBjxNvkVFSYig+7MbzSBgH1fIin0hLJ2zWZPnW8VjNTk7WYc7LHGoYQ2SV3A9gPKcyyEGtiYQaBzcD/PdTyc=
 
-before_script:
-- bundle exec rake config:environment
-
 deploy:
   provider: pages
   skip_cleanup: true
