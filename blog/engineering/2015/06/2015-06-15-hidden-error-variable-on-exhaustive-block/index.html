@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title> Esteban Torres | Hidden error variable on exhaustive block </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="&amp; this is my journey through engineering…">
+    
+    <link rel="stylesheet" href="https://estebantorr.es/css/style.min.dad68694f67c532e8ff0532b54c6e42b7ea1c4ef3c89f02db437fcf63ef9ff0f.css" integrity="sha256-2taGlPZ8Uy6P8FMrVMbkK36hxO88ifAttDf89j75/w8=" type="text/css">
+    <link rel="stylesheet" href="https://estebantorr.es/assets/css/terminal.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/cv.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/blockquote.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="https://estebantorr.es/">
+    
+    <link rel="shortcut icon" href="https://estebantorr.es/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://estebantorr.es/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://estebantorr.es/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://estebantorr.es/favicon-16x16.png">
+
+    <link rel="canonical" href="https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/">
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://estebantorr.es/assets/images/avatar.png" alt="profile picture">
+        <h3 title=""><a href="/">This is Esteban Torres</a></h3>
+        <div class="description">
+          <p>&amp; this is my journey through engineering…</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://www.linkedin.com/in/estebantorres" rel="me" >
+          <i class="fa fa-linkedin" aria-hidden="true" title="Linkedin"></i>
+        </a>
+        
+        <a href="https://github.com/esttorhe/" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="mailto:me&#43;blog@estebantorr.es" rel="me" >
+          <i class="fa fa-envelope" aria-hidden="true" title="e-mail"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Esteban Torres 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+
+        
+        <li><a  href="/blog/" title="">Archive</a></li>
+
+        
+        <li><a  href="/about" title="">About Me</a></li>
+
+        
+        <li><a  href="/talks/" title="">Talks</a></li>
+
+        
+        <li><a  href="/cv" title="">CV</a></li>
+
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      
+      <div class="post-title">
+        <h3>Hidden error variable on exhaustive block
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Mon, Jun 15, 2015</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">2-minute read</span>
+        </div>
+        
+      </div>
+      
+
+    <p>On my <a href="/2015/06/swift-2.0-throws-tip/">previous post</a> I tried to help «solve» in a way the problem with non-typed <code>throws</code> by documenting them on the internal docs as lists with <code>markdown</code>.</p>
+<p>Based on that you can rightfully assume that I&rsquo;m migrating all my <code>Result&lt;T,U&gt;</code> code to support <code>throws</code> instead, on my <code>2.0</code> branches.</p>
+<p>As you might know (or not) whenever you do a <code>do</code>/<code>catch</code> block the <code>catch</code> block needs to be exhaustive; just like a <code>switch</code> and «catch» <em>all</em> possible paths.</p>
+<p>It doesn&rsquo;t mean you <strong>necessarily</strong> need to specify every single error type in your <code>catch</code> block (even though ideally you should react differently for each type of error) but you can add an exhaustive <code>catch</code> that will represent «every single error».</p>
+<h1 id="the-problem">The Problem</h1>
+<p>Apparently <code>Swift</code> internally «reserves» the <code>error</code> variable on the exhaustive <code>catch</code> block without documenting it anywhere on the book.</p>
+<p>To provide context copy and paste the following code in an empty <code>Playground</code> on <code>Xcode 7</code> and see how the compiler complains with the message:</p>
+<blockquote>
+<p>Cannot assign to &lsquo;let&rsquo; value &lsquo;error&rsquo;</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">TestError</span>: ErrorType {
+  <span style="color:#66d9ef">case</span> HiddenErrorVariable
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">throwingFunction</span>() <span style="color:#66d9ef">throws</span> -&gt; () {
+  <span style="color:#66d9ef">throw</span> TestError.HiddenErrorVariable
+}
+
+<span style="color:#66d9ef">let</span> error: TestError
+<span style="color:#66d9ef">do</span> {
+  <span style="color:#66d9ef">try</span> throwingFunction()
+} <span style="color:#66d9ef">catch</span> {
+  error = TestError.HiddenErrorVariable
+
+  print(error)
+}
+
+print(error)
+</code></pre></div><hr>
+<p>Keep in mind that this is an oversimplified and reduced code to demonstrate the issue; I&rsquo;m well aware that without that compile complain it will still complain about using <code>error</code> without being initialized.</p>
+<hr>
+<h1 id="what-now">What now?</h1>
+<p>For now the workaround is simple; avoid using a <code>let error</code> near an exhaustive <code>catch</code> block. Although that&rsquo;s not quite a solution but a patch; with some luck <code>Apple</code> will eventually fix this issue; <code>Swift 2.0</code> its still a ß and can contain a fix for this (or at least document it somewhere other than this blog post) by the time it hits production.</p>
+<p>In the meantime I filed a radar <a href="http://openradar.appspot.com/21396321"><code>rdar://21396321</code></a> explaining the issue and also asked <a href="https://twitter.com/jckarter">Joe Groff</a> (he works on <code>Swift</code> compiler at <code>Apple</code>) about this and will update when (if) he answers:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/jckarter?ref_src=twsrc%5Etfw">@jckarter</a> is the `error` reservation on exhaustive `catch` documented anywhere - <a href="http://t.co/qgGm1tlX4i">http://t.co/qgGm1tlX4i</a> ? Or a bug?</p>&mdash; Esteban Torres (@esttorhe) <a href="https://twitter.com/esttorhe/status/610667900421152768?ref_src=twsrc%5Etfw">June 16, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="update">Update</h2>
+<p>Well; <a href="https://twitter.com/jckarter">Joe</a> answered quicker than expected:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe?ref_src=twsrc%5Etfw">@esttorhe</a> It intentionally implicitly binds an &quot;error&quot; variable if you specified none.</p>&mdash; Joe Groff (@jckarter) <a href="https://twitter.com/jckarter/status/610668658105413633?ref_src=twsrc%5Etfw">June 16, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Apparently it is intentional (which is good) but is not documented anywhere.</p>
+<p>I suggested adding it to the book/docs and he agreed; perhaps we will see a fix for it before it hits production.</p>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/categories/bug/">bug</a><a class="category" href="/categories/swift/">swift</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/tags/swift2/">swift2</a><a class="tag" href="/tags/swift/">swift</a><a class="tag" href="/tags/radar/">radar</a><a class="tag" href="/tags/bug/">bug</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="></script>
+
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="></script>
+
+<script type="text/javascript" src="https://estebantorr.es/js/medium-zoom.min.7487768bffcc6aee437cf6a4ac7da5d2ffc61dc63b36316a14122ceb26b34c70.js" integrity="sha256-dId2i//Mau5DfPakrH2l0v/GHcY7NjFqFBIs6yazTHA="></script>
+
+<link rel="stylesheet" href="https://estebantorr.es/css/medium-zoom.min.a1468f7a1cce6fe96c4b5483cb4645b85728a32b3abbd598c375a92df16230ef.css" integrity="sha256-oUaPehzOb&#43;lsS1SDy0ZFuFcooys6u9WYw3WpLfFiMO8=" type="text/css"></html></body>
+
+</html>

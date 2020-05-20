@@ -1,2 +1,0 @@
-webpackJsonp([0x88ba6ec275c2],{569:function(e,a){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"#21DaysChallenge"},url:"21DaysChallenge"}}]}},pathContext:{tag:"exercise"}}}});
-//# sourceMappingURL=path---tags-exercise-3baf6171699736b9d200.js.map

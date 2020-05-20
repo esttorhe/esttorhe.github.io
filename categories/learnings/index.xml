@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learnings on Journey through engineering…</title>
+    <link>https://estebantorr.es/categories/learnings/</link>
+    <description>Recent content in learnings on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Sep 2015 22:11:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/categories/learnings/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to (and not) ask questions…</title>
+      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</link>
+      <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</guid>
+      <description>&lt;p&gt;Is it safe to say that I&amp;rsquo;ve been «scolded» twice this week due to my technical questions.&lt;/p&gt;
+&lt;p&gt;Now… I was not &lt;em&gt;scolded&lt;/em&gt; as the word implies but the context was that; and I did deserve it if I&amp;rsquo;m honest.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

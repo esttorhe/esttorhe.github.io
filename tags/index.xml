@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/</link>
+    <description>Recent content in Tags on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Feb 2018 22:46:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>about</title>
+      <link>https://estebantorr.es/tags/about/</link>
+      <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CV</title>
+      <link>https://estebantorr.es/tags/cv/</link>
+      <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Esteban Torres</title>
+      <link>https://estebantorr.es/tags/esteban-torres/</link>
+      <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/esteban-torres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notifications</title>
+      <link>https://estebantorr.es/tags/notifications/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/notifications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ntfy</title>
+      <link>https://estebantorr.es/tags/ntfy/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/ntfy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xcode</title>
+      <link>https://estebantorr.es/tags/xcode/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/xcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>animations</title>
+      <link>https://estebantorr.es/tags/animations/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/animations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heuristics</title>
+      <link>https://estebantorr.es/tags/heuristics/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/heuristics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://estebantorr.es/tags/android/</link>
+      <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>berlin</title>
+      <link>https://estebantorr.es/tags/berlin/</link>
+      <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/berlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>droidcon</title>
+      <link>https://estebantorr.es/tags/droidcon/</link>
+      <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/droidcon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>growth</title>
+      <link>https://estebantorr.es/tags/growth/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/growth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://estebantorr.es/tags/life/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>new year</title>
+      <link>https://estebantorr.es/tags/new-year/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/new-year/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oss</title>
+      <link>https://estebantorr.es/tags/oss/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://estebantorr.es/tags/personal/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>extensions</title>
+      <link>https://estebantorr.es/tags/extensions/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/extensions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ide</title>
+      <link>https://estebantorr.es/tags/ide/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/ide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugins</title>
+      <link>https://estebantorr.es/tags/plugins/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift</title>
+      <link>https://estebantorr.es/tags/swift/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xcode 8</title>
+      <link>https://estebantorr.es/tags/xcode-8/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/xcode-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ios</title>
+      <link>https://estebantorr.es/tags/ios/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/ios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ioscon</title>
+      <link>https://estebantorr.es/tags/ioscon/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/ioscon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>london</title>
+      <link>https://estebantorr.es/tags/london/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/london/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>speaking</title>
+      <link>https://estebantorr.es/tags/speaking/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/speaking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debugging</title>
+      <link>https://estebantorr.es/tags/debugging/</link>
+      <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resolutions</title>
+      <link>https://estebantorr.es/tags/resolutions/</link>
+      <pubDate>Wed, 06 Jan 2016 21:46:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/resolutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>https://estebantorr.es/tags/bug/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>el capitan</title>
+      <link>https://estebantorr.es/tags/el-capitan/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/el-capitan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fix</title>
+      <link>https://estebantorr.es/tags/fix/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/fix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gems</title>
+      <link>https://estebantorr.es/tags/gems/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/gems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nokogiri</title>
+      <link>https://estebantorr.es/tags/nokogiri/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/nokogiri/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mistakes</title>
+      <link>https://estebantorr.es/tags/mistakes/</link>
+      <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/mistakes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>questions</title>
+      <link>https://estebantorr.es/tags/questions/</link>
+      <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/questions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cocoa</title>
+      <link>https://estebantorr.es/tags/cocoa/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/cocoa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cocoapods</title>
+      <link>https://estebantorr.es/tags/cocoapods/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/cocoapods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>error</title>
+      <link>https://estebantorr.es/tags/error/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rpath</title>
+      <link>https://estebantorr.es/tags/rpath/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/rpath/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swift2</title>
+      <link>https://estebantorr.es/tags/swift2/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/swift2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://estebantorr.es/tags/programming/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semver</title>
+      <link>https://estebantorr.es/tags/semver/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/semver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>https://estebantorr.es/tags/tips/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>versioning</title>
+      <link>https://estebantorr.es/tags/versioning/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/versioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>diet</title>
+      <link>https://estebantorr.es/tags/diet/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/diet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercise</title>
+      <link>https://estebantorr.es/tags/exercise/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/exercise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fitness</title>
+      <link>https://estebantorr.es/tags/fitness/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/fitness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>developer tools</title>
+      <link>https://estebantorr.es/tags/developer-tools/</link>
+      <pubDate>Mon, 20 Jul 2015 11:23:40 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/developer-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://estebantorr.es/tags/blog/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hexo</title>
+      <link>https://estebantorr.es/tags/hexo/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/hexo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://estebantorr.es/tags/hugo/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jekyll</title>
+      <link>https://estebantorr.es/tags/jekyll/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>octopress</title>
+      <link>https://estebantorr.es/tags/octopress/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/octopress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>radar</title>
+      <link>https://estebantorr.es/tags/radar/</link>
+      <pubDate>Mon, 15 Jun 2015 22:15:03 -0600</pubDate>
+      
+      <guid>https://estebantorr.es/tags/radar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>professional</title>
+      <link>https://estebantorr.es/tags/professional/</link>
+      <pubDate>Wed, 31 Dec 2014 21:21:33 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/professional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>segue</title>
+      <link>https://estebantorr.es/tags/segue/</link>
+      <pubDate>Tue, 16 Dec 2014 18:43:03 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/segue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>https://estebantorr.es/tags/index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/index/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

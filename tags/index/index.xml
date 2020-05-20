@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>index on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/index/</link>
+    <description>Recent content in index on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://estebantorr.es/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>https://estebantorr.es/blog/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Engineering Posts</title>
+      <link>https://estebantorr.es/blog/engineering/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Engineering Management Posts</title>
+      <link>https://estebantorr.es/blog/management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/management/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

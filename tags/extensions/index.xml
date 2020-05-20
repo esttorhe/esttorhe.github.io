@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>extensions on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/extensions/</link>
+    <description>Recent content in extensions on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/tags/extensions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Xcode 8 Source Editor Extensions</title>
+      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</guid>
+      <description>&lt;p&gt;This last &lt;code&gt;WWDC&lt;/code&gt; &lt;code&gt;Apple&lt;/code&gt; announced that they will be providing us developers with «official» and «legal» ways to create &lt;code&gt;Xcode&lt;/code&gt; plugins.&lt;/p&gt;
+&lt;p&gt;There are many posts covering this and I won&amp;rsquo;t center in the «how to» but rather in one single tip that prevented me from going crazy while developing &lt;a href=&#34;https://github.com/esttorhe/localizer&#34;&gt;&lt;code&gt;Localizer&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+&lt;div id=&#34;esttorhe&amp;#43;Localizer&amp;#43;3831a7&#34; class=&#34;hexo-github&#34; style=&#34;width: 45%&#34;&gt;
+&lt;/div&gt;
+&lt;script src=&#34;https://estebantorr.es/github-badge/badge.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+  loadStyle(&#34;/github-badge/style.css&#34;);
+  loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
+  new Badge(&#34;esttorhe\x2bLocalizer\x2b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
+&lt;/script&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

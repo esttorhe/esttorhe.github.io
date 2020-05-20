@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>personal on Journey through engineering…</title>
+    <link>https://estebantorr.es/categories/personal/</link>
+    <description>Recent content in personal on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Dec 2016 14:08:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>📦 Wrapping up 2016</title>
+      <link>https://estebantorr.es/blog/engineering/2016/12/2016-12-16-wrapping-up-2017/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/12/2016-12-16-wrapping-up-2017/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been away for quite some time now and a lot of things have changed since I last had the time to blog.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll try to detail everything that has happened in my life in the past few months and also prepare for my yearly wrap-up post.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iOScon 2016</title>
+      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Review: 2015</title>
+      <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-06-review-2015/</link>
+      <pubDate>Wed, 06 Jan 2016 21:46:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/01/2016-01-06-review-2015/</guid>
+      <description>&lt;p&gt;Last year I made a &lt;a href=&#34;https://github.com/esttorhe/2015-Resolutions&#34;&gt;list of resolutions&lt;/a&gt; and also &lt;a href=&#34;https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/&#34;&gt;blogged about it&lt;/a&gt;; overall it was a great year; completed almost all my resolutions and had the chance to grow &lt;strong&gt;A LOT&lt;/strong&gt; professionally (or so I think).&lt;/p&gt;
+&lt;p&gt;A small round down of my previous year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Got turned down by &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt;: Basically applied to &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt; and everything went OK but I suck at interviews; I think I don&amp;rsquo;t know how to sell myself properly and was turned down.
+&lt;!-- raw HTML omitted --&gt;No hard feelings though, they felt I wasn&amp;rsquo;t a good fit for the team and they got to do what&amp;rsquo;s best for the team.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to (and not) ask questions…</title>
+      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</link>
+      <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</guid>
+      <description>&lt;p&gt;Is it safe to say that I&amp;rsquo;ve been «scolded» twice this week due to my technical questions.&lt;/p&gt;
+&lt;p&gt;Now… I was not &lt;em&gt;scolded&lt;/em&gt; as the word implies but the context was that; and I did deserve it if I&amp;rsquo;m honest.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>21DaysChallenge</title>
+      <link>https://estebantorr.es/blog/engineering/2015/07/2015-07-30-21dayschallenge/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/07/2015-07-30-21dayschallenge/</guid>
+      <description>&lt;p&gt;Is a «well known» fact that I&amp;rsquo;m trying to get to 12% body fat; last year I was really close at 14% but then I ricocheted back to 17% and my mental state took a toll and was not able to get back on track. I&amp;rsquo;ve been going up &amp;amp; down on my body fat since then.&lt;/p&gt;
+&lt;p&gt;Last December I hit horrible numbers because I pretty much gave up on exercising 💪 and dieting 🌿 ¯\_(ツ)_/¯&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Year Resolutions</title>
+      <link>https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/</link>
+      <pubDate>Wed, 31 Dec 2014 21:21:33 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/</guid>
+      <description>I&amp;rsquo;ve got the opportunity to read Ash Furrow&amp;lsquo;s post about his 5 years doing iOS development and read (as much as I could from my phone) Orta&amp;lsquo;s blog about his 28 and came to think about MY year and decided I was going to write something.
+Doing this as quickly as possible while my 7 months old is sleeping and my girlfriend is finishing all preparations before we leave home to meet the families.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ntfy on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/ntfy/</link>
+    <description>Recent content in ntfy on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Feb 2018 18:18:04 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/tags/ntfy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Xcode notifications on your 📱</title>
+      <link>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</guid>
+      <description>&lt;p&gt;Since quite some time now I&amp;rsquo;ve been working on &lt;code&gt;Xcode&lt;/code&gt; projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.&lt;/p&gt;
+&lt;p&gt;I also like to multi-task and do some other stuff while I&amp;rsquo;m compiling…&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/compiling.png&#34; alt=&#34;xkcd comic about compilation times&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,2 +1,0 @@
-webpackJsonp([0x890bdb045ba1],{581:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"jekyll"}}}});
-//# sourceMappingURL=path---tags-jekyll-419ab2c4a1577896842e.js.map

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title> Esteban Torres | Swift 2.0 - throws tip </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="&amp; this is my journey through engineering…">
+    
+    <link rel="stylesheet" href="https://estebantorr.es/css/style.min.dad68694f67c532e8ff0532b54c6e42b7ea1c4ef3c89f02db437fcf63ef9ff0f.css" integrity="sha256-2taGlPZ8Uy6P8FMrVMbkK36hxO88ifAttDf89j75/w8=" type="text/css">
+    <link rel="stylesheet" href="https://estebantorr.es/assets/css/terminal.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/cv.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/blockquote.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="https://estebantorr.es/">
+    
+    <link rel="shortcut icon" href="https://estebantorr.es/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://estebantorr.es/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://estebantorr.es/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://estebantorr.es/favicon-16x16.png">
+
+    <link rel="canonical" href="https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/">
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://estebantorr.es/assets/images/avatar.png" alt="profile picture">
+        <h3 title=""><a href="/">This is Esteban Torres</a></h3>
+        <div class="description">
+          <p>&amp; this is my journey through engineering…</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://www.linkedin.com/in/estebantorres" rel="me" >
+          <i class="fa fa-linkedin" aria-hidden="true" title="Linkedin"></i>
+        </a>
+        
+        <a href="https://github.com/esttorhe/" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="mailto:me&#43;blog@estebantorr.es" rel="me" >
+          <i class="fa fa-envelope" aria-hidden="true" title="e-mail"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Esteban Torres 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+
+        
+        <li><a  href="/blog/" title="">Archive</a></li>
+
+        
+        <li><a  href="/about" title="">About Me</a></li>
+
+        
+        <li><a  href="/talks/" title="">Talks</a></li>
+
+        
+        <li><a  href="/cv" title="">CV</a></li>
+
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      
+      <div class="post-title">
+        <h3>Swift 2.0 - throws tip
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Sun, Jun 14, 2015</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">2-minute read</span>
+        </div>
+        
+      </div>
+      
+
+    <h1 id="quick-swift-20-throws-tip">Quick <code>Swift 2.0</code> <code>throws</code> tip:</h1>
+<p>There&rsquo;s been <strong><em>a lot</em></strong> of «heated» debates regarding the <code>throws</code> approach added to <code>Swift 2.0</code> in favor of <code>Either&lt;T,U&gt;</code>.</p>
+<hr>
+<p>Some examples:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/cocoaphony?ref_src=twsrc%5Etfw">@cocoaphony</a> Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/</p>&mdash; Tom Brow (@browgrammer) <a href="https://twitter.com/browgrammer/status/609841773284724737?ref_src=twsrc%5Etfw">June 13, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- raw HTML omitted -->
+<hr>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</p>&mdash; Justin Spahr-Summers (@jspahrsummers) <a href="https://twitter.com/jspahrsummers/status/608066730250924032?ref_src=twsrc%5Etfw">June 9, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<hr>
+<p>That being said, I&rsquo;m not going to convince you to use it or avoid it. That&rsquo;s entirely up to you, the app / framework you are working on and wether or not you need to do async calls with <code>throws</code> (which is a «fun» thing to accomplish).</p>
+<!-- raw HTML omitted -->
+<p>If you end up using the <code>throws</code> approach though there&rsquo;s a big issue along the lines of «What is this function supposed to <code>throw</code> at me?»</p>
+<p>And while this tip won&rsquo;t «solve» the issue at compile time is sure a nice way to «notify» the consumers of your <code>API</code> somehow.</p>
+<p>My approach so far was to add the following to the header of the apple doc of my functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-swift" data-lang="swift">  <span style="color:#75715e">/**
+</span><span style="color:#75715e">  Do something nice here.
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">  - parameter dragon: 🐉
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">  - returns: A rainbow 🌈
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">  - throws `CustomError`: Thrown when a unicorn is born.
+</span><span style="color:#75715e">  */</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">winTheInternet</span>(dragon: Dragon) <span style="color:#66d9ef">throws</span> -&gt; Rainbow { <span style="color:#960050;background-color:#1e0010">…</span>
+</code></pre></div><p>This will turn into something like this:</p>
+<p><img src="assets/images/post/2015/06/swift-2-dot-0-throws-tip/swif2_throws_documentation.png" alt=""></p>
+<h2 id="take-away">Take away</h2>
+<p>As you can see this is not a «perfect» solution but is at least a great way of providing documentation for your callers as part of your internal documentation.</p>
+<p>Happy documentation! 😉</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/categories/tips/">tips</a><a class="category" href="/categories/swift/">swift</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/tags/swift2/">swift2</a><a class="tag" href="/tags/swift/">swift</a><a class="tag" href="/tags/cocoa/">cocoa</a><a class="tag" href="/tags/tips/">tips</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="></script>
+
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="></script>
+
+<script type="text/javascript" src="https://estebantorr.es/js/medium-zoom.min.7487768bffcc6aee437cf6a4ac7da5d2ffc61dc63b36316a14122ceb26b34c70.js" integrity="sha256-dId2i//Mau5DfPakrH2l0v/GHcY7NjFqFBIs6yazTHA="></script>
+
+<link rel="stylesheet" href="https://estebantorr.es/css/medium-zoom.min.a1468f7a1cce6fe96c4b5483cb4645b85728a32b3abbd598c375a92df16230ef.css" integrity="sha256-oUaPehzOb&#43;lsS1SDy0ZFuFcooys6u9WYw3WpLfFiMO8=" type="text/css"></html></body>
+
+</html>

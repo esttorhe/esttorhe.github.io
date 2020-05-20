@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>radar on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/radar/</link>
+    <description>Recent content in radar on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jun 2015 22:15:03 -0600</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/tags/radar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hidden error variable on exhaustive block</title>
+      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
+      <pubDate>Mon, 15 Jun 2015 22:15:03 -0600</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</guid>
+      <description>&lt;p&gt;On my &lt;a href=&#34;https://estebantorr.es/2015/06/swift-2.0-throws-tip/&#34;&gt;previous post&lt;/a&gt; I tried to help «solve» in a way the problem with non-typed &lt;code&gt;throws&lt;/code&gt; by documenting them on the internal docs as lists with &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Based on that you can rightfully assume that I&amp;rsquo;m migrating all my &lt;code&gt;Result&amp;lt;T,U&amp;gt;&lt;/code&gt; code to support &lt;code&gt;throws&lt;/code&gt; instead, on my &lt;code&gt;2.0&lt;/code&gt; branches.&lt;/p&gt;
+&lt;p&gt;As you might know (or not) whenever you do a &lt;code&gt;do&lt;/code&gt;/&lt;code&gt;catch&lt;/code&gt; block the &lt;code&gt;catch&lt;/code&gt; block needs to be exhaustive; just like a &lt;code&gt;switch&lt;/code&gt; and «catch» &lt;em&gt;all&lt;/em&gt; possible paths.&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t mean you &lt;strong&gt;necessarily&lt;/strong&gt; need to specify every single error type in your &lt;code&gt;catch&lt;/code&gt; block (even though ideally you should react differently for each type of error) but you can add an exhaustive &lt;code&gt;catch&lt;/code&gt; that will represent «every single error».&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>&#39;Show&#39; Adaptative Segue Error</title>
+      <link>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</link>
+      <pubDate>Tue, 16 Dec 2014 18:43:03 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</guid>
+      <description>On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple&amp;rsquo;s &amp;ldquo;Kool-Aid&amp;rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
+Fist Glimpse Of The Problem Although this &amp;ldquo;embracing the change&amp;rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &amp;ldquo;share&amp;rdquo; button was yielding no actions…</description>
+    </item>
+    
+  </channel>
+</rss>

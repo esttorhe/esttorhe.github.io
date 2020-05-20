@@ -1,2 +1,0 @@
-webpackJsonp([0xfb161e8c3af7],{580:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"iOScon 2016"},url:"iOScon-2016"}}]}},pathContext:{tag:"ioscon"}}}});
-//# sourceMappingURL=path---tags-ioscon-42e3040ac0f75cd0edfd.js.map

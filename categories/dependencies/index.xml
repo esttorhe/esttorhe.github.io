@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dependencies on Journey through engineering…</title>
+    <link>https://estebantorr.es/categories/dependencies/</link>
+    <description>Recent content in dependencies on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2015 10:03:51 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/categories/dependencies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nokogiri on El Capitan</title>
+      <link>https://estebantorr.es/blog/engineering/2015/10/2015-10-02-nokogiri-in-el-capitan/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/10/2015-10-02-nokogiri-in-el-capitan/</guid>
+      <description>&lt;p&gt;Finally &lt;code&gt;El Capitan&lt;/code&gt; arrived and I couldn&amp;rsquo;t be more eager to install it on my machine; as soon as I read on Twitter that it was available I jump to the &lt;code&gt;AppStore&lt;/code&gt; and started the download process which seemed like a bad idea at the time:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I think downloading «El Capitan» at the same time as the rest of the world was a BAD idea and poor judgement on my part 😂&lt;/p&gt;&amp;mdash; Esteban Torres (@esttorhe) &lt;a href=&#34;https://twitter.com/esttorhe/status/649289668773715973?ref_src=twsrc%5Etfw&#34;&gt;September 30, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>dyld: Library not loaded &amp; CocoaPods</title>
+      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</guid>
+      <description>&lt;p&gt;This morning I woke up to a not so great ✉ from a &lt;code&gt;PR&lt;/code&gt; I submitted the day before; it read something like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And with that I started my day trying to figure out what was going on.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

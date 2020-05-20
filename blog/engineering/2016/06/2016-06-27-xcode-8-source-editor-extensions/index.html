@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title> Esteban Torres | Xcode 8 Source Editor Extensions </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="&amp; this is my journey through engineering…">
+    
+    <link rel="stylesheet" href="https://estebantorr.es/css/style.min.dad68694f67c532e8ff0532b54c6e42b7ea1c4ef3c89f02db437fcf63ef9ff0f.css" integrity="sha256-2taGlPZ8Uy6P8FMrVMbkK36hxO88ifAttDf89j75/w8=" type="text/css">
+    <link rel="stylesheet" href="https://estebantorr.es/assets/css/terminal.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/cv.css" type="text/css"><link rel="stylesheet" href="https://estebantorr.es/assets/css/blockquote.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="https://estebantorr.es/">
+    
+    <link rel="shortcut icon" href="https://estebantorr.es/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://estebantorr.es/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://estebantorr.es/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://estebantorr.es/favicon-16x16.png">
+
+    <link rel="canonical" href="https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/">
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://estebantorr.es/assets/images/avatar.png" alt="profile picture">
+        <h3 title=""><a href="/">This is Esteban Torres</a></h3>
+        <div class="description">
+          <p>&amp; this is my journey through engineering…</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://www.linkedin.com/in/estebantorres" rel="me" >
+          <i class="fa fa-linkedin" aria-hidden="true" title="Linkedin"></i>
+        </a>
+        
+        <a href="https://github.com/esttorhe/" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="mailto:me&#43;blog@estebantorr.es" rel="me" >
+          <i class="fa fa-envelope" aria-hidden="true" title="e-mail"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Esteban Torres 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+
+        
+        <li><a  href="/blog/" title="">Archive</a></li>
+
+        
+        <li><a  href="/about" title="">About Me</a></li>
+
+        
+        <li><a  href="/talks/" title="">Talks</a></li>
+
+        
+        <li><a  href="/cv" title="">CV</a></li>
+
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      
+      <div class="post-title">
+        <h3>Xcode 8 Source Editor Extensions
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Mon, Jun 27, 2016</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">3-minute read</span>
+        </div>
+        
+      </div>
+      
+
+    <p>This last <code>WWDC</code> <code>Apple</code> announced that they will be providing us developers with «official» and «legal» ways to create <code>Xcode</code> plugins.</p>
+<p>There are many posts covering this and I won&rsquo;t center in the «how to» but rather in one single tip that prevented me from going crazy while developing <a href="https://github.com/esttorhe/localizer"><code>Localizer</code></a>.</p>
+
+
+
+
+
+
+
+
+<div id="esttorhe&#43;Localizer&#43;3831a7" class="hexo-github" style="width: 45%">
+</div>
+<script src="/github-badge/badge.js"></script>
+<script type="text/javascript">
+  loadStyle("/github-badge/style.css");
+  loadStyle("/github-badge/octicons/octicons.css");
+  new Badge("esttorhe\x2bLocalizer\x2b3831a7", "esttorhe", "Localizer", "3831a7", "");
+</script>
+<hr>
+<h2 id="the-basics">The basics</h2>
+<p><a href="https://developer.apple.com/app-extensions/"><code>Apple</code>'s documentation on Xcode 8 Source Editor Extensions</a> is pretty «nice» for an upcoming, yet to be released, feature.</p>
+<p>There&rsquo;s also <a href="https://developer.apple.com/videos/play/wwdc2016/414/">session 414</a> from <code>WWDC 16</code> that covers all the details.</p>
+<p>Here&rsquo;s yet another <a href="http://www.russbishop.net/xcode-extensions">blog post</a> about the topic.</p>
+<p>As I said earlier there&rsquo;s a lot of information about them and there&rsquo;s no need to duplicate the information but rather to point to the sources.</p>
+<hr>
+<h2 id="big-if">Big IF</h2>
+<p>There&rsquo;s only one thing I consider important enough to «duplicate» here.</p>
+<p>It&rsquo;s covered in <a href="http://www.russbishop.net/xcode-extensions">this blog post</a> and its related to developing Source Editor Extensions in <code>macOS</code> 10.11.</p>
+<p><code>Xcode</code> won&rsquo;t even bother loading your extensions unless you run this command:</p>
+
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    
+      
+        <pre><code></code></pre>
+      
+    
+      
+        <code class="prompt">$</code>
+        <code> sudo /usr/libexec/xpccachectl</code>
+      
+    
+      
+        <pre><code></code></pre>
+      
+    
+  </main>
+</div>
+<p>And then reboot your computer.</p>
+<p>Apparently its related to the <code>XPC Service</code> and <code>El Capitan</code> not expecting it (which might be related to the issue I encountered while playing with extensions).</p>
+<hr>
+<h2 id="the-issue">The issue</h2>
+<p>I&rsquo;ve mentioned a couple of times that I found one particular, crazy driving issue while doing <a href="https://github.com/esttorhe/localizer">Localizer</a>; and this is it:</p>
+<p>My extension failed to load every now and then and no matter how many times I tried, cleaned <code>Derived Data</code>, etc the extension simply refused to load.</p>
+<p>How do I know this?</p>
+<p>Easy, by doing old school «breadcrumbing»… I put this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-swift" data-lang="swift">print(<span style="color:#e6db74">&#34;🎉&#34;</span>)
+</code></pre></div><p>Right in the middle of <code>extensionDidFinishLaunching()</code> which gets called after the extension is loaded.</p>
+<p>And there was no sign of the <code>🎉</code> most of the times, also, my <code>Localizer</code> entry under <code>Editor</code> menu was grayed out…</p>
+<p>I was going to quit after 15 minutes trying to debug/run my extension when I realized something on my <code>Activity Monitor</code>:</p>
+<p><img src="assets/images/post/2016/06/Xcode-8-Source-Editor-Extensions/XPC.png" alt=""></p>
+<p>This process <code>com.apple.dt.Xcode.AttachToXPCService</code> appears to be the one in charge of attaching the extension to <code>Xcode</code> (?).</p>
+<p>Anyways, some times this process doesn&rsquo;t get properly killed after you finished your debugging session and the next time you try to launch your extension it never gets attached to <code>Xcode</code> and thus your menu item is grayed out and the extension is not loaded.</p>
+<p>Simply killing that process will let you keep working on your extension without headaches!</p>
+<p>With some luck this will help others trying to create amazing extensions and will prevent some extensions from never reaching us.</p>
+<hr>
+<h1 id="tldr">TL;DR</h1>
+<p>Here&rsquo;s the important bit about all this:</p>
+<p>If your extension is not loading and you can&rsquo;t debug it; kill this process:</p>
+<h2 id="comappledtxcodeattachtoxpcservice"><strong><code>com.apple.dt.Xcode.AttachToXPCService</code></strong></h2>
+<p>And try again</p>
+<hr>
+<p><em>Thanks <a href="https://github.com/jseravalli">@jseravalli</a> for the <code>TL;DR</code> tip</em> 🙇</p>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/categories/productivity/">productivity</a><a class="category" href="/categories/tools/">tools</a><a class="category" href="/categories/ide/">ide</a></span>
+
+        
+    <span class="separator"><a class="tag" href="/tags/xcode/">xcode</a><a class="tag" href="/tags/xcode-8/">xcode 8</a><a class="tag" href="/tags/extensions/">extensions</a><a class="tag" href="/tags/plugins/">plugins</a><a class="tag" href="/tags/swift/">swift</a><a class="tag" href="/tags/ide/">ide</a></span>
+
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="></script>
+
+
+
+
+<script type="text/javascript" src="https://estebantorr.es/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="></script>
+
+<script type="text/javascript" src="https://estebantorr.es/js/medium-zoom.min.7487768bffcc6aee437cf6a4ac7da5d2ffc61dc63b36316a14122ceb26b34c70.js" integrity="sha256-dId2i//Mau5DfPakrH2l0v/GHcY7NjFqFBIs6yazTHA="></script>
+
+<link rel="stylesheet" href="https://estebantorr.es/css/medium-zoom.min.a1468f7a1cce6fe96c4b5483cb4645b85728a32b3abbd598c375a92df16230ef.css" integrity="sha256-oUaPehzOb&#43;lsS1SDy0ZFuFcooys6u9WYw3WpLfFiMO8=" type="text/css"></html></body>
+
+</html>

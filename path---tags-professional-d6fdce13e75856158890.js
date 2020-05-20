@@ -1,2 +1,0 @@
-webpackJsonp([0x5ea6dfb5afbd],{593:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Year Resolutions"},url:"new-year-resolutions"}}]}},pathContext:{tag:"professional"}}}});
-//# sourceMappingURL=path---tags-professional-d6fdce13e75856158890.js.map

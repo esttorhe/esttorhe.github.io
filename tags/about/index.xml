@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>about on Journey through engineering…</title>
+    <link>https://estebantorr.es/tags/about/</link>
+    <description>Recent content in about on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Feb 2018 22:46:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>https://estebantorr.es/about/</link>
+      <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/about/</guid>
+      <description>Hi; my name is Esteban Torres and I&amp;rsquo;m an Engineering Manager @ SoundCloud, Berlin. I&amp;rsquo;m originally from 🇨🇷Costa Rica where I started as an Engineer and quickly jumped on the iOS badwagon; this led me to land a job as an iOS @ SoundCloud which of course led to me &amp;amp; my family moving to 🇩🇪.
+At SoundCloud I&amp;rsquo;ve worn many hats:
+ iOS Engineer (Listening Cluster and later on Core Clients) Cross Platform Engineer (Core Clients were I got to do Scala, Go, some Production Engineering, iOS &amp;amp; Android development, etc) And most recently Engineering Management  I used to be moderately active in the iOS community and tried to attend different conferences (as an attendee as well as an speaker) but has since a couple of years slowed down a lot in that front.</description>
+    </item>
+    
+  </channel>
+</rss>

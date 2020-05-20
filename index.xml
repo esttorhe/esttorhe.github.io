@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Journey through engineering…</title>
+    <link>https://estebantorr.es/</link>
+    <description>Recent content on Journey through engineering…</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 May 2020 14:07:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://estebantorr.es/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://estebantorr.es/cv/</link>
+      <pubDate>Sat, 16 May 2020 14:07:00 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/cv/</guid>
+      <description>Esteban Torres Engineering Manager  🌐estebantorr.es
+🧰github.com/esttorhe
+📩me@estebantorr.es
+📱+49 162 4190543
+ Technical Skills  Agile Methodologies Cross Platform Team Swift &amp;amp; Objective-C Go Scripting Docker  Work Experience SoundCloud Core Clients Engineering Manager 2019 to present
+Manage a cross platform team involving BackEnd technologies (Scala, Go) as well as Android &amp;amp; iOS. Grew the team to double the number of BackEnd engineers &amp;amp; started the inclusion of Web FrontEnd development to the team.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://estebantorr.es/about/</link>
+      <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/about/</guid>
+      <description>Hi; my name is Esteban Torres and I&amp;rsquo;m an Engineering Manager @ SoundCloud, Berlin. I&amp;rsquo;m originally from 🇨🇷Costa Rica where I started as an Engineer and quickly jumped on the iOS badwagon; this led me to land a job as an iOS @ SoundCloud which of course led to me &amp;amp; my family moving to 🇩🇪.
+At SoundCloud I&amp;rsquo;ve worn many hats:
+ iOS Engineer (Listening Cluster and later on Core Clients) Cross Platform Engineer (Core Clients were I got to do Scala, Go, some Production Engineering, iOS &amp;amp; Android development, etc) And most recently Engineering Management  I used to be moderately active in the iOS community and tried to attend different conferences (as an attendee as well as an speaker) but has since a couple of years slowed down a lot in that front.</description>
+    </item>
+    
+    <item>
+      <title>Xcode notifications on your 📱</title>
+      <link>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</guid>
+      <description>&lt;p&gt;Since quite some time now I&amp;rsquo;ve been working on &lt;code&gt;Xcode&lt;/code&gt; projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.&lt;/p&gt;
+&lt;p&gt;I also like to multi-task and do some other stuff while I&amp;rsquo;m compiling…&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/compiling.png&#34; alt=&#34;xkcd comic about compilation times&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Disabling Animations Heuristics</title>
+      <link>https://estebantorr.es/blog/engineering/2017/09/2017-09-25-disabling-animations-heuristics/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2017/09/2017-09-25-disabling-animations-heuristics/</guid>
+      <description>&lt;p&gt;Checking &lt;code&gt;Twitter&lt;/code&gt; the other day I stumble this tweets from &lt;a href=&#34;https://twitter.com/zats&#34;&gt;Sash Zats&lt;/a&gt; addressing some heuristics for enabling/disabling intensive animations in &lt;code&gt;iOS&lt;/code&gt; apps:&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;[1/4] When performing intensive animations or other auxiliary work consider creating a helper checking following (in no particular order):&lt;/p&gt;&amp;mdash; Sash Zats (@zats) &lt;a href=&#34;https://twitter.com/zats/status/910125012157214721?ref_src=twsrc%5Etfw&#34;&gt;September 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>droidCon Berlin</title>
+      <link>https://estebantorr.es/blog/engineering/2017/09/2017-09-06-droidcon-berlin/</link>
+      <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2017/09/2017-09-06-droidcon-berlin/</guid>
+      <description>&lt;h1 id=&#34;iosgutatdroidcon&#34;&gt;#iOSGutAtDroidcon&lt;/h1&gt;
+&lt;p&gt;Last week fellow speaker and good friend Jorge Ortiz-Fuentes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; wrote me on &lt;code&gt;Twitter&lt;/code&gt; to tell me he had an extra ticket for &lt;code&gt;droidcon&lt;/code&gt; Berlin&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; since he&amp;rsquo;ll be speaking (Now, as you might know I do &lt;code&gt;iOS&lt;/code&gt; and know close to &lt;strong&gt;NOTHING&lt;/strong&gt; about &lt;code&gt;Android&lt;/code&gt; development) and since I have always been curious about &lt;code&gt;Android&lt;/code&gt; development I said &lt;em&gt;YES&lt;/em&gt; and embarked on what would be my first ever &lt;strong&gt;droidCon&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>📦 Wrapping up 2016</title>
+      <link>https://estebantorr.es/blog/engineering/2016/12/2016-12-16-wrapping-up-2017/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/12/2016-12-16-wrapping-up-2017/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been away for quite some time now and a lot of things have changed since I last had the time to blog.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll try to detail everything that has happened in my life in the past few months and also prepare for my yearly wrap-up post.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Talks</title>
+      <link>https://estebantorr.es/talks/</link>
+      <pubDate>Fri, 15 Jul 2016 09:10:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/talks/</guid>
+      <description>I first began getting involved in talks around 2012 when I started organizing «Tech Talks» where I used to work at the time.
+Since then I have given many talks at the local CocoaHeads and like to try sending proposals to many conference around the globe.
+Upcoming Talks  Interconnect all the things! • iOScon 2018  Past Talks    Date Topic Conference Link     2017-09-15 Facing the VIPER NSSpain Video • Slides   2017-02-16 MVVM(DC):Taming your architecture MobOS Slides   2016-10-16 Hacking (?</description>
+    </item>
+    
+    <item>
+      <title>Xcode 8 Source Editor Extensions</title>
+      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
+      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</guid>
+      <description>&lt;p&gt;This last &lt;code&gt;WWDC&lt;/code&gt; &lt;code&gt;Apple&lt;/code&gt; announced that they will be providing us developers with «official» and «legal» ways to create &lt;code&gt;Xcode&lt;/code&gt; plugins.&lt;/p&gt;
+&lt;p&gt;There are many posts covering this and I won&amp;rsquo;t center in the «how to» but rather in one single tip that prevented me from going crazy while developing &lt;a href=&#34;https://github.com/esttorhe/localizer&#34;&gt;&lt;code&gt;Localizer&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+&lt;div id=&#34;esttorhe&amp;#43;Localizer&amp;#43;3831a7&#34; class=&#34;hexo-github&#34; style=&#34;width: 45%&#34;&gt;
+&lt;/div&gt;
+&lt;script src=&#34;https://estebantorr.es/github-badge/badge.js&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+  loadStyle(&#34;/github-badge/style.css&#34;);
+  loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
+  new Badge(&#34;esttorhe\x2bLocalizer\x2b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
+&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>iOScon 2016</title>
+      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Small Tip for Debugging Autolayout issues</title>
+      <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
+      <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
+      <description>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.
+The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:
+&amp;lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;amp;- v=-&amp;amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&amp;gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what&amp;rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let&amp;rsquo;s be honest; more times than none you are left wondering which view is which…</description>
+    </item>
+    
+    <item>
+      <title>Review: 2015</title>
+      <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-06-review-2015/</link>
+      <pubDate>Wed, 06 Jan 2016 21:46:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2016/01/2016-01-06-review-2015/</guid>
+      <description>&lt;p&gt;Last year I made a &lt;a href=&#34;https://github.com/esttorhe/2015-Resolutions&#34;&gt;list of resolutions&lt;/a&gt; and also &lt;a href=&#34;https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/&#34;&gt;blogged about it&lt;/a&gt;; overall it was a great year; completed almost all my resolutions and had the chance to grow &lt;strong&gt;A LOT&lt;/strong&gt; professionally (or so I think).&lt;/p&gt;
+&lt;p&gt;A small round down of my previous year:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Got turned down by &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt;: Basically applied to &lt;a href=&#34;https://slack.com&#34;&gt;Slack&lt;/a&gt; and everything went OK but I suck at interviews; I think I don&amp;rsquo;t know how to sell myself properly and was turned down.
+&lt;!-- raw HTML omitted --&gt;No hard feelings though, they felt I wasn&amp;rsquo;t a good fit for the team and they got to do what&amp;rsquo;s best for the team.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nokogiri on El Capitan</title>
+      <link>https://estebantorr.es/blog/engineering/2015/10/2015-10-02-nokogiri-in-el-capitan/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/10/2015-10-02-nokogiri-in-el-capitan/</guid>
+      <description>&lt;p&gt;Finally &lt;code&gt;El Capitan&lt;/code&gt; arrived and I couldn&amp;rsquo;t be more eager to install it on my machine; as soon as I read on Twitter that it was available I jump to the &lt;code&gt;AppStore&lt;/code&gt; and started the download process which seemed like a bad idea at the time:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I think downloading «El Capitan» at the same time as the rest of the world was a BAD idea and poor judgement on my part 😂&lt;/p&gt;&amp;mdash; Esteban Torres (@esttorhe) &lt;a href=&#34;https://twitter.com/esttorhe/status/649289668773715973?ref_src=twsrc%5Etfw&#34;&gt;September 30, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to (and not) ask questions…</title>
+      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</link>
+      <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-26-how-to-and-not-ask-questions/</guid>
+      <description>&lt;p&gt;Is it safe to say that I&amp;rsquo;ve been «scolded» twice this week due to my technical questions.&lt;/p&gt;
+&lt;p&gt;Now… I was not &lt;em&gt;scolded&lt;/em&gt; as the word implies but the context was that; and I did deserve it if I&amp;rsquo;m honest.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>dyld: Library not loaded &amp; CocoaPods</title>
+      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</guid>
+      <description>&lt;p&gt;This morning I woke up to a not so great ✉ from a &lt;code&gt;PR&lt;/code&gt; I submitted the day before; it read something like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And with that I started my day trying to figure out what was going on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Semver intermediate versioning</title>
+      <link>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
+      <description>&lt;p&gt;Lately I&amp;rsquo;ve come across multiple tweets and talks about people avoiding jumping over the dreaded &lt;code&gt;1.0.0&lt;/code&gt; of their &lt;code&gt;frameworks&lt;/code&gt;, tools, etc.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Sadly that&amp;rsquo;s the current state of «our world» as developers.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>21DaysChallenge</title>
+      <link>https://estebantorr.es/blog/engineering/2015/07/2015-07-30-21dayschallenge/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/07/2015-07-30-21dayschallenge/</guid>
+      <description>&lt;p&gt;Is a «well known» fact that I&amp;rsquo;m trying to get to 12% body fat; last year I was really close at 14% but then I ricocheted back to 17% and my mental state took a toll and was not able to get back on track. I&amp;rsquo;ve been going up &amp;amp; down on my body fat since then.&lt;/p&gt;
+&lt;p&gt;Last December I hit horrible numbers because I pretty much gave up on exercising 💪 and dieting 🌿 ¯\_(ツ)_/¯&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Xcode Plugins I use</title>
+      <link>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</link>
+      <pubDate>Mon, 20 Jul 2015 11:23:40 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</guid>
+      <description>&lt;p&gt;Everyone of us have our own set of niks &amp;amp; tricks to better find our ways around our everyday activities.&lt;/p&gt;
+&lt;p&gt;For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.&lt;/p&gt;
+&lt;h1 id=&#34;xcode-plugins&#34;&gt;&lt;code&gt;Xcode&lt;/code&gt; Plugins&lt;/h1&gt;
+&lt;p&gt;For those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.&lt;/p&gt;
+&lt;p&gt;Plugins are 3rd Party pieces of code that can be «injected» into Xcode&amp;rsquo;s life cycle and can extend its functionalities or even add new ones.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s plenty of plugins and many different ways to load/install them but my go-to way is always &lt;a href=&#34;http://alcatraz.io/&#34;&gt;&lt;code&gt;Alcatraz&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New Website</title>
+      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-20-new-website/</link>
+      <pubDate>Sat, 20 Jun 2015 17:09:02 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-20-new-website/</guid>
+      <description>&lt;p&gt;«Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).&lt;/p&gt;
+&lt;p&gt;I started the blog with &lt;a href=&#34;http://jekyllrb.com&#34;&gt;&lt;code&gt;Jekyll&lt;/code&gt;&lt;/a&gt; and quickly «moved» to &lt;a href=&#34;http://octopress.org&#34;&gt;&lt;code&gt;Octopress&lt;/code&gt;&lt;/a&gt; for its «simplicity» to make new posts, pages and change themes; or so I thought.&lt;/p&gt;
+&lt;p&gt;After some time having to deal with it and then having to create a blog for &lt;a href=&#34;http://lognllc.github.io&#34;&gt;Log(n)&lt;/a&gt;&amp;lsquo;s employees (being that I&amp;rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hidden error variable on exhaustive block</title>
+      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
+      <pubDate>Mon, 15 Jun 2015 22:15:03 -0600</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</guid>
+      <description>&lt;p&gt;On my &lt;a href=&#34;https://estebantorr.es/2015/06/swift-2.0-throws-tip/&#34;&gt;previous post&lt;/a&gt; I tried to help «solve» in a way the problem with non-typed &lt;code&gt;throws&lt;/code&gt; by documenting them on the internal docs as lists with &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Based on that you can rightfully assume that I&amp;rsquo;m migrating all my &lt;code&gt;Result&amp;lt;T,U&amp;gt;&lt;/code&gt; code to support &lt;code&gt;throws&lt;/code&gt; instead, on my &lt;code&gt;2.0&lt;/code&gt; branches.&lt;/p&gt;
+&lt;p&gt;As you might know (or not) whenever you do a &lt;code&gt;do&lt;/code&gt;/&lt;code&gt;catch&lt;/code&gt; block the &lt;code&gt;catch&lt;/code&gt; block needs to be exhaustive; just like a &lt;code&gt;switch&lt;/code&gt; and «catch» &lt;em&gt;all&lt;/em&gt; possible paths.&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t mean you &lt;strong&gt;necessarily&lt;/strong&gt; need to specify every single error type in your &lt;code&gt;catch&lt;/code&gt; block (even though ideally you should react differently for each type of error) but you can add an exhaustive &lt;code&gt;catch&lt;/code&gt; that will represent «every single error».&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift 2.0 - throws tip</title>
+      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</link>
+      <pubDate>Sun, 14 Jun 2015 17:39:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
+      <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
+ Some examples:
+@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;#39;s New in Swift talk :/
+&amp;mdash; Tom Brow (@browgrammer) June 13, 2015   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
+    </item>
+    
+    <item>
+      <title>New Year Resolutions</title>
+      <link>https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/</link>
+      <pubDate>Wed, 31 Dec 2014 21:21:33 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/</guid>
+      <description>I&amp;rsquo;ve got the opportunity to read Ash Furrow&amp;lsquo;s post about his 5 years doing iOS development and read (as much as I could from my phone) Orta&amp;lsquo;s blog about his 28 and came to think about MY year and decided I was going to write something.
+Doing this as quickly as possible while my 7 months old is sleeping and my girlfriend is finishing all preparations before we leave home to meet the families.</description>
+    </item>
+    
+    <item>
+      <title>&#39;Show&#39; Adaptative Segue Error</title>
+      <link>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</link>
+      <pubDate>Tue, 16 Dec 2014 18:43:03 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</guid>
+      <description>On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple&amp;rsquo;s &amp;ldquo;Kool-Aid&amp;rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
+Fist Glimpse Of The Problem Although this &amp;ldquo;embracing the change&amp;rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &amp;ldquo;share&amp;rdquo; button was yielding no actions…</description>
+    </item>
+    
+  </channel>
+</rss>

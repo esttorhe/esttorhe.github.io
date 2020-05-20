@@ -1,2 +1,0 @@
-webpackJsonp([261373376314],{576:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"New Website"},url:"New-Website"}}]}},pathContext:{tag:"hexo"}}}});
-//# sourceMappingURL=path---tags-hexo-aabf41f811500849ad82.js.map

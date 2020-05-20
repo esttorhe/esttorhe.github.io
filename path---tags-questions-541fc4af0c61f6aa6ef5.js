@@ -1,2 +1,0 @@
-webpackJsonp([0xdf65a14f3d39],{595:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"How to (and not) ask questions…"},url:"How-to-and-not-ask-questions…"}}]}},pathContext:{tag:"questions"}}}});
-//# sourceMappingURL=path---tags-questions-541fc4af0c61f6aa6ef5.js.map

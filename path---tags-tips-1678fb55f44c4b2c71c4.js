@@ -1,2 +1,0 @@
-webpackJsonp([0xe6c92bc2507f],{604:function(t,e){t.exports={data:{allMarkdownRemark:{totalCount:2,edges:[{node:{frontmatter:{title:"Semver intermediate versioning"},url:"Semver-intermediate-versioning"}},{node:{frontmatter:{title:"Swift 2.0 - throws tip"},url:"swift-2-dot-0-throws-tip"}}]}},pathContext:{tag:"tips"}}}});
-//# sourceMappingURL=path---tags-tips-1678fb55f44c4b2c71c4.js.map

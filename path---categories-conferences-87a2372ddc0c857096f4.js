@@ -1,2 +1,0 @@
-webpackJsonp([98680856582870],{522:function(t,o){t.exports={data:{allMarkdownRemark:{totalCount:2,edges:[{node:{frontmatter:{title:"droidCon Berlin"},url:"droidCon-Berlin"}},{node:{frontmatter:{title:"iOScon 2016"},url:"iOScon-2016"}}]}},pathContext:{category:"conferences"}}}});
-//# sourceMappingURL=path---categories-conferences-87a2372ddc0c857096f4.js.map

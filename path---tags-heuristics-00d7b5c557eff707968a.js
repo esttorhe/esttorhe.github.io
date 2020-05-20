@@ -1,2 +1,0 @@
-webpackJsonp([0xbb33b63ddb65],{575:function(t,i){t.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{frontmatter:{title:"Disabling Animations Heuristics"},url:"Disabling-Animations-Heuristics"}}]}},pathContext:{tag:"heuristics"}}}});
-//# sourceMappingURL=path---tags-heuristics-00d7b5c557eff707968a.js.map
