@@ -6,7 +6,6 @@ author = "Esteban Torres"
 date = "2020-05-15 20:00:00 +0000"
 tags = ["engineering management", "management", "career", "change"]
 categories = ["career"]
-draft = "true"
 banner = "/assets/images/post/2020/05/Career-change/change.jpg"
 +++
 
