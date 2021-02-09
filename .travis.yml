@@ -20,7 +20,7 @@ addons:
 before_install:
   - docker pull jojomi/hugo:latest
   - rvm install 2.5.0
-  - gem install bundler
+  - gem install bundler -v '2.1.4'
   - bundle install --path="./.vendor/bundle" --jobs 3
 
 script:
