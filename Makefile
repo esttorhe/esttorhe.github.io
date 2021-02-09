@@ -1,4 +1,4 @@
-IMAGE=jojomi/hugo
+IMAGE=jojomi/hugo:latest
 CONTAINER="hugo-container"
 PORT?=1313
 URL?=0.0.0.0
