@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <title> Esteban Torres | Swift 2.0 - throws tip </title>
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.5" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="&amp; this is my journey through engineering…">
     
     <link rel="stylesheet" href="https://estebantorr.es/css/style.min.dad68694f67c532e8ff0532b54c6e42b7ea1c4ef3c89f02db437fcf63ef9ff0f.css" integrity="sha256-2taGlPZ8Uy6P8FMrVMbkK36hxO88ifAttDf89j75/w8=" type="text/css">
@@ -41,7 +41,7 @@
         
     </ul>
     <div class="footer">
-        <div class="by_farbox">&copy; Esteban Torres 2020 </div>
+        <div class="by_farbox">&copy; Esteban Torres 2021 </div>
       </div>
     </div>
 </div><div class="main">
@@ -88,9 +88,69 @@
 <p>There&rsquo;s been <strong><em>a lot</em></strong> of «heated» debates regarding the <code>throws</code> approach added to <code>Swift 2.0</code> in favor of <code>Either&lt;T,U&gt;</code>.</p>
 <hr>
 <p>Some examples:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/cocoaphony?ref_src=twsrc%5Etfw">@cocoaphony</a> Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/</p>&mdash; Tom Brow (@browgrammer) <a href="https://twitter.com/browgrammer/status/609841773284724737?ref_src=twsrc%5Etfw">June 13, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
+
+
+
+<link rel="stylesheet" href="https://estebantorr.es/assets/css/blockquote.css">
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+      
+      
+      
+    
+     
+      
+    
+    
+
+    
+    
+         
+         
+         
+
+         
+        
+        
+        
+        
+        
+        
+      
+      
+    
+  
+
+
+<blockquote>
+  <p>@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&rsquo;s New in Swift talk :/</p>
+  <footer>
+    <strong>Tom Brow (@browgrammer) June 13, 2015</strong>
+    
+      
+        <cite>
+          <a href="https://twitter.com/browgrammer/status/609841773284724737" title="https://twitter.com/browgrammer/status/609841773284724737">twitter.com/browgrammer/status/...</a> 
+        </cite>
+      
+    
+  </footer>
+</blockquote>
 <!-- raw HTML omitted -->
 <hr>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</p>&mdash; Justin Spahr-Summers (@jspahrsummers) <a href="https://twitter.com/jspahrsummers/status/608066730250924032?ref_src=twsrc%5Etfw">June 9, 2015</a></blockquote>

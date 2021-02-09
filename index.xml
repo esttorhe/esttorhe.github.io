@@ -6,11 +6,7 @@
     <description>Recent content on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2020 14:07:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 15 May 2020 20:00:00 +0000</lastBuildDate><atom:link href="https://estebantorr.es/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://estebantorr.es/cv/</link>
@@ -76,7 +72,7 @@ At SoundCloud I&amp;rsquo;ve worn many hats:
       <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
       
       <guid>https://estebantorr.es/blog/engineering/2017/09/2017-09-06-droidcon-berlin/</guid>
-      <description>&lt;h1 id=&#34;iosgutatdroidcon&#34;&gt;#iOSGutAtDroidcon&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;iosguyatdroidcon&#34;&gt;#iOSGuyAtDroidcon&lt;/h1&gt;
 &lt;p&gt;Last week fellow speaker and good friend Jorge Ortiz-Fuentes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; wrote me on &lt;code&gt;Twitter&lt;/code&gt; to tell me he had an extra ticket for &lt;code&gt;droidcon&lt;/code&gt; Berlin&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; since he&amp;rsquo;ll be speaking (Now, as you might know I do &lt;code&gt;iOS&lt;/code&gt; and know close to &lt;strong&gt;NOTHING&lt;/strong&gt; about &lt;code&gt;Android&lt;/code&gt; development) and since I have always been curious about &lt;code&gt;Android&lt;/code&gt; development I said &lt;em&gt;YES&lt;/em&gt; and embarked on what would be my first ever &lt;strong&gt;droidCon&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
     
@@ -123,7 +119,7 @@ Upcoming Talks  Interconnect all the things! • iOScon 2018  Past Talks    Date
 &lt;script type=&#34;text/javascript&#34;&gt;
   loadStyle(&#34;/github-badge/style.css&#34;);
   loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
-  new Badge(&#34;esttorhe\x2bLocalizer\x2b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
+  new Badge(&#34;esttorhe\u002bLocalizer\u002b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
 &lt;/script&gt;</description>
     </item>
     
@@ -244,7 +240,7 @@ The other day I was trying to figure out an Autolayout crash on the app I was wo
       <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-20-new-website/</guid>
       <description>&lt;p&gt;«Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).&lt;/p&gt;
 &lt;p&gt;I started the blog with &lt;a href=&#34;http://jekyllrb.com&#34;&gt;&lt;code&gt;Jekyll&lt;/code&gt;&lt;/a&gt; and quickly «moved» to &lt;a href=&#34;http://octopress.org&#34;&gt;&lt;code&gt;Octopress&lt;/code&gt;&lt;/a&gt; for its «simplicity» to make new posts, pages and change themes; or so I thought.&lt;/p&gt;
-&lt;p&gt;After some time having to deal with it and then having to create a blog for &lt;a href=&#34;http://lognllc.github.io&#34;&gt;Log(n)&lt;/a&gt;&amp;lsquo;s employees (being that I&amp;rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.&lt;/p&gt;</description>
+&lt;p&gt;After some time having to deal with it and then having to create a blog for &lt;a href=&#34;http://lognllc.github.io&#34;&gt;Log(n)&lt;/a&gt;&amp;rsquo;s employees (being that I&amp;rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -267,8 +263,8 @@ The other day I was trying to figure out an Autolayout crash on the app I was wo
       <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
       <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
  Some examples:
-@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;#39;s New in Swift talk :/
-&amp;mdash; Tom Brow (@browgrammer) June 13, 2015   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
+ @cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;rsquo;s New in Swift talk :/
+ Tom Brow (@browgrammer) June 13, 2015  twitter.com/browgrammer/status/...     Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
     </item>
     
     <item>
@@ -277,7 +273,7 @@ The other day I was trying to figure out an Autolayout crash on the app I was wo
       <pubDate>Wed, 31 Dec 2014 21:21:33 +0000</pubDate>
       
       <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-31-new-year-resolutions/</guid>
-      <description>I&amp;rsquo;ve got the opportunity to read Ash Furrow&amp;lsquo;s post about his 5 years doing iOS development and read (as much as I could from my phone) Orta&amp;lsquo;s blog about his 28 and came to think about MY year and decided I was going to write something.
+      <description>I&amp;rsquo;ve got the opportunity to read Ash Furrow&amp;rsquo;s post about his 5 years doing iOS development and read (as much as I could from my phone) Orta&amp;rsquo;s blog about his 28 and came to think about MY year and decided I was going to write something.
 Doing this as quickly as possible while my 7 months old is sleeping and my girlfriend is finishing all preparations before we leave home to meet the families.</description>
     </item>
     

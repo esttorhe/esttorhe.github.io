@@ -6,11 +6,7 @@
     <description>Recent content in ios on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jun 2016 14:04:17 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/tags/ios/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 13 Jan 2016 16:11:38 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Small Tip for Debugging Autolayout issues</title>
       <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>

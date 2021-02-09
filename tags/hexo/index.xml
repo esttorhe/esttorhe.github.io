@@ -6,11 +6,7 @@
     <description>Recent content in hexo on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2015 17:09:02 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 20 Jun 2015 17:09:02 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>New Website</title>
       <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-20-new-website/</link>
@@ -19,7 +15,7 @@
       <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-20-new-website/</guid>
       <description>&lt;p&gt;«Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).&lt;/p&gt;
 &lt;p&gt;I started the blog with &lt;a href=&#34;http://jekyllrb.com&#34;&gt;&lt;code&gt;Jekyll&lt;/code&gt;&lt;/a&gt; and quickly «moved» to &lt;a href=&#34;http://octopress.org&#34;&gt;&lt;code&gt;Octopress&lt;/code&gt;&lt;/a&gt; for its «simplicity» to make new posts, pages and change themes; or so I thought.&lt;/p&gt;
-&lt;p&gt;After some time having to deal with it and then having to create a blog for &lt;a href=&#34;http://lognllc.github.io&#34;&gt;Log(n)&lt;/a&gt;&amp;lsquo;s employees (being that I&amp;rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.&lt;/p&gt;</description>
+&lt;p&gt;After some time having to deal with it and then having to create a blog for &lt;a href=&#34;http://lognllc.github.io&#34;&gt;Log(n)&lt;/a&gt;&amp;rsquo;s employees (being that I&amp;rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.&lt;/p&gt;</description>
     </item>
     
   </channel>

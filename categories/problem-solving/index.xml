@@ -6,11 +6,7 @@
     <description>Recent content in problem solving on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Oct 2015 10:03:51 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 Oct 2015 10:03:51 +0000</lastBuildDate><atom:link href="https://estebantorr.es/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nokogiri on El Capitan</title>
       <link>https://estebantorr.es/blog/engineering/2015/10/2015-10-02-nokogiri-in-el-capitan/</link>

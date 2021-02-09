@@ -6,11 +6,7 @@
     <description>Recent content in swift on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 22:15:03 -0600</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/categories/swift/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 15 Jun 2015 22:15:03 -0600</lastBuildDate><atom:link href="https://estebantorr.es/categories/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hidden error variable on exhaustive block</title>
       <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
@@ -31,8 +27,8 @@
       <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
       <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
  Some examples:
-@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;#39;s New in Swift talk :/
-&amp;mdash; Tom Brow (@browgrammer) June 13, 2015   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
+ @cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;rsquo;s New in Swift talk :/
+ Tom Brow (@browgrammer) June 13, 2015  twitter.com/browgrammer/status/...     Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
     </item>
     
   </channel>

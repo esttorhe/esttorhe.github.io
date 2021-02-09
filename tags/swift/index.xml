@@ -6,11 +6,7 @@
     <description>Recent content in swift on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/tags/swift/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xcode 8 Source Editor Extensions</title>
       <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
@@ -33,7 +29,7 @@
 &lt;script type=&#34;text/javascript&#34;&gt;
   loadStyle(&#34;/github-badge/style.css&#34;);
   loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
-  new Badge(&#34;esttorhe\x2bLocalizer\x2b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
+  new Badge(&#34;esttorhe\u002bLocalizer\u002b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
 &lt;/script&gt;</description>
     </item>
     
@@ -70,8 +66,8 @@
       <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
       <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
  Some examples:
-@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;#39;s New in Swift talk :/
-&amp;mdash; Tom Brow (@browgrammer) June 13, 2015   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
+ @cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;rsquo;s New in Swift talk :/
+ Tom Brow (@browgrammer) June 13, 2015  twitter.com/browgrammer/status/...     Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
     </item>
     
   </channel>

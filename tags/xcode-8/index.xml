@@ -6,11 +6,7 @@
     <description>Recent content in xcode 8 on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/tags/xcode-8/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/xcode-8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xcode 8 Source Editor Extensions</title>
       <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
@@ -33,7 +29,7 @@
 &lt;script type=&#34;text/javascript&#34;&gt;
   loadStyle(&#34;/github-badge/style.css&#34;);
   loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
-  new Badge(&#34;esttorhe\x2bLocalizer\x2b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
+  new Badge(&#34;esttorhe\u002bLocalizer\u002b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
 &lt;/script&gt;</description>
     </item>
     

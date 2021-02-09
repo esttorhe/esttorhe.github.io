@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <title> Esteban Torres | Nokogiri on El Capitan </title>
-    <meta charset="utf-8"><meta name="generator" content="Hugo 0.69.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.76.5" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="&amp; this is my journey through engineering…">
     
     <link rel="stylesheet" href="https://estebantorr.es/css/style.min.dad68694f67c532e8ff0532b54c6e42b7ea1c4ef3c89f02db437fcf63ef9ff0f.css" integrity="sha256-2taGlPZ8Uy6P8FMrVMbkK36hxO88ifAttDf89j75/w8=" type="text/css">
@@ -41,7 +41,7 @@
         
     </ul>
     <div class="footer">
-        <div class="by_farbox">&copy; Esteban Torres 2020 </div>
+        <div class="by_farbox">&copy; Esteban Torres 2021 </div>
       </div>
     </div>
 </div><div class="main">
@@ -96,7 +96,7 @@
 </code></pre></div><h1 id="enter-nokogiri">Enter <code>nokogiri</code></h1>
 <p>For those of you that don&rsquo;t know what <code>Nokogiri</code> is here&rsquo;s an excerpt from their page:</p>
 <blockquote>
-<p><strong>Nokogiri</strong> (鋸) is an HTML, XML, SAX, and Reader parser. Among <strong>Nokogiri</strong>&lsquo;s many features is the ability to search documents via XPath or CSS3 selectors. XML is like violence - if it doesn&rsquo;t solve your problems, you are not using enough of it.</p>
+<p><strong>Nokogiri</strong> (鋸) is an HTML, XML, SAX, and Reader parser. Among <strong>Nokogiri</strong>&rsquo;s many features is the ability to search documents via XPath or CSS3 selectors. XML is like violence - if it doesn&rsquo;t solve your problems, you are not using enough of it.</p>
 </blockquote>
 <p>Also if you didn&rsquo;t know <code>CocoaPods</code> uses <code>nokogiri</code> as a dependency; this means that, that if you want to «install» <code>CocoaPods</code> you&rsquo;ll end up installing <code>nokogiri</code>.</p>
 <h1 id="el-capitan-vs-nokogiri--fight"><code>El Capitan</code> vs. <code>nokogiri</code> =&gt; Fight!</h1>
@@ -108,7 +108,7 @@
 <p>It didn&rsquo;t took long for me to find a question on <code>StackOverflow</code> that addressed the same issue but for different versions of <code>nokogiri</code> and <code>Xcode</code> and it was just a matter of putting <code>2 + 2</code> together and finally my <code>bundle install</code> was successfully installing <code>CocoaPods</code> with <code>nokogiri</code> as a dependency.</p>
 <p>Behold the «magic» command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-ruby" data-lang="ruby">bundle config build<span style="color:#f92672">.</span>nokogiri <span style="color:#f92672">--</span>use<span style="color:#f92672">-</span>system<span style="color:#f92672">-</span>libraries<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span> <span style="color:#f92672">--</span>with<span style="color:#f92672">-</span>xml2<span style="color:#f92672">-</span><span style="color:#66d9ef">include</span><span style="color:#f92672">=</span><span style="color:#e6db74">/Applications/</span><span style="color:#66d9ef">Xcode</span><span style="color:#f92672">.</span>app<span style="color:#f92672">/</span><span style="color:#66d9ef">Contents</span><span style="color:#f92672">/</span><span style="color:#66d9ef">Developer</span><span style="color:#f92672">/</span><span style="color:#66d9ef">Platforms</span><span style="color:#f92672">/</span><span style="color:#66d9ef">MacOSX</span><span style="color:#f92672">.</span>platform<span style="color:#f92672">/</span><span style="color:#66d9ef">Developer</span><span style="color:#f92672">/</span><span style="color:#66d9ef">SDKs</span><span style="color:#f92672">/</span><span style="color:#66d9ef">MacOSX10</span><span style="color:#f92672">.</span><span style="color:#ae81ff">11</span><span style="color:#f92672">.</span>sdk<span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span><span style="color:#66d9ef">include</span><span style="color:#f92672">/</span>libxml2
-</code></pre></div><p>You can see that all it&rsquo;s doing is specifying that <code>nokogiri</code> builds using system libraries and is also telling the full path for <code>libxml2</code> under <code>Xcode</code>'s content folder.</p>
+</code></pre></div><p>You can see that all it&rsquo;s doing is specifying that <code>nokogiri</code> builds using system libraries and is also telling the full path for <code>libxml2</code> under <code>Xcode</code>&rsquo;s content folder.</p>
 <h1 id="disclaimer">Disclaimer</h1>
 <p>I honestly don&rsquo;t know if this is something that happens solely on <code>El Capitan</code>; I&rsquo;m guessing «no» and that this fix should work with any instance of <code>OS X</code> as long as you have <code>Xcode</code>, else you&rsquo;ll have to specify a different path for your <code>libxml2</code>.</p>
     </div>

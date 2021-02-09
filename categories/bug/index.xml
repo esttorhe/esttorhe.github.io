@@ -6,11 +6,7 @@
     <description>Recent content in bug on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2015 22:15:03 -0600</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/categories/bug/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 15 Jun 2015 22:15:03 -0600</lastBuildDate><atom:link href="https://estebantorr.es/categories/bug/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hidden error variable on exhaustive block</title>
       <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>

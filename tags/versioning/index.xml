@@ -6,11 +6,7 @@
     <description>Recent content in versioning on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Aug 2015 14:07:36 +0000</lastBuildDate>
-    
-	<atom:link href="https://estebantorr.es/tags/versioning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 11 Aug 2015 14:07:36 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/versioning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Semver intermediate versioning</title>
       <link>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</link>
