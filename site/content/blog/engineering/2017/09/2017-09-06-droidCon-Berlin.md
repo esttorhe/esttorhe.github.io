@@ -11,7 +11,7 @@ categories:
 issueNumber: 29
 ---
 
-# #iOSGutAtDroidcon
+# #iOSGuyAtDroidcon
 Last week fellow speaker and good friend Jorge Ortiz-Fuentes[^1] wrote me on `Twitter` to tell me he had an extra ticket for `droidcon` Berlin[^2] since he'll be speaking (Now, as you might know I do `iOS` and know close to **NOTHING** about `Android` development) and since I have always been curious about `Android` development I said _YES_ and embarked on what would be my first ever **droidCon**.
 
 <!--more-->
