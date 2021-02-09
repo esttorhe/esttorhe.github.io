@@ -22,7 +22,10 @@ There's been __*a lot*__ of «heated» debates regarding the `throws` approach a
 ---
 Some examples:
 
-{{< tweet 609841773284724737 >}}
+{{< blockquote author="Tom Brow (@browgrammer) June 13, 2015" link="https://twitter.com/browgrammer/status/609841773284724737" >}}
+  @cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What's New in Swift talk :/ 
+{{< /blockquote >}}
+
 
 <!-- more -->
 
