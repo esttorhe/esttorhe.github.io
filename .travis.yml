@@ -18,7 +18,7 @@ addons:
       - aspell-en
 
 before_install:
-  - docker pull jojomi/hugo
+  - docker pull jojomi/hugo:latest
   - rvm install 2.5.0
   - bundle install --path="./.vendor/bundle" --jobs 3
 
