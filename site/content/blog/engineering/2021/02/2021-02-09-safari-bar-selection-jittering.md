@@ -4,7 +4,6 @@ date: 2021-02-09T15:09:04Z
 aliases: ["post", "management"]
 type: post
 tags: ["engineering", "code"]
-draft: true
 ---
 
 Some time ago I decided to drink `Apple`'s Kool-Aid and jumped over `Safari` as my default browser. Once that `Apple` granted access to the internals of `Safari` for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I'm lying… I was missing a few things… but nothing major).
