@@ -6,7 +6,18 @@
     <description>Recent content in Engineering Posts on Journey through engineering…</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Feb 2018 18:18:04 +0000</lastBuildDate><atom:link href="https://estebantorr.es/blog/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Feb 2021 15:09:04 +0000</lastBuildDate><atom:link href="https://estebantorr.es/blog/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Safari Bar Selection Jittering</title>
+      <link>https://estebantorr.es/blog/engineering/2021/02/2021-02-09-safari-bar-selection-jittering/</link>
+      <pubDate>Tue, 09 Feb 2021 15:09:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/engineering/2021/02/2021-02-09-safari-bar-selection-jittering/</guid>
+      <description>&lt;p&gt;Some time ago I decided to drink &lt;code&gt;Apple&lt;/code&gt;&amp;rsquo;s Kool-Aid and jumped over &lt;code&gt;Safari&lt;/code&gt; as my default browser. Once that &lt;code&gt;Apple&lt;/code&gt; granted access to the internals of &lt;code&gt;Safari&lt;/code&gt; for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I&amp;rsquo;m lying… I was missing a few things… but nothing major).
+Due to work I had to switch over to a &lt;code&gt;Chrome&lt;/code&gt; based browser and opted for &lt;code&gt;Brave&lt;/code&gt; and that was the end of it… but NOW that we also have translations natively in &lt;code&gt;Safari&lt;/code&gt; I decided I would leverage both browsers since I never left &lt;code&gt;Safari&lt;/code&gt; on Mobile.&lt;/p&gt;
+&lt;p&gt;Fast forward a couple of weeks and I&amp;rsquo;m happy with &lt;code&gt;Safari&lt;/code&gt; for the most part… except that I do have multiple email accounts with the same provider (because of reasons) and when typing &lt;code&gt;mail&lt;/code&gt; on my search bar and getting a few hittings; hitting the downwards arrow to get to the one I wanted and seeing the selection jump last minute to the top started to get on my nerves…&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Xcode notifications on your 📱</title>
       <link>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</link>
