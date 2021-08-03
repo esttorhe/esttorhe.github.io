@@ -23,7 +23,15 @@ At [`SoundCloud`][soundcloud] I've worn many hats:
 
 I used to be moderately active in the `iOS` community and tried to attend different conferences (as an attendee as well as an speaker) but has since a couple of years slowed down a lot in that front.
 
-Given my background I'm still figuring out my new role as an `EM` where every day brings a lot of learninsg and more than one failure from my part. It is super exciting as there's no dull day; which also makes it tiring due to the constant changes; never konw what to expect and the best tool I have is being able to adapt to whatever the situation throws at me.
+~~Given my background I'm still figuring out my new role as an `EM` where every day brings a lot of learnings and more than one failure from my part. It is super exciting as there's no dull day; which also makes it tiring due to the constant changes; never know what to expect and the best tool I have is being able to adapt to whatever the situation throws at me.~~
+
+It's been 2 years since I started working as an `Engineering Manager` and lots of things have happened:
+
+- Managed to help a former member of my team transition to a different team where they could grow even more and exert a bigger and wider impact
+- Had to manage one of the biggest projects the company (`SoundCloud`) had seen, involving multiple teams, contractors and all 3 major clients
+- Took over a 2nd team, which focuses mainly on `Back End Engineering Productivity`
+
+It is fair to say I'm still figuring out things on the new role, but the day-to-day has changed from "I have no idea what I am doing" to "I have no idea what I am doing, but I've seen this before". Looking forward to growing more on this new chapter, although I haven't stopped coding, mainly in `Go` and very recently started learning `Rust`.
 
 I've been jotting down what I learn in a good old paper notebook which I'll try to migrate to a more modern place in this website.
 
