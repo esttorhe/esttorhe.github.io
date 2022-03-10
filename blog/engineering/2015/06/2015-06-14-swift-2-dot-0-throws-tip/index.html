@@ -151,14 +151,14 @@
     
   </footer>
 </blockquote>
-<!-- raw HTML omitted -->
+<!-- more -->
 <hr>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</p>&mdash; Justin Spahr-Summers (@jspahrsummers) <a href="https://twitter.com/jspahrsummers/status/608066730250924032?ref_src=twsrc%5Etfw">June 9, 2015</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <hr>
 <p>That being said, I&rsquo;m not going to convince you to use it or avoid it. That&rsquo;s entirely up to you, the app / framework you are working on and wether or not you need to do async calls with <code>throws</code> (which is a «fun» thing to accomplish).</p>
-<!-- raw HTML omitted -->
+<br/>
 <p>If you end up using the <code>throws</code> approach though there&rsquo;s a big issue along the lines of «What is this function supposed to <code>throw</code> at me?»</p>
 <p>And while this tip won&rsquo;t «solve» the issue at compile time is sure a nice way to «notify» the consumers of your <code>API</code> somehow.</p>
 <p>My approach so far was to add the following to the header of the apple doc of my functions:</p>

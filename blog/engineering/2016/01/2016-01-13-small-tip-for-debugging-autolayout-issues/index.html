@@ -86,7 +86,7 @@
 
     <p>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.</p>
 <p>The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:</p>
-<!-- raw HTML omitted -->
+<!-- more -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-swift" data-lang="swift">&lt;NSAutoresizingMaskLayoutConstraint:<span style="color:#ae81ff">0x175086220</span> h=<span style="color:#f92672">-&amp;-</span> v=<span style="color:#f92672">-&amp;-</span> UIView:<span style="color:#ae81ff">0x147533250</span>.height == UIView:<span style="color:#ae81ff">0x14760b4a0</span>.height&gt;
 </code></pre></div><p>Imagine that but with many interacting <code>UIViews</code> at play; most of the time you can actually figure what&rsquo;s going on based on the <code>constant</code> value or if you are well versed you can see the <code>Matrix</code> from source code a la Neo; but let&rsquo;s be honest; more times than none you are left wondering which view is which…</p>
 <h2 id="accessibilitylabel-to-the-rescue"><code>accessibilityLabel</code> to the rescue</h2>
@@ -168,7 +168,7 @@ This doesn&rsquo;t make this any less useful; those traits can be set via code a
 <pre><code>loginTextView tail constraint of 10 with logoImageView leading
 
 logoImageView top constraint of 15 to topLayout
-</code></pre><p><!-- raw HTML omitted -->
+</code></pre><p><br />
 That&rsquo;s obviously pseudocode but you get the idea; knowing which views are actually interacting with the crash helps figure out why and how to fix them.</p>
 
     </div>
