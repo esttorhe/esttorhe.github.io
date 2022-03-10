@@ -37,6 +37,8 @@ I've been jotting down what I learn in a good old paper notebook which I'll try 
 
 You can find me on [{{< awesome fa fa-github >}}`GitHub`][github] and [{{< awesome fa fa-twitter >}}`Twitter`][twitter] as `@esttorhe`.
 
+<iframe src="https://open.spotify.com/embed/playlist/3rBwXl0FpOsv25Viatky7H?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
 [soundcloud]:https://soundcloud.com
 [spotify]:https://spotify.com
 [backstage]:https://backstage.spotify.com

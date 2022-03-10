@@ -47,6 +47,9 @@ publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.highlight]
     codeFences = true
     guessSyntax = false
