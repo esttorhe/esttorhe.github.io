@@ -46,9 +46,9 @@ This was not for a lack of challenges, as there was always something new, e.g.:S
       <pubDate>Thu, 22 Feb 2018 22:46:10 +0000</pubDate>
       
       <guid>https://estebantorr.es/about/</guid>
-      <description>Hi; my name is Esteban Torres and I&amp;rsquo;m an Engineering Manager @ SoundCloud, Berlin. I&amp;rsquo;m originally from 🇨🇷Costa Rica where I started as an Engineer and quickly jumped on the iOS badwagon; this led me to land a job as an iOS @ SoundCloud which of course led to me &amp;amp; my family moving to 🇩🇪.
-At SoundCloud I&amp;rsquo;ve worn many hats:
- iOS Engineer (Listening Cluster and later on Core Clients) Cross Platform Engineer (Core Clients were I got to do Scala, Go, some Production Engineering, iOS &amp;amp; Android development, etc) And most recently Engineering Management  I used to be moderately active in the iOS community and tried to attend different conferences (as an attendee as well as an speaker) but has since a couple of years slowed down a lot in that front.</description>
+      <description>Hi; my name is Esteban Torres and I&amp;rsquo;m an Engineering Manager @ Spotify in Berlin &amp;amp; currently working on Backstage.
+I&amp;rsquo;m originally from 🇨🇷Costa Rica where I started as an Engineer and quickly jumped on the iOS badwagon; this led me to land a job as an iOS @ SoundCloud which of course led to me &amp;amp; my family moving to 🇩🇪.
+During my time at SoundCloud I wore many hats:</description>
     </item>
     
     <item>
@@ -207,10 +207,10 @@ The other day I was trying to figure out an Autolayout crash on the app I was wo
       
       <guid>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
       <description>&lt;p&gt;Lately I&amp;rsquo;ve come across multiple tweets and talks about people avoiding jumping over the dreaded &lt;code&gt;1.0.0&lt;/code&gt; of their &lt;code&gt;frameworks&lt;/code&gt;, tools, etc.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;hr&gt;
