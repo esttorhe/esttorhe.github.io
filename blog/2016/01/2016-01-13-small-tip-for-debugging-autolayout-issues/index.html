@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2016/01/2016-01-06-review-2015/" />
+  <link rel="next" href="https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Small Tip for Debugging Autolayout issues | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="Small Tip for Debugging Autolayout issues | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Small Tip for Debugging Autolayout issues"/>
+<meta name="twitter:description" content="This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.
+The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:
+&lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;- v=-&amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what&rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let&rsquo;s be honest; more times than none you are left wondering which view is which…"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Small Tip for Debugging Autolayout issues",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2016\/01\/2016-01-13-small-tip-for-debugging-autolayout-issues\/"
+  },
+  
+  "genre": "post",
+  "keywords": "ios, xcode, debugging, ide, tips",
+  "wordcount":  303 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2016\/01\/2016-01-13-small-tip-for-debugging-autolayout-issues\/",
+  "datePublished": "2016-01-13T16:11:38\u002b00:00",
+  "dateModified": "2016-01-13T16:11:38\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Small Tip for Debugging Autolayout issues</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2016-01-13 >13 January 2016</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/ios-engineering/"> iOS Engineering </a>
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                2 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.</p>
+<p>The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:</p>
+<!-- more -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-swift" data-lang="swift">&lt;NSAutoresizingMaskLayoutConstraint:<span style="color:#ae81ff">0x175086220</span> h=<span style="color:#f92672">-&amp;-</span> v=<span style="color:#f92672">-&amp;-</span> UIView:<span style="color:#ae81ff">0x147533250</span>.height == UIView:<span style="color:#ae81ff">0x14760b4a0</span>.height&gt;
+</code></pre></div><p>Imagine that but with many interacting <code>UIViews</code> at play; most of the time you can actually figure what&rsquo;s going on based on the <code>constant</code> value or if you are well versed you can see the <code>Matrix</code> from source code a la Neo; but let&rsquo;s be honest; more times than none you are left wondering which view is which…</p>
+<h2 id="accessibilitylabel-to-the-rescue"><code>accessibilityLabel</code> to the rescue</h2>
+<p>Looking around how to set debug names for views/constraints I found out that setting the <code>accessibilityLabel</code> of <code>UIView</code>s will appear in the console log next to the horrible mess that I showed above in this post making things more «human readable».</p>
+<p>Basically «abusing» <code>accessibilityLabel</code> and <code>accessibilityIdentifier</code> we can help us figure out those pesky autolayout crashes.</p>
+<p>We use <code>Storyboard</code>s in our projects; like I&rsquo;ve said before:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+
+
+
+
+      
+      
+      
+    
+     
+      
+    
+    
+
+    
+    
+         
+         
+         
+
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+      
+    
+  
+
+
+<blockquote>
+  <p><pre><code>…yes, we use storyboards, we are drinking Apple’s “Kool-Aid”…
+</code></pre>
+</p>
+  <footer>
+    <strong></strong>
+    
+      
+        <cite>
+          <a href="https://estebantorr.es/blog/2014/12/17/show-adaptative-segue-error/" title="https://estebantorr.es/blog/2014/12/17/show-adaptative-segue-error/">estebantorr.es/blog/2014/12/17/...</a> 
+        </cite>
+      
+    
+  </footer>
+</blockquote>
+<p>Which makes it really easy to set that <code>accessibilityLabel</code> and <code>accessibilityIdentifier</code> directly from <code>InterfaceBuilder</code>; sadly this time the issue was happening while generating some <code>UI</code> via code.
+This doesn&rsquo;t make this any less useful; those traits can be set via code as well 🎉</p>
+<p>That way at least you can infer something like this:</p>
+<pre><code>loginTextView tail constraint of 10 with logoImageView leading
+
+logoImageView top constraint of 15 to topLayout
+</code></pre><p><br />
+That&rsquo;s obviously pseudocode but you get the idea; knowing which views are actually interacting with the crash helps figure out why and how to fix them.</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>303</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2016%2f01%2f2016-01-13-small-tip-for-debugging-autolayout-issues%2f&amp;text=Small%20Tip%20for%20Debugging%20Autolayout%20issues&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2016%2f01%2f2016-01-13-small-tip-for-debugging-autolayout-issues%2f&amp;title=Small%20Tip%20for%20Debugging%20Autolayout%20issues" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2016%2f01%2f2016-01-13-small-tip-for-debugging-autolayout-issues%2f&amp;title=Small%20Tip%20for%20Debugging%20Autolayout%20issues" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2016%2f01%2f2016-01-13-small-tip-for-debugging-autolayout-issues%2f&amp;description=Small%20Tip%20for%20Debugging%20Autolayout%20issues" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ios/">
+                    #ios</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/xcode/">
+                    #xcode</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/debugging/">
+                    #debugging</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ide/">
+                    #ide</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/tips/">
+                    #tips</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2016/01/2016-01-06-review-2015/" class="prev" rel="prev" title="Review: 2015"><i class="iconfont icon-dajiantou"></i>&nbsp;Review: 2015</a>
+         
+        
+        <a href="https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/" class="next" rel="next" title="iOScon 2016">iOScon 2016&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2016-01-13 16:11:38 \u002b0000 UTC',
+        title: 'Small Tip for Debugging Autolayout issues',
+        link: decodeURI(location.href),
+        desc: 'This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.\nThe other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:\n\u0026lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-\u0026amp;- v=-\u0026amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height\u0026gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what\u0026rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let\u0026rsquo;s be honest; more times than none you are left wondering which view is which…',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

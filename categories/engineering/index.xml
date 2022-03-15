@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engineering on The mind of Esteban</title>
+    <link>https://estebantorr.es/categories/engineering/</link>
+    <description>Recent content in Engineering on The mind of Esteban</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 Feb 2021 15:09:04 +0000</lastBuildDate><atom:link href="https://estebantorr.es/categories/engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Safari Bar Selection Jittering</title>
+      <link>https://estebantorr.es/blog/2021/02/2021-02-09-safari-bar-selection-jittering/</link>
+      <pubDate>Tue, 09 Feb 2021 15:09:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2021/02/2021-02-09-safari-bar-selection-jittering/</guid>
+      <description>&lt;p&gt;Some time ago I decided to drink &lt;code&gt;Apple&lt;/code&gt;&amp;rsquo;s Kool-Aid and jumped over &lt;code&gt;Safari&lt;/code&gt; as my default browser. Once that &lt;code&gt;Apple&lt;/code&gt; granted access to the internals of &lt;code&gt;Safari&lt;/code&gt; for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I&amp;rsquo;m lying… I was missing a few things… but nothing major).
+Due to work I had to switch over to a &lt;code&gt;Chrome&lt;/code&gt; based browser and opted for &lt;code&gt;Brave&lt;/code&gt; and that was the end of it… but NOW that we also have translations natively in &lt;code&gt;Safari&lt;/code&gt; I decided I would leverage both browsers since I never left &lt;code&gt;Safari&lt;/code&gt; on Mobile.&lt;/p&gt;
+&lt;p&gt;Fast forward a couple of weeks and I&amp;rsquo;m happy with &lt;code&gt;Safari&lt;/code&gt; for the most part… except that I do have multiple email accounts with the same provider (because of reasons) and when typing &lt;code&gt;mail&lt;/code&gt; on my search bar and getting a few hittings; hitting the downwards arrow to get to the one I wanted and seeing the selection jump last minute to the top started to get on my nerves…&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Xcode notifications on your 📱</title>
+      <link>https://estebantorr.es/blog/2018/02/2018-02-13-xcode-notifications-on-your-phone/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2018/02/2018-02-13-xcode-notifications-on-your-phone/</guid>
+      <description>&lt;p&gt;Since quite some time now I&amp;rsquo;ve been working on &lt;code&gt;Xcode&lt;/code&gt; projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.&lt;/p&gt;
+&lt;p&gt;I also like to multi-task and do some other stuff while I&amp;rsquo;m compiling…&lt;/p&gt;
+&lt;!-- [![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)](https://xkcd.com/303/) --&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/compiling.png&#34; alt=&#34;xkcd comic about compilation times&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Disabling Animations Heuristics</title>
+      <link>https://estebantorr.es/blog/2017/09/2017-09-25-disabling-animations-heuristics/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2017/09/2017-09-25-disabling-animations-heuristics/</guid>
+      <description>&lt;p&gt;Checking &lt;code&gt;Twitter&lt;/code&gt; the other day I stumble this tweets from &lt;a href=&#34;https://twitter.com/zats&#34;&gt;Sash Zats&lt;/a&gt; addressing some heuristics for enabling/disabling intensive animations in &lt;code&gt;iOS&lt;/code&gt; apps:&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;[1/4] When performing intensive animations or other auxiliary work consider creating a helper checking following (in no particular order):&lt;/p&gt;&amp;mdash; Sash Zats (@zats) &lt;a href=&#34;https://twitter.com/zats/status/910125012157214721?ref_src=twsrc%5Etfw&#34;&gt;September 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>droidCon Berlin</title>
+      <link>https://estebantorr.es/blog/2017/09/2017-09-06-droidcon-berlin/</link>
+      <pubDate>Wed, 06 Sep 2017 08:55:10 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2017/09/2017-09-06-droidcon-berlin/</guid>
+      <description>&lt;h1 id=&#34;iosguyatdroidcon&#34;&gt;#iOSGuyAtDroidcon&lt;/h1&gt;
+&lt;p&gt;Last week fellow speaker and good friend Jorge Ortiz-Fuentes&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; wrote me on &lt;code&gt;Twitter&lt;/code&gt; to tell me he had an extra ticket for &lt;code&gt;droidcon&lt;/code&gt; Berlin&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; since he&amp;rsquo;ll be speaking (Now, as you might know I do &lt;code&gt;iOS&lt;/code&gt; and know close to &lt;strong&gt;NOTHING&lt;/strong&gt; about &lt;code&gt;Android&lt;/code&gt; development) and since I have always been curious about &lt;code&gt;Android&lt;/code&gt; development I said &lt;em&gt;YES&lt;/em&gt; and embarked on what would be my first ever &lt;strong&gt;droidCon&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>iOScon 2016</title>
+      <link>https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Small Tip for Debugging Autolayout issues</title>
+      <link>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
+      <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
+      <description>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.
+The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:
+&amp;lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;amp;- v=-&amp;amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&amp;gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what&amp;rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let&amp;rsquo;s be honest; more times than none you are left wondering which view is which…</description>
+    </item>
+    
+    <item>
+      <title>Nokogiri on El Capitan</title>
+      <link>https://estebantorr.es/blog/2015/10/2015-10-02-nokogiri-in-el-capitan/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/10/2015-10-02-nokogiri-in-el-capitan/</guid>
+      <description>&lt;p&gt;Finally &lt;code&gt;El Capitan&lt;/code&gt; arrived and I couldn&amp;rsquo;t be more eager to install it on my machine; as soon as I read on Twitter that it was available I jump to the &lt;code&gt;AppStore&lt;/code&gt; and started the download process which seemed like a bad idea at the time:&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I think downloading «El Capitan» at the same time as the rest of the world was a BAD idea and poor judgement on my part 😂&lt;/p&gt;&amp;mdash; Esteban Torres (@esttorhe) &lt;a href=&#34;https://twitter.com/esttorhe/status/649289668773715973?ref_src=twsrc%5Etfw&#34;&gt;September 30, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>dyld: Library not loaded &amp; CocoaPods</title>
+      <link>https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/</guid>
+      <description>&lt;p&gt;This morning I woke up to a not so great ✉ from a &lt;code&gt;PR&lt;/code&gt; I submitted the day before; it read something like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And with that I started my day trying to figure out what was going on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Semver intermediate versioning</title>
+      <link>https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/</link>
+      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
+      <description>&lt;p&gt;Lately I&amp;rsquo;ve come across multiple tweets and talks about people avoiding jumping over the dreaded &lt;code&gt;1.0.0&lt;/code&gt; of their &lt;code&gt;frameworks&lt;/code&gt;, tools, etc.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+&lt;p&gt;Sadly that&amp;rsquo;s the current state of «our world» as developers.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Xcode Plugins I use</title>
+      <link>https://estebantorr.es/blog/2015/07/2015-07-20-xcode-plugins/</link>
+      <pubDate>Mon, 20 Jul 2015 11:23:40 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/07/2015-07-20-xcode-plugins/</guid>
+      <description>&lt;p&gt;Everyone of us have our own set of niks &amp;amp; tricks to better find our ways around our everyday activities.&lt;/p&gt;
+&lt;p&gt;For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.&lt;/p&gt;
+&lt;h1 id=&#34;xcode-plugins&#34;&gt;&lt;code&gt;Xcode&lt;/code&gt; Plugins&lt;/h1&gt;
+&lt;p&gt;For those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.&lt;/p&gt;
+&lt;p&gt;Plugins are 3rd Party pieces of code that can be «injected» into Xcode&amp;rsquo;s life cycle and can extend its functionalities or even add new ones.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s plenty of plugins and many different ways to load/install them but my go-to way is always &lt;a href=&#34;http://alcatraz.io/&#34;&gt;&lt;code&gt;Alcatraz&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hidden error variable on exhaustive block</title>
+      <link>https://estebantorr.es/blog/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
+      <pubDate>Mon, 15 Jun 2015 22:15:03 -0600</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</guid>
+      <description>&lt;p&gt;On my &lt;a href=&#34;https://estebantorr.es/blog/2015/06/swift-2.0-throws-tip/&#34;&gt;previous post&lt;/a&gt; I tried to help «solve» in a way the problem with non-typed &lt;code&gt;throws&lt;/code&gt; by documenting them on the internal docs as lists with &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Based on that you can rightfully assume that I&amp;rsquo;m migrating all my &lt;code&gt;Result&amp;lt;T,U&amp;gt;&lt;/code&gt; code to support &lt;code&gt;throws&lt;/code&gt; instead, on my &lt;code&gt;2.0&lt;/code&gt; branches.&lt;/p&gt;
+&lt;p&gt;As you might know (or not) whenever you do a &lt;code&gt;do&lt;/code&gt;/&lt;code&gt;catch&lt;/code&gt; block the &lt;code&gt;catch&lt;/code&gt; block needs to be exhaustive; just like a &lt;code&gt;switch&lt;/code&gt; and «catch» &lt;em&gt;all&lt;/em&gt; possible paths.&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t mean you &lt;strong&gt;necessarily&lt;/strong&gt; need to specify every single error type in your &lt;code&gt;catch&lt;/code&gt; block (even though ideally you should react differently for each type of error) but you can add an exhaustive &lt;code&gt;catch&lt;/code&gt; that will represent «every single error».&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Swift 2.0 - throws tip</title>
+      <link>https://estebantorr.es/blog/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</link>
+      <pubDate>Sun, 14 Jun 2015 17:39:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
+      <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
+ Some examples:
+@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.
+&amp;mdash; Justin Spahr-Summers (@jspahrsummers) June 9, 2015   That being said, I&amp;rsquo;m not going to convince you to use it or avoid it.</description>
+    </item>
+    
+    <item>
+      <title>&#39;Show&#39; Adaptative Segue Error</title>
+      <link>https://estebantorr.es/blog/2014/12/2014-12-show-adaptative-segue-error/</link>
+      <pubDate>Tue, 16 Dec 2014 18:43:03 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2014/12/2014-12-show-adaptative-segue-error/</guid>
+      <description>On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple&amp;rsquo;s &amp;ldquo;Kool-Aid&amp;rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
+Fist Glimpse Of The Problem Although this &amp;ldquo;embracing the change&amp;rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &amp;ldquo;share&amp;rdquo; button was yielding no actions…</description>
+    </item>
+    
+  </channel>
+</rss>

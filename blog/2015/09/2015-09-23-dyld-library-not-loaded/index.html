@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/" />
+  <link rel="next" href="https://estebantorr.es/blog/2015/09/2015-09-26-how-to-and-not-ask-questions/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           dyld: Library not loaded &amp; CocoaPods | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="dyld: Library not loaded &amp; CocoaPods | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="dyld: Library not loaded &amp; CocoaPods"/>
+<meta name="twitter:description" content="This morning I woke up to a not so great ✉ from a PR I submitted the day before; it read something like this:
+
+I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all
+
+And with that I started my day trying to figure out what was going on."/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "dyld: Library not loaded \u0026 CocoaPods",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2015\/09\/2015-09-23-dyld-library-not-loaded\/"
+  },
+  
+  "genre": "post",
+  "keywords": "dependencies, tools, errors, swift2, swift, cocoapods, rpath, error",
+  "wordcount":  701 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2015\/09\/2015-09-23-dyld-library-not-loaded\/",
+  "datePublished": "2015-09-23T15:14:17\u002b00:00",
+  "dateModified": "2015-09-23T15:14:17\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">dyld: Library not loaded &amp; CocoaPods</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2015-09-23 >23 September 2015</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/ios-engineering/"> iOS Engineering </a>
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                4 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>This morning I woke up to a not so great ✉ from a <code>PR</code> I submitted the day before; it read something like this:</p>
+<blockquote>
+<p>I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all</p>
+</blockquote>
+<p>And with that I started my day trying to figure out what was going on.</p>
+<h1 id="the-culprit">The culprit</h1>
+<p>It wasn&rsquo;t hard to determine what was the issue given that the console was spitting the following message:</p>
+<pre><code class="language-console" data-lang="console">dyld: Library not loaded: @rpath/AFNetworking.framework/AFNetworking
+  Referenced from: /var/mobile/Containers/Bundle/Application/6C4D36F9-6481-434C-8713-18EC38A0FBF6/&lt;appname&gt;.app/&lt;appname&gt;
+  Reason: image not found
+(lldb)
+</code></pre><p>It was pretty straight forward, <code>@rpath</code> was borked.</p>
+<h2 id="rpath-errors"><code>@rpath</code> errors</h2>
+<p>If you&rsquo;ve had the delight of actually play around with <code>Swift</code> and <code>Dyanmic Frameworks</code> you&rsquo;ve more than likely came across at least one <code>@rpath</code> error.</p>
+<p>What this means basically is that either your runtime path(s) are borked or that your frameworks are not getting copied/embedded into the <code>Frameworks</code> «section» of your application (let&rsquo;s leave it like this for simplicity&rsquo;s sake).</p>
+<h1 id="fixing-the-issue">«Fixing» the issue</h1>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="http://i0.kym-cdn.com/photos/images/newsfeed/000/962/640/658.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>I went on to check the runtime paths and sure as hell everything was correct, without much to worry about I turned to check if my frameworks were being copied/embedded to their respective places and sure they were…</p>
+<p>I was starting to worry and also running out of ideas so I decided to check my <code>CocoaPods</code> definition and I noticied a couple of things with how the <code>Podfile</code> was structured.</p>
+<p>I decided that this was a chance as good as any to refactor the <code>Podfile</code> and also fix the issue. And with this in mind I separated the pods by <code>target</code> and also created some «shared pods» definition; added some <code>:exlusive =&gt; true</code> decorations here and there and voilá! I was ready for the test.</p>
+
+
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    
+<pre><code class="language-console" data-lang="console">$ pod install</code></pre>
+
+  </main>
+</div>
+<p>Compile and 💥 … did not work…</p>
+<h1 id="turning-to-almighty-and-wise-internet">Turning to almighty and wise internet</h1>
+<p>After <em>successfully</em> failling at fixing the issue I turned to old and wise internet just to bump my head against a wall multiple times…</p>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="http://rs1322.pbsrc.com/albums/u572/SpamMe06/headbang_zps2ac29901.gif~c200" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h1 id="pre-during-and-post-frustration">Pre, During and Post Frustration</h1>
+<p>Closing to 7 or so hours I decided to do what I think I should have done from the beginning… created a new empty project; bare bones with only the <code>Podfile</code> being an complete replica of the failing project.</p>
+
+
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    
+<pre><code class="language-console" data-lang="console">$ pod install</code></pre>
+
+  </main>
+</div>
+<p>And lo and behold… the project compiles and runs on my device as expected…</p>
+<p>That was equal parts promising and infuriating… Since I didn&rsquo;t want to move everything to a new clean project (and more so I shouldn&rsquo;t need to do that) I decided to check for differences between <code>@rpath</code> in both projects.</p>
+<p>After some time both projects looked the same and I even added some «missing» build phases (run scripts from <code>CocoaPods</code>) to my original project and some missing header paths.</p>
+<p>Everything was looking nice 🌅… until I decided to run on my device and faced the same issue…</p>
+<h1 id="solution">Solution</h1>
+<p>After checking the error it looked like the same but slightly different… so minuscule that it was actually key to find the answer…</p>
+<p>The current error was the following:</p>
+<pre><code class="language-console" data-lang="console">dyld: Library not loaded: @rpath/Pods.framework/Pods
+</code></pre><p>While in theory it was the same; it actually conveyed a totally different meaning.</p>
+<p>Looking at <code>CocoaPods</code> issues I came accross <a href="https://github.com/CocoaPods/CocoaPods/issues/3586">this one</a> that suggest the following:</p>
+<blockquote>
+<p>Okay, fixed. The issue was the Pods.framework was set to required and not optional. It wasn&rsquo;t being copied to device by the .sh script and so the app crashed. Setting this to optional fixed the issue.
+<figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://cloud.githubusercontent.com/assets/1169297/7726958/9156c376-fefd-11e4-90c8-2412f67f52c2.png" alt="https://cloud.githubusercontent.com/assets/1169297/7726958/9156c376-fefd-11e4-90c8-2412f67f52c2.png" class="lazyload"><figcaption class="image-caption">https://cloud.githubusercontent.com/assets/1169297/7726958/9156c376-fefd-11e4-90c8-2412f67f52c2.png</figcaption></figure></p>
+</blockquote>
+<p>Withouth giving it much thought I went to my original project… marked <code>Pods.framework</code> as «Optional»… compile… run… 🎉</p>
+<p>The application was running smoothly on my 📱…</p>
+<h1 id="take-aways">Take Aways</h1>
+<p>This issue turned out to be a terrible waste of time but also helped me rearrange my list of steps to follow when debugging errors that should be «obvious» from experience.</p>
+<p>If after failing to due what experience tolds me is the answer; try to replicate the issue on a newly created project (or as clean as possible).</p>
+<p>If you succeed in reproducing you are unto something new; if not then your project is borked and you now have a clean and functional project to compare and take bits from here and there.</p>
+<p>🙇</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>701</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-23-dyld-library-not-loaded%2f&amp;text=dyld%3a%20Library%20not%20loaded%20%26%20CocoaPods&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-23-dyld-library-not-loaded%2f&amp;title=dyld%3a%20Library%20not%20loaded%20%26%20CocoaPods" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-23-dyld-library-not-loaded%2f&amp;title=dyld%3a%20Library%20not%20loaded%20%26%20CocoaPods" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-23-dyld-library-not-loaded%2f&amp;description=dyld%3a%20Library%20not%20loaded%20%26%20CocoaPods" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/dependencies/">
+                    #dependencies</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/tools/">
+                    #tools</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/errors/">
+                    #errors</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/swift2/">
+                    #swift2</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/swift/">
+                    #swift</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/cocoapods/">
+                    #cocoapods</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/rpath/">
+                    #rpath</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/error/">
+                    #error</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/" class="prev" rel="prev" title="Semver intermediate versioning"><i class="iconfont icon-dajiantou"></i>&nbsp;Semver intermediate versioning</a>
+         
+        
+        <a href="https://estebantorr.es/blog/2015/09/2015-09-26-how-to-and-not-ask-questions/" class="next" rel="next" title="How to (and not) ask questions…">How to (and not) ask questions…&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2015-09-23 15:14:17 \u002b0000 UTC',
+        title: 'dyld: Library not loaded \u0026 CocoaPods',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eThis morning I woke up to a not so great ✉ from a \u003ccode\u003ePR\u003c\/code\u003e I submitted the day before; it read something like this:\u003c\/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eI can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003eAnd with that I started my day trying to figure out what was going on.\u003c\/p\u003e',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.10.0/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

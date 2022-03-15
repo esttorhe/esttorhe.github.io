@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  
+  <link rel="next" href="https://estebantorr.es/blog/2014/12/2014-12-31-new-year-resolutions/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2014/12/2014-12-show-adaptative-segue-error/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           &#39;Show&#39; Adaptative Segue Error | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="&#39;Show&#39; Adaptative Segue Error | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="&#39;Show&#39; Adaptative Segue Error"/>
+<meta name="twitter:description" content="On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple&rsquo;s &ldquo;Kool-Aid&rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
+Fist Glimpse Of The Problem Although this &ldquo;embracing the change&rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &ldquo;share&rdquo; button was yielding no actions…"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "\u0027Show\u0027 Adaptative Segue Error",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2014\/12\/2014-12-show-adaptative-segue-error\/"
+  },
+  
+  "genre": "post",
+  "keywords": "ios, radar, bug, segue",
+  "wordcount":  872 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2014\/12\/2014-12-show-adaptative-segue-error\/",
+  "datePublished": "2014-12-16T18:43:03\u002b00:00",
+  "dateModified": "2014-12-16T18:43:03\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">&#39;Show&#39; Adaptative Segue Error</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2014-12-16 >16 December 2014</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/ios-engineering/"> iOS Engineering </a>
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                5 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        <img src="/assets/images/post/2014/12/show-adaptative-segue-error/segue.png" class="featured_image">
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>On our projects we use multiple <code>UIStoryboard</code> files to break our apps; yes, we use storyboards, we are drinking Apple&rsquo;s &ldquo;Kool-Aid&rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.</p>
+<h1 id="fist-glimpse-of-the-problem">Fist Glimpse Of The Problem</h1>
+<p>Although this &ldquo;embracing the change&rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &ldquo;share&rdquo; button was yielding no actions…</p>
+<p>That&rsquo;s weird since we have it &ldquo;wired&rdquo; to launch a <code>UIActivityController</code> that will handle our sharing list.</p>
+<p>Let&rsquo;s open <code>Xcode</code> and launch the simulator… nope, everything works as expected.</p>
+<p>Time to connect our device; load the latest build, run and… nope, can&rsquo;t reproduce.</p>
+<!-- more -->
+<h1 id="isolating-the-bug">Isolating The Bug</h1>
+<p>After writing back to the reporter we got word that the issue is happening on an <code>iPhone</code> running <code>7.1</code>.</p>
+<p>With that we go to <code>Xcode</code>, rinse and repeat with the exception that this time there&rsquo;s nothing happening after hitting the share button.</p>
+<p>We immediately noticed that the <code>UINavigationBar</code> was missing from the &ldquo;sharing&rdquo; view controller and internally we were presenting the <code>UIActivityController</code> like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-objc" data-lang="objc">UIActivityViewController <span style="color:#f92672">*</span>activityViewController <span style="color:#f92672">=</span> [[UIActivityViewController alloc] initWithActivityItems:<span style="color:#ae81ff">@[</span>self.currentUser.myList.itemProvider<span style="color:#ae81ff">]</span> applicationActivities:nil];
+<span style="color:#75715e">// Adding some exclusions, etc 
+</span><span style="color:#75715e"></span>[self.navigationController presentViewController:activityViewController animated:YES completion:<span style="color:#f92672">^</span>{
+    <span style="color:#75715e">// Do some other stuff
+</span><span style="color:#75715e"></span>}];
+</code></pre></div><p>Just from looking at the code plus the lack of navigation bar we can infer that our <code>navigationController</code> property was <code>nil</code>.</p>
+<p>After debugging its confirmed; it is <code>nil</code>; but not just that; the child view controller is being presented <strong>modally</strong>… so… <code>iOS</code> somewhere is taking the child view controller out of its hierarchy and its presenting it completely isolated as a &ldquo;modal&rdquo; leaving the user stuck (because it was coded assuming a <code>Back</code> button on <code>UINavigationBar</code> added after the push).</p>
+<h1 id="but-why">But <strong>WHY??</strong>…</h1>
+<p>I went to Apple&rsquo;s documentation regarding this new &ldquo;adaptive segues&rdquo; (because if you didn&rsquo;t know <code>Push</code>, <code>Modal</code>, <code>Popover</code> &amp; <code>Replace</code> are now deprecated) and this is what I found:
+<figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2014/12/show-adaptative-segue-error/segues-table.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><em>From Apple&rsquo;s Documentation: <a href="https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html">https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html</a></em></p>
+<p>From the documentation we can take that during a &ldquo;regular&rdquo; usage of the <code>Show</code> segue on an <code>iPhone</code> app that&rsquo;s not showing a master/detail the segue will behave as a now deprecated <code>Push</code> segue.</p>
+<p>To add to the weirdness everything works as expected on <code>iOS8</code> but it doesn&rsquo;t on <code>iOS7</code>.</p>
+<p>With that in mind I went to <code>Xcode</code> with the sole idea of generating a project that could easily reproduce the issue.</p>
+<p>New Project, open the storyboard; throw a <code>UINavigationController</code>; set its <code>rootViewController</code>, one <code>UIButton</code>, connect its action to <code>Show</code> and that to another <code>UIViewController</code>; now lets create some code for that child view controller that should display a <code>UIActivityController</code> upon <code>viewDidAppear:</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-objc" data-lang="objc">- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">viewDidAppear:</span>(<span style="color:#66d9ef">BOOL</span>)animated {
+    [super viewDidAppear:animated];
+    
+    UIActivityViewController <span style="color:#f92672">*</span>activityVC <span style="color:#f92672">=</span> [[UIActivityViewController alloc] initWithActivityItems:<span style="color:#ae81ff">@[</span><span style="color:#e6db74">@&#34;Test&#34;</span><span style="color:#ae81ff">]</span>
+                                                                             applicationActivities:nil];
+    [self.navigationController presentViewController:activityVC animated:YES completion:<span style="color:#f92672">^</span>{
+        NSLog(<span style="color:#e6db74">@&#34;This line will never execute on iOS 7.1&#34;</span>);
+    }];
+}
+</code></pre></div><p>And voilà; compile and run on <code>iOS8</code>; everything works.</p>
+<p>Close, compile and run on <code>iOS7</code>… everything works.</p>
+<p><strong>YES</strong>… no wait… the code is working correctly on both environments. Cleaning and building again did not introduce the issue.</p>
+<h1 id="consistently-reproducing-the-bug">Consistently Reproducing The Bug</h1>
+<p>I was just about to give hope on this when I remembered something. In our project we have a &ldquo;hamburger&rdquo; menu (something for another post) which &ldquo;replaces&rdquo; the top view controller via code before using all the segues from the storyboard.</p>
+<p>Perhaps that&rsquo;s the issue; let&rsquo;s make a couple of modifications.</p>
+<p>First let&rsquo;s add an &ldquo;extra&rdquo; level on our storyboards; so that we now have something like this:</p>
+<pre><code>--- UINavigationController
+    --- Root View Controller
+    --- Pushed 1st View Controller // Via Code
+    --- Pushed 2nd View Controller // Via `Show` segue
+</code></pre><p>And from the 1st view controller let&rsquo;s push the 2nd one with some boilerplate code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-objc" data-lang="objc">UIViewController <span style="color:#f92672">*</span>vc <span style="color:#f92672">=</span> 
+[self.storyboard instantiateViewControllerWithIdentifier:<span style="color:#e6db74">@&#34;ViewController&#34;</span>];
+[self.navigationController pushViewController:vc animated:YES];
+</code></pre></div><p>Compile and run on <code>iOS8</code> everything works</p>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2014/12/show-adaptative-segue-error/iOS8.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>close compile and run on <code>iOS7</code> and… there you go.</p>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2014/12/show-adaptative-segue-error/iOS7.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>Last <code>UIViewController</code> is being presented modally instead of pushed to the current stack; thus, its <code>navigationController</code> property is <code>nil</code>.</p>
+<p>#Conclusion
+This is obviously a bug introduced by Apple that does not support &ldquo;retro compatiblity&rdquo; of this new <code>adaptative segues</code>.</p>
+<p>We should be able to replace the deprecated <code>Push</code> with this <code>Show</code> and it should behave the same unless we are taking advantage of this whole new &ldquo;master/detail&rdquo; containers approach.</p>
+<p>I filed a <a href="http://www.openradar.me/19259764">radar</a> with this issue, please feel free to duplicate with that hopes that Apple fixes it.</p>
+<p>Also <a href="https://github.com/esttorhe/ShowNotWorking_Radar">here&rsquo;s the code</a> with a project that easily reproduces the issue.</p>
+<p>#Workaround
+For now the only &ldquo;solution&rdquo; is changing the <code>Show</code> segue for a <code>Deprecated</code> <code>Push</code>; this looks like (and <em><strong>is</strong></em> ) code smell but its the only viable solution for now.</p>
+<h1 id="update">UPDATE</h1>
+<p>Recently I got an update on my radar from  with the following response:</p>
+<blockquote>
+Adaptive segues like Show are only supported when running on iOS 8 or later. Interface Builder is failing to warn that this segue will not be properly unarchived on iOS 7.
+<p>We are continuing to work on this issue, and will follow up with you again.</p>
+</blockquote>
+<p>So there you have it;  kind of accepted it as a bug (at least on IB not warning) but at the same time is telling us that pre <code>iOS8</code> adaptative segues could have unexpected behavior.</p>
+<p>Long story short; <em>DON&rsquo;T USE THEM</em> if you need to support older OS versions.</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>872</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2014%2f12%2f2014-12-show-adaptative-segue-error%2f&amp;text=%27Show%27%20Adaptative%20Segue%20Error&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2014%2f12%2f2014-12-show-adaptative-segue-error%2f&amp;title=%27Show%27%20Adaptative%20Segue%20Error" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2014%2f12%2f2014-12-show-adaptative-segue-error%2f&amp;title=%27Show%27%20Adaptative%20Segue%20Error" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2014%2f12%2f2014-12-show-adaptative-segue-error%2f&amp;description=%27Show%27%20Adaptative%20Segue%20Error" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ios/">
+                    #ios</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/radar/">
+                    #radar</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/bug/">
+                    #bug</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/segue/">
+                    #segue</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="https://estebantorr.es/blog/2014/12/2014-12-31-new-year-resolutions/" class="next" rel="next" title="New Year Resolutions">New Year Resolutions&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2014-12-16 18:43:03 \u002b0000 UTC',
+        title: '\u0027Show\u0027 Adaptative Segue Error',
+        link: decodeURI(location.href),
+        desc: 'On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple\u0026rsquo;s \u0026ldquo;Kool-Aid\u0026rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.\nFist Glimpse Of The Problem Although this \u0026ldquo;embracing the change\u0026rdquo; would come to hunts us with a weird bug that was reported to us; hitting a \u0026ldquo;share\u0026rdquo; button was yielding no actions…',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.10.0/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

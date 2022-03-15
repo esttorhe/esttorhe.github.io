@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ios on Journey through engineering…</title>
+    <title>ios on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/ios/</link>
-    <description>Recent content in ios on Journey through engineering…</description>
+    <description>Recent content in ios on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 13 Jan 2016 16:11:38 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Small Tip for Debugging Autolayout issues</title>
-      <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
+      <link>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
       <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
+      <guid>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
       <description>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.
 The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:
 &amp;lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;amp;- v=-&amp;amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&amp;gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what&amp;rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let&amp;rsquo;s be honest; more times than none you are left wondering which view is which…</description>
@@ -20,10 +20,10 @@ The other day I was trying to figure out an Autolayout crash on the app I was wo
     
     <item>
       <title>&#39;Show&#39; Adaptative Segue Error</title>
-      <link>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</link>
+      <link>https://estebantorr.es/blog/2014/12/2014-12-show-adaptative-segue-error/</link>
       <pubDate>Tue, 16 Dec 2014 18:43:03 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2014/12/2014-12-show-adaptative-segue-error/</guid>
+      <guid>https://estebantorr.es/blog/2014/12/2014-12-show-adaptative-segue-error/</guid>
       <description>On our projects we use multiple UIStoryboard files to break our apps; yes, we use storyboards, we are drinking Apple&amp;rsquo;s &amp;ldquo;Kool-Aid&amp;rdquo; and personally they are real time savers and let us focus on improving the experience and enforcing the business rules.
 Fist Glimpse Of The Problem Although this &amp;ldquo;embracing the change&amp;rdquo; would come to hunts us with a weird bug that was reported to us; hitting a &amp;ldquo;share&amp;rdquo; button was yielding no actions…</description>
     </item>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>swift on Journey through engineering…</title>
+    <title>swift on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/swift/</link>
-    <description>Recent content in swift on Journey through engineering…</description>
+    <description>Recent content in swift on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 27 Jun 2016 22:00:49 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xcode 8 Source Editor Extensions</title>
-      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
+      <link>https://estebantorr.es/blog/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
       <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</guid>
+      <guid>https://estebantorr.es/blog/2016/06/2016-06-27-xcode-8-source-editor-extensions/</guid>
       <description>&lt;p&gt;This last &lt;code&gt;WWDC&lt;/code&gt; &lt;code&gt;Apple&lt;/code&gt; announced that they will be providing us developers with «official» and «legal» ways to create &lt;code&gt;Xcode&lt;/code&gt; plugins.&lt;/p&gt;
 &lt;p&gt;There are many posts covering this and I won&amp;rsquo;t center in the «how to» but rather in one single tip that prevented me from going crazy while developing &lt;a href=&#34;https://github.com/esttorhe/localizer&#34;&gt;&lt;code&gt;Localizer&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
@@ -35,10 +35,10 @@
     
     <item>
       <title>dyld: Library not loaded &amp; CocoaPods</title>
-      <link>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</link>
+      <link>https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/</link>
       <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2015/09/2015-09-23-dyld-library-not-loaded/</guid>
+      <guid>https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/</guid>
       <description>&lt;p&gt;This morning I woke up to a not so great ✉ from a &lt;code&gt;PR&lt;/code&gt; I submitted the day before; it read something like this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I can build in the simulator perfectly fine but trying to get a build onto a device this morning was not happening at all&lt;/p&gt;
@@ -48,11 +48,11 @@
     
     <item>
       <title>Hidden error variable on exhaustive block</title>
-      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
+      <link>https://estebantorr.es/blog/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</link>
       <pubDate>Mon, 15 Jun 2015 22:15:03 -0600</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</guid>
-      <description>&lt;p&gt;On my &lt;a href=&#34;https://estebantorr.es/2015/06/swift-2.0-throws-tip/&#34;&gt;previous post&lt;/a&gt; I tried to help «solve» in a way the problem with non-typed &lt;code&gt;throws&lt;/code&gt; by documenting them on the internal docs as lists with &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
+      <guid>https://estebantorr.es/blog/2015/06/2015-06-15-hidden-error-variable-on-exhaustive-block/</guid>
+      <description>&lt;p&gt;On my &lt;a href=&#34;https://estebantorr.es/blog/2015/06/swift-2.0-throws-tip/&#34;&gt;previous post&lt;/a&gt; I tried to help «solve» in a way the problem with non-typed &lt;code&gt;throws&lt;/code&gt; by documenting them on the internal docs as lists with &lt;code&gt;markdown&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Based on that you can rightfully assume that I&amp;rsquo;m migrating all my &lt;code&gt;Result&amp;lt;T,U&amp;gt;&lt;/code&gt; code to support &lt;code&gt;throws&lt;/code&gt; instead, on my &lt;code&gt;2.0&lt;/code&gt; branches.&lt;/p&gt;
 &lt;p&gt;As you might know (or not) whenever you do a &lt;code&gt;do&lt;/code&gt;/&lt;code&gt;catch&lt;/code&gt; block the &lt;code&gt;catch&lt;/code&gt; block needs to be exhaustive; just like a &lt;code&gt;switch&lt;/code&gt; and «catch» &lt;em&gt;all&lt;/em&gt; possible paths.&lt;/p&gt;
 &lt;p&gt;It doesn&amp;rsquo;t mean you &lt;strong&gt;necessarily&lt;/strong&gt; need to specify every single error type in your &lt;code&gt;catch&lt;/code&gt; block (even though ideally you should react differently for each type of error) but you can add an exhaustive &lt;code&gt;catch&lt;/code&gt; that will represent «every single error».&lt;/p&gt;</description>
@@ -60,14 +60,14 @@
     
     <item>
       <title>Swift 2.0 - throws tip</title>
-      <link>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</link>
+      <link>https://estebantorr.es/blog/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</link>
       <pubDate>Sun, 14 Jun 2015 17:39:51 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
+      <guid>https://estebantorr.es/blog/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
       <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
  Some examples:
- @cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&amp;rsquo;s New in Swift talk :/
- Tom Brow (@browgrammer) June 13, 2015  twitter.com/browgrammer/status/...     Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.</description>
+@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.
+&amp;mdash; Justin Spahr-Summers (@jspahrsummers) June 9, 2015   That being said, I&amp;rsquo;m not going to convince you to use it or avoid it.</description>
     </item>
     
   </channel>

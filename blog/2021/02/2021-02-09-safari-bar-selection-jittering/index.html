@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2020/05/2020-05-15-career-change/" />
+  
+  <link rel="canonical" href="https://estebantorr.es/blog/2021/02/2021-02-09-safari-bar-selection-jittering/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Safari Bar Selection Jittering | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="Safari Bar Selection Jittering | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Safari Bar Selection Jittering"/>
+<meta name="twitter:description" content="Some time ago I decided to drink Apple&rsquo;s Kool-Aid and jumped over Safari as my default browser. Once that Apple granted access to the internals of Safari for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I&rsquo;m lying… I was missing a few things… but nothing major).
+Due to work I had to switch over to a Chrome based browser and opted for Brave and that was the end of it… but NOW that we also have translations natively in Safari I decided I would leverage both browsers since I never left Safari on Mobile.
+Fast forward a couple of weeks and I&rsquo;m happy with Safari for the most part… except that I do have multiple email accounts with the same provider (because of reasons) and when typing mail on my search bar and getting a few hittings; hitting the downwards arrow to get to the one I wanted and seeing the selection jump last minute to the top started to get on my nerves…"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Safari Bar Selection Jittering",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2021\/02\/2021-02-09-safari-bar-selection-jittering\/"
+  },
+  
+  "genre": "blog",
+  "keywords": "engineering, code",
+  "wordcount":  514 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2021\/02\/2021-02-09-safari-bar-selection-jittering\/",
+  "datePublished": "2021-02-09T15:09:04\u002b00:00",
+  "dateModified": "2021-02-09T15:09:04\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Safari Bar Selection Jittering</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2021-02-09 >9 February 2021</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                3 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Some time ago I decided to drink <code>Apple</code>&rsquo;s Kool-Aid and jumped over <code>Safari</code> as my default browser. Once that <code>Apple</code> granted access to the internals of <code>Safari</code> for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I&rsquo;m lying… I was missing a few things… but nothing major).
+Due to work I had to switch over to a <code>Chrome</code> based browser and opted for <code>Brave</code> and that was the end of it… but NOW that we also have translations natively in <code>Safari</code> I decided I would leverage both browsers since I never left <code>Safari</code> on Mobile.</p>
+<p>Fast forward a couple of weeks and I&rsquo;m happy with <code>Safari</code> for the most part… except that I do have multiple email accounts with the same provider (because of reasons) and when typing <code>mail</code> on my search bar and getting a few hittings; hitting the downwards arrow to get to the one I wanted and seeing the selection jump last minute to the top started to get on my nerves…</p>
+<p>If you have been there I don&rsquo;t think you are alone. I quickly jumped and started a search on my &ldquo;Search Engine&rdquo; of choice and got some interesting hits but none were providing a solution… until I noticed something in <code>Safari</code>&rsquo;s search preferences.</p>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2021/02/safari-tips/safari-search-preferences.png" alt="Safari Search preferences pane with &ldquo;Preload Top Hit in the background&rdquo; hightlighted and checked" class="lazyload"><figcaption class="image-caption">Safari Search preferences pane with &ldquo;Preload Top Hit in the background&rdquo; hightlighted and checked</figcaption></figure></p>
+<p>As you can see the option to &ldquo;Preload Top Hit in the background&rdquo; is checked. If you don&rsquo;t know what this does (it is pretty self explanatory, but just in case) it means that whenever you start typing something on <code>Safari</code>&rsquo;s search bar, internally it will start figuring out matches based on your history and your &ldquo;Search Engine&rdquo; and some <code>Safari</code> suggestions (if you have those preferences enabled); it will debounce as you type but whenever you stop to catch a break <code>Safari</code> will work it&rsquo;s algorithm and will try to anticipate what you will click, it is trusting that they will offer you the best match on top and therefore will start preloading the 1st hit in the background so by the time you click on it the load will look instantenous.</p>
+<p>For the majority of use cases this is great… unless like me… you have 2 different options under the same domain. In this case <code>Safari</code> will predict that I do want to load my email website; but if start to move the selection to a lower result it will preload the 1st hit (and this is assumption on my end) when it signals that it finished reloading the search bar will reposition the selection to the top… which in the end could cause you to either hit enter on the top result by mistake or actualy slow you even more than having to wait for the website to load as you have to properly wait until it has cached the first hit in order to properly select your desired option.</p>
+<h1 id="tldr">TL;DR</h1>
+<p>If you are experiencing a jittering or jumping behaviour in <code>Safari</code> when attempting to pick a suggestion from the URL bar; disiable &ldquo;Preload Top Hit in the background&rdquo; and enjoy a jumping-free navigation.</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>514</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2021%2f02%2f2021-02-09-safari-bar-selection-jittering%2f&amp;text=Safari%20Bar%20Selection%20Jittering&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2021%2f02%2f2021-02-09-safari-bar-selection-jittering%2f&amp;title=Safari%20Bar%20Selection%20Jittering" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2021%2f02%2f2021-02-09-safari-bar-selection-jittering%2f&amp;title=Safari%20Bar%20Selection%20Jittering" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2021%2f02%2f2021-02-09-safari-bar-selection-jittering%2f&amp;description=Safari%20Bar%20Selection%20Jittering" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/engineering/">
+                    #engineering</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/code/">
+                    #code</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2020/05/2020-05-15-career-change/" class="prev" rel="prev" title="Career change"><i class="iconfont icon-dajiantou"></i>&nbsp;Career change</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2021-02-09 15:09:04 \u002b0000 UTC',
+        title: 'Safari Bar Selection Jittering',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eSome time ago I decided to drink \u003ccode\u003eApple\u003c\/code\u003e\u0026rsquo;s Kool-Aid and jumped over \u003ccode\u003eSafari\u003c\/code\u003e as my default browser. Once that \u003ccode\u003eApple\u003c\/code\u003e granted access to the internals of \u003ccode\u003eSafari\u003c\/code\u003e for third parties to provide blocking mechanisms the experience was great and I did not regret it (ok; I\u0026rsquo;m lying… I was missing a few things… but nothing major).\nDue to work I had to switch over to a \u003ccode\u003eChrome\u003c\/code\u003e based browser and opted for \u003ccode\u003eBrave\u003c\/code\u003e and that was the end of it… but NOW that we also have translations natively in \u003ccode\u003eSafari\u003c\/code\u003e I decided I would leverage both browsers since I never left \u003ccode\u003eSafari\u003c\/code\u003e on Mobile.\u003c\/p\u003e\n\u003cp\u003eFast forward a couple of weeks and I\u0026rsquo;m happy with \u003ccode\u003eSafari\u003c\/code\u003e for the most part… except that I do have multiple email accounts with the same provider (because of reasons) and when typing \u003ccode\u003email\u003c\/code\u003e on my search bar and getting a few hittings; hitting the downwards arrow to get to the one I wanted and seeing the selection jump last minute to the top started to get on my nerves…\u003c\/p\u003e',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.10.0/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

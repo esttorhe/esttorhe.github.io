@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/" />
+  <link rel="next" href="https://estebantorr.es/blog/2015/10/2015-10-02-nokogiri-in-el-capitan/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2015/09/2015-09-26-how-to-and-not-ask-questions/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           How to (and not) ask questions… | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="How to (and not) ask questions… | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to (and not) ask questions…"/>
+<meta name="twitter:description" content="Is it safe to say that I&rsquo;ve been «scolded» twice this week due to my technical questions.
+Now… I was not scolded as the word implies but the context was that; and I did deserve it if I&rsquo;m honest."/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to (and not) ask questions…",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2015\/09\/2015-09-26-how-to-and-not-ask-questions\/"
+  },
+  
+  "genre": "post",
+  "keywords": "questions, mistakes",
+  "wordcount":  467 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2015\/09\/2015-09-26-how-to-and-not-ask-questions\/",
+  "datePublished": "2015-09-26T22:11:51\u002b00:00",
+  "dateModified": "2015-09-26T22:11:51\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">How to (and not) ask questions…</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2015-09-26 >26 September 2015</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/personal/"> personal </a>
+                        <a href="https://estebantorr.es/categories/learnings/"> learnings </a>
+                        <a href="https://estebantorr.es/categories/personal-improvement/"> personal improvement </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                3 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Is it safe to say that I&rsquo;ve been «scolded» twice this week due to my technical questions.</p>
+<p>Now… I was not <em>scolded</em> as the word implies but the context was that; and I did deserve it if I&rsquo;m honest.</p>
+<h1 id="strike-one">Strike One</h1>
+<p>First time was <a href="https://twitter.com/orta">@Orta</a> on a Slack channel that was supposed to be just <code>#noise</code>.</p>
+<p>I was «abusing» the channel constantly asking questions regarding <code>CocoaPods</code>, either usage and/or for my <code>podspec</code>.</p>
+<p>Whilst I didn&rsquo;t do it with the idea of «abusing» it in mind but instead with the idea of maybe sharing some potentials issues (or not and avoid generating non-existent issues) and also thinking that since most of the creators/maintainers of the tool where on the channel I could get a better grip of what I was doing and avoid generating «noise» on the web I was doing it on a disorganized way.</p>
+<p>Even though my intentions were good my approach was not the correct.</p>
+<h1 id="strike-two">Strike Two</h1>
+<p>Tonight I felt short on my «questioning game» again:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe?ref_src=twsrc%5Etfw">@esttorhe</a> Hey, why do you always make public shout-outs for questions? I don’t know, where/how do things get stuck?</p>&mdash; Felix Krause (@KrauseFx) <a href="https://twitter.com/KrauseFx/status/647975598216777728?ref_src=twsrc%5Etfw">September 27, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Yet again; I don&rsquo;t think Felix was mad but he was on point. I was kind of shouting a question directly to him while the rest of the world stood there waiting.</p>
+<p>I was later «instructed» that opening with a mention would benefit by everyone who follow us both to read the thread.</p>
+<p>On my mind I thought about asking a private question but thought that sharing it with the world could be potentially benefitial to others (and maybe someone else could shed some light to the issue) but again I was bad on my «implementation».</p>
+<h1 id="so">So…</h1>
+<p>All in all I don&rsquo;t feel like they were «mad» or I was doing wrong; I believe I was approaching the issues from a bad angle.</p>
+<p>I always had in mind the idea of sharing knowledge and also avoiding noise; what was bad was the execution.</p>
+<p>This 2 events made me reflect deeply about how I am approaching my technical questions and what proper channels are already available to me.</p>
+<p>I know I&rsquo;ll always have this «other» channels but I shouldn&rsquo;t abuse them and instead actively participate in a smart way to make me an asset and not an ass.</p>
+<p>To sum up:</p>
+<ul>
+<li>Don&rsquo;t be afraid to ask questions.</li>
+<li>Don&rsquo;t be afraid to reach out to those who know more than you</li>
+<li>Be mindful of where you are asking the questions</li>
+<li>Be mindful of how you are asking said questions</li>
+</ul>
+<p>Just keeping those simple pointers will help you get far and would also avoid any potential embarrassments.</p>
+<p>After all I already made an ass of myself, the least you could do is learn from my mistakes.</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>467</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-26-how-to-and-not-ask-questions%2f&amp;text=How%20to%20%28and%20not%29%20ask%20questions%e2%80%a6&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-26-how-to-and-not-ask-questions%2f&amp;title=How%20to%20%28and%20not%29%20ask%20questions%e2%80%a6" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-26-how-to-and-not-ask-questions%2f&amp;title=How%20to%20%28and%20not%29%20ask%20questions%e2%80%a6" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f09%2f2015-09-26-how-to-and-not-ask-questions%2f&amp;description=How%20to%20%28and%20not%29%20ask%20questions%e2%80%a6" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/questions/">
+                    #questions</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/mistakes/">
+                    #mistakes</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2015/09/2015-09-23-dyld-library-not-loaded/" class="prev" rel="prev" title="dyld: Library not loaded &amp; CocoaPods"><i class="iconfont icon-dajiantou"></i>&nbsp;dyld: Library not loaded &amp; CocoaPods</a>
+         
+        
+        <a href="https://estebantorr.es/blog/2015/10/2015-10-02-nokogiri-in-el-capitan/" class="next" rel="next" title="Nokogiri on El Capitan">Nokogiri on El Capitan&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2015-09-26 22:11:51 \u002b0000 UTC',
+        title: 'How to (and not) ask questions…',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eIs it safe to say that I\u0026rsquo;ve been «scolded» twice this week due to my technical questions.\u003c\/p\u003e\n\u003cp\u003eNow… I was not \u003cem\u003escolded\u003c\/em\u003e as the word implies but the context was that; and I did deserve it if I\u0026rsquo;m honest.\u003c\/p\u003e',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

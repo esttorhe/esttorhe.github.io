@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>index on Journey through engineering…</title>
+    <title>index on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/index/</link>
-    <description>Recent content in index on Journey through engineering…</description>
+    <description>Recent content in index on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://estebantorr.es/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://estebantorr.es/tags/index/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
       <link>https://estebantorr.es/blog/</link>
       <pubDate>Tue, 09 Feb 2021 15:09:04 +0000</pubDate>
       
       <guid>https://estebantorr.es/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Engineering Posts</title>
-      <link>https://estebantorr.es/blog/engineering/</link>
-      <pubDate>Tue, 09 Feb 2021 15:09:04 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/blog/engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Engineering Management Posts</title>
-      <link>https://estebantorr.es/blog/management/</link>
-      <pubDate>Fri, 15 May 2020 20:00:00 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/blog/management/</guid>
       <description></description>
     </item>
     

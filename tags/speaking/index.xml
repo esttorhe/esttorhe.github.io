@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>speaking on Journey through engineering…</title>
+    <title>speaking on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/speaking/</link>
-    <description>Recent content in speaking on Journey through engineering…</description>
+    <description>Recent content in speaking on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Fri, 03 Jun 2016 14:04:17 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/speaking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOScon 2016</title>
-      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</link>
+      <link>https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/</link>
       <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-03-ioscon-2016/</guid>
+      <guid>https://estebantorr.es/blog/2016/06/2016-06-03-ioscon-2016/</guid>
       <description></description>
     </item>
     

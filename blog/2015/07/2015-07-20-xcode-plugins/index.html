@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2015/06/2015-06-20-new-website/" />
+  <link rel="next" href="https://estebantorr.es/blog/2015/07/2015-07-30-21dayschallenge/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2015/07/2015-07-20-xcode-plugins/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Xcode Plugins I use | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="Xcode Plugins I use | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Xcode Plugins I use"/>
+<meta name="twitter:description" content="Everyone of us have our own set of niks &amp; tricks to better find our ways around our everyday activities.
+For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.
+Xcode Plugins
+For those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.
+Plugins are 3rd Party pieces of code that can be «injected» into Xcode&rsquo;s life cycle and can extend its functionalities or even add new ones.
+There&rsquo;s plenty of plugins and many different ways to load/install them but my go-to way is always Alcatraz."/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Xcode Plugins I use",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2015\/07\/2015-07-20-xcode-plugins\/"
+  },
+  
+  "genre": "post",
+  "keywords": "xcode, plugins, ide, developer tools, productivity, tools, ide",
+  "wordcount":  1744 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2015\/07\/2015-07-20-xcode-plugins\/",
+  "datePublished": "2015-07-20T11:23:40\u002b00:00",
+  "dateModified": "2015-07-20T11:23:40\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Xcode Plugins I use</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2015-07-20 >20 July 2015</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/ios-engineering/"> iOS Engineering </a>
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                9 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Everyone of us have our own set of niks &amp; tricks to better find our ways around our everyday activities.</p>
+<p>For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.</p>
+<h1 id="xcode-plugins"><code>Xcode</code> Plugins</h1>
+<p>For those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.</p>
+<p>Plugins are 3rd Party pieces of code that can be «injected» into Xcode&rsquo;s life cycle and can extend its functionalities or even add new ones.</p>
+<p>There&rsquo;s plenty of plugins and many different ways to load/install them but my go-to way is always <a href="http://alcatraz.io/"><code>Alcatraz</code></a>.</p>
+<h2 id="alcatrazalcatraz"><a href="http://alcatraz.io/">Alcatraz</a></h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="http://alcatraz.io/images/screenshot@2x.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>From their website:</p>
+<blockquote>
+<p>Alcatraz is an open-source package manager for Xcode. It lets you discover and install plugins, templates and color schemes without the need for manually cloning or copying files. It installs itself as a part of Xcode and it feels like home.</p>
+</blockquote>
+<p>Think of it as the «AppStore» for <code>Xcode</code> Plugins.</p>
+<p>You can easily search through a bunch of plugins and with a single click «install» them to your <code>Xcode</code> instance to better improve your coding experience.</p>
+<h1 id="my-current-set">My current set</h1>
+<p>The other day talking with some people on <a href="https://cocoaheadscr.herokuapp.com/"><code>CocoaHeads CR</code></a> I was asked if I knew about some good plugins for <code>Xcode</code>… and boy… did I 💣💥 the channel with a bunch.</p>
+<p>And while doing so I thought about writing a blog post with my current plugin set and why I do have/use them.</p>
+<p>Without further ado here&rsquo;s my list of plugins:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><em>Plugin Name</em></th>
+<th style="text-align:center"><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2015/07/Xcode-Plugins/github_logo.png" alt="github" class="lazyload"><figcaption class="image-caption">github</figcaption></figure></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="#BBUDebuggerTuckAway">BBUDebuggerTuckAway</a></td>
+<td style="text-align:center"><a href="https://github.com/neonichu/BBUDebuggerTuckAway">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#RSImageOptimPlugin">RSImageOptimPlugin</a></td>
+<td style="text-align:center"><a href="https://github.com/yeahdongcn/RSImageOptimPlugin">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#CodePilot">CodePilot</a></td>
+<td style="text-align:center"><a href="https://github.com/macoscope/CodePilot">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#DerivedData-Exterminator">DerivedData Exterminator</a>      </td>
+<td style="text-align:center"><a href="https://github.com/kattrali/deriveddata-exterminator">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#Polychromatic">Polychromatic</a></td>
+<td style="text-align:center"><a href="https://github.com/kolinkrewinkel/Polychromatic">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#SCXcodeSwitchExpander">SCXcodeSwitchExpander</a></td>
+<td style="text-align:center"><a href="https://github.com/stefanceriu/SCXcodeSwitchExpander">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#Snapshots">Snapshots</a></td>
+<td style="text-align:center"><a href="https://github.com/orta/Snapshots">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#VVDocumenter-Xcode">VVDocumenter-Xcode</a></td>
+<td style="text-align:center"><a href="https://github.com/onevcat/VVDocumenter-Xcode">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#XAlign">XAlign</a></td>
+<td style="text-align:center"><a href="https://github.com/qfish/XAlign">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#XcodeColors">XcodeColors</a></td>
+<td style="text-align:center"><a href="https://github.com/robbiehanson/XcodeColors">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#XcodeExplorer">XcodeExplorer</a></td>
+<td style="text-align:center"><a href="https://github.com/edwardaux/XcodeExplorer">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#XVim">XVim</a></td>
+<td style="text-align:center"><a href="https://github.com/XVimProject/XVim">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#ColorSense-for-Xcode">ColorSense-for-Xcode</a></td>
+<td style="text-align:center"><a href="https://github.com/omz/ColorSense-for-Xcode">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#Fuzzy-Autocomplete">Fuzzy Autocomplete</a></td>
+<td style="text-align:center"><a href="https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin">Source</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="#KSImageNamed-Xcode">KSImageNamed-Xcode</a></td>
+<td style="text-align:center"><a href="https://github.com/ksuther/KSImageNamed-Xcode">Source</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="bbudebuggertuckaway">BBUDebuggerTuckAway</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://github.com/neonichu/BBUDebuggerTuckAway/raw/master/plugin.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>BBUDebuggerTuckAway - Xcode plugin for auto-hiding the debugger once you start typing in the source code editor.</p>
+</blockquote>
+<p>Pretty self explanatory. Before I started using «behavior» on <code>Xcode</code> having to show/hide the debugger between runs and debugging sessions was a PITA and this plugin came in like sent from the heaven.</p>
+<p>Now I barely take advantage of it due to the behaviors but is sill on my top 10.</p>
+<hr>
+<h2 id="rsimageoptimpluginrsimageoptimplugin"><a href="https://github.com/yeahdongcn/RSImageOptimPlugin">RSImageOptimPlugin</a></h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://raw.githubusercontent.com/yeahdongcn/RSImageOptimPlugin/master/RSImageOptimPlugin-screenshot@2x.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Xcode plugin to optimize images using <a href="https://github.com/pornel/ImageOptim"><code>ImageOptim</code></a>.</p>
+</blockquote>
+<p>This plugin allows you to automatically (or manually if you are some sort of caveman… jk) optimize your image assets via <a href="https://github.com/pornel/ImageOptim"><code>ImageOptim</code></a> helping you reduce your app&rsquo;s bundle size.</p>
+<hr>
+<h2 id="codepilot">CodePilot</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://github.com/macoscope/CodePilot/raw/master/Screenshots/CodePilot_01.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Code Pilot is a plugin for Xcode 5 &amp; 6 that allows you to quickly find files, methods and symbols within your project without the need for your mouse. It uses fuzzy query matching to compute a list of results sorted by their relevancy. With just a few keystrokes you can jump to the method you&rsquo;re looking for.</p>
+</blockquote>
+<p>I don&rsquo;t think there&rsquo;s much to add to the story. Since I started using it, it became a <em>MAJOR</em> part of my everyday development.</p>
+<p>I can quickly navigate through HUGE codebases without effort or actually thinking about the underlying «groups» structure.</p>
+<hr>
+<h2 id="deriveddata-exterminator">DerivedData Exterminator</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://github.com/kattrali/deriveddata-exterminator/raw/master/docs/menu.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Sometimes Xcode needs a friendly helping hand with cleaning out the Derived Data for a project. The Exterminator makes this quick and easy.</p>
+</blockquote>
+<p>We&rsquo;ve all been at that point in life where <code>Xcode</code> simply decides to stop giving a crap about the compiling and correct construction of our bundles. Compile warnings, pieces of code we have 💥 nuked into oblivion are giving compile errors and some beheviors we have ensured are no longer present in our code are happening when running on the simulator… :/ and who is to blame? ¯\_(ツ)_/¯ none other than <code>Derived Data</code> folders with stale files…</p>
+<hr>
+<p><a href="https://github.com/kattrali/deriveddata-exterminator">DerivedData Exterminator</a> is a handy plugin that lets you nuke the <code>Derived Data</code> folder all to hell 🔥 with the click of a button <figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://github.com/kattrali/deriveddata-exterminator/raw/master/docs/exterminator.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>Or via the menu option shown at the top of this section.</p>
+<p>I can&rsquo;t stress enough how handy this plugin is to my everyday compiling and debugging activities.</p>
+<hr>
+<h2 id="polychromatic">Polychromatic</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://camo.githubusercontent.com/116fe74b35b6a719e94b42118b2a531731957cf2/68747470733a2f2f66696c65732e6170702e6e65742f3230776c6e682d44472e706e67" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Coloring with significance.</p>
+<p>Polychromatic is an Xcode plugin that makes code logic clear and apparent. It gives properties, ivars, and local variables each a unique, dynamic color, stripping away emphasis from types which don&rsquo;t need it.</p>
+</blockquote>
+<p>A great plugin for visual identification of scoped pieces of data. With a quick glance you can infer if an «artifact» you are using belongs to the local context or a more global one given its color.</p>
+<p>Is no secret that sometimes we call local scoped vars the same name as some global scoped ones; with this plugin you can easily identify which is which (and please as soon as you realize this for the love of Google Christ change the names of the local ones to help differentiation more).</p>
+<hr>
+<h2 id="scxcodeswitchexpander">SCXcodeSwitchExpander</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://camo.githubusercontent.com/d4ab3ba45af70951557adbf17a9d0deab47e519f/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f31323734383230312f534358636f6465537769746368457870616e6465722f534358636f6465537769746368457870616e646572312e676966" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>SCXcodeSwitchExpander is a small Xcode plugin that expands switch statements by inserting missing cases.</p>
+</blockquote>
+<p>Is just so simple to miss some cases when switching over an enumerator or so time consuming to have to go to the <code>enum</code> definition and check all possible <code>case</code>s or worst; copying the whole <code>enum</code> definition, pasting it inside the <code>switch</code> and then correctly changing the syntax to match…</p>
+<p>Well this is super easy; just write <code>switch</code>, insert the var name and hit <code>Enter</code> and the plugin will «automagically» generate all possible <code>cases</code> for you.</p>
+<p>Simple and clean.</p>
+<p>On a personal note I haven&rsquo;t been able to test it on <code>Swift</code> but for those sad times when I&rsquo;m writing <code>Objective-C</code> its quite handy.</p>
+<hr>
+<h2 id="snapshots">Snapshots</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://raw.githubusercontent.com/orta/Snapshots/master/web/screenshot.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Features</p>
+<ul>
+<li>Showing new images as they&rsquo;re created</li>
+<li>Showing the differences between failed snapshot tests</li>
+<li>Open specific diffs in Kaleidoscope</li>
+<li>Turns red if you&rsquo;ve created a view with a zero frame</li>
+</ul>
+</blockquote>
+<p>If you are not doing <a href="https://github.com/facebook/ios-snapshot-test-case"><code>view testing</code></a> you should definitely check that link out and start adding that to your unit tests.</p>
+<p>If you are already doing <a href="https://github.com/facebook/ios-snapshot-test-case"><code>view testing</code></a> then you are in for a treat with this plugin. Directly from <code>Xcode</code> you can check which views are failing the tests and even do a live comparison of the recorded and live views to check where&rsquo;s the discrepancy; and if you have <a href="http://www.kaleidoscopeapp.com/"><code>Kaleidoscope</code></a> installed it will generate a «command line» command to open up the <code>diff</code> on the app.</p>
+<hr>
+<h2 id="vvdocumenter-xcode">VVDocumenter-Xcode</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://camo.githubusercontent.com/ca5518c9872e15b8a95b9d8c5f44bc331977d710/68747470733a2f2f7261772e6769746875622e636f6d2f6f6e65766361742f5656446f63756d656e7465722d58636f64652f6d61737465722f53637265656e53686f742e676966" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>…you can find the method (or any code) you want to document to, and type in <code>///</code>, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with <a href="https://github.com/tomaz/appledoc">appledoc</a>, <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> and <a href="https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html">HeaderDoc</a>. You can just fill the inline placeholder tokens to finish your document.</p>
+</blockquote>
+<p>If you know me you&rsquo;ll know I&rsquo;m a sucker for internal documentation (more so if they are going to be beautifully rendered in something like <a href="http://cocoadocs.org">CocoaDocs</a>).</p>
+<p>This plugin will get you started by bootstrapping a header doc template over functions with placeholders for the parameters and returns as well as description. You only need to type <code>///</code> and ⚡ you are ready!</p>
+<hr>
+<h2 id="xalign">XAlign</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://camo.githubusercontent.com/7973c0e352b1f91e3efe5b3550cff5df97f4589a/687474703a2f2f7166692e73682f58416c69676e2f696d616765732f657175616c2e676966" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>An amazing Xcode plugin to align regular code. It can align anything by using custom alignment patterns.</p>
+</blockquote>
+<p>Aside from being a sucker for documentation I have a special place in my ❤ for unit testing and nicely organized code.</p>
+<p>Enter <a href="https://github.com/qfish/XAlign">XAlign</a> and my <code>OCD</code> kicks in allowing me to neatly organize all properties, assignments and whatever I feel like needs alignment.</p>
+<hr>
+<h2 id="xcodecolors">XcodeColors</h2>
+<blockquote>
+<p>XcodeColors allows you to use colors in the Xcode debugging console.
+It&rsquo;s designed to aid in the debugging process.
+I use this along with a custom logger with <a href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack</a> to easily know when something being logged into the console is a debugging statement, a warning or even <em>worst</em> an error.</p>
+</blockquote>
+<p>Assigning colors to each level is the best way to easily check when something goes eerie on your code.</p>
+<p>We tend to <code>DDLogError</code> everywhere we «expect» an error from any <code>API</code> calls and some <code>DDLogDebug</code> here and there while developing (depending on your logging level the only output that will be visible on your production apps will be what you want and nothing more).</p>
+<hr>
+<h2 id="xcodeexplorer">XcodeExplorer</h2>
+<blockquote>
+<p>This is a plugin project that allows you, as a developer, to explore the various events and notifications that Xcode4 emits during normal operations.</p>
+</blockquote>
+<p>Since we are talking plugins here; why not have a plugin that helps you build your own plugins? Meta much?</p>
+<p>Well; this plugin is exactly that. It will let you listen and identify different notifications that <code>Xcode</code> fires during its normal process; giving you the knowledge to easily intercept something you are interested on and gives you the power to shape it to your own needs.</p>
+<p>I have played with this for a plugin I started last year that never got enough time to pour the love it needs to become a real world plugin. Maybe one of this days it will see the light.</p>
+<hr>
+<h2 id="xvim">XVim</h2>
+<blockquote>
+<p>XVim is a Vim plugin for Xcode. The plugin intends to offer a compelling Vim experience without the need to give up any Xcode features.</p>
+</blockquote>
+<p>Given the fact that I&rsquo;m a dork and like the «limitations» the <code>vim</code> imposes upon you this plugin gives me those but inside <code>Xcode</code>; letting my nerd burst without sacrificing the power of a real world <code>IDE</code>.</p>
+<hr>
+<h2 id="colorsense-for-xcode">ColorSense-for-Xcode</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eblRfDQM0Go" frameborder="0" allowfullscreen></iframe>
+>This is where ColorSense comes in: When you put the caret on one of your colors, it automatically shows the actual color as an overlay, and you can even adjust it on-the-fly with the standard Mac OS X color picker.
+<p>I guess you can see the benefit of this one.</p>
+<hr>
+<h2 id="fuzzy-autocomplete">Fuzzy Autocomplete</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://github.com/FuzzyAutocomplete/FuzzyAutocompletePlugin/raw/master/demo.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>This is a Xcode 5+ plugin that patches the autocomplete filter to work the same way the Open Quickly works. It performs extremely well, and the fuzzy matching actually uses Xcode&rsquo;s own <code>IDEOpenQuicklyPattern</code>.</p>
+</blockquote>
+<p>Who doesn&rsquo;t love fuzzy autocomplete when writing code!? ¯\_(ツ)_/¯</p>
+<p>I know the description says <code>Xcode 5+</code> which makes it sound like a dead project but you can check the source and see that is actively developed and also <code>Xcode 7</code> is mostly supported so far; even though is still ß.</p>
+<hr>
+<h2 id="ksimagenamed-xcode">KSImageNamed-Xcode</h2>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://camo.githubusercontent.com/c354bf04524df86daeabe7a6d2b9926fac790f85/68747470733a2f2f7261772e6769746875622e636f6d2f6b7375746865722f4b53496d6167654e616d65642d58636f64652f6d61737465722f73637265656e73686f742e676966" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Can&rsquo;t remember whether that image you just added to the project was called button-separator-left or button-left-separator? Now you don&rsquo;t have to, because this will autocomplete your imageNamed: calls like you&rsquo;d expect. Just type in <code>[NSImage imageNamed:</code> or <code>[UIImage imageNamed:</code> and all the images in your project will conveniently appear in the autocomplete menu. You&rsquo;ll even get a handy preview of the image you&rsquo;re about to select.</p>
+</blockquote>
+<p>GREAT way to find your image assets :D</p>
+<p>Would ❤ to see Olivier&rsquo;s <a href="https://github.com/AliSoftware/SwiftGen"><code>SwiftGen</code></a> as a plugin though :D</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>1744</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f07%2f2015-07-20-xcode-plugins%2f&amp;text=Xcode%20Plugins%20I%20use&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f07%2f2015-07-20-xcode-plugins%2f&amp;title=Xcode%20Plugins%20I%20use" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f07%2f2015-07-20-xcode-plugins%2f&amp;title=Xcode%20Plugins%20I%20use" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2015%2f07%2f2015-07-20-xcode-plugins%2f&amp;description=Xcode%20Plugins%20I%20use" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/xcode/">
+                    #xcode</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/plugins/">
+                    #plugins</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ide/">
+                    #ide</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/developer-tools/">
+                    #developer tools</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/productivity/">
+                    #productivity</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/tools/">
+                    #tools</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ide/">
+                    #ide</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2015/06/2015-06-20-new-website/" class="prev" rel="prev" title="New Website"><i class="iconfont icon-dajiantou"></i>&nbsp;New Website</a>
+         
+        
+        <a href="https://estebantorr.es/blog/2015/07/2015-07-30-21dayschallenge/" class="next" rel="next" title="21DaysChallenge">21DaysChallenge&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2015-07-20 11:23:40 \u002b0000 UTC',
+        title: 'Xcode Plugins I use',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eEveryone of us have our own set of niks \u0026amp; tricks to better find our ways around our everyday activities.\u003c\/p\u003e\n\u003cp\u003eFor us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse\/trackpad.\u003c\/p\u003e\n\u003ch1 id=\u0022xcode-plugins\u0022\u003e\u003ccode\u003eXcode\u003c\/code\u003e Plugins\u003c\/h1\u003e\n\u003cp\u003eFor those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.\u003c\/p\u003e\n\u003cp\u003ePlugins are 3rd Party pieces of code that can be «injected» into Xcode\u0026rsquo;s life cycle and can extend its functionalities or even add new ones.\u003c\/p\u003e\n\u003cp\u003eThere\u0026rsquo;s plenty of plugins and many different ways to load\/install them but my go-to way is always \u003ca href=\u0022http:\/\/alcatraz.io\/\u0022\u003e\u003ccode\u003eAlcatraz\u003c\/code\u003e\u003c\/a\u003e.\u003c\/p\u003e',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.10.0/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>

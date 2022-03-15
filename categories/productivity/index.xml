@@ -1,56 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>productivity on Journey through engineering…</title>
+    <title>Productivity on The mind of Esteban</title>
     <link>https://estebantorr.es/categories/productivity/</link>
-    <description>Recent content in productivity on Journey through engineering…</description>
+    <description>Recent content in Productivity on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 13 Feb 2018 18:18:04 +0000</lastBuildDate><atom:link href="https://estebantorr.es/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Xcode notifications on your 📱</title>
-      <link>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</link>
-      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/blog/engineering/2018/02/2018-02-13-xcode-notifications-on-your-phone/</guid>
-      <description>&lt;p&gt;Since quite some time now I&amp;rsquo;ve been working on &lt;code&gt;Xcode&lt;/code&gt; projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.&lt;/p&gt;
-&lt;p&gt;I also like to multi-task and do some other stuff while I&amp;rsquo;m compiling…&lt;/p&gt;
-&lt;!-- [![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)](https://xkcd.com/303/) --&gt;
-&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/compiling.png&#34; alt=&#34;xkcd comic about compilation times&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Xcode 8 Source Editor Extensions</title>
-      <link>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</link>
-      <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/blog/engineering/2016/06/2016-06-27-xcode-8-source-editor-extensions/</guid>
-      <description>&lt;p&gt;This last &lt;code&gt;WWDC&lt;/code&gt; &lt;code&gt;Apple&lt;/code&gt; announced that they will be providing us developers with «official» and «legal» ways to create &lt;code&gt;Xcode&lt;/code&gt; plugins.&lt;/p&gt;
-&lt;p&gt;There are many posts covering this and I won&amp;rsquo;t center in the «how to» but rather in one single tip that prevented me from going crazy while developing &lt;a href=&#34;https://github.com/esttorhe/localizer&#34;&gt;&lt;code&gt;Localizer&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-
-
-
-
-
-
-
-
-&lt;div id=&#34;esttorhe&amp;#43;Localizer&amp;#43;3831a7&#34; class=&#34;hexo-github&#34; style=&#34;width: 45%&#34;&gt;
-&lt;/div&gt;
-&lt;script src=&#34;https://estebantorr.es/github-badge/badge.js&#34;&gt;&lt;/script&gt;
-&lt;script type=&#34;text/javascript&#34;&gt;
-  loadStyle(&#34;/github-badge/style.css&#34;);
-  loadStyle(&#34;/github-badge/octicons/octicons.css&#34;);
-  new Badge(&#34;esttorhe\u002bLocalizer\u002b3831a7&#34;, &#34;esttorhe&#34;, &#34;Localizer&#34;, &#34;3831a7&#34;, &#34;&#34;);
-&lt;/script&gt;</description>
-    </item>
-    
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Aug 2015 14:07:36 +0000</lastBuildDate><atom:link href="https://estebantorr.es/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Semver intermediate versioning</title>
-      <link>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</link>
+      <link>https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/</link>
       <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
+      <guid>https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
       <description>&lt;p&gt;Lately I&amp;rsquo;ve come across multiple tweets and talks about people avoiding jumping over the dreaded &lt;code&gt;1.0.0&lt;/code&gt; of their &lt;code&gt;frameworks&lt;/code&gt;, tools, etc.&lt;/p&gt;
 &lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
@@ -60,20 +22,6 @@
 
 &lt;hr&gt;
 &lt;p&gt;Sadly that&amp;rsquo;s the current state of «our world» as developers.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Xcode Plugins I use</title>
-      <link>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</link>
-      <pubDate>Mon, 20 Jul 2015 11:23:40 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</guid>
-      <description>&lt;p&gt;Everyone of us have our own set of niks &amp;amp; tricks to better find our ways around our everyday activities.&lt;/p&gt;
-&lt;p&gt;For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.&lt;/p&gt;
-&lt;h1 id=&#34;xcode-plugins&#34;&gt;&lt;code&gt;Xcode&lt;/code&gt; Plugins&lt;/h1&gt;
-&lt;p&gt;For those out there that are familiar with plugins; go ahead and jump over to the next section, for the rest of you welcome to heaven.&lt;/p&gt;
-&lt;p&gt;Plugins are 3rd Party pieces of code that can be «injected» into Xcode&amp;rsquo;s life cycle and can extend its functionalities or even add new ones.&lt;/p&gt;
-&lt;p&gt;There&amp;rsquo;s plenty of plugins and many different ways to load/install them but my go-to way is always &lt;a href=&#34;http://alcatraz.io/&#34;&gt;&lt;code&gt;Alcatraz&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

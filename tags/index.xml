@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Journey through engineering…</title>
+    <title>Tags on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/</link>
-    <description>Recent content in Tags on Journey through engineering…</description>
+    <description>Recent content in Tags on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Tue, 09 Feb 2021 15:09:04 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>code</title>
@@ -107,6 +107,24 @@
     </item>
     
     <item>
+      <title>productivity</title>
+      <link>https://estebantorr.es/tags/productivity/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://estebantorr.es/tags/tools/</link>
+      <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>xcode</title>
       <link>https://estebantorr.es/tags/xcode/</link>
       <pubDate>Tue, 13 Feb 2018 18:18:04 +0000</pubDate>
@@ -130,6 +148,24 @@
       <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/heuristics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>https://estebantorr.es/tags/performance/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>strategies</title>
+      <link>https://estebantorr.es/tags/strategies/</link>
+      <pubDate>Mon, 25 Sep 2017 13:19:44 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/strategies/</guid>
       <description></description>
     </item>
     
@@ -206,6 +242,15 @@
     </item>
     
     <item>
+      <title>yearly</title>
+      <link>https://estebantorr.es/tags/yearly/</link>
+      <pubDate>Fri, 16 Dec 2016 14:08:08 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/yearly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>extensions</title>
       <link>https://estebantorr.es/tags/extensions/</link>
       <pubDate>Mon, 27 Jun 2016 22:00:49 +0000</pubDate>
@@ -251,6 +296,15 @@
     </item>
     
     <item>
+      <title>conferences</title>
+      <link>https://estebantorr.es/tags/conferences/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/conferences/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ioscon</title>
       <link>https://estebantorr.es/tags/ioscon/</link>
       <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
@@ -265,6 +319,15 @@
       <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/london/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>professional</title>
+      <link>https://estebantorr.es/tags/professional/</link>
+      <pubDate>Fri, 03 Jun 2016 14:04:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/professional/</guid>
       <description></description>
     </item>
     
@@ -296,6 +359,15 @@
     </item>
     
     <item>
+      <title>tips</title>
+      <link>https://estebantorr.es/tags/tips/</link>
+      <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>resolutions</title>
       <link>https://estebantorr.es/tags/resolutions/</link>
       <pubDate>Wed, 06 Jan 2016 21:46:17 +0000</pubDate>
@@ -310,6 +382,15 @@
       <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/bug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dependencies</title>
+      <link>https://estebantorr.es/tags/dependencies/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/dependencies/</guid>
       <description></description>
     </item>
     
@@ -350,6 +431,15 @@
     </item>
     
     <item>
+      <title>problem solving</title>
+      <link>https://estebantorr.es/tags/problem-solving/</link>
+      <pubDate>Fri, 02 Oct 2015 10:03:51 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/problem-solving/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mistakes</title>
       <link>https://estebantorr.es/tags/mistakes/</link>
       <pubDate>Sat, 26 Sep 2015 22:11:51 +0000</pubDate>
@@ -382,6 +472,15 @@
       <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>errors</title>
+      <link>https://estebantorr.es/tags/errors/</link>
+      <pubDate>Wed, 23 Sep 2015 15:14:17 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/errors/</guid>
       <description></description>
     </item>
     
@@ -422,15 +521,6 @@
     </item>
     
     <item>
-      <title>tips</title>
-      <link>https://estebantorr.es/tags/tips/</link>
-      <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>versioning</title>
       <link>https://estebantorr.es/tags/versioning/</link>
       <pubDate>Tue, 11 Aug 2015 14:07:36 +0000</pubDate>
@@ -463,6 +553,15 @@
       <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/fitness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lifestyle</title>
+      <link>https://estebantorr.es/tags/lifestyle/</link>
+      <pubDate>Thu, 30 Jul 2015 20:05:26 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/tags/lifestyle/</guid>
       <description></description>
     </item>
     
@@ -535,15 +634,6 @@
       <pubDate>Sun, 14 Jun 2015 17:39:51 +0000</pubDate>
       
       <guid>https://estebantorr.es/tags/cocoa/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>professional</title>
-      <link>https://estebantorr.es/tags/professional/</link>
-      <pubDate>Wed, 31 Dec 2014 21:21:33 +0000</pubDate>
-      
-      <guid>https://estebantorr.es/tags/professional/</guid>
       <description></description>
     </item>
     

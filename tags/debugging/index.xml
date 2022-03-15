@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>debugging on Journey through engineering…</title>
+    <title>debugging on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/debugging/</link>
-    <description>Recent content in debugging on Journey through engineering…</description>
+    <description>Recent content in debugging on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Wed, 13 Jan 2016 16:11:38 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Small Tip for Debugging Autolayout issues</title>
-      <link>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
+      <link>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</link>
       <pubDate>Wed, 13 Jan 2016 16:11:38 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
+      <guid>https://estebantorr.es/blog/2016/01/2016-01-13-small-tip-for-debugging-autolayout-issues/</guid>
       <description>This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.
 The other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:
 &amp;lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-&amp;amp;- v=-&amp;amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height&amp;gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what&amp;rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let&amp;rsquo;s be honest; more times than none you are left wondering which view is which…</description>

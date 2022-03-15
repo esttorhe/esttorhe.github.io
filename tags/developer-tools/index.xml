@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>developer tools on Journey through engineering…</title>
+    <title>developer tools on The mind of Esteban</title>
     <link>https://estebantorr.es/tags/developer-tools/</link>
-    <description>Recent content in developer tools on Journey through engineering…</description>
+    <description>Recent content in developer tools on The mind of Esteban</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Mon, 20 Jul 2015 11:23:40 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/developer-tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xcode Plugins I use</title>
-      <link>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</link>
+      <link>https://estebantorr.es/blog/2015/07/2015-07-20-xcode-plugins/</link>
       <pubDate>Mon, 20 Jul 2015 11:23:40 +0000</pubDate>
       
-      <guid>https://estebantorr.es/blog/engineering/2015/07/2015-07-20-xcode-plugins/</guid>
+      <guid>https://estebantorr.es/blog/2015/07/2015-07-20-xcode-plugins/</guid>
       <description>&lt;p&gt;Everyone of us have our own set of niks &amp;amp; tricks to better find our ways around our everyday activities.&lt;/p&gt;
 &lt;p&gt;For us developers that means tweaking our environment to quickly achieve what we want with the least amount of key strokes and (at the least for the most of us) without having to actually use the mouse/trackpad.&lt;/p&gt;
 &lt;h1 id=&#34;xcode-plugins&#34;&gt;&lt;code&gt;Xcode&lt;/code&gt; Plugins&lt;/h1&gt;

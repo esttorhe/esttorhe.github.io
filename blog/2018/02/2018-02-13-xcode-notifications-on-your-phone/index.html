@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  
+  <link rel="prev" href="https://estebantorr.es/blog/2017/09/2017-09-25-disabling-animations-heuristics/" />
+  <link rel="next" href="https://estebantorr.es/blog/2020/05/2020-05-15-career-change/" />
+  <link rel="canonical" href="https://estebantorr.es/blog/2018/02/2018-02-13-xcode-notifications-on-your-phone/" />
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Xcode notifications on your 📱 | The mind of Esteban
+       
+  </title>
+  <meta name="title" content="Xcode notifications on your 📱 | The mind of Esteban">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Xcode notifications on your 📱"/>
+<meta name="twitter:description" content="Since quite some time now I&rsquo;ve been working on Xcode projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.
+I also like to multi-task and do some other stuff while I&rsquo;m compiling…
+
+"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Xcode notifications on your 📱",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/estebantorr.es\/blog\/2018\/02\/2018-02-13-xcode-notifications-on-your-phone\/"
+  },
+  
+  "genre": "post",
+  "keywords": "xcode, notifications, ntfy, productivity, tools",
+  "wordcount":  612 ,
+  "url": "https:\/\/estebantorr.es\/blog\/2018\/02\/2018-02-13-xcode-notifications-on-your-phone\/",
+  "datePublished": "2018-02-13T18:18:04\u002b00:00",
+  "dateModified": "2018-02-13T18:18:04\u002b00:00",
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Esteban Torres",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https:\/\/estebantorr.es\/assets\/images\/avatar.gif",
+      "width":  40 ,
+      "height":  40 
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Esteban Torres"
+  },
+  "description": ""
+}
+</script>
+</head>
+
+  
+
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="https://estebantorr.es/">The mind of Esteban</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-sun"></i></a>&nbsp;<a href="https://estebantorr.es/">The mind of Esteban</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">Home</a>
+                
+                <a class="menu-item" href="/blog/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/talks/" title="">Talks</a>
+                
+                <a class="menu-item" href="/about" title="">About</a>
+                
+                <a class="menu-item" href="/cv" title="">CV</a>
+                
+        </div>
+    </div>
+</nav>
+
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp">
+    <header class="post-header">
+        <h1 class="post-title">Xcode notifications on your 📱</h1>
+        <div class="post-meta">
+            Written by <a href="https://estebantorr.es/" rel="author">Esteban Torres</a> with ♥ 
+                <span class="post-time">
+                    on <time datetime=2018-02-13 >13 February 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://estebantorr.es/categories/ios-engineering/"> iOS Engineering </a>
+                        <a href="https://estebantorr.es/categories/engineering/"> Engineering </a>
+                        
+                </span>
+                <i class="iconfont icon-timer"></i>
+                3 min
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Since quite some time now I&rsquo;ve been working on <code>Xcode</code> projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.</p>
+<p>I also like to multi-task and do some other stuff while I&rsquo;m compiling…</p>
+<!-- [![xkcd comic about compilation times](https://imgs.xkcd.com/comics/compiling.png)](https://xkcd.com/303/) -->
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="https://imgs.xkcd.com/comics/compiling.png" alt="xkcd comic about compilation times" class="lazyload"><figcaption class="image-caption">xkcd comic about compilation times</figcaption></figure></p>
+<p>For the longest time I thought about creating some sort of service that would let me hook up some push notifications whenever <code>Xcode</code> finished doing <em>X</em> or <em>Y</em> task but never came around actually creating it. Time passed and I basically forgot all about this dream of mine.</p>
+<p>That is until today when I found out about <a href="https://github.com/dschep/ntfy"><code>ntfy</code></a>…</p>
+<h1 id="ntfy">ntfy</h1>
+<blockquote>
+<p><code>ntfy</code> brings notification to your shell. It can automatically provide desktop notifications when long running commands finish or it can send push notifications to your phone when a specific command finishes.</p>
+</blockquote>
+<p><strong>TL,DR</strong>: <code>ntfy</code> is a <code>python</code> 🐍  tool that sends notifications to different configurable backend services.</p>
+<p><strong>TL;DR 2</strong>: <code>ntfy</code> is basically the service I wanted to build and never came around to actually making.</p>
+<h2 id="installation">Installation</h2>
+<p>The tool&rsquo;s <code>README</code> is pretty nicely done and comes with a <code>Quickstart</code> section that describes how to install it; unfortunately for me it didn&rsquo;t work due to some obscure error:</p>
+<pre><code class="language-console" data-lang="console">Command &quot;python setup.py egg_info&quot; failed with error code 1
+</code></pre><p>Which was easily sortable by running <code>pip3</code> instead of <code>pip</code> when installing; effectively making it:</p>
+
+
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    
+<pre><code class="language-console" data-lang="console">$ sudo pip3 install ntfy</code></pre>
+
+  </main>
+</div>
+<h1 id="hooking-it-into-xcode">Hooking it into <code>Xcode</code></h1>
+<p>Now that the tool was installed on my machine it was just a matter of hooking it into <code>Xcode</code> behaviors (<em>Xcode -&gt; Preferences -&gt; Behaviors</em>)</p>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2018/02/Xcode-notifications-on-your-phone/Xcode_Behaviors.png" alt="Xcode Preferences showing the Behaviors tab" class="lazyload"><figcaption class="image-caption">Xcode Preferences showing the Behaviors tab</figcaption></figure></p>
+<p>At the very bottom of the window there&rsquo;s a <code>Run</code> checkbox where you can choose a script/binary that you want to run whenever a behavior happens.</p>
+<p>At first I had 1 script per behavior but then I discovered that there&rsquo;s an env variable that gets passed that has all the information I needed.</p>
+<h2 id="available-variables">Available variables</h2>
+<p>There are many variables that get passed to the binary/script; here&rsquo;s a redacted list of them from my own tests:</p>
+<pre><code>Apple_PubSub_Socket_Render=&lt;REDACTED&gt;
+CA_DEBUG_TRANSACTIONS=1
+HOME=&lt;REDACTED&gt;
+IDEAlertMessage=Build Succeeded
+LOGNAME=&lt;REDACTED&gt;
+MallocNanoZone=0
+PATH=/Applications/Xcode-9.2.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PWD=&lt;REDACTED&gt;
+SECURITYSESSIONID=&lt;REDACTED&gt;
+SHELL=/usr/local/bin/zsh
+SHLVL=1
+SSH_AUTH_SOCK=&lt;REDACTED&gt;
+TMPDIR=/var/folders/g1/&lt;REDACTED&gt;/T/
+USER=estebantorres
+XPC_FLAGS=0x0
+XPC_SERVICE_NAME=0
+XcodeDeveloperApplicationsDirectory=/Applications/Xcode-9.2.app/Contents/Developer/Applications
+XcodeDeveloperDirectory=/Applications/Xcode-9.2.app/Contents/Developer
+XcodeDeveloperPlatformsDirectory=/Applications/Xcode-9.2.app/Contents/Developer/Platforms
+XcodeWorkspace=&lt;REDACTED&gt;.xcworkspace
+XcodeWorkspacePath=/Users/estebantorres/&lt;REDACTED&gt;.xcworkspace
+_=/usr/bin/env
+__CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0
+</code></pre><p>Whenever a behavior gets executed (depending on which one) the script or binary you want to execute gets feed a set of environment variables; one of them being <code>IDEAlertMessage</code> which basically contains the message that <code>Xcode</code> displays (I also believe is the message that gets passed to the notification that <code>macOS</code> renders whenever <code>Xcode</code> starts, ends, fails to build or run tests; etc.)</p>
+<p>As you can see the see <code>IDEAlertMessage</code> has everything I needed; is just a matter of calling <code>ntfy</code> with the contents of that variable and the <code>Xcode Workspace</code> and then you are set.</p>
+<h2 id="script">Script</h2>
+<p>If you don&rsquo;t want to play around this is the contents of my script:</p>
+<p><code>ntfy.sh</code></p>
+
+
+
+<div class="terminal">
+  <header>
+    <span class="controls">
+      <i class="control control--red"></i>
+      <i class="control control--yellow"></i>
+      <i class="control control--green"></i>
+    </span>
+  </header>
+
+  <main>
+    
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:3;-o-tab-size:3;tab-size:3"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#! /bin/sh
+</span><span style="color:#75715e"></span>
+/usr/local/bin/ntfy -b telegram send <span style="color:#e6db74">&#34;</span>$XcodeWorkspace<span style="color:#e6db74"> </span>$IDEAlertMessage<span style="color:#e6db74">&#34;</span></code></pre></div>
+
+  </main>
+</div>
+<p><em>You might have noticed the <code>-b telegram</code> part. This you can check how to configure on <a href="https://github.com/dschep/ntfy"><code>ntfy</code></a>&rsquo;s <code>README</code>; if you don&rsquo;t want to use <code>Telegram</code> you can tweak it to use any of the other supported services.</em></p>
+<h1 id="result">Result</h1>
+<p><figure><img src="/assets/images/ring.svg" data-sizes="auto" data-src="/assets/images/post/2018/02/Xcode-notifications-on-your-phone/notification.png" alt="macOS notification sent from Xcode using ntfy" class="lazyload"><figcaption class="image-caption">macOS notification sent from Xcode using ntfy</figcaption></figure></p>
+<p>There are lots of room for improvement here, but this basically satisfy my needs; I can start building and or running my tests; leave to the cafeteria to grab a coffee and know wether or not the build passed or not without having to wait.</p>
+<h2 id="why-this">Why this?</h2>
+<p>You might not find this all that useful; and perhaps I won&rsquo;t either, but only time will tell.
+For now I&rsquo;m quite happy with the results and pretend to take as much advantage as I can.</p>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Esteban Torres </span>
+                </p>
+            
+           
+            <p class="copyright-item">
+                    <span>Words:</span>
+                   <span>612</span>
+            </p>
+
+            <p class="copyright-item">
+                
+                <span>Share:</span>
+                <span>
+
+      
+        <a href="//twitter.com/share?url=https%3a%2f%2festebantorr.es%2fblog%2f2018%2f02%2f2018-02-13-xcode-notifications-on-your-phone%2f&amp;text=Xcode%20notifications%20on%20your%20%f0%9f%93%b1&amp;via=esttorhe" target="_blank" title="Share on Twitter">
+          <i class="iconfont icon-twitter"></i>
+        </a>
+        
+      
+      
+      
+      
+        <a href="//reddit.com/submit?url=https%3a%2f%2festebantorr.es%2fblog%2f2018%2f02%2f2018-02-13-xcode-notifications-on-your-phone%2f&amp;title=Xcode%20notifications%20on%20your%20%f0%9f%93%b1" target="_blank" title="Share on Reddit">
+          <i class="iconfont icon-reddit"></i>
+        </a>
+        
+      
+      
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2festebantorr.es%2fblog%2f2018%2f02%2f2018-02-13-xcode-notifications-on-your-phone%2f&amp;title=Xcode%20notifications%20on%20your%20%f0%9f%93%b1" target="_blank" title="Share on LinkedIn">
+          <i class="iconfont icon-linkedin"></i>
+        </a>
+        
+      
+      
+        
+      
+        <a href="//news.ycombinator.com/submitlink?u=https%3a%2f%2festebantorr.es%2fblog%2f2018%2f02%2f2018-02-13-xcode-notifications-on-your-phone%2f&amp;description=Xcode%20notifications%20on%20your%20%f0%9f%93%b1" target="_blank" title="Share on Hacker News">
+          <i class="iconfont icon-ycombinator"></i>
+        </a>
+        
+        
+      
+
+          
+
+          
+
+          
+
+          
+
+</span>
+                
+            </p>
+
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-icon-tag"></i>Tag: 
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/xcode/">
+                    #xcode</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/notifications/">
+                    #notifications</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/ntfy/">
+                    #ntfy</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/productivity/">
+                    #productivity</a></span>
+            
+            <span class="tag"><a href="https://estebantorr.es/tags/tools/">
+                    #tools</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">Back</a></span> · 
+                <span><a href="https://estebantorr.es/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://estebantorr.es/blog/2017/09/2017-09-25-disabling-animations-heuristics/" class="prev" rel="prev" title="Disabling Animations Heuristics"><i class="iconfont icon-dajiantou"></i>&nbsp;Disabling Animations Heuristics</a>
+         
+        
+        <a href="https://estebantorr.es/blog/2020/05/2020-05-15-career-change/" class="next" rel="next" title="Career change">Career change&nbsp;<i class="iconfont icon-xiaojiantou"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+          
+
+ <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2018-02-13 18:18:04 \u002b0000 UTC',
+        title: 'Xcode notifications on your 📱',
+        link: decodeURI(location.href),
+        desc: '\u003cp\u003eSince quite some time now I\u0026rsquo;ve been working on \u003ccode\u003eXcode\u003c\/code\u003e projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.\u003c\/p\u003e\n\u003cp\u003eI also like to multi-task and do some other stuff while I\u0026rsquo;m compiling…\u003c\/p\u003e\n\u003c!-- [![xkcd comic about compilation times](https:\/\/imgs.xkcd.com\/comics\/compiling.png)](https:\/\/xkcd.com\/303\/) --\u003e\n\u003cp\u003e\u003cimg src=\u0022https:\/\/imgs.xkcd.com\/comics\/compiling.png\u0022 alt=\u0022xkcd comic about compilation times\u0022\u003e\u003c\/p\u003e',
+        owner: 'esttorhe',
+        repo: 'esttorhe.github.io',
+        oauth: {
+          client_id: '12e2fdea131e370390c3',
+          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2014 - 2022</span>
+        
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>
+         
+
+		  <span>Crafted with ❤️ by <a href="https://github.com/Fastbyte01/KeepIt" target="_blank" rel="external nofollow noopener noreffer">KeepIt</a> & <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a></span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.10.0/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+
+
+     </div>
+  </body>
+</html>
