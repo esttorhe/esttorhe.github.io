@@ -11,6 +11,9 @@ tags:
 - swift
 - cocoa
 - tips
+aliases:
+- /2015/06/swift-2.0-throws-tip/
+- /blog/2015/06/swift-2.0-throws-tip/
 author: Esteban Torres
 issueNumber: 36
 ---

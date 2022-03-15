@@ -19,7 +19,7 @@ enableRobotsTXT = true
   noreferrerLinks = true
 
 [Permalinks]
-  post = "/:year/:month/:title/"
+  post = "/:year/:month/:day/:title"
 
 [params]
   since = 2014
