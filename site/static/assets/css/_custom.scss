@@ -1,0 +1,223 @@
+.terminal {
+	background: #343a40;
+	border: 1px solid #adb5bd;
+	border-radius: .3rem;
+	font-size: 1rem;
+	margin-bottom: 1.5rem;
+	pre {
+		color: white;
+		margin: 0;
+		background-color: #343a40 !important;
+	}
+	code {
+		color: white;
+		margin: 0;
+		background-color: #343a40 !important;
+    border: 0px solid #000 !important;
+	}
+
+	header {
+		background: #adb5bd;
+		border-top-right-radius: .25rem;
+		border-top-left-radius: .25rem;
+		box-shadow: inset 0 1px 1px #f8f9fa;
+		padding: 0 .5rem;
+	}
+	main {
+		border-bottom-right-radius: .25rem;
+		border-bottom-left-radius: .25rem;
+		box-shadow: inset 0 0 1px #f8f9fa;
+		padding: .25rem .5rem;
+	}
+	.prompt {
+		color: #28a745;
+		font-weight: bold;
+		margin-right: .25rem;
+	}
+	.controls {
+		display: inline-flex;
+		.control {
+			border-radius: 999px;
+			display: block;
+			height: 10px;
+			margin-right: .5rem;
+			width: 10px;
+		}
+		.control--red {
+			background: #dc3545;
+		}
+		.control--yellow {
+			background: #ffc107;
+		}
+		.control--green {
+			background: #28a745;
+		}
+	}
+}
+
+/* desert scheme ported from vim to google prettify */
+/* string  - pink */
+/* comment - skyblue */
+/* type    - lightgreen */
+/* literal - darkred */
+/* punctuation */
+/* plaintext */
+/* html/xml tag    - lightyellow */
+/* attribute name  - khaki */
+/* attribute value - pink */
+/* decimal         - lightgreen */
+/* Specify class=linenums on a pre to get line numbering */
+/* IE indents via margin-left */
+/* Alternate shading for lines */
+pre.prettyprint {
+	display: block;
+	background-color: #333;
+}
+pre {
+	.nocode {
+		background-color: none;
+		color: #000;
+	}
+	.str {
+		color: #ffa0a0;
+	}
+	.kwd {
+		color: #f0e68c;
+		font-weight: bold;
+	}
+	.com {
+		color: #87ceeb;
+	}
+	.typ {
+		color: #98fb98;
+	}
+	.lit {
+		color: #cd5c5c;
+	}
+	.pun {
+		color: #fff;
+	}
+	.pln {
+		color: #fff;
+	}
+	.tag {
+		color: #f0e68c;
+		font-weight: bold;
+	}
+	.atn {
+		color: #bdb76b;
+		font-weight: bold;
+	}
+	.atv {
+		color: #ffa0a0;
+	}
+	.dec {
+		color: #98fb98;
+	}
+}
+ol.linenums {
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #AEAEAE;
+}
+li.L0 {
+	list-style-type: none;
+}
+li.L1 {
+	list-style-type: none;
+}
+li.L2 {
+	list-style-type: none;
+}
+li.L3 {
+	list-style-type: none;
+}
+li.L5 {
+	list-style-type: none;
+}
+li.L6 {
+	list-style-type: none;
+}
+li.L7 {
+	list-style-type: none;
+}
+li.L8 {
+	list-style-type: none;
+}
+@media print {
+	pre.prettyprint {
+		background-color: none;
+	}
+	pre {
+		.str {
+			color: #060;
+		}
+		.kwd {
+			color: #006;
+			font-weight: bold;
+		}
+		.com {
+			color: #600;
+			font-style: italic;
+		}
+		.typ {
+			color: #404;
+			font-weight: bold;
+		}
+		.lit {
+			color: #044;
+		}
+		.pun {
+			color: #440;
+		}
+		.pln {
+			color: #000;
+		}
+		.tag {
+			color: #006;
+			font-weight: bold;
+		}
+		.atn {
+			color: #404;
+		}
+		.atv {
+			color: #060;
+		}
+	}
+	code {
+		.str {
+			color: #060;
+		}
+		.kwd {
+			color: #006;
+			font-weight: bold;
+		}
+		.com {
+			color: #600;
+			font-style: italic;
+		}
+		.typ {
+			color: #404;
+			font-weight: bold;
+		}
+		.lit {
+			color: #044;
+		}
+		.pun {
+			color: #440;
+		}
+		.pln {
+			color: #000;
+		}
+		.tag {
+			color: #006;
+			font-weight: bold;
+		}
+		.atn {
+			color: #404;
+		}
+		.atv {
+			color: #060;
+		}
+	}
+}
