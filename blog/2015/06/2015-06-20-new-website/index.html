@@ -313,27 +313,14 @@ After some time having to deal with it and then having to create a blog for Log(
           
           
 
- <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-    
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2015-06-20 17:09:02 \u002b0000 UTC',
-        title: 'New Website',
-        link: decodeURI(location.href),
-        desc: '\u003cp\u003e«Clearly» the site has changed (as long as you have been following me; if not then perhaps this is «shocking news» for you).\u003c\/p\u003e\n\u003cp\u003eI started the blog with \u003ca href=\u0022http:\/\/jekyllrb.com\u0022\u003e\u003ccode\u003eJekyll\u003c\/code\u003e\u003c\/a\u003e and quickly «moved» to \u003ca href=\u0022http:\/\/octopress.org\u0022\u003e\u003ccode\u003eOctopress\u003c\/code\u003e\u003c\/a\u003e for its «simplicity» to make new posts, pages and change themes; or so I thought.\u003c\/p\u003e\n\u003cp\u003eAfter some time having to deal with it and then having to create a blog for \u003ca href=\u0022http:\/\/lognllc.github.io\u0022\u003eLog(n)\u003c\/a\u003e\u0026rsquo;s employees (being that I\u0026rsquo;m one of them at the moment) gave me some insights as to how convoluted the process is.\u003c\/p\u003e',
-        owner: 'esttorhe',
-        repo: 'esttorhe.github.io',
-        oauth: {
-          client_id: '12e2fdea131e370390c3',
-          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+ <script src="https://utteranc.es/client.js"
+        repo='esttorhe/esttorhe.github.io'
+        issue-term='title'
+        label='Comments'
+        theme='icy-dark'
+        crossorigin="anonymous"
+        async>
+  </script>
 
           
     </div>

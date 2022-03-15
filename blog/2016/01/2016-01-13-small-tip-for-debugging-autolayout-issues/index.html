@@ -370,27 +370,14 @@ That&rsquo;s obviously pseudocode but you get the idea; knowing which views are 
           
           
 
- <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-    
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2016-01-13 16:11:38 \u002b0000 UTC',
-        title: 'Small Tip for Debugging Autolayout issues',
-        link: decodeURI(location.href),
-        desc: 'This is quite a small post and probably not worth writing it but I know that this will come in handy in the future and will totally forget about it.\nThe other day I was trying to figure out an Autolayout crash on the app I was working on and trying to make head of tails from the console log with stuff like this:\n\u0026lt;NSAutoresizingMaskLayoutConstraint:0x175086220 h=-\u0026amp;- v=-\u0026amp;- UIView:0x147533250.height == UIView:0x14760b4a0.height\u0026gt; Imagine that but with many interacting UIViews at play; most of the time you can actually figure what\u0026rsquo;s going on based on the constant value or if you are well versed you can see the Matrix from source code a la Neo; but let\u0026rsquo;s be honest; more times than none you are left wondering which view is which…',
-        owner: 'esttorhe',
-        repo: 'esttorhe.github.io',
-        oauth: {
-          client_id: '12e2fdea131e370390c3',
-          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+ <script src="https://utteranc.es/client.js"
+        repo='esttorhe/esttorhe.github.io'
+        issue-term='title'
+        label='Comments'
+        theme='icy-dark'
+        crossorigin="anonymous"
+        async>
+  </script>
 
           
     </div>

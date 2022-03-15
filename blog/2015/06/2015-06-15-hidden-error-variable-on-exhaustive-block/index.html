@@ -326,27 +326,14 @@ print(error)
           
           
 
- <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-    
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2015-06-15 22:15:03 -0600 -0600',
-        title: 'Hidden error variable on exhaustive block',
-        link: decodeURI(location.href),
-        desc: '\u003cp\u003eOn my \u003ca href=\u0022\/blog\/2015\/06\/swift-2.0-throws-tip\/\u0022\u003eprevious post\u003c\/a\u003e I tried to help «solve» in a way the problem with non-typed \u003ccode\u003ethrows\u003c\/code\u003e by documenting them on the internal docs as lists with \u003ccode\u003emarkdown\u003c\/code\u003e.\u003c\/p\u003e\n\u003cp\u003eBased on that you can rightfully assume that I\u0026rsquo;m migrating all my \u003ccode\u003eResult\u0026lt;T,U\u0026gt;\u003c\/code\u003e code to support \u003ccode\u003ethrows\u003c\/code\u003e instead, on my \u003ccode\u003e2.0\u003c\/code\u003e branches.\u003c\/p\u003e\n\u003cp\u003eAs you might know (or not) whenever you do a \u003ccode\u003edo\u003c\/code\u003e\/\u003ccode\u003ecatch\u003c\/code\u003e block the \u003ccode\u003ecatch\u003c\/code\u003e block needs to be exhaustive; just like a \u003ccode\u003eswitch\u003c\/code\u003e and «catch» \u003cem\u003eall\u003c\/em\u003e possible paths.\u003c\/p\u003e\n\u003cp\u003eIt doesn\u0026rsquo;t mean you \u003cstrong\u003enecessarily\u003c\/strong\u003e need to specify every single error type in your \u003ccode\u003ecatch\u003c\/code\u003e block (even though ideally you should react differently for each type of error) but you can add an exhaustive \u003ccode\u003ecatch\u003c\/code\u003e that will represent «every single error».\u003c\/p\u003e',
-        owner: 'esttorhe',
-        repo: 'esttorhe.github.io',
-        oauth: {
-          client_id: '12e2fdea131e370390c3',
-          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+ <script src="https://utteranc.es/client.js"
+        repo='esttorhe/esttorhe.github.io'
+        issue-term='title'
+        label='Comments'
+        theme='icy-dark'
+        crossorigin="anonymous"
+        async>
+  </script>
 
           
     </div>

@@ -317,27 +317,14 @@
           
           
 
- <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-    
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2015-06-14 17:39:51 \u002b0000 UTC',
-        title: 'Swift 2.0 - throws tip',
-        link: decodeURI(location.href),
-        desc: 'Quick Swift 2.0 throws tip: There\u0026rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either\u0026lt;T,U\u0026gt;.\n Some examples:\n@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What\u0027s New in Swift talk :\/   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw\/catch asynchronously.\n\u0026mdash; Justin Spahr-Summers (@jspahrsummers) June 9, 2015   That being said, I\u0026rsquo;m not going to convince you to use it or avoid it.',
-        owner: 'esttorhe',
-        repo: 'esttorhe.github.io',
-        oauth: {
-          client_id: '12e2fdea131e370390c3',
-          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+ <script src="https://utteranc.es/client.js"
+        repo='esttorhe/esttorhe.github.io'
+        issue-term='title'
+        label='Comments'
+        theme='icy-dark'
+        crossorigin="anonymous"
+        async>
+  </script>
 
           
     </div>

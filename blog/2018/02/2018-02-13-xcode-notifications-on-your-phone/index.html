@@ -382,27 +382,14 @@ For now I&rsquo;m quite happy with the results and pretend to take as much advan
           
           
 
- <div id="comments-gitment"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-    
-    <script type="text/javascript">
-      var gitment = new Gitment({
-        id: '2018-02-13 18:18:04 \u002b0000 UTC',
-        title: 'Xcode notifications on your 📱',
-        link: decodeURI(location.href),
-        desc: '\u003cp\u003eSince quite some time now I\u0026rsquo;ve been working on \u003ccode\u003eXcode\u003c\/code\u003e projects that are pretty big; big enough to take up a considerable amount of time to finish compiling, even worst if you are running the tests and it needs to build EVERYTHING and then run ALL the tests.\u003c\/p\u003e\n\u003cp\u003eI also like to multi-task and do some other stuff while I\u0026rsquo;m compiling…\u003c\/p\u003e\n\u003c!-- [![xkcd comic about compilation times](https:\/\/imgs.xkcd.com\/comics\/compiling.png)](https:\/\/xkcd.com\/303\/) --\u003e\n\u003cp\u003e\u003cimg src=\u0022https:\/\/imgs.xkcd.com\/comics\/compiling.png\u0022 alt=\u0022xkcd comic about compilation times\u0022\u003e\u003c\/p\u003e',
-        owner: 'esttorhe',
-        repo: 'esttorhe.github.io',
-        oauth: {
-          client_id: '12e2fdea131e370390c3',
-          client_secret: 'a2595b0c5af58d19c75f07e6dcd70f09103e6b06'
-        }
-      });
-      gitment.render('comments-gitment');
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+ <script src="https://utteranc.es/client.js"
+        repo='esttorhe/esttorhe.github.io'
+        issue-term='title'
+        label='Comments'
+        theme='icy-dark'
+        crossorigin="anonymous"
+        async>
+  </script>
 
           
     </div>
