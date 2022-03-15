@@ -1,3 +1,6 @@
 [submodule "site/themes/anatole"]
 	path = site/themes/anatole
 	url = https://github.com/lxndrblz/anatole
+[submodule "site/themes/KeepIt"]
+	path = site/themes/KeepIt
+	url = https://github.com/Fastbyte01/KeepIt.git

@@ -14,7 +14,7 @@
 {{ $.Scratch.Set "bl_title" false }}
 
 {{ if .IsNamedParams }}
-  {{ $.Scratch.Set "bl_author" (.Get "author") }}
+  {{ $.Scratch.Set "bl_author" (.Get "cite") }}
   {{ $.Scratch.Set "bl_source" (.Get "source") }}
   {{ $.Scratch.Set "bl_link" (.Get "link") }}
   {{ $.Scratch.Set "bl_title" (.Get "title") }}

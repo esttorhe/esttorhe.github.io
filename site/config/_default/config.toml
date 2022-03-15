@@ -1,44 +1,80 @@
 baseURL = "https://estebantorr.es/"
-languageCode = "en-us"
-title = "Journey through engineering…"
-theme = "anatole"
+languageCode = "en"
+defaultContentLanguage = "en"
+title = "The mind of Esteban"
+theme = "KeepIt"
+
+paginate = 12
+enableEmoji = true
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[blackfriday]
+  hrefTargetBlank = true
+  nofollowLinks = true
+  noreferrerLinks = true
+
+[Permalinks]
+  post = "/:year/:month/:title/"
 
 [params]
-  AuthorName = "Esteban Torres"
-  GitHubUser = "esttorhe"
-  SidebarRecentLimit = 6
-  Subtitle = "From iOS Engineer to Engineering Manager :/"
-  MainSections = ["management", "post"]
-  Intro = true
-  Github = "https://github.com/esttorhe"
-  Twitter = "https://twitter.com/esttorhe"
+  since = 2014
+  author= "Esteban Torres"
+  subtitle = "From iOS Engineer to Engineering Manager"
+
+  avatar = "/assets/images/avatar.gif"
+  socialShare = true
+
+  description = "Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin."
+  keywords = "ios, ios Engineering, engineering management"
+
+[params.gravatar]
+    #email = "me+blog@estebantorr.es"   #uncomment and insert your email address to use gravatar
+
+[params.social]
+  GitHub = "esttorhe"
+  Twitter = "esttorhe"
   Email = "me+blog@estebantorr.es"
-  ShareTwitter = true
-  ProfilePicture = "assets/images/avatar.gif"
-  customCss = ["assets/css/terminal.css", "assets/css/cv.css"]
-  custom_css = ["assets/css/blockquote.css"]
-  Title = "This is Esteban Torres"
-  Description = "& this is my journey through engineering…"
-  Author = "Esteban Torres"
+  Telegram = "esttorhe"
+  Linkedin = "estebantorres"
+  Keybase = "esttorhe"
+  Reddit = "esttorhe"
+  Spotify = "1268956389"
+  Goodreads = "6006262-esteban"
+  Lastfm = "esttorhe"
+  # Mastodon = ""
 
-## Social links
-[[params.socialIcons]]
-icon = "fa-linkedin"
-title = "Linkedin"
-url = "https://www.linkedin.com/in/estebantorres"
+[params.share]
+Twitter = true
+Reddit = true
+HackerNews = true
+Linkedin = true
 
-[[params.socialIcons]]
-icon = "fa-github"
-title = "GitHub"
-url = "https://github.com/esttorhe/"
+customCss = ["assets/css/terminal.css", "assets/css/cv.css"]
+custom_css = ["assets/css/blockquote.css"]
 
-[[params.socialIcons]]
-icon = "fa-envelope"
-title = "e-mail"
-url = "mailto:me+blog@estebantorr.es"
+[author]
+  name = "Esteban Torres"
 
-[permalinks]
-  post = "/:year/:month/:title/"
+  [params.publisher]
+    name = "Esteban Torres"
+
+    [params.publisher.logo]
+      url = "/assets/images/avatar.gif"
+      width = 40
+      height = 40
+    
+  [params.logo]
+    url = "/assets/images/avatar.gif"
+    width = 40
+    height = 40
+
+  [params.image]
+    url = "/assets/images/cover.jpg"
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
@@ -72,29 +108,47 @@ expiryDate = ["expiryDate"]
   [[menu.main]]
   name = "Home"
   identifier = "home"
-  weight = 100
+  weight = 1
   url = "/" 
 
   [[menu.main]]
-  name = "Archive"
-  weight = 200
+  name = "Blog"
+  weight = 2
   identifier = "archive"
   url = "/blog/"
 
+[[menu.main]]
+  name = "Categories"
+  weight = 2.2
+  identifier = "categories"
+  url = "/categories/"
+
+[[menu.main]]
+  name = "Tags"
+  weight = 2.5
+  identifier = "tags"
+  url = "/tags/"
+
   [[menu.main]]
-  name = "About Me"
+  name = "About"
   identifier = "about"
-  weight = 300
+  weight = 4
   url = "/about"
 
   [[menu.main]]
   name = "Talks"
-  weight = 400
+  weight = 3
   identifier = "talks"
   url = "/talks/"
 
   [[menu.main]]
   name = "CV"
-  weight = 500
+  weight = 5
   identifier = "cv"
   url = "/cv"
+
+[params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+    owner = "esttorhe"              # Your GitHub ID
+    repo = "esttorhe.github.io"               # The repo to store comments
+    clientId = "12e2fdea131e370390c3"           # Your client ID
+    clientSecret = "a2595b0c5af58d19c75f07e6dcd70f09103e6b06"       # Your client secret
