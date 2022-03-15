@@ -147,8 +147,9 @@ expiryDate = ["expiryDate"]
   identifier = "cv"
   url = "/cv"
 
-[params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+[params.utterance]          # utteranc.es app - https://utteranc.es/
     owner = "esttorhe"              # Your GitHub ID
     repo = "esttorhe.github.io"               # The repo to store comments
-    clientId = "12e2fdea131e370390c3"           # Your client ID
-    clientSecret = "a2595b0c5af58d19c75f07e6dcd70f09103e6b06"       # Your client secret
+    label = "Comments"
+    issueTerm = "title"
+    theme = "icy-dark"
