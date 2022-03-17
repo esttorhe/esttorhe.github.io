@@ -76,6 +76,6 @@ Apparently it is intentional (which is good) but is not documented anywhere.
 
 I suggested adding it to the book/docs and he agreed; perhaps we will see a fix for it before it hits production.
 
-[throwDoc]: /blog/2015/06/swift-2.0-throws-tip/
+[throwDoc]: /2015/06/swift-2.0-throws-tip/
 [radar]:http://openradar.appspot.com/21396321
 [jckarter]:https://twitter.com/jckarter

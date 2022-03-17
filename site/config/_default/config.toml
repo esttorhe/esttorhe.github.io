@@ -46,6 +46,7 @@ enableRobotsTXT = true
   Spotify = "1268956389"
   Goodreads = "6006262-esteban"
   Lastfm = "esttorhe"
+  RSS = "https://estebantorr.es/index.xml"
   # Mastodon = ""
 
 [params.share]
