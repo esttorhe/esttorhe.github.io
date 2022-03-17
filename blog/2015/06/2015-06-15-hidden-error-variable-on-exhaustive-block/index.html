@@ -178,7 +178,7 @@ It doesn&rsquo;t mean you necessarily need to specify every single error type in
           
           
 
-          <p>On my <a href="/blog/2015/06/swift-2.0-throws-tip/">previous post</a> I tried to help «solve» in a way the problem with non-typed <code>throws</code> by documenting them on the internal docs as lists with <code>markdown</code>.</p>
+          <p>On my <a href="/2015/06/swift-2.0-throws-tip/">previous post</a> I tried to help «solve» in a way the problem with non-typed <code>throws</code> by documenting them on the internal docs as lists with <code>markdown</code>.</p>
 <p>Based on that you can rightfully assume that I&rsquo;m migrating all my <code>Result&lt;T,U&gt;</code> code to support <code>throws</code> instead, on my <code>2.0</code> branches.</p>
 <p>As you might know (or not) whenever you do a <code>do</code>/<code>catch</code> block the <code>catch</code> block needs to be exhaustive; just like a <code>switch</code> and «catch» <em>all</em> possible paths.</p>
 <p>It doesn&rsquo;t mean you <strong>necessarily</strong> need to specify every single error type in your <code>catch</code> block (even though ideally you should react differently for each type of error) but you can add an exhaustive <code>catch</code> that will represent «every single error».</p>
