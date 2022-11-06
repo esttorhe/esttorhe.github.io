@@ -14,10 +14,10 @@
       
       <guid>https://estebantorr.es/blog/2015/08/2015-08-11-semver-intermediate-versioning/</guid>
       <description>&lt;p&gt;Lately I&amp;rsquo;ve come across multiple tweets and talks about people avoiding jumping over the dreaded &lt;code&gt;1.0.0&lt;/code&gt; of their &lt;code&gt;frameworks&lt;/code&gt;, tools, etc.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If semver defined some simple criteria for what constitutes a 1.x release would that help alleviate the fear?&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152832490643457?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt 🇺🇦 (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Why do so many open source projects fear making a 1.x releases? My projects depend on numerous 0.x versions - should that worry me!&lt;/p&gt;&amp;mdash; Colin Eberhardt (@ColinEberhardt) &lt;a href=&#34;https://twitter.com/ColinEberhardt/status/631152342826663936?ref_src=twsrc%5Etfw&#34;&gt;August 11, 2015&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;hr&gt;
