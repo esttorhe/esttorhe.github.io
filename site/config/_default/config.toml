@@ -26,7 +26,7 @@ enableRobotsTXT = true
   author= "Esteban Torres"
   subtitle = "From iOS Engineer to Engineering Manager"
 
-  avatar = "/assets/images/avatar.gif"
+  avatar = "/assets/images/avatar.png"
   socialShare = true
 
   description = "Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin."
@@ -65,12 +65,12 @@ custom_css = ["assets/css/blockquote.css"]
     name = "Esteban Torres"
 
     [params.publisher.logo]
-      url = "/assets/images/avatar.gif"
+      url = "/assets/images/avatar.png"
       width = 40
       height = 40
     
   [params.logo]
-    url = "/assets/images/avatar.gif"
+    url = "/assets/images/avatar.png"
     width = 40
     height = 40
 

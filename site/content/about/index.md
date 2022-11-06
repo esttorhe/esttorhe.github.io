@@ -45,3 +45,5 @@ You can find me on [{{< awesome fa fa-github >}}`GitHub`][github] and [{{< aweso
 [cv]:{{< ref "cv.md" >}}
 [twitter]:https://twitter.com/esttorhe
 [github]:https://github.com/esttorhe
+
+<!-- <a rel="me" href="https://mastodon.social/@esttorhe">Mastodon</a> -->
