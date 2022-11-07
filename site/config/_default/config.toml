@@ -37,17 +37,17 @@ enableRobotsTXT = true
 
 [params.social]
   GitHub = "esttorhe"
-  Twitter = "esttorhe"
+  Mastodon = "@esttorhe"
   Email = "me+blog@estebantorr.es"
-  Telegram = "esttorhe"
   Linkedin = "estebantorres"
+  Telegram = "esttorhe"
   Keybase = "esttorhe"
   Reddit = "esttorhe"
   Spotify = "1268956389"
   Goodreads = "6006262-esteban"
   Lastfm = "esttorhe"
   RSS = "https://estebantorr.es/index.xml"
-  # Mastodon = ""
+  Twitter = "esttorhe"
 
 [params.share]
 Twitter = true
