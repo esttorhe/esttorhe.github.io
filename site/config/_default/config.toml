@@ -37,7 +37,7 @@ enableRobotsTXT = true
 
 [params.social]
   GitHub = "esttorhe"
-  Mastodon = "@esttorhe"
+  Mastodon = "https://mastodon.social/@esttorhe"
   Email = "me+blog@estebantorr.es"
   Linkedin = "estebantorres"
   Telegram = "esttorhe"
