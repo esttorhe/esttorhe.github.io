@@ -8,7 +8,6 @@ tags:
 categories:
 - Engineering
 ---
-
 # A GSD System for Claude Code
 
 ## I have a Problem with Unstructured AI-Assisted Coding
@@ -37,7 +36,7 @@ The tool is `Getting Shit Done` , which is a spec-driven development tool for AI
 
 This resonated deeply with me but I was deep into other projects and couldn't simply take the time that this new tool deserved to see if it would work for me or not.
 
-## Testing out GSD 
+## Testing out GSD
 
 I've always hoarded articles, trying various apps before self-hosting [Karakeep][karakeep] on a Raspberry Pi. After an upgrade bricked the database, I couldn't be bothered to fix it.
 
@@ -69,10 +68,10 @@ Now, after this first test, I have a better sense of which phases are essential 
 
 For any developer looking to improve the reliability and structure of their AI-assisted work, I believe trying this system is a valuable exercise. Even if the tool isn't for you, it will hopefully instill the habit of proper specification for AI-assisted coding or even your own coding sessions.
 
-[blogwatcher]:https://github.com/Hyaxia/blogwatcher
-[GSD]:https://github.com/glittercowboy/get-shit-done
-[karakeep]:https://karakeep.app/
-
 ---
 
 Made with BlueTip 🦋 ([https://www.bluetip.ai](https://www.bluetip.ai))
+
+[blogwatcher]:https://github.com/Hyaxia/blogwatcher
+[GSD]:https://github.com/glittercowboy/get-shit-done
+[karakeep]:https://karakeep.app/
