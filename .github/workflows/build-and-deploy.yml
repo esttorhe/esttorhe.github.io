@@ -1,0 +1,63 @@
+# ABOUTME: GitHub Actions workflow for building and deploying the Hugo site
+# ABOUTME: Migrated from Travis CI to use self-hosted runners
+
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - source
+  workflow_dispatch:
+
+env:
+  HUGO_IMAGE: jojomi/hugo:latest
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Cache Hugo Docker image
+        uses: actions/cache@v4
+        id: hugo-cache
+        with:
+          path: /tmp/hugo-image.tar
+          key: hugo-docker-${{ env.HUGO_IMAGE }}
+
+      - name: Load Hugo Docker image from cache
+        if: steps.hugo-cache.outputs.cache-hit == 'true'
+        run: docker load -i /tmp/hugo-image.tar
+
+      - name: Pull and cache Hugo Docker image
+        if: steps.hugo-cache.outputs.cache-hit != 'true'
+        run: |
+          docker pull ${{ env.HUGO_IMAGE }}
+          docker save ${{ env.HUGO_IMAGE }} -o /tmp/hugo-image.tar
+
+      - name: Verify Hugo version
+        run: docker run --rm ${{ env.HUGO_IMAGE }} hugo version
+
+      - name: Run build and tests
+        run: bundle exec rake build:test
+
+      - name: Build site
+        run: make build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site/public
+          publish_branch: master
+          keep_files: false
