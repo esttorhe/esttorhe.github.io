@@ -23,7 +23,7 @@ With AI-assisted coding, that approach was no longer sufficient. Clear specs, pr
 
 While I was fast at trying new things, the bottleneck was me going back and forth polishing the outcomes not matching my expectations. I got better and better and detailed what I needed to increase exponentially the success of the AI assisted code; but there was still a critical element that needed addressing.
 
-As I was scrolling through different apps, I landed on LinkedIn to [this post: Claude Workflow Upgrade with GSD]([https://www.linkedin.com/posts/girish-s-16b4b91a6_claudecode-aiagents-devtools-activity-7416057263422988288-6X5m](https://www.linkedin.com/posts/girish-s-16b4b91a6_claudecode-aiagents-devtools-activity-7416057263422988288-6X5m)). I read the idea, and it sounded interesting, resonating with me. 
+As I was scrolling through different apps, I landed on LinkedIn to [this post: Claude Workflow Upgrade with GSD](https://www.linkedin.com/posts/girish-s-16b4b91a6_claudecode-aiagents-devtools-activity-7416057263422988288-6X5m). I read the idea, and it sounded interesting, resonating with me.
 
 The tool is `Getting Shit Done` , which is a spec-driven development tool for AI assisted development. It relies heavily on people getting "interviewed" and reaching proper spec documents for the assistant to execute. From the `README`:
 
@@ -69,11 +69,9 @@ Now, after this first test, I have a better sense of which phases are essential 
 
 For any developer looking to improve the reliability and structure of their AI-assisted work, I believe trying this system is a valuable exercise. Even if the tool isn't for you, it will hopefully instill the habit of proper specification for AI-assisted coding or even your own coding sessions.
 
-[blogwatcher]:[https://github.com/Hyaxia/blogwatcher](https://github.com/Hyaxia/blogwatcher)
-
-[GSD]:([https://github.com/glittercowboy/get-shit-done](https://github.com/glittercowboy/get-shit-done))
-
-[karakeep]: [https://karakeep.app/](https://karakeep.app/)
+[blogwatcher]:https://github.com/Hyaxia/blogwatcher
+[GSD]:https://github.com/glittercowboy/get-shit-done
+[karakeep]:https://karakeep.app/
 
 ---
 
