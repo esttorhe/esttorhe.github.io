@@ -7,6 +7,7 @@ theme = "KeepIt"
 paginate = 12
 enableEmoji = true
 enableRobotsTXT = true
+ignoreErrors = ["error-remote-getjson"]
 
 [sitemap]
   changefreq = "monthly"
