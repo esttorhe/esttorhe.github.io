@@ -38,15 +38,15 @@ This resonated deeply with me but I was deep into other projects and couldn't si
 
 ## Testing out GSD
 
-I've always hoarded articles, trying various apps before self-hosting [Karakeep][karakeep] on a Raspberry Pi. After an upgrade bricked the database, I couldn't be bothered to fix it.
+I've always hoarded articles, trying various apps before self-hosting [Karakeep](https://karakeep.app/) on a Raspberry Pi. After an upgrade bricked the database, I couldn't be bothered to fix it.
 
-I quickly switched to [BlogWatcher][blogwatcher] running on a local server/computer, which works great. However, I lacked a GUI to navigate the articles, presenting the perfect opportunity to finally test [GSD][gsd].
+I quickly switched to [BlogWatcher](https://github.com/Hyaxia/blogwatcher) running on a local server/computer, which works great. However, I lacked a GUI to navigate the articles, presenting the perfect opportunity to finally test [GSD](https://github.com/glittercowboy/get-shit-done).
 
 ### GSD System in Practice
 
-I started with a blank canvas; I created a `.reference` folder where I dumped the source code from [blogwatcher][blogwatcher], I grabbed some reference images of UI I liked and dumped them in the reference folder and kicked a new `Claude Code` session.
+I started with a blank canvas; I created a `.reference` folder where I dumped the source code from [blogwatcher](https://github.com/Hyaxia/blogwatcher), I grabbed some reference images of UI I liked and dumped them in the reference folder and kicked a new `Claude Code` session.
 
-I followed the instructions of the [gsd][gsd] documentation and started with:
+I followed the instructions of the [gsd](https://github.com/glittercowboy/get-shit-done) documentation and started with:
 
 Now this is where the "magic" happens. The tool will start "quizzing" you about your goals, the codebase, etc; you can then choose to do research, planning and verification. It will let you know that you'll be using more tokens during these phases, but I think most of them are worth it.
 
@@ -71,7 +71,3 @@ For any developer looking to improve the reliability and structure of their AI-a
 ---
 
 Made with BlueTip 🦋 ([https://www.bluetip.ai](https://www.bluetip.ai))
-
-[blogwatcher]:https://github.com/Hyaxia/blogwatcher
-[GSD]:https://github.com/glittercowboy/get-shit-done
-[karakeep]:https://karakeep.app/
