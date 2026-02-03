@@ -1,3 +1,14 @@
+---
+title: "A GSD System for Claude Code"
+date: 2026-02-03T13:45:24Z
+type: post
+tags: 
+- ai
+- development
+categories:
+- Engineering
+---
+
 # A GSD System for Claude Code
 
 ## I have a Problem with Unstructured AI-Assisted Coding
