@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>development on The mind of Esteban</title>
+    <link>https://estebantorr.es/tags/development/</link>
+    <description>Recent content in development on The mind of Esteban</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 03 Feb 2026 13:45:24 +0000</lastBuildDate><atom:link href="https://estebantorr.es/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A GSD System for Claude Code</title>
+      <link>https://estebantorr.es/blog/2026/2026-02-03-a-gsd-system-for-claude-code/</link>
+      <pubDate>Tue, 03 Feb 2026 13:45:24 +0000</pubDate>
+      
+      <guid>https://estebantorr.es/blog/2026/2026-02-03-a-gsd-system-for-claude-code/</guid>
+      <description>A GSD System for Claude Code I have a Problem with Unstructured AI-Assisted Coding When GitHub Copilot rolled out, I found it a new paradigm, though it quickly revealed limitations. Cursor offered a brighter future until context limits emerged. Then, a friend introduced me to Claude Code, and it was a whole new experience.
+My productivity skyrocketed, and I quickly hit daily and weekly limits, pushing its bounds. However, I soon realized that jumping into coding so fast was not sustainable.</description>
+    </item>
+    
+  </channel>
+</rss>

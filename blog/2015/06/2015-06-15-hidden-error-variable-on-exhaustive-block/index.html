@@ -53,7 +53,7 @@ It doesn&rsquo;t mean you necessarily need to specify every single error type in
   
   "genre": "post",
   "keywords": "swift2, swift, radar, bug",
-  "wordcount":  417 ,
+  "wordcount":  375 ,
   "url": "https:\/\/estebantorr.es\/blog\/2015\/06\/2015-06-15-hidden-error-variable-on-exhaustive-block\/",
   "datePublished": "2015-06-15T22:15:03-06:00",
   "dateModified": "2015-06-15T22:15:03-06:00",
@@ -212,13 +212,9 @@ print(error)
 <h1 id="what-now">What now?</h1>
 <p>For now the workaround is simple; avoid using a <code>let error</code> near an exhaustive <code>catch</code> block. Although that&rsquo;s not quite a solution but a patch; with some luck <code>Apple</code> will eventually fix this issue; <code>Swift 2.0</code> its still a ß and can contain a fix for this (or at least document it somewhere other than this blog post) by the time it hits production.</p>
 <p>In the meantime I filed a radar <a href="http://openradar.appspot.com/21396321"><code>rdar://21396321</code></a> explaining the issue and also asked <a href="https://twitter.com/jckarter">Joe Groff</a> (he works on <code>Swift</code> compiler at <code>Apple</code>) about this and will update when (if) he answers:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/jckarter?ref_src=twsrc%5Etfw">@jckarter</a> is the `error` reservation on exhaustive `catch` documented anywhere - <a href="http://t.co/qgGm1tlX4i">http://t.co/qgGm1tlX4i</a> ? Or a bug?</p>&mdash; Esteban Torres (@esttorhe) <a href="https://twitter.com/esttorhe/status/610667900421152768?ref_src=twsrc%5Etfw">June 16, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <h2 id="update">Update</h2>
 <p>Well; <a href="https://twitter.com/jckarter">Joe</a> answered quicker than expected:</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/esttorhe?ref_src=twsrc%5Etfw">@esttorhe</a> It intentionally implicitly binds an &quot;error&quot; variable if you specified none.</p>&mdash; Joe Groff (@jckarter) <a href="https://twitter.com/jckarter/status/610668658105413633?ref_src=twsrc%5Etfw">June 16, 2015</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>Apparently it is intentional (which is good) but is not documented anywhere.</p>
 <p>I suggested adding it to the book/docs and he agreed; perhaps we will see a fix for it before it hits production.</p>
@@ -234,7 +230,7 @@ print(error)
            
             <p class="copyright-item">
                     <span>Words:</span>
-                   <span>417</span>
+                   <span>375</span>
             </p>
 
             <p class="copyright-item">
@@ -344,7 +340,7 @@ print(error)
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2014 - 2022</span>
+        <span itemprop="copyrightYear">2014 - 2026</span>
         
          
             <span class="author" itemprop="copyrightHolder"><a href="https://estebantorr.es/">Esteban Torres</a> | </span>

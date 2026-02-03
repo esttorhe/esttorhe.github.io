@@ -66,8 +66,7 @@
       <guid>https://estebantorr.es/blog/2015/06/2015-06-14-swift-2-dot-0-throws-tip/</guid>
       <description>Quick Swift 2.0 throws tip: There&amp;rsquo;s been a lot of «heated» debates regarding the throws approach added to Swift 2.0 in favor of Either&amp;lt;T,U&amp;gt;.
  Some examples:
-@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/   Swift exceptions compose poorly. You can’t determine concrete ErrorType from a closure that throws, and can’t throw/catch asynchronously.
-&amp;mdash; Justin Spahr-Summers (@jspahrsummers) June 9, 2015   That being said, I&amp;rsquo;m not going to convince you to use it or avoid it.</description>
+@cocoaphony Throws types were explicitly but hand-wavily pooh-poohed in the What&#39;s New in Swift talk :/    That being said, I&amp;rsquo;m not going to convince you to use it or avoid it. That&amp;rsquo;s entirely up to you, the app / framework you are working on and wether or not you need to do async calls with throws (which is a «fun» thing to accomplish).</description>
     </item>
     
   </channel>
