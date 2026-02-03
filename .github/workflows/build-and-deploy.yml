@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -56,6 +58,15 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}/site:/src \
             ${{ env.HUGO_IMAGE }} hugo
+
+      - name: Verify build output
+        run: |
+          if [ ! -f ./site/public/index.html ]; then
+            echo "ERROR: index.html not found - Hugo build incomplete"
+            exit 1
+          fi
+          echo "Build verification passed: index.html exists"
+          ls -la ./site/public/
 
       - name: Test site with html-proofer
         run: bundle exec rake test
