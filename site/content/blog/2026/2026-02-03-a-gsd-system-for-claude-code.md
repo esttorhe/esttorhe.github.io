@@ -72,4 +72,4 @@ For any developer looking to improve the reliability and structure of their AI-a
 
 Made with BlueTip 🦋 ([https://www.bluetip.ai](https://www.bluetip.ai))
 
-<a rel="me" href="https://mastodon.social/@esttorhe">Mastodon</a>
+<meta name="fediverse:creator" content="@esttorhe@mastodon.social">
