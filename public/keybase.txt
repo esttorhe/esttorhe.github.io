@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/esttorhe
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://estebantorr.es
+  * I am esttorhe (https://keybase.io/esttorhe) on keybase.
+  * I have a public key with fingerprint 25F8 FC83 C0A9 2AF7 AA4C  BE4A 0838 31FC D4F8 F734
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101157a9dbf1168b89ef26c50f4a9424fc94c6a0409ef7d0b4f139ea4112eac84590a",
+      "fingerprint": "25f8fc83c0a92af7aa4cbe4a083831fcd4f8f734",
+      "host": "keybase.io",
+      "key_id": "083831fcd4f8f734",
+      "kid": "0101157a9dbf1168b89ef26c50f4a9424fc94c6a0409ef7d0b4f139ea4112eac84590a",
+      "uid": "14a9e96f1226d048b5c9f7a7988d1a00",
+      "username": "esttorhe"
+    },
+    "merkle_root": {
+      "ctime": 1529413140,
+      "hash_meta": "6b28f6da57606e487623fa0a8b6e078c2493824490048a2bb7d67be7cdf23847",
+      "seqno": 3103788
+    },
+    "revoke": {
+      "sig_ids": [
+        "165c2828f0018991b068a99771114a38d6ecb9b2db879a8d87c301729f6946e60f"
+      ]
+    },
+    "service": {
+      "hostname": "estebantorr.es",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1529413193,
+  "expire_in": 157680000,
+  "prev": "c01a5bd959b1e7bef2231be294b57bdd63b3af8597f473e8f6fbf0e77af68490",
+  "seqno": 96,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMK3AnicrZNLaB1VGMdvfIQ2Gii0iC4aZRS0JSbnNedxWyo+AioqNF0EGtvreeaO
+Se7czEzSXC9VwUoDirVWiJY29ipFsrBEqagoGkMXwYoEX7FoWx/dWJuFbow2rZ6J
+SkG3zmaYc/7f//t/vzPnWOvlhZamm1vF9uZTbVNNx2dGhwu9t1y8px6o2NSCYj3o
+t8svO2BsmpX6IxMUAwABhCGTwigHIeWKC+sQ1SFwRAqCiNOCaCoBAX6DGaCIg1hY
+SSBEVmpOQgFk0B64qNJnk2oSVTJvi0LHneZYAymQdExKopUlEnDMMXTaEL/PMPGF
+5TjNK3w4JVPbEcV+zX+U/or3X/3/nHt42Q76IiuogwhRAwhXoRY+NROcGygByIWp
+TSpy0Hq1x5fFSdkGO9uDQZv0D9hSEsdZDldnUS6BIRIEYkiAH1Cm5dKgzaSvpApx
+R40MGQXUEs4owk4CyRW1gHGNiMAcESKADyGRUsxQpizTxiHMCfM5UjtUiYMihgAz
+zn2CxI7E/TZvnkZ9HlsaFHsDSEONuG8GAORCQAUol0IwBqGfFXNDrVZCIaM4E5Ib
+zjQGkCHhqCDUUuCCbTvzZslIpJfN83O6NL9VsuIZJB029ZmqSZzFOh7we+Usq6bF
+nExWq+biHVaV/rYpqahi/H/iK0ZskkZxxZPyyn9BE7g9sKPVKLGlKFd4WBz4J+9j
+R7ylBlCGyohQKGg9HocQhsr6ahUyZQzFCkvHQ8EcYdh64k45YBmTjnLP9hJFQX1O
+2ec9PbuKzIYTf6gz0w9eUWhqKTRfeVl+gQotK1f9c61GyYrCc/uOvv5Mp/mj66l3
+H67de//B5oH5zgsHywvrt5AjU5/tml5xg9h6OIK7P5o0b7V+tbTpmg/Xodm2xm8H
+xsb3wqlwoVGfPv7SyS96ur955yq1p6d41+7JLa9NVVfhF472NBo9r7Y+u2vz+PPf
+rz5Xm7vzxNahgbmHPqj/tPblZPW5ibm7JxfJmBz+Obwjnn3gxYY+fd3ZpYmZAxuC
+Xx6rPzH/yKGLj3csnD8su+Ouk1efGr9Wnrlx7e8/3Lpx47fnb/vyBO/6ZE33/sWJ
+bW9coPOL62rvfTpGbh/6+D7w6FDnyh+P7endtHlxCWy/Pu38vG3p/VdOv/n1kadn
+3/7uTPXXvfs3nN3X9OSa9RM7bjr0J8AbhTM=
+=yqgt
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/esttorhe
+
+==================================================================
+
