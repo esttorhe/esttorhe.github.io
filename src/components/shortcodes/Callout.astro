@@ -1,0 +1,29 @@
+---
+// ABOUTME: Callout component for blog post CTAs and emphasis
+// ABOUTME: Features sloth-pointing illustration for visual attention
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Hey, check this out!" } = Astro.props;
+---
+
+<aside class="callout my-8 flex items-start gap-4 p-4 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)]">
+  <img
+    src="/assets/images/illustrations/sloth-pointing.webp"
+    alt=""
+    class="w-16 h-16 object-contain flex-shrink-0"
+    aria-hidden="true"
+  />
+  <div class="flex-1">
+    {title && (
+      <p class="font-heading font-semibold text-[var(--color-accent)] mb-1">
+        {title}
+      </p>
+    )}
+    <div class="text-[var(--color-text-secondary)] text-sm">
+      <slot />
+    </div>
+  </div>
+</aside>

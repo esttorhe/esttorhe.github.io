@@ -145,27 +145,64 @@ function getReadingTime(content: string): string {
         <!-- Uses Card -->
         <a
           href="/uses"
-          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+          class="group rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all flex items-center gap-4"
         >
-          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
-            Uses
-          </h3>
-          <p class="text-sm text-[var(--color-text-secondary)]">
-            Tools, software, and hardware I use daily.
-          </p>
+          <img
+            src="/assets/images/illustrations/sloth-uses.webp"
+            alt=""
+            class="w-32 h-32 object-contain"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+              Uses
+            </h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">
+              Tools, software, and hardware I use daily.
+            </p>
+          </div>
         </a>
 
         <!-- Talks Card -->
         <a
           href="/talks"
-          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+          class="group rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all flex items-center gap-4"
         >
-          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
-            Talks
-          </h3>
-          <p class="text-sm text-[var(--color-text-secondary)]">
-            Conference talks and presentations.
-          </p>
+          <img
+            src="/assets/images/illustrations/sloth-talks.webp"
+            alt=""
+            class="w-32 h-32 object-contain"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+              Talks
+            </h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">
+              Conference talks and presentations.
+            </p>
+          </div>
+        </a>
+
+        <!-- Currently Reading Card -->
+        <a
+          href="/media"
+          class="group rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all md:col-span-2 flex items-center gap-4"
+        >
+          <img
+            src="/assets/images/illustrations/sloth-reading.webp"
+            alt=""
+            class="w-32 h-32 object-contain"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+              Currently Reading
+            </h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">
+              Audiobooks and TV shows I'm enjoying.
+            </p>
+          </div>
         </a>
       </div>
     </div>

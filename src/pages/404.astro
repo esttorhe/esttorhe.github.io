@@ -1,0 +1,36 @@
+---
+// ABOUTME: Custom 404 error page with sloth illustration
+// ABOUTME: Displays when a page is not found
+
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <section class="py-24 md:py-32">
+    <div class="container">
+      <div class="max-w-xl mx-auto text-center">
+        <!-- Sloth with coffee illustration -->
+        <img
+          src="/assets/images/illustrations/sloth-coffee.webp"
+          alt="Sloth drinking coffee"
+          class="w-48 h-48 mx-auto mb-8 object-contain"
+        />
+
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">
+          Page Not Found
+        </h1>
+
+        <p class="text-[var(--color-text-secondary)] mb-8">
+          The page you're looking for doesn't exist or has been moved. Maybe take a coffee break?
+        </p>
+
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] text-[var(--color-bg-base)] font-medium hover:opacity-90 transition-opacity"
+        >
+          Go back home
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
