@@ -1,0 +1,54 @@
+---
+// ABOUTME: Dynamic blog post page preserving Hugo URL structure
+// ABOUTME: Routes: /blog/:year/:yyyy-mm-dd-slug/
+
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return posts.map((post) => {
+    const date = new Date(post.data.date);
+    const year = String(date.getFullYear());
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    // Get the title slug (remove any existing date prefix from the file slug)
+    const titleSlug = post.slug.replace(/^\d{4}-\d{2}-/, '');
+
+    // Build the full slug: yyyy-mm-dd-title-slug
+    const fullSlug = `${year}-${month}-${day}-${titleSlug}`;
+
+    return {
+      params: {
+        year,
+        slug: fullSlug,
+      },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+function getReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  category={post.data.category}
+  readingTime={getReadingTime(post.body || '')}
+  image={post.data.featured_image}
+  headings={headings}
+>
+  <Content />
+</BlogLayout>

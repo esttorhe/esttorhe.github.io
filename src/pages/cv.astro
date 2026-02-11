@@ -1,0 +1,36 @@
+---
+// ABOUTME: CV/Resume page - placeholder for future implementation
+// ABOUTME: Empty placeholder as requested
+
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="CV" description="Esteban Torres - Engineering Manager Resume">
+  <article class="py-12 md:py-16">
+    <div class="container-narrow">
+      <header class="mb-12 animate-slide-up">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">CV</h1>
+      </header>
+
+      <div class="prose animate-slide-up stagger-1">
+        <p class="text-[var(--color-text-secondary)]">
+          <em>Coming soon...</em>
+        </p>
+        <p class="text-[var(--color-text-secondary)]">
+          In the meantime, you can find me on <a href="https://linkedin.com/in/estebantorres" class="text-[var(--color-accent)] hover:underline">LinkedIn</a>.
+        </p>
+      </div>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .prose {
+    max-width: var(--prose-width);
+    line-height: var(--leading-normal);
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+</style>

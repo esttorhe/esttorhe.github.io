@@ -1,0 +1,123 @@
+---
+// ABOUTME: About page with personal bio and background
+// ABOUTME: Migrated from Hugo with updated content
+
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout title="About Me" description="Learn about Esteban Torres - Engineering Manager, former iOS Engineer, from Costa Rica living in Berlin.">
+  <article class="py-12 md:py-16">
+    <div class="container-narrow">
+      <header class="mb-12 animate-slide-up">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">About Me</h1>
+      </header>
+
+      <div class="prose animate-slide-up stagger-1">
+        <p>
+          Hi; my name is <strong>Esteban Torres</strong> and I'm an <code>Engineering Manager</code> @ <a href="https://spotify.com">Spotify</a> in Berlin & currently working on <a href="https://backstage.spotify.com">Backstage</a>.
+        </p>
+
+        <p>
+          I'm originally from Costa Rica where I started as an <code>Engineer</code> and quickly jumped on the <code>iOS</code> bandwagon; this led me to land a job as an <code>iOS</code> Engineer @ <a href="https://soundcloud.com">SoundCloud</a> which of course led to me & my family moving to Germany.
+        </p>
+
+        <p>
+          During my time at <a href="https://soundcloud.com">SoundCloud</a> I wore many hats:
+        </p>
+
+        <ul>
+          <li><code>iOS</code> Engineer (<code>Listening Cluster</code> and later on <code>Core Clients</code>)</li>
+          <li><code>Cross Platform</code> Engineer (<code>Core Clients</code> where I got to do <code>Scala</code>, <code>Go</code>, some <code>Production Engineering</code>, <code>iOS</code> & <code>Android</code> development, etc)</li>
+          <li>And most recently <code>Engineering Management</code></li>
+        </ul>
+
+        <p>
+          I used to be moderately active in the <code>iOS</code> community and tried to attend different conferences (as an attendee as well as a speaker) but since I switched careers I slowed down a lot on that front.
+        </p>
+
+        <p>
+          It's been a few years since I started working as an <code>Engineering Manager</code> and lots of things have happened:
+        </p>
+
+        <ul>
+          <li>Managed to help a former member of my team transition to a different team where they could grow even more and exert a bigger and wider impact</li>
+          <li>Had to manage one of the biggest projects the company (<code>SoundCloud</code>) had seen, involving multiple teams, contractors and all 3 major clients</li>
+          <li>Took over a 2nd team, which focuses mainly on <code>Back End Engineering Productivity</code></li>
+          <li>Switched jobs and landed an amazing one working closely with OSS</li>
+        </ul>
+
+        <p>
+          It is fair to say I'm still figuring out things on the new role, but the day-to-day has changed from "I have no idea what I am doing" to "I have no idea what I am doing, but I've seen this before". Looking forward to growing more on this new chapter, although I haven't stopped coding, mainly in <code>Go</code> and very recently started learning <code>Rust</code>.
+        </p>
+
+        <p>
+          I've been jotting down what I learn in a good old paper notebook which I'll try to migrate to a more modern place in this website.
+        </p>
+
+        <p>
+          You can find me on <a href="https://github.com/esttorhe">GitHub</a> and <a rel="me" href="https://mastodon.social/@esttorhe">Mastodon</a> as <code>@esttorhe</code>.
+        </p>
+      </div>
+
+      <!-- Spotify Embed -->
+      <div class="mt-12 animate-slide-up stagger-2">
+        <h2 class="text-xl font-heading font-semibold mb-4">What I'm Listening To</h2>
+        <iframe
+          src="https://open.spotify.com/embed/playlist/3rBwXl0FpOsv25Viatky7H?utm_source=generator&theme=0"
+          width="100%"
+          height="380"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          class="rounded-[var(--radius-md)]"
+        ></iframe>
+      </div>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .prose {
+    max-width: var(--prose-width);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent-muted);
+    text-underline-offset: 2px;
+  }
+
+  .prose a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .prose strong {
+    font-weight: 600;
+  }
+
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-bg-inset);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+  }
+
+  .prose ul {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
+  }
+</style>

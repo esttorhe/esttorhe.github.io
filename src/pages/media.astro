@@ -1,0 +1,234 @@
+---
+// ABOUTME: Media page displaying audiobooks from Goodreads and TV shows
+// ABOUTME: Audiobooks fetched from Goodreads RSS, TV shows from manual JSON
+
+import PageLayout from '../layouts/PageLayout.astro';
+import { fetchCurrentlyReading, fetchReadBooks, type GoodreadsBook } from '../lib/goodreads';
+import tvshowsData from '../data/tvshows.json';
+
+// Fetch audiobook data at build time
+const currentlyReading = await fetchCurrentlyReading();
+const recentlyRead = (await fetchReadBooks()).slice(0, 6); // Limit to 6 most recent
+
+interface TVShow {
+  title: string;
+  year: number;
+  status: string;
+  season?: number;
+  episode?: number;
+  rating?: number;
+  poster: string;
+  link: string;
+}
+
+const currentlyWatching: TVShow[] = tvshowsData.currentlyWatching;
+const recentlyFinished: TVShow[] = tvshowsData.recentlyFinished;
+
+function renderStars(rating: number): string {
+  const fullStars = Math.floor(rating);
+  const emptyStars = 5 - fullStars;
+  return '★'.repeat(fullStars) + '☆'.repeat(emptyStars);
+}
+---
+
+<PageLayout title="Media" description="What I'm reading and watching - audiobooks and TV shows.">
+  <article class="py-12 md:py-16">
+    <div class="container">
+      <header class="mb-12 animate-slide-up">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">Media</h1>
+        <p class="text-[var(--color-text-secondary)] max-w-2xl">
+          Tracking what I'm consuming - audiobooks from my Goodreads and TV shows I'm watching.
+        </p>
+      </header>
+
+      <!-- Audiobooks Section -->
+      <section class="mb-16 animate-slide-up stagger-1">
+        <h2 class="text-xl font-heading font-semibold mb-6 pb-2 border-b border-[var(--color-border-subtle)] flex items-center gap-2">
+          <span class="text-2xl">🎧</span> Audiobooks
+        </h2>
+
+        {currentlyReading.length > 0 && (
+          <div class="mb-8">
+            <h3 class="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Currently Listening</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {currentlyReading.map((book) => (
+                <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group"
+                >
+                  <div class="aspect-[2/3] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-bg-surface)] mb-2">
+                    {book.imageUrl ? (
+                      <img
+                        src={book.imageUrl}
+                        alt={book.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center text-[var(--color-text-tertiary)]">
+                        <span class="text-4xl">📚</span>
+                      </div>
+                    )}
+                  </div>
+                  <h4 class="text-sm font-medium line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+                    {book.title}
+                  </h4>
+                  <p class="text-xs text-[var(--color-text-tertiary)] line-clamp-1">{book.author}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {recentlyRead.length > 0 && (
+          <div>
+            <h3 class="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Recently Finished</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {recentlyRead.map((book) => (
+                <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group"
+                >
+                  <div class="aspect-[2/3] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-bg-surface)] mb-2 relative">
+                    {book.imageUrl ? (
+                      <img
+                        src={book.imageUrl}
+                        alt={book.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center text-[var(--color-text-tertiary)]">
+                        <span class="text-4xl">📚</span>
+                      </div>
+                    )}
+                    {book.userRating > 0 && (
+                      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                        <span class="text-yellow-400 text-xs">{renderStars(book.userRating)}</span>
+                      </div>
+                    )}
+                  </div>
+                  <h4 class="text-sm font-medium line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+                    {book.title}
+                  </h4>
+                  <p class="text-xs text-[var(--color-text-tertiary)] line-clamp-1">{book.author}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {currentlyReading.length === 0 && recentlyRead.length === 0 && (
+          <p class="text-[var(--color-text-secondary)] py-8">
+            No audiobooks to display. Check back later!
+          </p>
+        )}
+
+        <p class="mt-6 text-sm text-[var(--color-text-tertiary)]">
+          Data from <a href="https://www.goodreads.com/user/show/6006262-esteban" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:underline">my Goodreads</a>
+        </p>
+      </section>
+
+      <!-- TV Shows Section -->
+      <section class="animate-slide-up stagger-2">
+        <h2 class="text-xl font-heading font-semibold mb-6 pb-2 border-b border-[var(--color-border-subtle)] flex items-center gap-2">
+          <span class="text-2xl">📺</span> TV Shows
+        </h2>
+
+        {currentlyWatching.length > 0 && (
+          <div class="mb-8">
+            <h3 class="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Currently Watching</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {currentlyWatching.map((show) => (
+                <a
+                  href={show.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group"
+                >
+                  <div class="aspect-[2/3] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-bg-surface)] mb-2 relative">
+                    <img
+                      src={show.poster}
+                      alt={show.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    {show.season && show.episode && (
+                      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                        <span class="text-white text-xs font-mono">S{show.season}E{show.episode}</span>
+                      </div>
+                    )}
+                  </div>
+                  <h4 class="text-sm font-medium line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+                    {show.title}
+                  </h4>
+                  <p class="text-xs text-[var(--color-text-tertiary)]">{show.year}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {recentlyFinished.length > 0 && (
+          <div>
+            <h3 class="text-lg font-medium text-[var(--color-text-secondary)] mb-4">Recently Finished</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {recentlyFinished.map((show) => (
+                <a
+                  href={show.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group"
+                >
+                  <div class="aspect-[2/3] rounded-[var(--radius-md)] overflow-hidden bg-[var(--color-bg-surface)] mb-2 relative">
+                    <img
+                      src={show.poster}
+                      alt={show.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    {show.rating && (
+                      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                        <span class="text-yellow-400 text-xs">{renderStars(show.rating)}</span>
+                      </div>
+                    )}
+                  </div>
+                  <h4 class="text-sm font-medium line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
+                    {show.title}
+                  </h4>
+                  <p class="text-xs text-[var(--color-text-tertiary)]">{show.year}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {currentlyWatching.length === 0 && recentlyFinished.length === 0 && (
+          <p class="text-[var(--color-text-secondary)] py-8">
+            No TV shows to display. Check back later!
+          </p>
+        )}
+      </section>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

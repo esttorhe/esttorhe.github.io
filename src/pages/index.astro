@@ -1,0 +1,177 @@
+---
+// ABOUTME: Homepage with hero, category pills, latest posts, and bento grid
+// ABOUTME: Main entry point for estebantorr.es
+
+import PageLayout from '../layouts/PageLayout.astro';
+import PostCard from '../components/blog/PostCard.astro';
+import CategoryPill from '../components/blog/CategoryPill.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const categories = [
+  { name: 'Tech', href: '/blog?category=tech' },
+  { name: 'Leadership', href: '/blog?category=leadership' },
+  { name: 'Productivity', href: '/blog?category=productivity' },
+];
+
+function getReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
+---
+
+<PageLayout title="The mind of Esteban">
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <div class="max-w-3xl animate-slide-up">
+        <!-- Name with wavy underline placeholder -->
+        <div class="relative inline-block mb-4">
+          <h1 class="text-[var(--text-hero)] font-heading font-extrabold leading-tight">
+            Esteban Torres
+          </h1>
+          <!-- Wavy underline placeholder -->
+          <div class="doodle absolute -bottom-2 left-0 w-full h-3" aria-hidden="true">
+            <svg viewBox="0 0 200 12" class="w-full h-full" stroke-width="2">
+              <path d="M0 6 Q25 0 50 6 T100 6 T150 6 T200 6" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Tagline -->
+        <p class="text-lg md:text-xl text-[var(--color-text-secondary)] mt-6 animate-slide-up stagger-1">
+          From iOS Engineer to Engineering Manager. Building things. Leading people. Writing about both.
+        </p>
+
+        <!-- Lobster placeholder -->
+        <div class="mt-6 doodle inline-block w-16 h-16 animate-slide-up stagger-2" aria-hidden="true">
+          <svg viewBox="0 0 64 64" stroke-width="2">
+            <path d="M32 12c-6 0-12 6-12 12s6 12 12 12 12-6 12-12-6-12-12-12z" />
+            <path d="M20 36c-6 0-9 3-9 6s3 6 9 6" />
+            <path d="M44 36c6 0 9 3 9 6s-3 6-9 6" />
+            <path d="M26 48v10M38 48v10" />
+            <path d="M12 28c-3-3-6-3-9 0" />
+            <path d="M52 28c3-3 6-3 9 0" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Pills -->
+  <section class="pb-12">
+    <div class="container">
+      <nav class="flex flex-wrap gap-3 animate-slide-up stagger-3" aria-label="Browse by category">
+        {categories.map((category) => (
+          <CategoryPill category={category.name} href={category.href} />
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <!-- Latest Writing -->
+  <section class="py-12 border-t border-[var(--color-border-subtle)]">
+    <div class="container">
+      <header class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-heading font-bold">Latest Writing</h2>
+        <a
+          href="/blog"
+          class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors flex items-center gap-2"
+        >
+          View all writing
+          <!-- Arrow placeholder -->
+          <span class="doodle inline-block w-5 h-5" aria-hidden="true">
+            <svg viewBox="0 0 24 24" stroke-width="2">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      </header>
+
+      <div data-reveal>
+        {latestPosts.map((post) => {
+          const date = post.data.date;
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          const titleSlug = post.slug.replace(/^\d{4}-\d{2}-/, '');
+          const fullSlug = `${year}-${month}-${day}-${titleSlug}`;
+          return (
+            <PostCard
+              title={post.data.title}
+              href={`/blog/${year}/${fullSlug}/`}
+              date={post.data.date}
+              category={post.data.category}
+              readingTime={getReadingTime(post.body || '')}
+            />
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid -->
+  <section class="py-12 border-t border-[var(--color-border-subtle)]">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal>
+        <!-- Now Card -->
+        <a
+          href="/now"
+          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+        >
+          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+            Now
+          </h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            What I'm currently working on and thinking about.
+          </p>
+        </a>
+
+        <!-- About Card -->
+        <a
+          href="/about"
+          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+        >
+          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+            About
+          </h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            My story, from Costa Rica to Berlin.
+          </p>
+        </a>
+
+        <!-- Uses Card -->
+        <a
+          href="/uses"
+          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+        >
+          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+            Uses
+          </h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            Tools, software, and hardware I use daily.
+          </p>
+        </a>
+
+        <!-- Talks Card -->
+        <a
+          href="/talks"
+          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+        >
+          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+            Talks
+          </h3>
+          <p class="text-sm text-[var(--color-text-secondary)]">
+            Conference talks and presentations.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

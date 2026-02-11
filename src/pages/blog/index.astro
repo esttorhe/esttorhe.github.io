@@ -1,0 +1,153 @@
+---
+// ABOUTME: Blog listing page with category filters
+// ABOUTME: Displays all posts sorted by date with client-side filtering
+
+import PageLayout from '../../layouts/PageLayout.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import CategoryPill from '../../components/blog/CategoryPill.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categories = ['All', 'Tech', 'Leadership', 'Productivity', 'Personal', 'Community'];
+
+function getReadingTime(content: string): string {
+  const wordsPerMinute = 200;
+  const words = content.split(/\s+/).length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min read`;
+}
+---
+
+<PageLayout title="Writing" description="Blog posts about tech, leadership, and productivity.">
+  <section class="py-12 md:py-16">
+    <div class="container">
+      <!-- Page Header -->
+      <header class="mb-12 animate-slide-up">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">Writing</h1>
+        <p class="text-[var(--color-text-secondary)] text-lg max-w-2xl">
+          Thoughts on technology, engineering leadership, and building things.
+        </p>
+      </header>
+
+      <!-- Category Filters -->
+      <nav class="mb-8 flex flex-wrap gap-3 animate-slide-up stagger-1" aria-label="Filter by category">
+        {categories.map((category) => (
+          <button
+            type="button"
+            class="category-filter px-4 py-2 rounded-full text-sm font-medium transition-all border cursor-pointer bg-transparent border-[var(--color-border-default)] text-[var(--color-text-secondary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] data-[active=true]:bg-[var(--color-accent-muted)] data-[active=true]:border-[var(--color-accent)] data-[active=true]:text-[var(--color-accent)]"
+            data-category={category.toLowerCase()}
+            data-active={category === 'All' ? 'true' : 'false'}
+          >
+            {category}
+          </button>
+        ))}
+      </nav>
+
+      <!-- Posts List -->
+      <div class="posts-container animate-slide-up stagger-2">
+        {sortedPosts.map((post) => {
+          const date = post.data.date;
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          const titleSlug = post.slug.replace(/^\d{4}-\d{2}-/, '');
+          const fullSlug = `${year}-${month}-${day}-${titleSlug}`;
+          return (
+            <article
+              class="post-item"
+              data-category={post.data.category.toLowerCase()}
+            >
+              <PostCard
+                title={post.data.title}
+                href={`/blog/${year}/${fullSlug}/`}
+                date={post.data.date}
+                category={post.data.category}
+                readingTime={getReadingTime(post.body || '')}
+              />
+            </article>
+          );
+        })}
+        <p class="no-posts-message text-[var(--color-text-secondary)] py-8 hidden">
+          No posts found in this category.
+        </p>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  function initFilters() {
+    const filterButtons = document.querySelectorAll('.category-filter');
+    const postItems = document.querySelectorAll('.post-item');
+    const noPostsMessage = document.querySelector('.no-posts-message');
+
+    // Check URL for initial category
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialCategory = urlParams.get('category') || 'all';
+
+    // Set initial active state
+    filterButtons.forEach((btn) => {
+      const btnCategory = btn.getAttribute('data-category');
+      if (btnCategory === initialCategory) {
+        btn.setAttribute('data-active', 'true');
+      } else {
+        btn.setAttribute('data-active', 'false');
+      }
+    });
+
+    // Apply initial filter
+    filterPosts(initialCategory);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category') || 'all';
+
+        // Update active states
+        filterButtons.forEach((btn) => btn.setAttribute('data-active', 'false'));
+        button.setAttribute('data-active', 'true');
+
+        // Update URL without reload
+        const newUrl = category === 'all'
+          ? '/blog'
+          : `/blog?category=${category}`;
+        window.history.pushState({}, '', newUrl);
+
+        // Filter posts
+        filterPosts(category);
+      });
+    });
+
+    function filterPosts(category: string) {
+      let visibleCount = 0;
+
+      postItems.forEach((item) => {
+        const postCategory = item.getAttribute('data-category');
+        const shouldShow = category === 'all' || postCategory === category;
+
+        if (shouldShow) {
+          (item as HTMLElement).style.display = '';
+          visibleCount++;
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Show/hide no posts message
+      if (noPostsMessage) {
+        if (visibleCount === 0) {
+          noPostsMessage.classList.remove('hidden');
+        } else {
+          noPostsMessage.classList.add('hidden');
+        }
+      }
+    }
+  }
+
+  // Run on initial load
+  initFilters();
+
+  // Re-run on client-side navigation (View Transitions)
+  document.addEventListener('astro:page-load', initFilters);
+</script>

@@ -1,0 +1,86 @@
+---
+// ABOUTME: /now page - what I'm currently focused on (Derek Sivers style)
+// ABOUTME: Placeholder for user to fill in
+
+import PageLayout from '../layouts/PageLayout.astro';
+
+const lastUpdated = new Date().toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<PageLayout title="Now" description="What I'm currently working on and thinking about.">
+  <article class="py-12 md:py-16">
+    <div class="container-narrow">
+      <header class="mb-12 animate-slide-up">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">Now</h1>
+        <p class="text-sm text-[var(--color-text-tertiary)]">
+          Last updated: {lastUpdated}
+        </p>
+      </header>
+
+      <div class="prose animate-slide-up stagger-1">
+        <p>
+          This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">/now page</a>.
+          It's a place to share what I'm currently focused on in life and work.
+        </p>
+
+        <h2>Work</h2>
+        <p>
+          <em>Coming soon...</em>
+        </p>
+
+        <h2>Learning</h2>
+        <p>
+          <em>Coming soon...</em>
+        </p>
+
+        <h2>Reading</h2>
+        <p>
+          <em>Coming soon...</em>
+        </p>
+
+        <h2>Life</h2>
+        <p>
+          <em>Coming soon...</em>
+        </p>
+      </div>
+    </div>
+  </article>
+</PageLayout>
+
+<style>
+  .prose {
+    max-width: var(--prose-width);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent-muted);
+  }
+
+  .prose a:hover {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .prose em {
+    color: var(--color-text-tertiary);
+  }
+</style>

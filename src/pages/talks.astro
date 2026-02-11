@@ -1,0 +1,139 @@
+---
+// ABOUTME: Talks page - conference presentations and speaking history
+// ABOUTME: Migrated from Hugo
+
+import { Image } from 'astro:assets';
+import PageLayout from '../layouts/PageLayout.astro';
+import coverImage from '../assets/images/cover.jpg';
+
+const pastTalks = [
+  {
+    date: '2017-09-15',
+    topic: 'Facing the VIPER',
+    conference: 'NSSpain',
+    video: 'https://vimeo.com/album/4786409/video/235312913',
+    slides: 'https://speakerdeck.com/esttorhe/facing-the-viper',
+  },
+  {
+    date: '2017-02-16',
+    topic: 'MVVM(DC): Taming your architecture',
+    conference: 'MobOS',
+    slides: 'https://speakerdeck.com/esttorhe/mvvm-dc-taming-your-architecture',
+  },
+  {
+    date: '2016-10-16',
+    topic: 'Hacking (?) SiriKit',
+    conference: 'Mobilization',
+    slides: 'https://speakerdeck.com/esttorhe/hacking-siriki-mobilization-2016',
+  },
+  {
+    date: '2016-09-16',
+    topic: 'MVVM + RxSwift + DataControllers',
+    conference: 'NSSpain',
+    slides: 'https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers-1',
+  },
+  {
+    date: '2016-06-28',
+    topic: "Xcode 8's Source Editor Extensions",
+    conference: 'CocoaHeads Costa Rica',
+    slides: 'https://speakerdeck.com/esttorhe/xcodes-8-source-editor-extensions',
+  },
+  {
+    date: '2016-05-26',
+    topic: 'MVVM + RxSwift + DataControllers',
+    conference: 'iOScon',
+    video: 'https://skillsmatter.com/skillscasts/7863-mvvm-rxswift-and-datacontrollers',
+    slides: 'https://speakerdeck.com/esttorhe/mvvm-plus-rxswift-plus-datacontrollers',
+  },
+  {
+    date: '2015-04-21',
+    topic: 'Continuous Delivery for iOS Apps',
+    conference: 'CocoaHeads Costa Rica',
+    slides: 'https://speakerdeck.com/esttorhe/continuos-delivery-for-ios-apps',
+  },
+  {
+    date: '2015-06-12',
+    topic: 'Using Jekyll & Octopress',
+    conference: 'Log(n) Tech Talks',
+    slides: 'https://speakerdeck.com/esttorhe/using-jekyll-and-octopress',
+  },
+];
+---
+
+<PageLayout title="Talks" description="Conference talks and presentations by Esteban Torres.">
+  <article class="py-12 md:py-16">
+    <div class="container">
+      <header class="mb-12 animate-slide-up">
+        <Image
+          src={coverImage}
+          alt="Esteban Torres speaking at a conference"
+          class="w-full max-w-3xl rounded-[var(--radius-lg)] mb-8"
+          loading="eager"
+        />
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">Talks</h1>
+        <p class="text-[var(--color-text-secondary)] max-w-2xl">
+          I first began getting involved in talks around 2012 when I started organizing "Tech Talks" where I used to work at the time.
+          Since then I have given many talks at the local CocoaHeads and like to try sending proposals to many conferences around the globe.
+        </p>
+      </header>
+
+      <section class="animate-slide-up stagger-1">
+        <h2 class="text-xl font-heading font-semibold mb-6 pb-2 border-b border-[var(--color-border-subtle)]">
+          Past Talks
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-[var(--color-border-default)]">
+                <th class="text-left py-3 px-4 font-semibold text-[var(--color-text-secondary)]">Date</th>
+                <th class="text-left py-3 px-4 font-semibold text-[var(--color-text-secondary)]">Topic</th>
+                <th class="text-left py-3 px-4 font-semibold text-[var(--color-text-secondary)]">Conference</th>
+                <th class="text-left py-3 px-4 font-semibold text-[var(--color-text-secondary)]">Links</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pastTalks.map((talk) => (
+                <tr class="border-b border-[var(--color-border-subtle)] hover:bg-[var(--color-bg-surface)]/50">
+                  <td class="py-3 px-4 font-mono text-[var(--color-text-tertiary)]">
+                    {talk.date}
+                  </td>
+                  <td class="py-3 px-4 font-semibold text-[var(--color-text-primary)]">
+                    {talk.topic}
+                  </td>
+                  <td class="py-3 px-4 text-[var(--color-text-secondary)]">
+                    {talk.conference}
+                  </td>
+                  <td class="py-3 px-4">
+                    <div class="flex items-center gap-3">
+                      {talk.video && (
+                        <a
+                          href={talk.video}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[var(--color-accent)] hover:underline"
+                        >
+                          Video
+                        </a>
+                      )}
+                      {talk.slides && (
+                        <a
+                          href={talk.slides}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-[var(--color-accent)] hover:underline"
+                        >
+                          Slides
+                        </a>
+                      )}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </article>
+</PageLayout>
