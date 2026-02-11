@@ -1,0 +1,65 @@
+---
+title: "Disabling Animations Heuristics"
+date: 2017-09-25
+category: Tech
+description: "Exploring heuristics for enabling/disabling intensive animations in iOS apps based on device capabilities."
+tags:
+  - animations
+  - heuristics
+  - strategies
+  - performance
+draft: false
+---
+
+import TweetQuote from '../../components/shortcodes/TweetQuote.astro';
+import GitHubRepo from '../../components/shortcodes/GitHubRepo.astro';
+
+Checking `Twitter` the other day I stumbled upon these tweets from [Sash Zats](https://twitter.com/zats) addressing some heuristics for enabling/disabling intensive animations in `iOS` apps:
+
+---
+
+<TweetQuote
+  author="Sash Zats"
+  username="zats"
+  date="September 19, 2017"
+>
+  Here's a list of heuristics for disabling heavy animations in iOS apps, feel free to contribute
+</TweetQuote>
+
+<TweetQuote
+  author="Sash Zats"
+  username="zats"
+  date="September 19, 2017"
+>
+  1. Check if device has less than 2GB of RAM
+</TweetQuote>
+
+<TweetQuote
+  author="Sash Zats"
+  username="zats"
+  date="September 19, 2017"
+>
+  2. Check if Reduce Motion is enabled
+</TweetQuote>
+
+<TweetQuote
+  author="Sash Zats"
+  username="zats"
+  date="September 19, 2017"
+>
+  3. Check if Low Power Mode is enabled
+</TweetQuote>
+
+---
+
+That definitely resonated in me and made me realised with horror that I have never «bothered» to even consider any of this things before performing intensive blocks of animation.
+
+Below on the thread [Marin Todorov](https://twitter.com/icanzilb) provided a link to this checks added to `RxAnimated` (Here's the link to the specific line of code: [shouldDisableAnimationsViaDefaultHeuristics](https://github.com/RxSwiftCommunity/RxAnimated/blob/master/RxAnimated/Core/RxAnimated.swift#L95)).
+
+<GitHubRepo owner="RxSwiftCommunity" repo="RxAnimated" commit="ac3e33" />
+
+---
+
+From now on this is something that I'll definitely be doing on my apps and would probably keep updating it as more I find more heuristics to be applied to this check.
+
+*Edit: There isn't much to this blog post other than drawing attention to the heuristics and hopefully raising awareness so more developers start to use them.*
