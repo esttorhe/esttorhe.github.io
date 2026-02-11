@@ -1,0 +1,43 @@
+---
+// ABOUTME: Post metadata display component
+// ABOUTME: Shows date, reading time, and category for blog posts
+
+interface Props {
+  date: Date;
+  category: string;
+  readingTime?: string;
+}
+
+const { date, category, readingTime } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<div class="flex flex-wrap items-center gap-3 text-sm text-[var(--color-text-secondary)]">
+  <!-- Date -->
+  <time datetime={date.toISOString()} class="font-mono">
+    {formattedDate}
+  </time>
+
+  <span class="text-[var(--color-text-tertiary)]" aria-hidden="true">·</span>
+
+  <!-- Reading Time -->
+  {readingTime && (
+    <>
+      <span class="font-mono">{readingTime}</span>
+      <span class="text-[var(--color-text-tertiary)]" aria-hidden="true">·</span>
+    </>
+  )}
+
+  <!-- Category -->
+  <a
+    href={`/blog?category=${category.toLowerCase()}`}
+    class="text-xs font-medium px-2 py-1 rounded-full bg-[var(--color-accent-muted)] text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 transition-colors"
+  >
+    {category}
+  </a>
+</div>

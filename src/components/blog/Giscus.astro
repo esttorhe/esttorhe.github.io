@@ -1,0 +1,89 @@
+---
+// ABOUTME: Giscus comments widget component
+// ABOUTME: GitHub Discussions-based commenting system with theme sync
+---
+
+<div class="giscus-container">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="esttorhe/esttorhe.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkyNzc4NTMwMQ=="
+    data-category="Comments"
+    data-category-id="DIC_kwDOAaf4Vc4C2Pfp"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="dark"
+    data-lang="en"
+    data-loading="eager"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+<noscript>
+  <p class="text-[var(--color-text-secondary)] text-sm">
+    Comments are powered by <a href="https://giscus.app" class="text-[var(--color-accent)]">Giscus</a>.
+    Please enable JavaScript to view them.
+  </p>
+</noscript>
+
+<style>
+  .giscus-container {
+    min-height: 200px;
+  }
+
+  /* Ensure Giscus iframe gets proper styling */
+  .giscus-container :global(.giscus) {
+    max-width: 100%;
+  }
+
+  .giscus-container :global(.giscus-frame) {
+    width: 100%;
+  }
+</style>
+
+<script>
+  function updateGiscusTheme() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    const giscusTheme = theme === 'light' ? 'light' : 'dark';
+
+    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame');
+    if (iframe) {
+      iframe.contentWindow?.postMessage(
+        { giscus: { setConfig: { theme: giscusTheme } } },
+        'https://giscus.app'
+      );
+    }
+  }
+
+  // Update theme when it changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        updateGiscusTheme();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
+
+  // Set initial theme once Giscus loads
+  window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://giscus.app') return;
+    if (event.data?.giscus?.discussion) {
+      // Giscus has loaded, update theme
+      updateGiscusTheme();
+    }
+  });
+
+  // Also update on page load for View Transitions
+  document.addEventListener('astro:page-load', () => {
+    setTimeout(updateGiscusTheme, 100);
+  });
+</script>

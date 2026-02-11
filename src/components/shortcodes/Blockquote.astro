@@ -1,0 +1,39 @@
+---
+// ABOUTME: Enhanced blockquote component with attribution
+// ABOUTME: Replaces Hugo's blockquote shortcode
+
+interface Props {
+  cite?: string;
+  source?: string;
+  link?: string;
+}
+
+const { cite, source, link } = Astro.props;
+---
+
+<figure class="my-6">
+  <blockquote class="relative pl-6 border-l-[3px] border-[var(--color-accent)] italic text-[var(--color-text-secondary)]">
+    <slot />
+  </blockquote>
+
+  {(cite || source) && (
+    <figcaption class="mt-3 pl-6 text-sm text-[var(--color-text-tertiary)]">
+      {cite && <span class="font-medium">{cite}</span>}
+      {cite && source && <span> — </span>}
+      {source && link ? (
+        <cite>
+          <a
+            href={link}
+            class="text-[var(--color-accent)] hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {source}
+          </a>
+        </cite>
+      ) : source ? (
+        <cite>{source}</cite>
+      ) : null}
+    </figcaption>
+  )}
+</figure>

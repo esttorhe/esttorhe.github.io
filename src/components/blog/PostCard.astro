@@ -1,0 +1,45 @@
+---
+// ABOUTME: Blog post card component for listing pages
+// ABOUTME: Displays post title, date, category, and reading time
+
+interface Props {
+  title: string;
+  href: string;
+  date: Date;
+  category: string;
+  readingTime?: string;
+}
+
+const { title, href, date, category, readingTime } = Astro.props;
+
+const formattedDate = date.toISOString().split('T')[0];
+---
+
+<article class="group">
+  <a href={href} class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-4 border-b border-[var(--color-border-subtle)] hover:bg-[var(--color-bg-surface)]/50 transition-colors -mx-4 px-4 rounded-md">
+    <!-- Date -->
+    <time
+      datetime={date.toISOString()}
+      class="font-mono text-sm text-[var(--color-text-tertiary)] shrink-0 w-[100px]"
+    >
+      {formattedDate}
+    </time>
+
+    <!-- Title -->
+    <h3 class="font-heading font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors flex-1 group-hover:translate-x-1 transition-transform">
+      {title}
+    </h3>
+
+    <!-- Category & Reading Time -->
+    <div class="flex items-center gap-3 shrink-0">
+      <span class="text-xs font-medium px-2 py-1 rounded-full bg-[var(--color-accent-muted)] text-[var(--color-accent)]">
+        {category}
+      </span>
+      {readingTime && (
+        <span class="font-mono text-xs text-[var(--color-text-tertiary)]">
+          {readingTime}
+        </span>
+      )}
+    </div>
+  </a>
+</article>

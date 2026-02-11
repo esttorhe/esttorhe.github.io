@@ -1,0 +1,49 @@
+---
+// ABOUTME: Static tweet quote component (replaces live Twitter embeds)
+// ABOUTME: Preserves tweet content permanently without external dependency
+
+interface Props {
+  author: string;
+  handle: string;
+  tweetId: string;
+  date?: string;
+}
+
+const { author, handle, tweetId, date } = Astro.props;
+const tweetUrl = `https://twitter.com/${handle}/status/${tweetId}`;
+---
+
+<figure class="tweet-quote my-6 p-4 rounded-[var(--radius-md)] bg-[var(--color-bg-surface)] border border-[var(--color-border-default)]">
+  <!-- Tweet Header -->
+  <div class="flex items-center gap-3 mb-3">
+    <!-- Twitter/X Icon -->
+    <div class="w-10 h-10 rounded-full bg-[var(--color-bg-inset)] flex items-center justify-center">
+      <svg class="w-5 h-5 text-[var(--color-text-secondary)]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    </div>
+    <!-- Author Info -->
+    <div class="flex-1">
+      <div class="font-semibold text-[var(--color-text-primary)]">{author}</div>
+      <div class="text-sm text-[var(--color-text-tertiary)]">@{handle}</div>
+    </div>
+  </div>
+
+  <!-- Tweet Content -->
+  <blockquote class="text-[var(--color-text-primary)] mb-3">
+    <slot />
+  </blockquote>
+
+  <!-- Tweet Footer -->
+  <figcaption class="flex items-center justify-between text-sm text-[var(--color-text-tertiary)]">
+    {date && <time>{date}</time>}
+    <a
+      href={tweetUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-[var(--color-accent)] hover:underline"
+    >
+      View original
+    </a>
+  </figcaption>
+</figure>

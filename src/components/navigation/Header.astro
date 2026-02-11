@@ -1,0 +1,201 @@
+---
+// ABOUTME: Site header with navigation and theme toggle
+// ABOUTME: Includes responsive mobile menu
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Writing' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/talks', label: 'Talks' },
+  { href: '/media', label: 'Media' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[var(--color-bg-primary)]/80 border-b border-[var(--color-border-subtle)]">
+  <div class="container flex items-center justify-between h-16">
+    <!-- Logo / Site Name -->
+    <a
+      href="/"
+      class="font-heading font-bold text-lg text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors"
+    >
+      Esteban Torres
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium transition-colors',
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+              ? 'text-[var(--color-accent)]'
+              : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
+          ]}
+          aria-current={currentPath === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Actions (Theme Toggle + Mobile Menu) -->
+    <div class="flex items-center gap-4">
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="p-2 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-surface)] transition-colors"
+        aria-label="Toggle theme"
+      >
+        <!-- Sun icon (shown in dark mode, click to switch to light) -->
+        <svg
+          class="theme-icon-sun w-5 h-5 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          />
+        </svg>
+        <!-- Moon icon (shown in light mode, click to switch to dark) -->
+        <svg
+          class="theme-icon-moon w-5 h-5 hidden"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+          />
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden p-2 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-surface)] transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-[var(--color-border-subtle)]"
+    aria-label="Mobile navigation"
+  >
+    <div class="container py-4 flex flex-col gap-2">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'py-2 px-3 rounded-md text-sm font-medium transition-colors',
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+              ? 'text-[var(--color-accent)] bg-[var(--color-accent-muted)]'
+              : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-surface)]',
+          ]}
+          aria-current={currentPath === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  function updateThemeIcons() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const effectiveTheme = currentTheme || (prefersDark ? 'dark' : 'light');
+
+    const sunIcon = document.querySelector('.theme-icon-sun');
+    const moonIcon = document.querySelector('.theme-icon-moon');
+
+    if (sunIcon && moonIcon) {
+      if (effectiveTheme === 'dark') {
+        // Dark mode: show sun (to switch to light)
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        // Light mode: show moon (to switch to dark)
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  function setTheme(theme: 'light' | 'dark') {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    updateThemeIcons();
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const effectiveTheme = currentTheme || (prefersDark ? 'dark' : 'light');
+    const newTheme = effectiveTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  }
+
+  function initHeader() {
+    // Theme Toggle - remove old listener first by replacing element
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      const newToggle = themeToggle.cloneNode(true) as HTMLElement;
+      themeToggle.parentNode?.replaceChild(newToggle, themeToggle);
+      newToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Update icons on init
+    updateThemeIcons();
+
+    // Mobile Menu Toggle - remove old listener first by replacing element
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle) {
+      const newMobileToggle = mobileMenuToggle.cloneNode(true) as HTMLElement;
+      mobileMenuToggle.parentNode?.replaceChild(newMobileToggle, mobileMenuToggle);
+      newMobileToggle.addEventListener('click', () => {
+        const isExpanded = newMobileToggle.getAttribute('aria-expanded') === 'true';
+        newMobileToggle.setAttribute('aria-expanded', String(!isExpanded));
+        mobileMenu?.classList.toggle('hidden');
+      });
+    }
+  }
+
+  // Run on initial load
+  initHeader();
+
+  // Re-run on client-side navigation (View Transitions)
+  document.addEventListener('astro:page-load', initHeader);
+
+  // Close mobile menu on navigation
+  document.addEventListener('astro:before-preparation', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    mobileMenu?.classList.add('hidden');
+    mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+  });
+</script>
