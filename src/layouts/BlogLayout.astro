@@ -1,0 +1,338 @@
+---
+// ABOUTME: Blog post layout with sticky TOC and prose styling
+// ABOUTME: Used for individual blog post pages
+
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/navigation/Header.astro';
+import Footer from '../components/navigation/Footer.astro';
+import PostMeta from '../components/blog/PostMeta.astro';
+import TableOfContents from '../components/blog/TableOfContents.astro';
+import Giscus from '../components/blog/Giscus.astro';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  category: string;
+  readingTime?: string;
+  image?: string;
+  headings: Heading[];
+}
+
+const { title, description, date, category, readingTime, image, headings } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  type="article"
+  publishedTime={date.toISOString()}
+>
+  <Header />
+
+  <main id="main-content" class="py-12 md:py-16">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12 items-start">
+        <!-- Main Content -->
+        <article class="container-narrow mx-0 lg:mx-0">
+          <!-- Post Header -->
+          <header class="mb-8 animate-slide-up">
+            <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4 leading-tight">
+              {title}
+            </h1>
+            <PostMeta date={date} category={category} readingTime={readingTime} />
+          </header>
+
+          <!-- Featured Image -->
+          {image && (
+            <figure class="mb-8 -mx-4 md:mx-0 animate-slide-up stagger-1">
+              <img
+                src={image}
+                alt=""
+                class="w-full rounded-[var(--radius-md)] shadow-lg cursor-zoom-in lightbox-trigger"
+                loading="eager"
+                data-lightbox-src={image}
+              />
+            </figure>
+          )}
+
+          <!-- Post Content -->
+          <div class="prose animate-slide-up stagger-2">
+            <slot />
+          </div>
+
+          <!-- Post Footer -->
+          <footer class="mt-12 pt-8 border-t border-[var(--color-border-subtle)]">
+            <div class="text-center mb-8">
+              <p class="text-[var(--color-text-secondary)] mb-2">Thanks for reading!</p>
+              <!-- Lobster wave placeholder -->
+              <span class="doodle inline-block w-12 h-12" aria-hidden="true">
+                <svg viewBox="0 0 48 48" stroke-width="2">
+                  <path d="M24 8c-4 0-8 4-8 8s4 8 8 8 8-4 8-8-4-8-8-8z" />
+                  <path d="M16 24c-4 0-6 2-6 4s2 4 6 4" />
+                  <path d="M32 24c4 0 6 2 6 4s-2 4-6 4" />
+                  <path d="M20 32v8M28 32v8" />
+                  <path d="M10 20c-2-2-4-2-6 0" />
+                </svg>
+              </span>
+            </div>
+
+            <!-- Share Links -->
+            <div class="flex items-center justify-center gap-4 text-sm">
+              <span class="text-[var(--color-text-tertiary)]">Share:</span>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+              >
+                Twitter
+              </a>
+              <a
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url.href)}&title=${encodeURIComponent(title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </footer>
+
+          <!-- Comments -->
+          <section class="mt-12" aria-label="Comments">
+            <h2 class="text-xl font-heading font-semibold mb-6">Comments</h2>
+            <Giscus />
+          </section>
+        </article>
+
+        <!-- Sidebar (TOC) -->
+        <aside class="hidden lg:block">
+          <TableOfContents headings={headings} />
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center cursor-zoom-out" aria-hidden="true">
+    <button
+      id="lightbox-close"
+      type="button"
+      class="absolute top-4 right-4 text-white/70 hover:text-white p-2 transition-colors"
+      aria-label="Close lightbox"
+    >
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightbox-image" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-[var(--radius-md)]" />
+  </div>
+</BaseLayout>
+
+<script>
+  function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    if (!lightbox || !lightboxImage) return;
+
+    // Get all images: featured image + prose images
+    const featuredImages = document.querySelectorAll('.lightbox-trigger');
+    const proseImages = document.querySelectorAll('.prose img');
+
+    // Open lightbox when clicking on images
+    function openLightbox(src: string) {
+      lightboxImage.src = src;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    featuredImages.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        const img = e.currentTarget as HTMLElement;
+        const src = img.getAttribute('data-lightbox-src') || (img as HTMLImageElement).src;
+        if (src) openLightbox(src);
+      });
+    });
+
+    proseImages.forEach((img) => {
+      img.addEventListener('click', (e) => {
+        const src = (e.currentTarget as HTMLImageElement).src;
+        if (src) openLightbox(src);
+      });
+    });
+
+    // Close lightbox
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    lightbox.addEventListener('click', closeLightbox);
+    lightboxClose?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Run on initial load
+  initLightbox();
+
+  // Re-run on client-side navigation (View Transitions)
+  document.addEventListener('astro:page-load', initLightbox);
+</script>
+
+<style>
+  /* Prose styles for blog content */
+  .prose {
+    max-width: var(--prose-width);
+    line-height: var(--leading-normal);
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent-muted);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  .prose :global(a:hover) {
+    text-decoration-color: var(--color-accent);
+  }
+
+  .prose :global(strong) {
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose :global(ul > li) {
+    list-style-type: disc;
+  }
+
+  .prose :global(ol > li) {
+    list-style-type: decimal;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-bg-inset);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+  }
+
+  .prose :global(pre) {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-code-border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+    cursor: zoom-in;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    height: 1px;
+    background-color: var(--color-border-default);
+    margin: 2rem 0;
+  }
+
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    border: 1px solid var(--color-border-default);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+
+  .prose :global(th) {
+    background-color: var(--color-bg-surface);
+    font-weight: 600;
+  }
+</style>

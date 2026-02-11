@@ -1,0 +1,28 @@
+---
+// ABOUTME: Page layout wrapping BaseLayout with site header and footer
+// ABOUTME: Used for all standard pages (home, about, etc.)
+
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/navigation/Header.astro';
+import Footer from '../components/navigation/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const props = Astro.props;
+---
+
+<BaseLayout {...props}>
+  <Header />
+  <main id="main-content" class="min-h-[calc(100vh-200px)]">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

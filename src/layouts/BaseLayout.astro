@@ -1,0 +1,176 @@
+---
+// ABOUTME: Base layout component providing HTML structure, fonts, and global styles
+// ABOUTME: Includes grain texture overlay, View Transitions, and theme toggle support
+
+import '../styles/global.css';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource/geist-mono/400.css';
+import '@fontsource/geist-mono/500.css';
+import '@fontsource/geist-mono/600.css';
+import '@fontsource/geist-mono/700.css';
+
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  title,
+  description = 'Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin.',
+  image = '/assets/images/avatar.png',
+  canonicalURL = Astro.url.href,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+const siteTitle = 'The mind of Esteban';
+const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+const absoluteImageURL = new URL(image, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#E5A94E" />
+    <meta name="msapplication-TileColor" content="#0A0A0A" />
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImageURL} />
+    <meta property="og:site_name" content={siteTitle} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={absoluteImageURL} />
+    <meta property="twitter:creator" content="@esttorhe" />
+
+    <!-- RSS Feed -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={siteTitle}
+      href={new URL('/rss.xml', Astro.site).href}
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': type === 'article' ? 'BlogPosting' : 'WebSite',
+      'name': fullTitle,
+      'description': description,
+      'url': canonicalURL,
+      ...(type === 'article' && {
+        'author': {
+          '@type': 'Person',
+          'name': 'Esteban Torres',
+          'url': 'https://estebantorr.es/about'
+        },
+        ...(publishedTime && { 'datePublished': publishedTime }),
+        ...(modifiedTime && { 'dateModified': modifiedTime }),
+      }),
+      ...(type === 'website' && {
+        'author': {
+          '@type': 'Person',
+          'name': 'Esteban Torres',
+          'url': 'https://estebantorr.es/about',
+          'sameAs': [
+            'https://github.com/esttorhe',
+            'https://mastodon.social/@esttorhe',
+            'https://linkedin.com/in/estebantorres',
+            'https://twitter.com/esttorhe'
+          ]
+        }
+      })
+    })} />
+
+    <!-- View Transitions -->
+    <ViewTransitions />
+
+    <!-- Theme Detection Script (inline for immediate execution) -->
+    <script is:inline>
+      (function() {
+        function applyTheme() {
+          const theme = localStorage.getItem('theme');
+          if (theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        }
+
+        // Apply on initial load
+        applyTheme();
+
+        // Re-apply after View Transitions swap content
+        document.addEventListener('astro:after-swap', applyTheme);
+      })();
+    </script>
+  </head>
+  <body class="grain">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <slot />
+
+    <!-- Scroll Reveal Script -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px',
+        }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Re-run on View Transition navigation
+      document.addEventListener('astro:page-load', () => {
+        document.querySelectorAll('[data-reveal]:not(.revealed)').forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
