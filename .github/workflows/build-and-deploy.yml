@@ -1,5 +1,5 @@
-# ABOUTME: GitHub Actions workflow for building and deploying the Hugo site
-# ABOUTME: Migrated from Travis CI, uses Docker for Hugo builds
+# ABOUTME: GitHub Actions workflow for building and deploying the Astro site
+# ABOUTME: Builds static site with Astro and deploys to GitHub Pages
 
 name: Build and Deploy
 
@@ -7,10 +7,8 @@ on:
   push:
     branches:
       - source
+      - astro
   workflow_dispatch:
-
-env:
-  HUGO_IMAGE: jojomi/hugo:latest
 
 jobs:
   build-and-deploy:
@@ -21,60 +19,32 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          submodules: true
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          bundler-cache: true
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Cache Hugo Docker image
-        uses: actions/cache@v4
-        id: hugo-cache
-        with:
-          path: /tmp/hugo-image.tar
-          key: hugo-docker-${{ env.HUGO_IMAGE }}
-
-      - name: Load Hugo Docker image from cache
-        if: steps.hugo-cache.outputs.cache-hit == 'true'
-        run: docker load -i /tmp/hugo-image.tar
-
-      - name: Pull and cache Hugo Docker image
-        if: steps.hugo-cache.outputs.cache-hit != 'true'
-        run: |
-          docker pull ${{ env.HUGO_IMAGE }}
-          docker save ${{ env.HUGO_IMAGE }} -o /tmp/hugo-image.tar
-
-      - name: Verify Hugo version
-        run: docker run --rm ${{ env.HUGO_IMAGE }} hugo version
-
-      - name: Clean previous build
-        run: rm -rf ./.cache && rm -rf ./site/public
-
-      - name: Build site with Hugo
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/site:/src \
-            ${{ env.HUGO_IMAGE }} hugo
+      - name: Build site with Astro
+        run: npm run build
 
       - name: Verify build output
         run: |
-          if [ ! -f ./site/public/index.html ]; then
-            echo "ERROR: index.html not found - Hugo build incomplete"
+          if [ ! -f ./dist/index.html ]; then
+            echo "ERROR: index.html not found - Astro build incomplete"
             exit 1
           fi
           echo "Build verification passed: index.html exists"
-          ls -la ./site/public/
-
-      - name: Test site with html-proofer
-        run: bundle exec rake test
+          ls -la ./dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site/public
+          publish_dir: ./dist
           publish_branch: master
           keep_files: false
