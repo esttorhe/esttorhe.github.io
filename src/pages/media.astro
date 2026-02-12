@@ -44,7 +44,7 @@ function renderStars(rating: number): string {
       <!-- Audiobooks Section -->
       <section class="mb-16 animate-slide-up stagger-1">
         <h2 class="text-xl font-heading font-semibold mb-6 pb-2 border-b border-[var(--color-border-subtle)] flex items-center gap-2">
-          <span class="text-2xl">🎧</span> Audiobooks
+          <img src="/assets/images/icons/icon-audiobook.webp" alt="" class="w-8 h-8 object-contain" aria-hidden="true" /> Audiobooks
         </h2>
 
         {currentlyReading.length > 0 && (
@@ -136,7 +136,7 @@ function renderStars(rating: number): string {
       <!-- TV Shows Section -->
       <section class="animate-slide-up stagger-2">
         <h2 class="text-xl font-heading font-semibold mb-6 pb-2 border-b border-[var(--color-border-subtle)] flex items-center gap-2">
-          <span class="text-2xl">📺</span> TV Shows
+          <img src="/assets/images/icons/icon-tv.webp" alt="" class="w-10 h-10 object-contain" aria-hidden="true" /> TV Shows
         </h2>
 
         {currentlyWatching.length > 0 && (

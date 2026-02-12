@@ -37,8 +37,8 @@ function getReadingTime(content: string): string {
             Esteban Torres
           </h1>
           <!-- Wavy underline placeholder -->
-          <div class="doodle absolute -bottom-2 left-0 w-full h-3" aria-hidden="true">
-            <svg viewBox="0 0 200 12" class="w-full h-full" stroke-width="2">
+          <div class="doodle absolute -bottom-2 left-0 w-full" aria-hidden="true">
+            <svg viewBox="0 0 200 12" class="w-full" preserveAspectRatio="none" stroke-width="2">
               <path d="M0 6 Q25 0 50 6 T100 6 T150 6 T200 6" />
             </svg>
           </div>
@@ -119,14 +119,22 @@ function getReadingTime(content: string): string {
         <!-- Now Card -->
         <a
           href="/now"
-          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+          class="group rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all flex items-center gap-4"
         >
-          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
-            Now
-          </h3>
-          <p class="text-sm text-[var(--color-text-secondary)]">
-            What I'm currently working on and thinking about.
-          </p>
+          <img
+            src="/assets/images/illustrations/sloth-now.webp"
+            alt=""
+            class="w-32 h-32 object-contain"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+              Now
+            </h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">
+              What I'm currently working on and thinking about.
+            </p>
+          </div>
         </a>
 
         <!-- About Card -->
