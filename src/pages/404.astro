@@ -6,14 +6,14 @@ import PageLayout from '../layouts/PageLayout.astro';
 ---
 
 <PageLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
-  <section class="py-24 md:py-32">
+  <section class="py-12 md:py-16">
     <div class="container">
       <div class="max-w-xl mx-auto text-center">
         <!-- Sloth with coffee illustration -->
         <img
           src="/assets/images/illustrations/sloth-coffee.webp"
           alt="Sloth drinking coffee"
-          class="w-48 h-48 mx-auto mb-8 object-contain"
+          class="w-80 h-80 md:w-96 md:h-96 mx-auto mb-8 object-contain"
         />
 
         <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">
@@ -26,7 +26,8 @@ import PageLayout from '../layouts/PageLayout.astro';
 
         <a
           href="/"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] text-[var(--color-bg-base)] font-medium hover:opacity-90 transition-opacity"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] font-medium hover:opacity-90 transition-opacity"
+          style="color: #ffffff;"
         >
           Go back home
         </a>

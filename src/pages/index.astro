@@ -132,14 +132,22 @@ function getReadingTime(content: string): string {
         <!-- About Card -->
         <a
           href="/about"
-          class="group p-6 rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all"
+          class="group rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)] hover:-translate-y-0.5 transition-all flex items-center gap-4"
         >
-          <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
-            About
-          </h3>
-          <p class="text-sm text-[var(--color-text-secondary)]">
-            My story, from Costa Rica to Berlin.
-          </p>
+          <img
+            src="/assets/images/illustrations/sloth-about.webp"
+            alt=""
+            class="w-32 h-32 object-contain"
+            aria-hidden="true"
+          />
+          <div>
+            <h3 class="font-heading font-semibold text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+              About
+            </h3>
+            <p class="text-sm text-[var(--color-text-secondary)]">
+              My story, from Costa Rica to Berlin.
+            </p>
+          </div>
         </a>
 
         <!-- Uses Card -->

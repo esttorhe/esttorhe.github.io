@@ -8,8 +8,14 @@ import PageLayout from '../layouts/PageLayout.astro';
 <PageLayout title="About Me" description="Learn about Esteban Torres - Engineering Manager, former iOS Engineer, from Costa Rica living in Berlin.">
   <article class="py-12 md:py-16">
     <div class="container-narrow">
-      <header class="mb-12 animate-slide-up">
-        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4">About Me</h1>
+      <header class="mb-12 animate-slide-up relative">
+        <h1 class="text-[var(--text-3xl)] font-heading font-bold mb-4 inline-block">About Me</h1>
+        <img
+          src="/assets/images/illustrations/sloth-about.webp"
+          alt=""
+          class="absolute top-1/2 -translate-y-1/2 right-8 md:right-0 w-24 h-24 md:w-36 md:h-36 object-contain"
+          aria-hidden="true"
+        />
       </header>
 
       <div class="prose animate-slide-up stagger-1">
