@@ -1,10 +1,13 @@
-# ABOUTME: mise tool version configuration for FitForge local development.
-# ABOUTME: Pins all project tools so developers never need homebrew for build dependencies.
+# ABOUTME: mise tool version pins for estebantorr.es (astro-v2 branch).
+# ABOUTME: Every entry is an exact version so `mise install` is fully reproducible across machines.
 
 [tools]
-bun = "1.3"
-node = "22"
-ruby = "3.4"
+# Language runtimes — bun runs Astro; node kept for ecosystem compatibility (npm-only tooling, CI fallbacks).
+bun = "1.3.10"
+node = "22.22.2"
+ruby = "3.4.9"
+
+# Agent / design tooling used by the impeccable skill (.claude/skills/impeccable).
 "npm:impeccable" = "2.3.2"
 
 # Beads (issue tracker / persistent memory) — required by .claude/settings.json
@@ -12,5 +15,5 @@ ruby = "3.4"
 # hooks fail silently for any contributor without bd already on PATH.
 "github:gastownhall/beads" = "1.0.4"
 
-# Database debugging tools
-"pipx:harlequin" = { version = "latest", uvx_args = "--with harlequin-postgres" }
+# Database debugging tools.
+"pipx:harlequin" = { version = "2.5.2", uvx_args = "--with harlequin-postgres" }
