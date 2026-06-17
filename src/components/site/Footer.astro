@@ -1,0 +1,130 @@
+---
+// ABOUTME: Site footer — mono dot-separated socials + copyright.
+// ABOUTME: Deliberately quiet; the writing carries the page, not the chrome.
+
+const year = new Date().getFullYear();
+
+const socials = [
+  { label: 'github', href: 'https://github.com/esttorhe', rel: 'me' },
+  { label: 'mastodon', href: 'https://mastodon.social/@esttorhe', rel: 'me' },
+  { label: 'linkedin', href: 'https://linkedin.com/in/estebantorres', rel: 'me' },
+  { label: 'bluesky', href: 'https://bsky.app/profile/estebantorr.es', rel: 'me' },
+  { label: 'rss', href: '/rss.xml', rel: undefined },
+] as const;
+---
+
+<footer class="site-footer">
+  <nav class="site-footer__socials" aria-label="Elsewhere on the web">
+    <ul>
+      {
+        socials.map((item, idx) => (
+          <li>
+            {idx > 0 && (
+              <span class="site-footer__sep" aria-hidden="true">
+                ·
+              </span>
+            )}
+            <a href={item.href} rel={item.rel}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <p class="site-footer__line">
+    <span class="site-footer__copyright">
+      © {year}
+      <a href="/about/">Esteban Torres</a>
+    </span>
+    <span class="site-footer__location" aria-hidden="true">
+      <span>Berlin</span><span class="site-footer__via">via</span><span>San José</span>
+    </span>
+  </p>
+</footer>
+
+<style>
+  .site-footer {
+    padding: var(--space-xl) var(--gutter) var(--space-lg);
+    max-width: var(--max-content);
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 400;
+  }
+
+  .site-footer__socials ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer__socials li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .site-footer__sep {
+    margin: 0 0.5ch;
+  }
+
+  .site-footer__socials a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .site-footer__socials a:hover,
+  .site-footer__socials a:focus-visible {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  .site-footer__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: var(--space-md) 0 0;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .site-footer__copyright a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .site-footer__copyright a:hover,
+  .site-footer__copyright a:focus-visible {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  .site-footer__location {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5ch;
+    color: var(--ink-muted);
+  }
+
+  .site-footer__via {
+    color: color-mix(in oklab, var(--ink-muted) 65%, transparent);
+    font-style: italic;
+  }
+</style>

@@ -1,20 +1,25 @@
 ---
-// ABOUTME: Bare HTML shell for every page on estebantorr.es. Skip-link, theme-toggle hooks, semantic structure only.
-// ABOUTME: No visual treatment yet. Header, footer, type system, palette, and motion all land during /impeccable shape + craft.
+// ABOUTME: Base HTML shell for every page on estebantorr.es.
+// ABOUTME: Theme detection runs inline before paint so there's no FOUC; reveal class lands on first idle.
 
 import '../styles/global.css';
+import Header from '../components/site/Header.astro';
+import Footer from '../components/site/Footer.astro';
 
 interface Props {
   title?: string;
   description?: string;
   /** When true, suppresses the site-name suffix in the document title. */
   bareTitle?: boolean;
+  /** Which nav item is current, if any. */
+  current?: 'home' | 'writing' | 'talks' | 'about';
 }
 
 const {
   title,
   description = 'Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin.',
   bareTitle = false,
+  current,
 } = Astro.props;
 
 const siteName = 'The mind of Esteban';
@@ -31,6 +36,26 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
+    {/* Theme + reveal — inline so it lands BEFORE paint (no flash, no jank). */}
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') {
+            root.setAttribute('data-theme', stored);
+          }
+        } catch {
+          /* localStorage blocked — fall back to system */
+        }
+        root.classList.add('js');
+        // Defer the reveal until after first paint so transitions actually animate.
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => root.classList.add('reveal-in'));
+        });
+      })();
+    </script>
+
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -45,32 +70,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@esttorhe" />
 
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1c1714" media="(prefers-color-scheme: dark)" />
+
     <slot name="head" />
   </head>
-  <body>
+  <body class="page-shell">
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header">
-      <a class="site-mark" href="/">Esteban Torres</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/blog/">Writing</a>
-        <a href="/talks/">Talks</a>
-        <a href="/about/">About</a>
-      </nav>
-    </header>
+    <Header current={current} />
 
-    <main id="main">
+    <main id="main" class="page-main">
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <p>&copy; {new Date().getFullYear()} Esteban Torres</p>
-      <nav aria-label="Elsewhere">
-        <a href="https://github.com/esttorhe" rel="me">GitHub</a>
-        <a href="https://mastodon.social/@esttorhe" rel="me">Mastodon</a>
-        <a href="https://linkedin.com/in/estebantorres" rel="me">LinkedIn</a>
-        <a href="/rss.xml">RSS</a>
-      </nav>
-    </footer>
+    <Footer />
   </body>
 </html>

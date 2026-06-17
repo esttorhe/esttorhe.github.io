@@ -1,0 +1,173 @@
+---
+// ABOUTME: Light/dark theme toggle that respects system preference but persists user choice.
+// ABOUTME: The inline script in BaseLayout sets data-theme before paint; this button cycles it.
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  aria-label="Switch theme"
+  aria-live="polite"
+  data-theme-toggle
+>
+  <span class="theme-toggle__inner" aria-hidden="true">
+    <svg
+      class="theme-toggle__icon theme-toggle__icon--sun"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="4.25"></circle>
+      <path d="M12 3v2.25"></path>
+      <path d="M12 18.75V21"></path>
+      <path d="M5.6 5.6 7.2 7.2"></path>
+      <path d="M16.8 16.8l1.6 1.6"></path>
+      <path d="M3 12h2.25"></path>
+      <path d="M18.75 12H21"></path>
+      <path d="M5.6 18.4l1.6-1.6"></path>
+      <path d="M16.8 7.2l1.6-1.6"></path>
+    </svg>
+    <svg
+      class="theme-toggle__icon theme-toggle__icon--moon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M20.5 14.6A8.5 8.5 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1Z"></path>
+    </svg>
+  </span>
+  <span class="sr-only" data-theme-label>Theme: auto</span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart),
+      background var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .theme-toggle:hover {
+    color: var(--ink);
+    border-color: var(--rule);
+    background: var(--surface);
+  }
+
+  .theme-toggle:active {
+    transform: translateY(1px);
+  }
+
+  .theme-toggle__inner {
+    position: relative;
+    display: grid;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .theme-toggle__icon {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    transition:
+      opacity var(--duration-base) var(--ease-out-quart),
+      transform var(--duration-base) var(--ease-out-quart);
+  }
+
+  /* Sun shown on dark theme (clicking the sun goes light) */
+  .theme-toggle__icon--sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.7);
+  }
+  .theme-toggle__icon--moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  :global(html[data-theme='dark']) .theme-toggle__icon--sun,
+  :global(html.theme-dark-system) .theme-toggle__icon--sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+  :global(html[data-theme='dark']) .theme-toggle__icon--moon,
+  :global(html.theme-dark-system) .theme-toggle__icon--moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.7);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+  function applyClassesFromTheme() {
+    const root = document.documentElement;
+    const explicit = root.getAttribute('data-theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const effective = explicit ?? (systemDark ? 'dark' : 'light');
+    root.classList.toggle('theme-dark-system', explicit === null && systemDark);
+
+    const label = document.querySelector('[data-theme-label]');
+    if (label) {
+      label.textContent = `Theme: ${explicit ?? 'auto'} (currently ${effective})`;
+    }
+  }
+
+  function nextTheme(current: string | null, systemDark: boolean): string | null {
+    // Cycle: auto → light → dark → auto
+    if (current === null) return systemDark ? 'light' : 'dark';
+    if (current === 'light') return 'dark';
+    return null;
+  }
+
+  function wireToggle() {
+    const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      const root = document.documentElement;
+      const current = root.getAttribute('data-theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const next = nextTheme(current, systemDark);
+      if (next === null) {
+        root.removeAttribute('data-theme');
+        localStorage.removeItem('theme');
+      } else {
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      }
+      applyClassesFromTheme();
+    });
+  }
+
+  applyClassesFromTheme();
+  wireToggle();
+
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', applyClassesFromTheme);
+</script>

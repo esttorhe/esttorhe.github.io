@@ -1,0 +1,205 @@
+---
+// ABOUTME: Plain reverse-chrono list of recent posts. Date · title · category · reading time.
+// ABOUTME: The page's spine; everything else exists in service of someone clicking one of these.
+
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+
+function postHref(post: CollectionEntry<'blog'>) {
+  const date = new Date(post.data.date);
+  const year = String(date.getFullYear());
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+  return `/${year}/${month}/${titleSlug}/`;
+}
+
+function readingMinutes(post: CollectionEntry<'blog'>) {
+  const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 220));
+}
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit',
+});
+---
+
+<section class="latest reveal" aria-labelledby="latest-heading">
+  <header class="latest__header">
+    <h2 id="latest-heading" class="latest__title">Recent writing</h2>
+    <a class="latest__archive" href="/blog/">
+      <span>Everything ({posts.length > 9 ? '23' : posts.length})</span>
+      <span aria-hidden="true">→</span>
+    </a>
+  </header>
+
+  <ol class="latest__list reveal-stagger">
+    {
+      posts.map((post, i) => {
+        const date = new Date(post.data.date);
+        return (
+          <li class="latest__row" style={`--i: ${i}`}>
+            <a class="latest__link" href={postHref(post)}>
+              <time class="latest__date tabular" datetime={date.toISOString()}>
+                {dateFormat.format(date)}
+              </time>
+              <span class="latest__title">{post.data.title}</span>
+              <span class="latest__meta tabular">
+                <span class="latest__category">{post.data.category}</span>
+                <span class="latest__dot" aria-hidden="true">
+                  ·
+                </span>
+                <span class="latest__time">{readingMinutes(post)} min</span>
+              </span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</section>
+
+<style>
+  .latest {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .latest__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .latest__title {
+    font-size: var(--text-h3);
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .latest__archive {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .latest__archive:hover,
+  .latest__archive:focus-visible {
+    color: var(--ink);
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .latest__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: row;
+  }
+
+  .latest__row {
+    margin: 0;
+  }
+
+  .latest__link {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr auto;
+    grid-template-areas: 'date title meta';
+    column-gap: var(--space-md);
+    align-items: baseline;
+    padding: 0.7rem 0;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    transition:
+      border-color var(--duration-fast) var(--ease-out-quart),
+      background-color var(--duration-fast) var(--ease-out-quart),
+      transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .latest__link:hover,
+  .latest__link:focus-visible {
+    border-color: var(--rule-strong);
+    outline: none;
+  }
+
+  .latest__link:hover .latest__title,
+  .latest__link:focus-visible .latest__title {
+    color: var(--accent-ink);
+  }
+
+  .latest__date {
+    grid-area: date;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    letter-spacing: 0.005em;
+  }
+
+  .latest__title {
+    grid-area: title;
+    font-family: var(--font-display);
+    font-size: var(--text-body);
+    font-weight: 500;
+    line-height: 1.3;
+    text-wrap: pretty;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .latest__meta {
+    grid-area: meta;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+
+  .latest__category {
+    color: var(--ink-muted);
+  }
+
+  .latest__dot {
+    opacity: 0.55;
+  }
+
+  .latest__time {
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 720px) {
+    .latest__link {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'date meta'
+        'title title';
+      column-gap: var(--space-sm);
+      row-gap: 0.2rem;
+      padding: 0.85rem 0;
+    }
+    .latest__date {
+      font-size: var(--text-meta);
+    }
+    .latest__title {
+      font-size: var(--text-body);
+    }
+  }
+</style>

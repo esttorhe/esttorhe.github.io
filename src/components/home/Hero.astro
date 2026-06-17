@@ -1,0 +1,90 @@
+---
+// ABOUTME: Homepage hero — name + 5-second positioning + intro sentence.
+// ABOUTME: One section, no CTA buttons; the writing below IS the call to action.
+---
+
+<section class="hero reveal" aria-labelledby="hero-name">
+  <p class="hero__hello" aria-hidden="true">Hi —</p>
+  <h1 id="hero-name" class="hero__name">
+    <span class="hero__name-text">Esteban Torres</span><span
+      class="hero__name-mark"
+      aria-hidden="true">.</span
+    >
+  </h1>
+  <p class="hero__role">
+    Engineering Manager. Was an iOS engineer for a decade <span class="hero__separator">·</span> now leading
+    people at <a href="https://zenjob.com" rel="noopener noreferrer">Zenjob</a>, Berlin.
+  </p>
+  <p class="hero__lede">
+    I write about engineering, management, and the messy place between them. Mostly notes to myself
+    that other people seem to find useful.
+  </p>
+</section>
+
+<style>
+  .hero {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-2xl);
+    max-width: var(--measure-wide);
+  }
+
+  .hero__hello {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .hero__name {
+    font-size: var(--text-display);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 0 0 var(--space-md);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .hero__name-text {
+    color: var(--ink);
+  }
+
+  .hero__name-mark {
+    color: var(--accent);
+    margin-left: 0.05em;
+  }
+
+  .hero__role {
+    font-size: var(--text-lead);
+    color: var(--ink);
+    line-height: 1.4;
+    margin: 0 0 var(--space-md);
+    max-width: 32rem;
+    text-wrap: pretty;
+  }
+
+  .hero__role a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.2em;
+    transition: text-decoration-thickness var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .hero__role a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .hero__separator {
+    color: var(--ink-muted);
+    margin: 0 0.25ch;
+  }
+
+  .hero__lede {
+    font-size: var(--text-body);
+    color: var(--ink-muted);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 38rem;
+  }
+</style>

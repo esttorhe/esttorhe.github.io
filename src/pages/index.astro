@@ -1,54 +1,44 @@
 ---
-// ABOUTME: Homepage placeholder for estebantorr.es on the astro-v2 scaffold.
-// ABOUTME: Intentionally undesigned — the real homepage lands via `/impeccable shape homepage` then `/impeccable craft homepage`.
+// ABOUTME: Homepage. Stack: Hero → CuratedPicks ("What I'd point you at right now") → LatestWriting.
+// ABOUTME: Reading depth is the north star; the page exists to surface the post the reader clicks first AND the one they click second.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import CuratedPicks from '../components/home/CuratedPicks.astro';
+import LatestWriting from '../components/home/LatestWriting.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => +b.data.date - +a.data.date)
-  .slice(0, 5);
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => +b.data.date - +a.data.date,
+);
+
+const latest = allPosts.slice(0, 10);
+
+// Curated picks — handpicked, voice-framed, refreshed when something better lands.
+// Slugs are the entry ids from src/content/blog (filename without .mdx).
+const picks = [
+  {
+    slug: '2026-02-a-gsd-system-for-claude-code',
+    framing: 'If you’re new here',
+  },
+  {
+    slug: '2022-03-manager-weekly-newsletter',
+    framing: 'If you manage people',
+  },
+  {
+    slug: '2020-05-career-change',
+    framing: 'The one I’m proudest of',
+  },
+];
+
+const now =
+  'Trying to figure out where AI-assisted engineering management ends and craft begins. Re-reading Julie Zhuo. Skeptical of every productivity hack the team forwards me.';
+
+const updated = 'June 2026';
 ---
 
-<BaseLayout>
-  <section class="scaffold-notice" aria-labelledby="scaffold-heading">
-    <p class="scaffold-tag">astro-v2 scaffold · undesigned</p>
-    <h1 id="scaffold-heading">The mind of Esteban</h1>
-    <p>
-      From iOS Engineer to Engineering Manager. Building things. Leading people. Writing about both.
-    </p>
-    <p class="scaffold-note">
-      This page is a placeholder. The real homepage gets designed in
-      <code>/impeccable shape homepage</code> and built in
-      <code>/impeccable craft homepage</code>. Content collections, routing, MDX, and the type
-      system are all wired and ready.
-    </p>
-  </section>
-
-  <section aria-labelledby="latest-heading">
-    <h2 id="latest-heading">Latest writing (sanity check)</h2>
-    <ul>
-      {
-        posts.map((post) => {
-          const date = new Date(post.data.date);
-          const year = String(date.getFullYear());
-          const month = String(date.getMonth() + 1).padStart(2, '0');
-          const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
-          const href = `/${year}/${month}/${titleSlug}/`;
-          return (
-            <li>
-              <a href={href}>{post.data.title}</a>
-              <time datetime={date.toISOString()}>
-                {date.toLocaleDateString('en-GB', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: '2-digit',
-                })}
-              </time>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </section>
+<BaseLayout current="home">
+  <Hero />
+  <CuratedPicks now={now} updated={updated} picks={picks} />
+  <LatestWriting posts={latest} />
 </BaseLayout>

@@ -1,0 +1,138 @@
+---
+// ABOUTME: Site header — wordmark + restrained nav + theme toggle.
+// ABOUTME: No mobile-hamburger; the nav stays one row because it has three items.
+
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  /** When set, that nav item gets aria-current="page". */
+  current?: 'home' | 'writing' | 'talks' | 'about';
+}
+
+const { current } = Astro.props;
+
+const nav = [
+  { id: 'writing', label: 'Writing', href: '/blog/' },
+  { id: 'talks', label: 'Talks', href: '/talks/' },
+  { id: 'about', label: 'About', href: '/about/' },
+] as const;
+---
+
+<header class="site-header">
+  <a
+    class="site-mark"
+    href="/"
+    aria-label="Esteban Torres — home"
+    data-current={current === 'home'}
+  >
+    <span class="site-mark__name">Esteban Torres</span>
+    <span class="site-mark__dot" aria-hidden="true"></span>
+  </a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <ul>
+      {
+        nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={current === item.id ? 'page' : undefined}
+              class={current === item.id ? 'is-current' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <ThemeToggle />
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--gutter);
+    max-width: var(--max-content);
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .site-mark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4ch;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+  }
+
+  .site-mark__name {
+    line-height: 1;
+  }
+
+  .site-mark__dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateY(-0.05em);
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: clamp(var(--space-md), 3vw, var(--space-lg));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .site-nav a.is-current {
+    color: var(--ink);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 540px) {
+    .site-header {
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .site-nav {
+      order: 3;
+      width: 100%;
+      border-top: 1px solid var(--rule);
+      padding-top: var(--space-sm);
+    }
+    .site-nav ul {
+      justify-content: flex-start;
+    }
+  }
+</style>
