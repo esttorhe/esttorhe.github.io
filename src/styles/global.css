@@ -12,6 +12,11 @@
 @import '@fontsource-variable/bricolage-grotesque/standard.css';
 @import '@fontsource/geist-mono/400.css';
 @import '@fontsource/geist-mono/500.css';
+/* Vollkorn: humanist serif used ONLY for article body prose (post template).
+   Imported as 400 + 400-italic + 600 — the four weights an article actually needs. */
+@import '@fontsource/vollkorn/400.css';
+@import '@fontsource/vollkorn/400-italic.css';
+@import '@fontsource/vollkorn/600.css';
 
 /* ---------------------------------------------------------------- *
  *  Tokens.                                                         *
@@ -39,6 +44,9 @@
       'Bricolage Grotesque Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
       sans-serif;
     --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    /* Prose-only serif. Scoped to .prose / article body via the post template; the
+       rest of the site stays single-family Bricolage. */
+    --font-prose: 'Vollkorn', Georgia, 'Iowan Old Style', 'Charter', 'Times New Roman', serif;
 
     /* Type scale. Body fixed; display + headings fluid via clamp(). */
     --text-meta: 0.8125rem; /* 13px — dates, kickers, footer */
@@ -49,6 +57,11 @@
     --text-h2: clamp(1.5rem, 1.25rem + 1vw, 2.125rem);
     --text-h1: clamp(1.875rem, 1.25rem + 2.5vw, 3.5rem);
     --text-display: clamp(2rem, 1rem + 3vw, 5rem);
+    /* Prose-only scale. Vollkorn renders ~0.5–1px smaller perceptually than
+       Bricolage at the same px, so prose body is bumped to 18px (vs 17 sans). */
+    --text-prose: 1.125rem; /* 18px — article body */
+    --text-prose-lead: clamp(1.1875rem, 1rem + 0.6vw, 1.4375rem);
+    --leading-prose: 1.65;
 
     /* Spacing — rhythm built on 1.5rem multiples (≈24px), the body line-height. */
     --space-2xs: 0.25rem;
@@ -382,66 +395,233 @@
 }
 
 /* ---------------------------------------------------------------- *
- *  Shortcode placeholders — kept minimal until /impeccable craft   *
- *  passes individually shape them.                                 *
+ *  Article body prose — Vollkorn serif, used inside `.prose`.       *
+ *  Loaded globally so MDX-rendered markup (which Astro doesn't hash) *
+ *  picks up the styles. Shortcodes carry their own scoped styles.    *
  * ---------------------------------------------------------------- */
 @layer components {
-  .shortcode-quote {
-    margin: var(--space-md) 0;
+  .prose {
     max-width: var(--measure);
-  }
-  .shortcode-quote blockquote {
-    margin: 0;
-    padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
-    font-style: italic;
-  }
-  .shortcode-quote figcaption {
-    margin-top: var(--space-xs);
-    font-size: var(--text-small);
-    color: var(--ink-muted);
+    font-family: var(--font-prose);
+    font-size: var(--text-prose);
+    line-height: var(--leading-prose);
+    color: var(--ink);
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .shortcode-terminal {
-    margin: var(--space-md) 0;
-    padding: var(--space-md);
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-    font-size: var(--text-small);
+  .prose > * + * {
+    margin-top: var(--space-md);
   }
 
-  .shortcode-tweet {
-    margin: var(--space-md) 0;
-    padding: var(--space-md);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius-md);
-    max-width: var(--measure);
+  .prose > h2 {
+    margin-top: var(--space-xl);
   }
-  .shortcode-tweet blockquote {
-    margin: 0 0 var(--space-xs);
-  }
-  .shortcode-tweet figcaption {
-    font-size: var(--text-small);
-    color: var(--ink-muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
+  .prose > h3 {
+    margin-top: var(--space-lg);
   }
 
-  .shortcode-github {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.15em;
-    padding: 0.15em 0.4em;
-    border: 1px solid var(--rule);
-    border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
-    font-size: 0.95em;
-    text-decoration: none;
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-wrap: balance;
+    margin-bottom: var(--space-sm);
+  }
+
+  .prose h2 {
+    font-size: var(--text-h2);
+  }
+  .prose h3 {
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
+  }
+  .prose h4 {
+    font-size: var(--text-body);
+  }
+
+  .prose p {
+    margin: 0 0 var(--space-md);
+    max-width: none;
+    text-wrap: pretty;
+    hyphens: auto;
+  }
+
+  .prose strong {
+    font-weight: 600;
     color: var(--ink);
   }
-  .shortcode-github:hover {
+  .prose em {
+    font-style: italic;
+  }
+
+  .prose a {
+    color: var(--accent-ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      text-decoration-color var(--duration-fast) var(--ease-out-quart),
+      text-decoration-thickness var(--duration-fast) var(--ease-out-quart);
+  }
+  .prose a:hover,
+  .prose a:focus-visible {
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin: 0 0 var(--space-md);
+    padding-inline-start: var(--space-lg);
+    max-width: none;
+  }
+  .prose ul > li,
+  .prose ol > li {
+    margin: 0 0 var(--space-xs);
+  }
+  .prose ul > li::marker {
+    color: var(--accent);
+  }
+  .prose ol > li::marker {
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .prose li > ul,
+  .prose li > ol {
+    margin-top: var(--space-xs);
+  }
+
+  .prose > blockquote {
+    margin: var(--space-lg) 0;
+    padding-inline-start: var(--space-md);
+    color: var(--ink-muted);
+    font-style: italic;
+    border-left: 1px solid var(--rule-strong);
+  }
+
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    padding: 0.12em 0.4em;
     background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    color: var(--ink);
+    word-break: break-word;
+  }
+
+  .prose pre code {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    white-space: pre;
+    word-break: normal;
+  }
+
+  .prose pre.astro-code,
+  .prose pre.shiki {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    background: var(--shiki-light-bg);
+    color: var(--shiki-light);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    overflow-x: auto;
+    tab-size: 2;
+  }
+
+  html[data-theme='dark'] .prose pre.astro-code,
+  html[data-theme='dark'] .prose pre.shiki {
+    background-color: var(--shiki-dark-bg) !important;
+    color: var(--shiki-dark) !important;
+  }
+  html[data-theme='dark'] .prose pre.astro-code span,
+  html[data-theme='dark'] .prose pre.shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme]) .prose pre.astro-code,
+    html:not([data-theme]) .prose pre.shiki {
+      background-color: var(--shiki-dark-bg) !important;
+      color: var(--shiki-dark) !important;
+    }
+    html:not([data-theme]) .prose pre.astro-code span,
+    html:not([data-theme]) .prose pre.shiki span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+      font-style: var(--shiki-dark-font-style) !important;
+      font-weight: var(--shiki-dark-font-weight) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+  }
+
+  .prose img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--space-lg) auto;
+    border-radius: var(--radius-md);
+  }
+
+  .prose table {
+    width: 100%;
+    margin: var(--space-lg) 0;
+    border-collapse: collapse;
+    font-size: var(--text-small);
+  }
+  .prose th,
+  .prose td {
+    text-align: start;
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid var(--rule);
+  }
+  .prose th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .prose hr {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: var(--space-xl) 0;
+  }
+
+  .prose .footnotes {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--rule);
+    font-size: var(--text-small);
+    color: var(--ink-muted);
+  }
+  .prose .footnotes h2 {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-sm);
+  }
+  .prose .footnotes ol {
+    padding-inline-start: var(--space-md);
+  }
+  .prose .footnotes a {
+    color: var(--accent-ink);
   }
 }

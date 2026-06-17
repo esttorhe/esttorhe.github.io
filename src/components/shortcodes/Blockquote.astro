@@ -1,6 +1,6 @@
 ---
-// ABOUTME: Pull-quote / blockquote shortcode used inside MDX posts.
-// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+// ABOUTME: Pull-quote shortcode used inside MDX posts. Typographic, not a card.
+// ABOUTME: Renders an oversized opening curly-quote as the visual anchor (NO side-stripe per absolute bans).
 
 interface Props {
   cite?: string;
@@ -11,7 +11,9 @@ const { cite, source } = Astro.props;
 ---
 
 <figure class="shortcode-quote">
-  <blockquote cite={source}><slot /></blockquote>
+  <blockquote cite={source}>
+    <slot />
+  </blockquote>
   {
     (cite || source) && (
       <figcaption>
@@ -28,3 +30,72 @@ const { cite, source } = Astro.props;
     )
   }
 </figure>
+
+<style>
+  .shortcode-quote {
+    position: relative;
+    margin: var(--space-lg) 0;
+    padding-inline-start: clamp(var(--space-md), 5vw, var(--space-xl));
+    max-width: var(--measure);
+  }
+
+  /* Oversized opening curly quote in the brand accent — typographic anchor,
+     not a stripe. Positioned absolutely so the body text starts at the
+     section margin even when the quote glyph hangs left. */
+  .shortcode-quote::before {
+    content: '\201C'; /* left double quotation mark */
+    position: absolute;
+    inset-inline-start: -0.05em;
+    top: -0.35em;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 2rem + 4vw, 5rem);
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.55;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .shortcode-quote blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-size: var(--text-prose-lead);
+    line-height: 1.5;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .shortcode-quote blockquote :is(p) {
+    margin: 0;
+    max-width: none;
+  }
+
+  .shortcode-quote figcaption {
+    margin-top: var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    letter-spacing: 0.005em;
+  }
+
+  .shortcode-quote figcaption::before {
+    content: '\2014 \00a0'; /* em-dash + nbsp */
+    color: var(--ink-muted);
+  }
+
+  .shortcode-quote figcaption a {
+    color: var(--ink-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 50%, transparent);
+    text-underline-offset: 0.2em;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .shortcode-quote figcaption a:hover,
+  .shortcode-quote figcaption a:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+  }
+</style>

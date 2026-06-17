@@ -1,6 +1,6 @@
 ---
-// ABOUTME: GitHub repo link shortcode used inside MDX posts.
-// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+// ABOUTME: GitHub repo / commit link shortcode used inside MDX posts.
+// ABOUTME: Inline mono pill with octicon + owner/repo + short commit hash.
 
 interface Props {
   owner: string;
@@ -16,7 +16,95 @@ const shortCommit = commit ? commit.slice(0, 7) : undefined;
 ---
 
 <a class="shortcode-github" href={href} rel="noopener noreferrer" target="_blank">
-  <span class="repo-owner">{owner}</span>/<span class="repo-name">{repo}</span>{
-    shortCommit && <span class="repo-commit"> @ {shortCommit}</span>
+  <svg
+    class="shortcode-github__icon"
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    width="14"
+    height="14"
+    fill="currentColor"
+  >
+    <path
+      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+    ></path>
+  </svg>
+  <span class="shortcode-github__path">
+    <span class="shortcode-github__owner">{owner}</span><span class="shortcode-github__slash"
+      >/</span
+    ><span class="shortcode-github__repo">{repo}</span>
+  </span>
+  {
+    shortCommit && (
+      <>
+        <span aria-hidden="true" class="shortcode-github__sep">
+          @
+        </span>
+        <span class="shortcode-github__commit">{shortCommit}</span>
+      </>
+    )
   }
 </a>
+
+<style>
+  .shortcode-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45ch;
+    padding: 0.15em 0.55em 0.2em;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    line-height: 1.4;
+    color: var(--ink);
+    text-decoration: none;
+    vertical-align: baseline;
+    transition:
+      border-color var(--duration-fast) var(--ease-out-quart),
+      background var(--duration-fast) var(--ease-out-quart),
+      color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .shortcode-github:hover,
+  .shortcode-github:focus-visible {
+    border-color: var(--accent);
+    background: var(--bg);
+    color: var(--accent-ink);
+    outline: none;
+  }
+
+  .shortcode-github__icon {
+    flex-shrink: 0;
+    color: var(--ink-muted);
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .shortcode-github:hover .shortcode-github__icon,
+  .shortcode-github:focus-visible .shortcode-github__icon {
+    color: currentColor;
+  }
+
+  .shortcode-github__owner {
+    color: var(--ink-muted);
+  }
+
+  .shortcode-github__slash {
+    color: var(--ink-muted);
+    opacity: 0.55;
+  }
+
+  .shortcode-github__repo {
+    font-weight: 500;
+  }
+
+  .shortcode-github__sep {
+    color: var(--ink-muted);
+    opacity: 0.55;
+  }
+
+  .shortcode-github__commit {
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 // ABOUTME: Archived tweet shortcode used inside MDX posts (no live Twitter embed).
-// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+// ABOUTME: Renders as a dated, attributed quote — not a tweet-card replica.
 
 interface Props {
   author: string;
@@ -13,10 +13,104 @@ const handleUrl = `https://twitter.com/${username}`;
 ---
 
 <figure class="shortcode-tweet">
-  <blockquote><slot /></blockquote>
+  <blockquote>
+    <slot />
+  </blockquote>
   <figcaption>
     <span class="tweet-author">{author}</span>
+    <span aria-hidden="true" class="tweet-sep">·</span>
     <a class="tweet-handle" href={handleUrl} rel="noopener noreferrer">@{username}</a>
-    {date && <time class="tweet-date">{date}</time>}
+    {
+      date && (
+        <>
+          <span aria-hidden="true" class="tweet-sep">
+            ·
+          </span>
+          <time class="tweet-date">{date}</time>
+        </>
+      )
+    }
   </figcaption>
 </figure>
+
+<style>
+  .shortcode-tweet {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) 0 var(--space-md) clamp(var(--space-md), 4vw, var(--space-lg));
+    max-width: var(--measure);
+    position: relative;
+  }
+
+  /* A small ringed-dot anchor on the left, evoking the Sigil without re-importing it
+     here (avoids coupling shortcodes to the marks/ directory). */
+  .shortcode-tweet::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: calc(var(--space-md) + 0.5em);
+    width: 0.65em;
+    height: 0.65em;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent) 0 30%, transparent 32%);
+    opacity: 0.85;
+  }
+
+  .shortcode-tweet blockquote {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-prose);
+    font-size: var(--text-prose);
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .shortcode-tweet blockquote :is(p) {
+    margin: 0 0 var(--space-xs);
+    max-width: none;
+  }
+
+  .shortcode-tweet blockquote :is(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .shortcode-tweet figcaption {
+    margin-top: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+
+  .shortcode-tweet .tweet-author {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .shortcode-tweet .tweet-sep {
+    opacity: 0.55;
+  }
+
+  .shortcode-tweet .tweet-handle {
+    color: var(--ink-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 45%, transparent);
+    text-underline-offset: 0.2em;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .shortcode-tweet .tweet-handle:hover,
+  .shortcode-tweet .tweet-handle:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+  }
+
+  .shortcode-tweet .tweet-date {
+    font-variant-numeric: tabular-nums;
+  }
+</style>
