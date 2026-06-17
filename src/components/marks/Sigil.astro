@@ -20,13 +20,7 @@ interface Props {
   id?: string;
 }
 
-const {
-  size = '0.78em',
-  title,
-  class: className = '',
-  decorative = true,
-  id,
-} = Astro.props;
+const { size = '0.78em', title, class: className = '', decorative = true, id } = Astro.props;
 
 const titleId = title ? (id ?? `sigil-title-${crypto.randomUUID()}`) : undefined;
 ---
