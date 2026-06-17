@@ -7,7 +7,9 @@
  *  Webfonts — Bricolage Grotesque Variable + Geist Mono (400, 500). *
  *  fontsource packages live in node_modules; both .woff2 are local. *
  * ---------------------------------------------------------------- */
-@import '@fontsource-variable/bricolage-grotesque/index.css';
+/* standard.css ships both wght (200–800) and wdth (75–100) axes in one face,
+   which is what the hero wordmark stunt needs. index.css = wght-only. */
+@import '@fontsource-variable/bricolage-grotesque/standard.css';
 @import '@fontsource/geist-mono/400.css';
 @import '@fontsource/geist-mono/500.css';
 
@@ -72,6 +74,7 @@
     --duration-base: 240ms;
     --duration-slow: 420ms;
     --duration-page-load: 720ms;
+    --duration-wordmark: 620ms; /* hero name variable-axis morph; long enough to read as deliberate */
 
     /* z-index scale (semantic; no arbitrary numbers) */
     --z-base: 1;

@@ -1,15 +1,21 @@
 ---
 // ABOUTME: Homepage hero — name + 5-second positioning + intro sentence.
 // ABOUTME: One section, no CTA buttons; the writing below IS the call to action.
+
+import Sigil from '../marks/Sigil.astro';
 ---
 
 <section class="hero reveal" aria-labelledby="hero-name">
   <p class="hero__hello" aria-hidden="true">Hi —</p>
   <h1 id="hero-name" class="hero__name">
-    <span class="hero__name-text">Esteban Torres</span><span
-      class="hero__name-mark"
-      aria-hidden="true">.</span
-    >
+    <span class="hero__name-wordmark" tabindex="0">
+      <span class="hero__name-text">Esteban Torres</span><span
+        class="hero__name-mark"
+        aria-hidden="true"
+      >
+        <Sigil size="0.7em" class="hero__sigil" />
+      </span>
+    </span>
   </h1>
   <p class="hero__role">
     Engineering Manager. Was an iOS engineer for a decade <span class="hero__separator">·</span> now leading
@@ -38,19 +44,75 @@
   .hero__name {
     font-size: var(--text-display);
     line-height: 0.95;
-    letter-spacing: -0.03em;
     margin: 0 0 var(--space-md);
     text-wrap: balance;
     overflow-wrap: break-word;
   }
 
-  .hero__name-text {
+  /*
+   * The wordmark is the move.
+   *
+   * Resting state: Bricolage at wght 700, wdth 100 (full width), opsz tuned to size.
+   * Hover/focus state: wght bumps to 760 and wdth tightens to 92, so the letters cinch
+   * together and gain grade at once — a single variable-axis morph, eased on expo over
+   * ~600ms so it reads as deliberate, not jumpy. The sigil rotates ~14° in concert.
+   *
+   * Reduced-motion fallback: no morph, no rotation, just a color nudge on the dot.
+   */
+  .hero__name-wordmark {
+    display: inline;
     color: var(--ink);
+    font-variation-settings:
+      'wght' 700,
+      'wdth' 100,
+      'opsz' 72;
+    letter-spacing: -0.03em;
+    transition:
+      font-variation-settings var(--duration-wordmark) var(--ease-out-expo),
+      letter-spacing var(--duration-wordmark) var(--ease-out-expo);
+    cursor: default;
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__name-wordmark:hover,
+  .hero__name-wordmark:focus-visible {
+    font-variation-settings:
+      'wght' 760,
+      'wdth' 92,
+      'opsz' 96;
+    letter-spacing: -0.04em;
+    outline: none;
+  }
+
+  .hero__name-text {
+    color: inherit;
   }
 
   .hero__name-mark {
-    color: var(--accent);
-    margin-left: 0.05em;
+    display: inline-block;
+    margin-left: 0.06em;
+    line-height: 0;
+    transform-origin: 50% 60%;
+  }
+
+  /* Sigil rotates / lifts when the wordmark is hovered or focused. */
+  .hero__sigil {
+    transition:
+      transform var(--duration-wordmark) var(--ease-out-expo),
+      color var(--duration-base) var(--ease-out-quart);
+    transform: rotate(0deg) scale(1);
+  }
+
+  .hero__name-wordmark:hover .hero__sigil,
+  .hero__name-wordmark:focus-visible .hero__sigil {
+    transform: rotate(14deg) scale(1.08);
+    color: var(--accent-ink);
+  }
+
+  /* Keyboard focus ring lives on the wordmark span (the only interactive bit of the h1). */
+  .hero__name-wordmark:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
   }
 
   .hero__role {
@@ -86,5 +148,26 @@
     line-height: 1.55;
     margin: 0;
     max-width: 38rem;
+  }
+
+  /* Reduced-motion fallback: no variable-axis morph, no rotation. Color nudge only. */
+  @media (prefers-reduced-motion: reduce) {
+    .hero__name-wordmark,
+    .hero__name-wordmark:hover,
+    .hero__name-wordmark:focus-visible {
+      transition: none;
+      font-variation-settings:
+        'wght' 700,
+        'wdth' 100,
+        'opsz' 72;
+      letter-spacing: -0.03em;
+    }
+
+    .hero__sigil,
+    .hero__name-wordmark:hover .hero__sigil,
+    .hero__name-wordmark:focus-visible .hero__sigil {
+      transform: none;
+      transition: color var(--duration-fast) linear;
+    }
   }
 </style>

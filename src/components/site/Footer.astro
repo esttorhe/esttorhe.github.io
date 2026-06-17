@@ -2,6 +2,8 @@
 // ABOUTME: Site footer — mono dot-separated socials + copyright.
 // ABOUTME: Deliberately quiet; the writing carries the page, not the chrome.
 
+import Sigil from '../marks/Sigil.astro';
+
 const year = new Date().getFullYear();
 
 const socials = [
@@ -38,8 +40,12 @@ const socials = [
       © {year}
       <a href="/about/">Esteban Torres</a>
     </span>
-    <span class="site-footer__location" aria-hidden="true">
-      <span>Berlin</span><span class="site-footer__via">via</span><span>San José</span>
+    <span class="site-footer__location" aria-label="Berlin via San José">
+      <span aria-hidden="true">Berlin</span>
+      <span class="site-footer__via" aria-hidden="true">
+        <Sigil size="0.78em" />
+      </span>
+      <span aria-hidden="true">San José</span>
     </span>
   </p>
 </footer>
@@ -124,7 +130,10 @@ const socials = [
   }
 
   .site-footer__via {
-    color: color-mix(in oklab, var(--ink-muted) 65%, transparent);
-    font-style: italic;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    /* Sigil inherits this via currentColor in the SVG fill/stroke. */
+    color: var(--accent);
   }
 </style>
