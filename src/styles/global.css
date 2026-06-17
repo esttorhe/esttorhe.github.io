@@ -56,6 +56,10 @@
     --space-2xl: 6rem;
     --space-3xl: 9rem;
 
+    /* Fluid section gap — smooths the picks → latest valley. Confident on 1440+,
+       no hesitation on 1024/768/375. Climbs from 3rem (48px) up to 6rem (96px). */
+    --space-section: clamp(3rem, 2rem + 3vw, 6rem);
+
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
 
