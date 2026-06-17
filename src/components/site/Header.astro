@@ -3,6 +3,7 @@
 // ABOUTME: Nav surfaces Writing / Talks / CV / About so all three audiences land in one click.
 
 import ThemeToggle from './ThemeToggle.astro';
+import Sigil from '../marks/Sigil.astro';
 
 interface Props {
   /** When set, that nav item gets aria-current="page". */
@@ -27,7 +28,9 @@ const nav = [
     data-current={current === 'home'}
   >
     <span class="site-mark__name">Esteban Torres</span>
-    <span class="site-mark__dot" aria-hidden="true"></span>
+    <span class="site-mark__sigil" aria-hidden="true">
+      <Sigil size="0.7em" />
+    </span>
   </a>
 
   <nav class="site-nav" aria-label="Primary">
@@ -80,18 +83,20 @@ const nav = [
     line-height: 1;
   }
 
-  .site-mark__dot {
-    width: 0.4rem;
-    height: 0.4rem;
-    border-radius: 50%;
-    background: var(--accent);
+  .site-mark__sigil {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    /* Sigil inherits this via currentColor in the SVG fill/stroke. */
+    color: var(--accent);
     transform: translateY(-0.05em);
+    transform-origin: center;
     transition: transform var(--duration-fast) var(--ease-out-quart);
   }
 
-  /* On the page that the site-mark points at, lift the accent dot slightly
+  /* On the page that the site-mark points at, lift the sigil slightly
      so the "you are here" signal matches `.site-nav a.is-current`. */
-  .site-mark[data-current='true'] .site-mark__dot {
+  .site-mark[data-current='true'] .site-mark__sigil {
     transform: translateY(-0.05em) scale(1.35);
   }
 
