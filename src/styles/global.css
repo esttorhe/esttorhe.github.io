@@ -141,6 +141,11 @@
     text-size-adjust: 100%;
     scroll-behavior: smooth;
     overflow-x: clip;
+    /* Pin the document font at <html> so anything that inherits before <body>
+       takes effect — head-injected nodes, dev toolbar containers, future
+       portals — picks Bricolage instead of the UA-default sans cascade
+       (ui-sans-serif, "Apple Color Emoji", ...). */
+    font-family: var(--font-body);
   }
 
   body {
