@@ -1,6 +1,6 @@
 ---
-// ABOUTME: Terminal / shell session shortcode used inside MDX posts.
-// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+// ABOUTME: Shell / terminal session shortcode used inside MDX posts.
+// ABOUTME: Mono block with a subtle prompt glyph; no macOS chrome, no traffic lights.
 
 interface Props {
   prompt?: string;
@@ -9,4 +9,55 @@ interface Props {
 const { prompt = '$' } = Astro.props;
 ---
 
-<pre class="shortcode-terminal" data-prompt={prompt}><code><slot /></code></pre>
+<figure class="shortcode-terminal" data-prompt={prompt}>
+  <pre><code><slot /></code></pre>
+</figure>
+
+<style>
+  .shortcode-terminal {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 1.4em);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  /* Subtle prompt glyph hanging at the start, in the accent.
+     No traffic-light chrome, no macOS-window header. */
+  .shortcode-terminal::before {
+    content: attr(data-prompt);
+    position: absolute;
+    inset-inline-start: var(--space-md);
+    top: calc(var(--space-md) + 0.05em);
+    color: var(--accent);
+    font-weight: 500;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .shortcode-terminal pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+  }
+
+  .shortcode-terminal code {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+</style>
