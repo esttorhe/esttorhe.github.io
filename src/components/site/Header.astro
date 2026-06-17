@@ -86,6 +86,13 @@ const nav = [
     border-radius: 50%;
     background: var(--accent);
     transform: translateY(-0.05em);
+    transition: transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  /* On the page that the site-mark points at, lift the accent dot slightly
+     so the "you are here" signal matches `.site-nav a.is-current`. */
+  .site-mark[data-current='true'] .site-mark__dot {
+    transform: translateY(-0.05em) scale(1.35);
   }
 
   .site-nav ul {
