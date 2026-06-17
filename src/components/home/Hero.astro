@@ -62,7 +62,12 @@ import Sigil from '../marks/Sigil.astro';
    * together and gain grade at once — a single variable-axis morph, eased on expo over
    * ~600ms so it reads as deliberate, not jumpy. The sigil rotates ~14° in concert.
    *
+   * Touch users never trigger :hover or :focus-visible, so a one-shot reveal class
+   * (`.is-revealing`) replays the same morph automatically when the hero enters the
+   * viewport — see the IntersectionObserver script at the bottom of this file.
+   *
    * Reduced-motion fallback: no morph, no rotation, just a color nudge on the dot.
+   * The script also bails entirely under reduced-motion (belt + braces).
    */
   .hero__name-wordmark {
     display: inline;
@@ -80,7 +85,8 @@ import Sigil from '../marks/Sigil.astro';
   }
 
   .hero__name-wordmark:hover,
-  .hero__name-wordmark:focus-visible {
+  .hero__name-wordmark:focus-visible,
+  .hero__name-wordmark.is-revealing {
     font-variation-settings:
       'wght' 760,
       'wdth' 92,
@@ -109,7 +115,8 @@ import Sigil from '../marks/Sigil.astro';
   }
 
   .hero__name-wordmark:hover .hero__sigil,
-  .hero__name-wordmark:focus-visible .hero__sigil {
+  .hero__name-wordmark:focus-visible .hero__sigil,
+  .hero__name-wordmark.is-revealing .hero__sigil {
     transform: rotate(14deg) scale(1.08);
     color: var(--accent-ink);
   }
@@ -159,7 +166,8 @@ import Sigil from '../marks/Sigil.astro';
   @media (prefers-reduced-motion: reduce) {
     .hero__name-wordmark,
     .hero__name-wordmark:hover,
-    .hero__name-wordmark:focus-visible {
+    .hero__name-wordmark:focus-visible,
+    .hero__name-wordmark.is-revealing {
       transition: none;
       font-variation-settings:
         'wght' 700,
@@ -170,9 +178,55 @@ import Sigil from '../marks/Sigil.astro';
 
     .hero__sigil,
     .hero__name-wordmark:hover .hero__sigil,
-    .hero__name-wordmark:focus-visible .hero__sigil {
+    .hero__name-wordmark:focus-visible .hero__sigil,
+    .hero__name-wordmark.is-revealing .hero__sigil {
       transform: none;
       transition: color var(--duration-fast) linear;
     }
   }
 </style>
+
+<script>
+  // ABOUTME: One-shot wordmark morph for touch users — replays the hover state on
+  // ABOUTME: hero enter so :hover-less devices still see the peak emotional moment.
+  (() => {
+    const wordmark = document.querySelector<HTMLElement>('.hero__name-wordmark');
+    if (!wordmark) return;
+
+    // Respect reduced-motion: do not trigger the morph at all.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Hold time matches --duration-wordmark (620ms) plus a small tail so the
+    // morph completes before we release the class and the wordmark eases back.
+    const HOLD_MS = 700;
+
+    const playOnce = () => {
+      wordmark.classList.add('is-revealing');
+      window.setTimeout(() => wordmark.classList.remove('is-revealing'), HOLD_MS);
+    };
+
+    // Hero is above the fold — the observer will fire on initial paint.
+    // Using IO (rather than a raw setTimeout) means the morph also replays
+    // correctly when navigating back to the homepage via the Astro view
+    // transition / bfcache.
+    if (!('IntersectionObserver' in window)) {
+      playOnce();
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries, observer) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            playOnce();
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    io.observe(wordmark);
+  })();
+</script>
