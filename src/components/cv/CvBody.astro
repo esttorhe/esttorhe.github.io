@@ -1,0 +1,63 @@
+---
+// ABOUTME: Shared CV rendering — reads external/cv/cv.md, optionally truncates on the web-cut marker, hands HTML to the caller.
+// ABOUTME: Used by /cv/ (truncated) and /cv/print/ (full, PDF source). Styles live in src/styles/cv.css, loaded here so any page using CvBody gets them.
+
+import '../../styles/cv.css';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { marked } from 'marked';
+
+interface Props {
+  /** When true, render the whole cv.md (for the print/PDF surface). Default false truncates at the marker. */
+  full?: boolean;
+}
+
+const { full = false } = Astro.props;
+
+// Resolve from project root rather than this module's URL — Astro's bundler
+// relocates component files at build time, which broke a `new URL(..., import.meta.url)`
+// approach. process.cwd() is the project root during both dev and build.
+const cvPath = resolve(process.cwd(), 'external/cv/cv.md');
+
+let rendered: string | null = null;
+let loadError: string | null = null;
+
+try {
+  const source = await readFile(cvPath, 'utf8');
+  const slice = full ? source : source.split(/<!--\s*web-cut\s*-->/)[0];
+  marked.setOptions({ gfm: true, breaks: false });
+  rendered = await marked.parse(slice);
+} catch (err) {
+  loadError = err instanceof Error ? err.message : String(err);
+}
+---
+
+{rendered && <div class="cv__rendered" set:html={rendered} />}
+{
+  !rendered && (
+    <div class="cv__fallback">
+      <h1>CV</h1>
+      <p>
+        The CV is temporarily unavailable — the submodule it lives in hasn't been initialised yet.
+        If you're cloning the repo, run <code>git submodule update --init --recursive</code> and
+        rebuild.
+      </p>
+      <ul class="cv__fallback-socials">
+        <li>
+          <a href="mailto:me@estebantorr.es">email</a>
+        </li>
+        <li>
+          <a href="https://github.com/esttorhe">github</a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/estebantorres">linkedin</a>
+        </li>
+      </ul>
+      {loadError && (
+        <p class="cv__fallback-diagnostic">
+          <small>Build-time note: {loadError}</small>
+        </p>
+      )}
+    </div>
+  )
+}

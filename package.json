@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write \"**/*.{astro,mjs,ts,tsx,js,jsx,md,css,json}\"",
-    "format:check": "prettier --check \"**/*.{astro,mjs,ts,tsx,js,jsx,md,css,json}\""
+    "format:check": "prettier --check \"**/*.{astro,mjs,ts,tsx,js,jsx,md,css,json}\"",
+    "cv:pdf": "node scripts/build-cv-pdf.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",

@@ -1,0 +1,307 @@
+/* ABOUTME: Shared CV typography + layout — used by /cv/ and /cv/print/ via CvBody. */
+/* ABOUTME: Loaded as a real stylesheet (no Astro scoping), so :global() wrappers aren't needed. */
+
+/* ---------------------------------------------------------------- *
+ *  CV page — denser than blog prose, plainspoken hierarchy.        *
+ *  No SaaS-resume sidebar, no eyebrows, no numbered markers.       *
+ * ---------------------------------------------------------------- */
+.cv {
+  max-width: var(--measure-wide);
+  color: var(--ink);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  position: relative;
+}
+
+.cv .cv__rendered {
+  /* Container for the rendered markdown. Allows the PDF link to position
+     absolute against .cv without being affected by the rendered content. */
+}
+
+/* Name — quieter than a hero, but unambiguously the top of the page. */
+.cv h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  margin: 0 0 var(--space-xs);
+  letter-spacing: -0.03em;
+}
+
+/* Current role tagline (h2 directly after h1). */
+.cv h1 + h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-lead);
+  font-weight: 500;
+  color: var(--ink-muted);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-md);
+}
+
+/* Optional status line — first paragraph after the h2, BEFORE the
+   contact blockquote. Renders only if cv.md provides one. */
+.cv h1 + h2 + p {
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  font-family: var(--font-prose);
+  font-style: italic;
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 52rem;
+}
+
+/* Contact block — a blockquote of links in the source markdown. */
+.cv blockquote {
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-md);
+  row-gap: var(--space-2xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--ink-muted);
+}
+.cv blockquote p {
+  margin: 0;
+}
+.cv blockquote a {
+  color: var(--ink);
+}
+.cv blockquote a:hover {
+  color: var(--accent-ink);
+}
+
+/* Section rule between top-level sections. */
+.cv hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-lg) 0 var(--space-md);
+}
+
+/* Section heading — Work Experience / Projects / Education / etc. */
+.cv h3 {
+  font-size: var(--text-h3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: var(--space-md) 0 var(--space-sm);
+  color: var(--ink);
+}
+
+/* Empty h3 used as a visual gap between roles in cv.md. */
+.cv h3:empty {
+  margin: 0;
+  height: var(--space-sm);
+}
+
+/* Paragraphs — role descriptions. Tighter than blog prose. */
+.cv p {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-body);
+}
+
+.cv p strong:first-child {
+  color: var(--ink);
+}
+.cv p em {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* Two-column layout at the widest viewports: section labels hang left
+   of the role list. */
+@media (min-width: 1200px) {
+  .cv h3:not(:empty) {
+    margin-left: -11rem;
+    width: 9.5rem;
+    float: left;
+    text-align: right;
+    font-size: var(--text-meta);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    color: var(--ink-muted);
+    padding-top: 0.45rem;
+  }
+}
+
+/* Technical Skills — wrapped row of mono pills, NOT a numbered list. */
+.cv h3 + ol {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.cv h3 + ol li {
+  margin: 0;
+}
+.cv h3 + ol li::marker {
+  content: none;
+}
+
+/* Unordered list — Projects. */
+.cv ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+}
+.cv ul li {
+  margin: 0 0 var(--space-md);
+  padding-left: var(--space-md);
+  position: relative;
+}
+.cv ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.4rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+/* Inline code — skills tagged with backticks. */
+.cv code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  padding: 0.08em 0.4em;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.cv a code {
+  color: inherit;
+}
+
+/* Fallback variant (when cv.md is missing). */
+.cv__fallback {
+  max-width: var(--measure);
+}
+.cv__fallback-socials {
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+}
+.cv__fallback-diagnostic {
+  margin-top: var(--space-lg);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+}
+
+/* Narrow viewports — drop the gutter trick, stack everything. */
+@media (max-width: 1199px) {
+  .cv h3:not(:empty) {
+    font-size: var(--text-h3);
+    text-transform: none;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ *  Print + PDF-generation surface (/cv/print/).                    *
+ *  Triggered by @media print (browser Cmd+P or puppeteer print     *
+ *  emulation) AND by `.cv-page--print` (the body class on /cv/     *
+ *  print/, so puppeteer can produce a deliberate print render even *
+ *  without media-emulation).                                       *
+ * ---------------------------------------------------------------- */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  header.site-header,
+  footer.site-footer,
+  .theme-toggle,
+  .skip-link,
+  .cv__pdf-floating {
+    display: none !important;
+  }
+  main.page-main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .cv {
+    color: #000;
+    font-size: 10.5pt;
+    line-height: 1.4;
+    max-width: none;
+  }
+  .cv h1 {
+    font-size: 22pt;
+    margin-bottom: 0.1rem;
+  }
+  .cv h1 + h2 {
+    font-size: 12pt;
+    color: #333;
+    margin-bottom: 0.6rem;
+  }
+  .cv h1 + h2 + p {
+    font-size: 10pt;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  .cv h3:not(:empty) {
+    float: none;
+    margin: 0.5rem 0 0.25rem;
+    width: auto;
+    text-align: left;
+    font-size: 12pt;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #000;
+    padding-top: 0;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid #999;
+  }
+  .cv h3:empty {
+    height: 0.3rem;
+  }
+  .cv hr {
+    display: none;
+  }
+  .cv a {
+    color: #000;
+    text-decoration: none;
+  }
+  .cv blockquote {
+    color: #333;
+    font-size: 9pt;
+    margin-bottom: 0.8rem;
+  }
+  .cv code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    font-size: 0.95em;
+    color: #000;
+  }
+  .cv p {
+    margin: 0 0 0.3rem;
+  }
+  .cv ul li::before {
+    background: #000;
+  }
+  .cv h3,
+  .cv p strong:first-child {
+    break-after: avoid;
+  }
+  .cv p,
+  .cv li {
+    break-inside: avoid;
+  }
+}
