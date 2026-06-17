@@ -53,14 +53,16 @@ const fallbackSvg =
 </figure>
 
 <style>
-  /* The hero takes the full .article container width (max-content = 64rem). It
-     MUST be placed outside .prose so the body's narrower measure doesn't
-     constrain it. 3:2 ratio enforced via aspect-ratio so layout doesn't shift
-     between fallback SVG and raster <Image />. */
+  /* Hero is capped at the body measure (var(--measure)) so its left + right
+     edges line up with the prose / article header. Earlier draft broke out
+     to the article container width (~1024px) but the body's measure is
+     narrower (~600px), which left the hero visibly wider than the prose.
+     Reading-first surface — the body sets the rhythm, the hero respects it. */
   .article-hero {
     display: block;
-    margin: var(--space-xl) auto;
+    margin: var(--space-xl) 0;
     width: 100%;
+    max-width: var(--measure);
     aspect-ratio: 3 / 2;
     border-radius: var(--radius-md);
     overflow: hidden;
