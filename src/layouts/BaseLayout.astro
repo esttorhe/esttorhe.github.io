@@ -18,11 +18,7 @@ const {
 } = Astro.props;
 
 const siteName = 'The mind of Esteban';
-const fullTitle = title
-  ? bareTitle
-    ? title
-    : `${title} — ${siteName}`
-  : siteName;
+const fullTitle = title ? (bareTitle ? title : `${title} — ${siteName}`) : siteName;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr.es').toString();
 ---
 

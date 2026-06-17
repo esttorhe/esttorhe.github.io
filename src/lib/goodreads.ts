@@ -48,14 +48,18 @@ function parseGoodreadsRSS(xml: string): GoodreadsBook[] {
       id: extractTag(itemXml, 'book_id') || '',
       title: cleanTitle(extractTag(itemXml, 'title') || ''),
       author: extractTag(itemXml, 'author_name') || '',
-      imageUrl: extractTag(itemXml, 'book_large_image_url') || extractTag(itemXml, 'book_image_url') || '',
+      imageUrl:
+        extractTag(itemXml, 'book_large_image_url') || extractTag(itemXml, 'book_image_url') || '',
       link: extractTag(itemXml, 'link') || '',
       userRating: parseInt(extractTag(itemXml, 'user_rating') || '0', 10),
       averageRating: parseFloat(extractTag(itemXml, 'average_rating') || '0'),
       dateRead: extractTag(itemXml, 'user_read_at') || null,
       dateAdded: extractTag(itemXml, 'user_date_added') || '',
       numPages: parseInt(extractTag(itemXml, 'num_pages') || '0', 10) || null,
-      shelves: (extractTag(itemXml, 'user_shelves') || '').split(',').map(s => s.trim()).filter(Boolean),
+      shelves: (extractTag(itemXml, 'user_shelves') || '')
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean),
     };
 
     if (book.id && book.title) {

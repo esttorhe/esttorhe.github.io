@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write \"**/*.{astro,mjs,ts,tsx,js,jsx,md,css,json}\"",
+    "format:check": "prettier --check \"**/*.{astro,mjs,ts,tsx,js,jsx,md,css,json}\""
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -19,5 +21,10 @@
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "puppeteer": "^25.1.0"
   }
 }

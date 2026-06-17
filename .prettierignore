@@ -1,0 +1,17 @@
+# Migrated content is hand-authored prose; prettier shouldn't touch it.
+src/content/blog/**
+
+# Generated / vendor / lockfiles
+dist/
+.astro/
+node_modules/
+bun.lock
+package-lock.json
+
+# Static assets served verbatim
+public/
+
+# Agent infra (kept out of source via .gitignore but included here as a belt-and-suspenders)
+.claude/
+.claude-visual/
+.github/skills/

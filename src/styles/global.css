@@ -1,7 +1,7 @@
 /* ABOUTME: Global stylesheet for estebantorr.es. Tailwind v4 is wired but most token + component styling is deliberately deferred. */
 /* ABOUTME: The CSS custom properties below are reservation slots that /impeccable shape + craft will commit to. The fallback values keep the scaffold readable; none of them is a design decision. */
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer base {
   :root {
@@ -11,12 +11,12 @@
     --paper: oklch(0.99 0 0);
     --surface: oklch(0.96 0 0);
     --rule: oklch(0.88 0 0);
-    --accent: oklch(0.55 0.20 250);
+    --accent: oklch(0.55 0.2 250);
 
     /* Type slots — system stack defaults until /impeccable shape commits typefaces. */
-    --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-display: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
     /* Spacing & radius — minimal scale; refined in shape. */
     --space-1: 0.25rem;

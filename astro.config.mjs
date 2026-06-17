@@ -12,10 +12,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://estebantorr.es',
   output: 'static',
-  integrations: [
-    mdx(),
-    sitemap(),
-  ],
+  integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',

@@ -13,14 +13,16 @@ Source for `https://estebantorr.es`, the personal site of Esteban Torres. Two br
 
 Astro runs through bun.
 
-| Task | Command |
-| ---- | ------- |
-| Install deps | `bun install` |
-| Dev server (live reload) | `bun run dev` (http://localhost:4321) |
-| Static build into `dist/` | `bun run build` |
-| Preview the production build | `bun run preview` |
+| Task                         | Command                               |
+| ---------------------------- | ------------------------------------- |
+| Install deps                 | `bun install`                         |
+| Dev server (live reload)     | `bun run dev` (http://localhost:4321) |
+| Static build into `dist/`    | `bun run build`                       |
+| Preview the production build | `bun run preview`                     |
+| Format code                  | `bun run format`                      |
+| Verify formatting            | `bun run format:check`                |
 
-Run `mise install` first to pull the pinned bun / node / ruby versions from `.mise.toml`.
+Run `mise install` first to pull the pinned bun / node versions from `.mise.toml`.
 
 ## Architecture
 
@@ -52,7 +54,9 @@ Permalinks for blog posts are `/:year/:month/:title/`. RSS lives at `/rss.xml`. 
 
 ## Tool versions
 
-`.mise.toml` pins `bun 1.3`, `node 22`, `ruby 3.4`. Node/Ruby are not actively used on `astro-v2` (Ruby was for Hugo's html-proofer), but pinned versions stay consistent across branches.
+`.mise.toml` pins exact versions of `bun`, `node`, `npm:impeccable`, and `github:gastownhall/beads`. Ruby and `pipx:harlequin` are intentionally absent — they're not used by `astro-v2`. Project-level npm devDeps (`puppeteer`, `prettier`, `prettier-plugin-astro`) live in `package.json` and are exact-pinned by `bun.lock`.
+
+`puppeteer` is required by the impeccable detector's URL scanner (`scripts/detector/engines/browser/detect-url.mjs` does a lazy `import('puppeteer')`); without it, `/impeccable audit <url>` and live browser-rendered checks fail at runtime.
 
 ## Untracked output directories
 
