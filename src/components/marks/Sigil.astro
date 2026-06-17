@@ -1,0 +1,61 @@
+---
+// ABOUTME: Esteban's wordmark sigil — a hand-drawn ringed-dot ornament in honey accent.
+// ABOUTME: Used as the period after the hero name and once more in the footer location line.
+
+interface Props {
+  /** Size in em relative to the host element's font-size. Default 0.78em. */
+  size?: string;
+  /** Optional override for the title used by screen readers. */
+  title?: string;
+  /** Extra class names. */
+  class?: string;
+  /** Decorative by default (aria-hidden). Set to false when the mark is semantic. */
+  decorative?: boolean;
+}
+
+const { size = '0.78em', title, class: className = '', decorative = true } = Astro.props;
+
+const titleId = title ? `sigil-title-${Math.random().toString(36).slice(2, 8)}` : undefined;
+---
+
+<svg
+  class={`sigil ${className}`.trim()}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  aria-hidden={decorative ? 'true' : undefined}
+  role={decorative ? undefined : 'img'}
+  aria-labelledby={!decorative && titleId ? titleId : undefined}
+  focusable="false"
+>
+  {!decorative && title && <title id={titleId}>{title}</title>}
+  {
+    /* Outer ring — intentionally wobbly, drawn as a cubic Bézier loop with uneven control points. */
+  }
+  <path
+    class="sigil__ring"
+    d="M12 2.4
+       C 17.1 2.0, 21.7 6.3, 21.7 12.2
+       C 22.1 17.7, 17.4 21.9, 11.8 21.9
+       C 6.4 22.3, 2.1 17.6, 2.3 11.8
+       C 1.9 6.6, 6.7 2.6, 12 2.4 Z"
+    stroke="currentColor"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"></path>
+  {/* Inner dot — slightly off-center to read as hand-placed, not geometric. */}
+  <circle class="sigil__dot" cx="12.5" cy="12.2" r="3.4" fill="currentColor"></circle>
+</svg>
+
+<style>
+  .sigil {
+    display: inline-block;
+    color: var(--accent);
+    vertical-align: baseline;
+    overflow: visible;
+    /* Anchor rotation to the dot, not the bbox center, so the wobble reads as the dot
+       pivoting in place rather than the whole shape orbiting. */
+    transform-origin: 52% 51%;
+  }
+</style>
