@@ -11,11 +11,24 @@ interface Props {
   class?: string;
   /** Decorative by default (aria-hidden). Set to false when the mark is semantic. */
   decorative?: boolean;
+  /**
+   * Explicit DOM id for the <title> when the mark is semantic. Pass one when
+   * `decorative={false}` to keep the id stable across renders. If omitted,
+   * we mint a build-time UUID; never `Math.random()` (non-deterministic
+   * between SSR and any future client hydration).
+   */
+  id?: string;
 }
 
-const { size = '0.78em', title, class: className = '', decorative = true } = Astro.props;
+const {
+  size = '0.78em',
+  title,
+  class: className = '',
+  decorative = true,
+  id,
+} = Astro.props;
 
-const titleId = title ? `sigil-title-${Math.random().toString(36).slice(2, 8)}` : undefined;
+const titleId = title ? (id ?? `sigil-title-${crypto.randomUUID()}`) : undefined;
 ---
 
 <svg
