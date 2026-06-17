@@ -1,0 +1,94 @@
+---
+// ABOUTME: Renders a per-post hero — Astro <Image /> for raster, inline Sigil-fallback SVG otherwise.
+// ABOUTME: 3:2 ratio at the article-container width (caller must place this OUTSIDE .prose to escape the body measure).
+
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { resolveHero } from '../../lib/heroResolver';
+import { generateHeroFallbackSvg } from '../../lib/heroFallback';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  /** Whether the hero is above the fold; controls loading priority hints. */
+  priority?: boolean;
+}
+
+const { post, priority = true } = Astro.props;
+
+const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+
+const resolution = resolveHero({
+  slug: titleSlug,
+  title: post.data.title,
+  category: post.data.category,
+  featuredImage: post.data.featured_image,
+  featuredImageAlt: post.data.featured_image_alt,
+});
+
+const fallbackSvg =
+  resolution.kind === 'fallback'
+    ? generateHeroFallbackSvg({ title: resolution.title, category: resolution.category })
+    : null;
+---
+
+<figure
+  class={`article-hero ${resolution.kind === 'fallback' ? 'article-hero--fallback' : 'article-hero--image'}`}
+  aria-label={resolution.alt}
+>
+  {
+    resolution.kind === 'image' ? (
+      <Image
+        src={resolution.image}
+        alt={resolution.alt}
+        widths={[480, 768, 1024, 1440, 1920]}
+        sizes="(max-width: 720px) 100vw, (max-width: 1200px) 90vw, 1024px"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        decoding="async"
+      />
+    ) : (
+      <Fragment set:html={fallbackSvg} />
+    )
+  }
+</figure>
+
+<style>
+  /* Hero is capped at the body measure (var(--measure)) so its left + right
+     edges line up with the prose / article header. Earlier draft broke out
+     to the article container width (~1024px) but the body's measure is
+     narrower (~600px), which left the hero visibly wider than the prose.
+     Reading-first surface — the body sets the rhythm, the hero respects it. */
+  .article-hero {
+    display: block;
+    margin: var(--space-xl) 0;
+    width: 100%;
+    max-width: var(--measure);
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .article-hero :global(img),
+  .article-hero :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .article-hero--image :global(img) {
+    object-fit: cover;
+  }
+
+  /* Fallback SVG preserves aspect on its own (preserveAspectRatio="meet"). */
+  .article-hero--fallback :global(svg) {
+    object-fit: contain;
+  }
+
+  /* Print: hero hidden to save ink and keep the printable doc text-first. */
+  @media print {
+    .article-hero {
+      display: none !important;
+    }
+  }
+</style>
