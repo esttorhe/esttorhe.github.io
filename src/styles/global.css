@@ -23,9 +23,9 @@
     --rule-strong: oklch(0.78 0.012 65);
     --ink: oklch(0.2 0.005 65);
     --ink-muted: oklch(0.42 0.012 65);
-    --accent: oklch(0.55 0.16 50);
-    --accent-soft: oklch(0.94 0.05 70);
-    --accent-ink: oklch(0.42 0.18 45);
+    --accent: oklch(0.58 0.155 60);
+    --accent-soft: oklch(0.94 0.05 60);
+    --accent-ink: oklch(0.45 0.17 60);
 
     /* Type families */
     --font-display:
@@ -88,9 +88,9 @@
     --rule-strong: oklch(0.4 0.012 65);
     --ink: oklch(0.94 0.008 65);
     --ink-muted: oklch(0.68 0.012 65);
-    --accent: oklch(0.82 0.155 65);
-    --accent-soft: oklch(0.32 0.07 65);
-    --accent-ink: oklch(0.86 0.16 65);
+    --accent: oklch(0.82 0.155 60);
+    --accent-soft: oklch(0.32 0.07 60);
+    --accent-ink: oklch(0.86 0.16 60);
   }
 
   /* Auto-follow system preference when user hasn't picked. */
@@ -102,9 +102,9 @@
       --rule-strong: oklch(0.4 0.012 65);
       --ink: oklch(0.94 0.008 65);
       --ink-muted: oklch(0.68 0.012 65);
-      --accent: oklch(0.82 0.155 65);
-      --accent-soft: oklch(0.32 0.07 65);
-      --accent-ink: oklch(0.86 0.16 65);
+      --accent: oklch(0.82 0.155 60);
+      --accent-soft: oklch(0.32 0.07 60);
+      --accent-ink: oklch(0.86 0.16 60);
       color-scheme: dark;
     }
   }
