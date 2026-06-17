@@ -1,0 +1,22 @@
+---
+// ABOUTME: Placeholder CV index — keeps the new top-nav link out of 404 land while the real page is built.
+// ABOUTME: A follow-up task fleshes this out into the hiring-manager surface PRODUCT.md asks for.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="CV" current="cv">
+  <h1>CV</h1>
+  <p class="cv-placeholder">
+    Coming soon. The hiring-manager-friendly version of this page is being built. In the meantime,
+    the <a href="/about/">about page</a> covers the basics — current role, location, and what I do.
+  </p>
+</BaseLayout>
+
+<style>
+  .cv-placeholder {
+    margin-top: var(--space-md);
+    color: var(--ink-muted);
+    max-width: var(--measure);
+  }
+</style>

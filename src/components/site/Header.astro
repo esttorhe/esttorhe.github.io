@@ -1,12 +1,12 @@
 ---
 // ABOUTME: Site header — wordmark + restrained nav + theme toggle.
-// ABOUTME: No mobile-hamburger; the nav stays one row because it has three items.
+// ABOUTME: Nav surfaces Writing / Talks / CV / About so all three audiences land in one click.
 
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   /** When set, that nav item gets aria-current="page". */
-  current?: 'home' | 'writing' | 'talks' | 'about';
+  current?: 'home' | 'writing' | 'talks' | 'cv' | 'about';
 }
 
 const { current } = Astro.props;
@@ -14,6 +14,7 @@ const { current } = Astro.props;
 const nav = [
   { id: 'writing', label: 'Writing', href: '/blog/' },
   { id: 'talks', label: 'Talks', href: '/talks/' },
+  { id: 'cv', label: 'CV', href: '/cv/' },
   { id: 'about', label: 'About', href: '/about/' },
 ] as const;
 ---
