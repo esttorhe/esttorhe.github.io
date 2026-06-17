@@ -100,15 +100,26 @@
     transform: rotate(0) scale(1);
   }
 
-  :global(html[data-theme='dark']) .theme-toggle__icon--sun,
-  :global(html.theme-dark-system) .theme-toggle__icon--sun {
+  :global(html[data-theme='dark']) .theme-toggle__icon--sun {
     opacity: 1;
     transform: rotate(0) scale(1);
   }
-  :global(html[data-theme='dark']) .theme-toggle__icon--moon,
-  :global(html.theme-dark-system) .theme-toggle__icon--moon {
+  :global(html[data-theme='dark']) .theme-toggle__icon--moon {
     opacity: 0;
     transform: rotate(90deg) scale(0.7);
+  }
+
+  /* No explicit choice + system is dark: mirror the dark-theme icon swap.
+     Matches the :root:not([data-theme]) palette block in global.css. */
+  @media (prefers-color-scheme: dark) {
+    :global(html:not([data-theme])) .theme-toggle__icon--sun {
+      opacity: 1;
+      transform: rotate(0) scale(1);
+    }
+    :global(html:not([data-theme])) .theme-toggle__icon--moon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.7);
+    }
   }
 
   .sr-only {
@@ -133,14 +144,10 @@
   }
 
   function syncToggleState() {
-    const root = document.documentElement;
-    const explicit = root.getAttribute('data-theme');
     const effective = effectiveTheme();
 
-    // Icon CSS already handles [data-theme='dark']; this class covers the
-    // "no explicit choice + system is dark" case so the sun shows correctly.
-    root.classList.toggle('theme-dark-system', explicit === null && effective === 'dark');
-
+    // Icon CSS handles both [data-theme='dark'] and the unset + system-dark
+    // case via a prefers-color-scheme media query; no class toggling needed.
     const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
     if (button) {
       const next = effective === 'dark' ? 'light' : 'dark';
