@@ -1,0 +1,169 @@
+---
+// ABOUTME: Post-end navigation: "Next read" + "Previously" + "All writing →".
+// ABOUTME: Uses the same hover grammar as homepage lists (pointer translate + accent-ink title shift).
+
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  next?: CollectionEntry<'blog'>;
+  previous?: CollectionEntry<'blog'>;
+}
+
+const { next, previous } = Astro.props;
+
+function postHref(post: CollectionEntry<'blog'>) {
+  const date = new Date(post.data.date);
+  const year = String(date.getFullYear());
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+  return `/${year}/${month}/${titleSlug}/`;
+}
+---
+
+<nav class="post-nav" aria-label="More writing">
+  <ul class="post-nav__list">
+    {
+      next && (
+        <li class="post-nav__item">
+          <a class="post-nav__link" href={postHref(next)} rel="next">
+            <span class="post-nav__framing">Next read</span>
+            <span class="post-nav__pointer" aria-hidden="true">
+              →
+            </span>
+            <span class="post-nav__title">{next.data.title}</span>
+          </a>
+        </li>
+      )
+    }
+    {
+      previous && (
+        <li class="post-nav__item">
+          <a class="post-nav__link" href={postHref(previous)} rel="prev">
+            <span class="post-nav__framing">Previously</span>
+            <span class="post-nav__pointer" aria-hidden="true">
+              ←
+            </span>
+            <span class="post-nav__title">{previous.data.title}</span>
+          </a>
+        </li>
+      )
+    }
+    <li class="post-nav__item post-nav__item--all">
+      <a class="post-nav__link post-nav__link--meta" href="/blog/">
+        <span class="post-nav__framing">All writing</span>
+        <span class="post-nav__pointer" aria-hidden="true">→</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .post-nav {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--rule);
+    max-width: var(--measure);
+  }
+
+  .post-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .post-nav__item {
+    margin: 0;
+  }
+
+  .post-nav__link {
+    display: grid;
+    grid-template-columns: minmax(8rem, max-content) auto 1fr;
+    grid-template-areas: 'framing pointer title';
+    column-gap: var(--space-sm);
+    align-items: baseline;
+    padding: 0.625rem 0;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid transparent;
+    transition:
+      border-color var(--duration-fast) var(--ease-out-quart),
+      color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .post-nav__link:hover,
+  .post-nav__link:focus-visible {
+    border-color: var(--rule-strong);
+    outline: none;
+  }
+
+  .post-nav__link:hover .post-nav__pointer,
+  .post-nav__link:focus-visible .post-nav__pointer {
+    transform: translateX(0.25rem);
+    color: var(--accent);
+  }
+
+  .post-nav__link[rel='prev']:hover .post-nav__pointer,
+  .post-nav__link[rel='prev']:focus-visible .post-nav__pointer {
+    transform: translateX(-0.25rem);
+  }
+
+  .post-nav__link:hover .post-nav__title,
+  .post-nav__link:focus-visible .post-nav__title {
+    color: var(--accent-ink);
+  }
+
+  .post-nav__framing {
+    grid-area: framing;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    letter-spacing: 0.005em;
+  }
+
+  .post-nav__pointer {
+    grid-area: pointer;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    transform: translateX(0);
+    transition:
+      transform var(--duration-fast) var(--ease-out-quart),
+      color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .post-nav__title {
+    grid-area: title;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--text-body);
+    line-height: 1.3;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .post-nav__link--meta {
+    grid-template-columns: max-content auto;
+    grid-template-areas: 'framing pointer';
+    color: var(--ink-muted);
+  }
+
+  .post-nav__item--all {
+    margin-top: var(--space-xs);
+  }
+
+  @media (max-width: 540px) {
+    .post-nav__link {
+      grid-template-columns: auto 1fr;
+      grid-template-areas:
+        'framing framing'
+        'pointer title';
+      column-gap: var(--space-xs);
+      row-gap: 0.25rem;
+    }
+    .post-nav__link--meta {
+      grid-template-columns: max-content auto;
+      grid-template-areas: 'framing pointer';
+    }
+  }
+</style>
