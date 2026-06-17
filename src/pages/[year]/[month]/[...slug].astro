@@ -1,50 +1,129 @@
 ---
-// ABOUTME: Blog post template preserving Hugo's permalink shape (/:year/:month/:title/).
-// ABOUTME: Bare semantic markup; typography, code-block treatment, TOC, footer pathing land during /impeccable shape + craft.
+// ABOUTME: Blog post template — Vollkorn serif prose body (styles in global.css), Bricolage display headings, dual-theme Shiki.
+// ABOUTME: Permalink shape preserves Hugo's /:year/:month/:title/. Lazy utteranc.es comments at the bottom.
 
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getCollection, render } from 'astro:content';
+import PostNav from '../../../components/article/PostNav.astro';
+import Comments from '../../../components/article/Comments.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 
+type Post = CollectionEntry<'blog'>;
+
 export const getStaticPaths = (async () => {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
-  return posts.map((post) => {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+    (a, b) => +b.data.date - +a.data.date,
+  );
+
+  return posts.map((post, idx) => {
     const date = new Date(post.data.date);
     const year = String(date.getFullYear());
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
     return {
       params: { year, month, slug: titleSlug },
-      props: { post },
+      props: {
+        post,
+        // posts sorted newest-first: next-chronological is idx - 1, previous is idx + 1
+        next: posts[idx - 1] as Post | undefined,
+        previous: posts[idx + 1] as Post | undefined,
+      },
     };
   });
 }) satisfies GetStaticPaths;
 
-const { post } = Astro.props;
+const { post, next, previous } = Astro.props;
 const { Content } = await render(post);
 
 const date = new Date(post.data.date);
-const readingMinutes = Math.max(1, Math.ceil((post.body ?? '').split(/\s+/).length / 200));
+const readingMinutes = Math.max(
+  1,
+  Math.ceil((post.body ?? '').split(/\s+/).filter(Boolean).length / 220),
+);
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: '2-digit',
+});
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
-  <article>
-    <header>
-      <h1>{post.data.title}</h1>
-      <p class="post-meta">
-        <time datetime={date.toISOString()}>
-          {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: '2-digit' })}
+<BaseLayout title={post.data.title} description={post.data.description} current="writing">
+  <article class="article">
+    <header class="article__header reveal">
+      <p class="article__meta">
+        <time datetime={date.toISOString()} class="article__date tabular">
+          {dateFormat.format(date)}
         </time>
-        <span>·</span>
-        <span class="post-category">{post.data.category}</span>
-        <span>·</span>
-        <span class="post-reading">{readingMinutes} min read</span>
+        <span aria-hidden="true" class="article__sep">·</span>
+        <span class="article__category">{post.data.category}</span>
+        <span aria-hidden="true" class="article__sep">·</span>
+        <span class="article__reading tabular">{readingMinutes} min read</span>
       </p>
-      {post.data.description && <p class="post-lede">{post.data.description}</p>}
+      <h1 class="article__title">{post.data.title}</h1>
+      {post.data.description && <p class="article__lede">{post.data.description}</p>}
     </header>
 
-    <div class="post-body">
+    <div class="prose">
       <Content />
     </div>
+
+    <PostNav next={next} previous={previous} />
+    <Comments />
   </article>
 </BaseLayout>
+
+<style>
+  .article {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding-top: var(--space-md);
+  }
+
+  .article__header {
+    max-width: var(--measure);
+    margin-bottom: var(--space-xl);
+  }
+
+  .article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5ch;
+    margin: 0 0 var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+
+  .article__sep {
+    opacity: 0.55;
+  }
+
+  .article__category,
+  .article__date,
+  .article__reading {
+    color: var(--ink-muted);
+  }
+
+  .article__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .article__lede {
+    font-family: var(--font-prose);
+    font-size: var(--text-prose-lead);
+    line-height: 1.4;
+    color: var(--ink-muted);
+    margin: var(--space-md) 0 0;
+    max-width: var(--measure);
+    text-wrap: pretty;
+  }
+</style>
