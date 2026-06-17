@@ -1,5 +1,5 @@
 /* ABOUTME: Global stylesheet for estebantorr.es — OKLCH tokens, type system, motion, light + dark parity. */
-/* ABOUTME: The brand anchor is honey/amber (hue ~60°); body is Bricolage Grotesque, meta is Geist Mono. */
+/* ABOUTME: Honey/amber accent sits at hue 60; neutrals at hue 65 for a barely-warmer cast. Type: Bricolage + Geist Mono. */
 
 @import 'tailwindcss';
 
@@ -18,7 +18,9 @@
  * ---------------------------------------------------------------- */
 @layer base {
   :root {
-    /* Palette — light. Anchor: honey/amber, hue 60° (PRODUCT.md restrained strategy). */
+    /* Palette — light. Accent is honey/amber at hue 60°; neutrals sit at hue 65°
+       to keep a barely-warmer cast on the surfaces without pulling them into the
+       accent (the chroma is so low — 0.005–0.012 — the 5° offset is invisible). */
     --bg: oklch(1 0 0);
     --surface: oklch(0.965 0.006 65);
     --rule: oklch(0.88 0.008 65);
