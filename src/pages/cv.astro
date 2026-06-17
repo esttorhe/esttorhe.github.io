@@ -1,25 +1,41 @@
 ---
 // ABOUTME: Renders the CV from the cv.git submodule (external/cv/cv.md) at build time.
-// ABOUTME: Falls back to a polite unavailable message + social links if the submodule isn't initialised.
+// ABOUTME: Truncates on a `<!-- web-cut -->` marker; full content lives in the downloadable PDF.
 
-import { readFile } from 'node:fs/promises';
+import { readFile, access } from 'node:fs/promises';
+import { constants as FS } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const cvPath = fileURLToPath(new URL('../../external/cv/cv.md', import.meta.url));
+const pdfRelPath = '/cv/esteban-torres-cv.pdf';
+const pdfDiskPath = fileURLToPath(new URL('../../public' + pdfRelPath, import.meta.url));
 
 let rendered: string | null = null;
 let loadError: string | null = null;
+let pdfAvailable = false;
 
 try {
   const source = await readFile(cvPath, 'utf8');
-  // marked is configured for GFM. We leave HTML in the source untouched —
-  // the cv.md uses empty <h3></h3> tags as visual separators between roles.
+
+  // Marker-based truncation: everything before `<!-- web-cut -->` renders on /cv/;
+  // everything after it lives only in the downloadable PDF. Degrades gracefully —
+  // if the marker isn't present, the whole CV renders (matches pre-iteration behavior).
+  const [webSource] = source.split(/<!--\s*web-cut\s*-->/);
+
   marked.setOptions({ gfm: true, breaks: false });
-  rendered = await marked.parse(source);
+  rendered = await marked.parse(webSource);
 } catch (err) {
   loadError = err instanceof Error ? err.message : String(err);
+}
+
+try {
+  await access(pdfDiskPath, FS.R_OK);
+  pdfAvailable = true;
+} catch {
+  // PDF absent — hide the download link rather than ship a broken-link affordance.
+  pdfAvailable = false;
 }
 
 const fallbackSocials = [
@@ -38,7 +54,15 @@ const fallbackSocials = [
 >
   {
     rendered ? (
-      <article class="cv reveal" set:html={rendered} />
+      <article class="cv reveal">
+        {pdfAvailable && (
+          <a class="cv__pdf-floating" href={pdfRelPath} download>
+            <span>Download full PDF</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        )}
+        <div class="cv__rendered" set:html={rendered} />
+      </article>
     ) : (
       <article class="cv cv--fallback reveal">
         <h1>CV</h1>
@@ -74,6 +98,7 @@ const fallbackSocials = [
     color: var(--ink);
     font-size: var(--text-body);
     line-height: 1.55;
+    position: relative;
   }
 
   /* Name — quieter than a hero, but unambiguously the top of the page. */
@@ -90,6 +115,26 @@ const fallbackSocials = [
     color: var(--ink-muted);
     letter-spacing: -0.01em;
     margin-bottom: var(--space-md);
+  }
+
+  /* Optional status line — first paragraph after the h2, BEFORE the
+     contact blockquote. Renders only if cv.md provides one. Edit the
+     sentence in cv.md, e.g.:
+       ## Head of Engineering – Platform
+
+       Currently leading Platform at Zenjob, Berlin. Open to chats about
+       engineering leadership and developer experience.
+
+       > [estebantorr.es](...) */
+  .cv :global(h1 + h2 + p) {
+    margin: 0 0 var(--space-md);
+    padding: 0;
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 52rem;
   }
 
   /* Contact block — a blockquote of links in the source markdown. */
@@ -113,6 +158,48 @@ const fallbackSocials = [
   }
   .cv :global(blockquote a:hover) {
     color: var(--accent-ink);
+  }
+
+  /* PDF download — single affordance, repositioned by viewport.
+     Below 1200px: sits inline in the flow (above the contact contrast
+     rule), styled as a bordered mono pill so it doesn't read as just
+     another contact link.
+     At ≥1200px: floats top-right of the CV column so it doesn't crowd
+     the contact column. Hidden in print. */
+  .cv__pdf-floating {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4ch;
+    margin: 0 0 var(--space-md);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink);
+    text-decoration: none;
+    transition:
+      border-color var(--duration-fast) var(--ease-out-quart),
+      background var(--duration-fast) var(--ease-out-quart),
+      color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .cv__pdf-floating:hover,
+  .cv__pdf-floating:focus-visible {
+    border-color: var(--accent);
+    background: var(--bg);
+    color: var(--accent-ink);
+    outline: none;
+  }
+
+  @media (min-width: 1200px) {
+    .cv__pdf-floating {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+    }
   }
 
   /* Section rule between top-level sections. The source markdown uses
@@ -144,10 +231,6 @@ const fallbackSocials = [
     margin: 0 0 var(--space-sm);
   }
 
-  /* Role line — the first paragraph after each empty separator opens
-     with **`Company`** *Title* **Dates**. That's all bold/em runs in
-     one paragraph; we don't need a grid here — the leading line is
-     visually distinct from the description that follows it. */
   .cv :global(p strong:first-child) {
     color: var(--ink);
   }
@@ -158,9 +241,7 @@ const fallbackSocials = [
 
   /* Two-column layout at the widest viewports: section labels hang
      left of the role list, freeing the eye to scan the right column as
-     a single timeline. Achieved with a float — no extra wrappers, no
-     subgrid coordination across markdown structure. Needs ~1200px so
-     the gutter doesn't crash into the page-main edge. */
+     a single timeline. */
   @media (min-width: 1200px) {
     .cv :global(h3:not(:empty)) {
       margin-left: -11rem;
@@ -177,9 +258,7 @@ const fallbackSocials = [
     }
   }
 
-  /* Ordered list for Technical Skills — render as a wrapped row of
-     mono pills, NOT a numbered list. Source markdown is `1.`-prefixed
-     items by accident of the cv.md format. */
+  /* Technical Skills — wrapped row of mono pills, NOT a numbered list. */
   .cv :global(h3 + ol) {
     list-style: none;
     padding: 0;
@@ -216,9 +295,7 @@ const fallbackSocials = [
     background: var(--rule-strong);
   }
 
-  /* Inline code — skills tagged with backticks (`Leadership`,
-     `Kubernetes`, `Swift`). Subtle mono pill, low-chroma surface tint.
-     NOT a coloured badge. */
+  /* Inline code — skills tagged with backticks. */
   .cv :global(code) {
     font-family: var(--font-mono);
     font-size: 0.86em;
@@ -232,9 +309,6 @@ const fallbackSocials = [
   .cv :global(a code) {
     color: inherit;
   }
-
-  /* Strong / em inside paragraphs already use the inherited body
-     family — no override needed beyond colour. */
 
   /* Fallback variant. */
   .cv--fallback {
@@ -257,9 +331,7 @@ const fallbackSocials = [
     font-size: var(--text-meta);
   }
 
-  /* ---------------------------------------------------------------- *
-   *  Narrow viewports — drop the gutter trick, stack everything.     *
-   * ---------------------------------------------------------------- */
+  /* Narrow viewports — drop the gutter trick, stack everything. */
   @media (max-width: 1199px) {
     .cv :global(h3:not(:empty)) {
       font-size: var(--text-h3);
@@ -270,13 +342,13 @@ const fallbackSocials = [
 
   /* ---------------------------------------------------------------- *
    *  Print — ink on white, no chrome, no decorative tinted surfaces. *
-   *  Hiring managers should be able to Save As PDF cleanly.          *
    * ---------------------------------------------------------------- */
   @media print {
     :global(header.site-header),
     :global(footer.site-footer),
     :global(.theme-toggle),
-    :global(.skip-link) {
+    :global(.skip-link),
+    .cv__pdf-floating {
       display: none !important;
     }
 
@@ -306,6 +378,11 @@ const fallbackSocials = [
       font-size: 12pt;
       color: #333;
       margin-bottom: 0.6rem;
+    }
+    .cv :global(h1 + h2 + p) {
+      font-size: 10pt;
+      color: #444;
+      margin-bottom: 0.5rem;
     }
     .cv :global(h3:not(:empty)) {
       float: none;
@@ -349,7 +426,6 @@ const fallbackSocials = [
     .cv :global(ul li::before) {
       background: #000;
     }
-    /* Avoid awkward page breaks inside a role block. */
     .cv :global(h3),
     .cv :global(p strong:first-child) {
       break-after: avoid;
