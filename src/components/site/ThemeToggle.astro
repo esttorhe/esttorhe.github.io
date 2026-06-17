@@ -1,13 +1,13 @@
 ---
-// ABOUTME: Light/dark theme toggle that respects system preference but persists user choice.
-// ABOUTME: The inline script in BaseLayout sets data-theme before paint; this button cycles it.
+// ABOUTME: Binary light/dark theme toggle. System preference is the unset default.
+// ABOUTME: The inline script in BaseLayout sets data-theme before paint; this button flips it.
 ---
 
 <button
   type="button"
   class="theme-toggle"
-  aria-label="Switch theme"
-  aria-live="polite"
+  aria-label="Switch to light theme"
+  aria-pressed="false"
   data-theme-toggle
 >
   <span class="theme-toggle__inner" aria-hidden="true">
@@ -42,7 +42,7 @@
       <path d="M20.5 14.6A8.5 8.5 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1Z"></path>
     </svg>
   </span>
-  <span class="sr-only" data-theme-label>Theme: auto</span>
+  <span class="sr-only" data-theme-label>Theme: light</span>
 </button>
 
 <style>
@@ -125,24 +125,33 @@
 </style>
 
 <script>
-  function applyClassesFromTheme() {
+  function effectiveTheme(): 'light' | 'dark' {
     const root = document.documentElement;
     const explicit = root.getAttribute('data-theme');
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const effective = explicit ?? (systemDark ? 'dark' : 'light');
-    root.classList.toggle('theme-dark-system', explicit === null && systemDark);
+    if (explicit === 'light' || explicit === 'dark') return explicit;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function syncToggleState() {
+    const root = document.documentElement;
+    const explicit = root.getAttribute('data-theme');
+    const effective = effectiveTheme();
+
+    // Icon CSS already handles [data-theme='dark']; this class covers the
+    // "no explicit choice + system is dark" case so the sun shows correctly.
+    root.classList.toggle('theme-dark-system', explicit === null && effective === 'dark');
+
+    const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+    if (button) {
+      const next = effective === 'dark' ? 'light' : 'dark';
+      button.setAttribute('aria-pressed', effective === 'dark' ? 'true' : 'false');
+      button.setAttribute('aria-label', `Switch to ${next} theme`);
+    }
 
     const label = document.querySelector('[data-theme-label]');
     if (label) {
-      label.textContent = `Theme: ${explicit ?? 'auto'} (currently ${effective})`;
+      label.textContent = `Theme: ${effective}`;
     }
-  }
-
-  function nextTheme(current: string | null, systemDark: boolean): string | null {
-    // Cycle: auto → light → dark → auto
-    if (current === null) return systemDark ? 'light' : 'dark';
-    if (current === 'light') return 'dark';
-    return null;
   }
 
   function wireToggle() {
@@ -150,24 +159,24 @@
     if (!button) return;
     button.addEventListener('click', () => {
       const root = document.documentElement;
-      const current = root.getAttribute('data-theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const next = nextTheme(current, systemDark);
-      if (next === null) {
-        root.removeAttribute('data-theme');
-        localStorage.removeItem('theme');
-      } else {
-        root.setAttribute('data-theme', next);
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try {
         localStorage.setItem('theme', next);
+      } catch {
+        /* localStorage blocked — choice persists for this session only */
       }
-      applyClassesFromTheme();
+      syncToggleState();
     });
   }
 
-  applyClassesFromTheme();
+  syncToggleState();
   wireToggle();
 
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', applyClassesFromTheme);
+  // Track the system preference only while the user has made no explicit choice.
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (document.documentElement.getAttribute('data-theme') === null) {
+      syncToggleState();
+    }
+  });
 </script>
