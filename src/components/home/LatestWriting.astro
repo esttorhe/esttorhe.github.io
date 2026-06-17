@@ -49,6 +49,9 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
               <time class="latest__date tabular" datetime={date.toISOString()}>
                 {dateFormat.format(date)}
               </time>
+              <span class="latest__pointer" aria-hidden="true">
+                →
+              </span>
               <span class="latest__title">{post.data.title}</span>
               <span class="latest__meta tabular">
                 <span class="latest__category">{post.data.category}</span>
@@ -120,8 +123,8 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   .latest__link {
     display: grid;
-    grid-template-columns: 7.5rem 1fr auto;
-    grid-template-areas: 'date title meta';
+    grid-template-columns: 7.5rem auto 1fr auto;
+    grid-template-areas: 'date pointer title meta';
     column-gap: var(--space-md);
     align-items: baseline;
     padding: 0.7rem 0;
@@ -145,12 +148,28 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     color: var(--accent-ink);
   }
 
+  .latest__link:hover .latest__pointer,
+  .latest__link:focus-visible .latest__pointer {
+    transform: translateX(0.25rem);
+    color: var(--accent);
+  }
+
   .latest__date {
     grid-area: date;
     font-family: var(--font-mono);
     font-size: var(--text-meta);
     color: var(--ink-muted);
     letter-spacing: 0.005em;
+  }
+
+  .latest__pointer {
+    grid-area: pointer;
+    color: var(--ink-muted);
+    font-family: var(--font-mono);
+    transform: translateX(0);
+    transition:
+      transform var(--duration-fast) var(--ease-out-quart),
+      color var(--duration-fast) var(--ease-out-quart);
   }
 
   .latest__title {
@@ -187,10 +206,10 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
 
   @media (max-width: 720px) {
     .latest__link {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: auto 1fr auto;
       grid-template-areas:
-        'date meta'
-        'title title';
+        'date date meta'
+        'pointer title title';
       column-gap: var(--space-sm);
       row-gap: 0.2rem;
       padding: 0.85rem 0;
