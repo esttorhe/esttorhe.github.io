@@ -1,103 +1,51 @@
-[![Build Status](https://travis-ci.org/esttorhe/esttorhe.github.io.svg?branch=source)](https://travis-ci.org/esttorhe/esttorhe.github.io)
+# estebantorr.es
 
-# esttorhe.github.io
-This is the source code for my [`Gatsby`][gatsby] powered static website https://estebantorr.es
+Source for [https://estebantorr.es](https://estebantorr.es) — the personal site of Esteban Torres. Long-form writing on engineering and engineering management, plus CV, talks, and portfolio.
 
-## `Rakefile`
+## Branches
 
-The [`Gatsby`][gatsby] tool is wrapped in a `Rakefile`.
+- `source` — the live site. Currently Hugo (`KeepIt` theme). CI deploys to `master` → GitHub Pages.
+- `astro-v2` — in-flight redesign on Astro 5. New visual direction is being shaped via the [impeccable skill](.claude/skills/impeccable/SKILL.md); see [`PRODUCT.md`](PRODUCT.md) for the strategic brief.
 
-To see all the list of tasks available run:
+This README describes `astro-v2`.
+
+## Stack
+
+- [Astro 5](https://astro.build/) — static site generator, Content Layer API.
+- [MDX](https://mdxjs.com/) — blog posts (`src/content/blog/*.mdx`).
+- [Tailwind v4](https://tailwindcss.com/) — via the `@tailwindcss/vite` plugin; design tokens live in [`src/styles/global.css`](src/styles/global.css).
+- [`@astrojs/rss`](https://docs.astro.build/en/recipes/rss/) + [`@astrojs/sitemap`](https://docs.astro.build/en/guides/integrations-guide/sitemap/) for feed and sitemap.
+- [bun](https://bun.sh/) — package manager + scripts runner. Versions pinned in [`.mise.toml`](.mise.toml).
+
+## Common commands
+
 ```sh
-bundle exec rake --tasks
+bun install         # install deps
+bun run dev         # dev server on http://localhost:4321
+bun run build       # static build into dist/
+bun run preview     # preview the production build locally
 ```
 
-Or in case you didn't install the gems using `bundler`:
-```sh
-rake --tasks
+Run `mise install` first if Ruby / Node / bun versions aren't already in your shell.
+
+## Directory layout
+
+```
+src/
+  content/blog/         # MDX posts; permalink shape /:year/:month/:slug/
+  content/config.ts     # collection schema (Content Layer API)
+  components/shortcodes # MDX-callable components (Blockquote, Terminal, TweetQuote, GitHubRepo)
+  layouts/              # page shells (BaseLayout)
+  pages/                # routes (index, blog/, [year]/[month]/[...slug])
+  styles/global.css     # token slots + base layout
+  assets/               # imported images (processed by Astro)
+  data/                 # static JSON (portfolio, etc.)
+  lib/                  # utilities (Goodreads, etc.)
+public/                 # served as-is (favicons, manifest, post images)
 ```
 
-### `Rake` tasks
+Permalinks intentionally preserve Hugo's `/:year/:month/:title/` shape so existing inbound links and RSS subscribers keep working.
 
-| Task  | Description  |
-| :--- | :---------- |
-| rake build              | # Build site locally |
-| rake build:test         | # Builds, then tests |
-| rake clean              | # Cleans the locally generated pages |
-| rake config:bootstrap   | # Initial setup |
-| rake config:environment | # Configures the variables and «seds» the modules |
-| rake deploy:production  | # Deployment to production |
-| rake deploy:travis      | # Deploy if Travis environment variables are set correctly |
-| rake publish:production | # Build and deploy to production |
-| rake server             | # Start gatsby server |
-| rake test               | # Runs html-proofer against current `build` directory (./public) |
+## Design context
 
-
-# Inspiration
-
-I mostly followed the blogpost [Migrating My Blog From Hexo To Gatsby][migrating] from [Ian Sinnott][iansinnot] since the previous incarnation of my blog was written using [`Hexo`][hexo].
-
-I also wanted to get rid of `Disqus` for comments and wanted to migrate them to `Github` for quite a while now.
-For that I followed this blogpost [Using GitHub Issues for Blog Comments][migrate_comments] from [Orta Therox][orta] and also grabbed bits of inspiration (and some code) from [Pedro's Blog][pepi] ([here's][pepi_repo] his repository).
-
-## Acknowledgements
-
-### [Pedro][pepi]'s `LICENSE` - [link][pepi_license]:
-
->The MIT License (MIT)
->
->Copyright (c) 2014 Michael Rose
->
->Permission is hereby granted, free of charge, to any person obtaining a copy
->of this software and associated documentation files (the "Software"), to deal
->in the Software without restriction, including without limitation the rights
->to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
->copies of the Software, and to permit persons to whom the Software is
->furnished to do so, subject to the following conditions:
->
->The above copyright notice and this permission notice shall be included in all
->copies or substantial portions of the Software.
->
->THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
->IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
->FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
->AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
->LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
->OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
->SOFTWARE.
-
-
-### [Ian][iansinnot]'s `LICENSE` - [link][ian_license]:
-
->The MIT License (MIT)
->
->Copyright (c) 2015 gatsbyjs
->
->Permission is hereby granted, free of charge, to any person obtaining a copy
->of this software and associated documentation files (the "Software"), to deal
->in the Software without restriction, including without limitation the rights
->to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
->copies of the Software, and to permit persons to whom the Software is
->furnished to do so, subject to the following conditions:
->
->The above copyright notice and this permission notice shall be included in all
->copies or substantial portions of the Software.
->
->THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
->IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
->FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
->AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
->LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
->OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
->SOFTWARE.
-
-[gatsby]:https://gatsby.org
-[migrating]:https://www.gatsbyjs.org/blog/2017-10-01-migrating-my-blog-from-hexo-to-gatsby/
-[iansinnot]:https://www.iansinnott.com
-[hexo]:https://hexo.io/
-[migrate_comments]:http://artsy.github.io/blog/2017/07/15/Comments-are-on/
-[orta]:http://orta.io/
-[pepi]:https://ppinera.es/
-[pepi_repo]:https://github.com/pepibumur/pepibumur.github.io
-[pepi_license]:https://github.com/pepibumur/pepibumur.github.io/blob/master/LICENSE
-[ian_license]:https://github.com/iansinnott/iansinnott.github.io/blob/source/LICENSE
+The visual system is being redesigned via the impeccable skill. The strategic brief is in [`PRODUCT.md`](PRODUCT.md); the homepage shape happens in `/impeccable shape homepage`; build with `/impeccable craft homepage`. The current scaffold is intentionally undesigned — token slots in `src/styles/global.css` are placeholders that shape + craft will commit to.

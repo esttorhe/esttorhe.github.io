@@ -4,82 +4,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Source for `https://estebantorr.es`, a Hugo static site published to GitHub Pages. The `source` branch holds the source; CI builds and pushes the rendered output to the `master` branch. The published site lives at `site/public/` after a build.
+Source for `https://estebantorr.es`, the personal site of Esteban Torres. Two branches, two stacks:
 
-Note: `README.md` still describes the previous Gatsby incarnation. The actual stack is Hugo + the `KeepIt` theme (Git submodule). Trust the `Makefile` / `Rakefile` / GitHub Actions workflow over the README.
+- **`source`** — Hugo + `KeepIt` theme (Git submodule). The live deploy. CI builds and pushes to `master` → GitHub Pages.
+- **`astro-v2`** — in-flight Astro 5 redesign. Will replace `source` when the redesign is shipped. This file describes the **`astro-v2`** stack; switch to `source` to see Hugo guidance in git history.
 
 ## Common commands
 
-Hugo runs inside the `jojomi/hugo:latest` Docker image — there is no local Hugo install. Everything goes through the `Makefile` (which `Rakefile` wraps for the `build` / `test` flow).
+Astro runs through bun.
 
 | Task | Command |
 | ---- | ------- |
-| Serve locally with live reload | `make serve` (port 1313, drafts enabled) |
-| Build into `site/public/` | `make build` |
-| Open an interactive shell in the Hugo container | `make dev` |
-| New blog post | `make post TYPE=<management\|engineering> FILENAME=<slug>` — creates `site/content/blog/<TYPE>/YYYY-MM-DD-<slug>.md` from `site/archetypes/default.md` |
-| Full CI-style build + link check | `bundle exec rake build:test` (cleans → `make build` → `html-proofer` on `site/public/`) |
-| Link check only (build must exist) | `bundle exec rake test` |
-| Clean cache + build output | `bundle exec rake clean` (uses `sudo rm -rf`) |
+| Install deps | `bun install` |
+| Dev server (live reload) | `bun run dev` (http://localhost:4321) |
+| Static build into `dist/` | `bun run build` |
+| Preview the production build | `bun run preview` |
 
-`make serve` exposes the site at `http://<docker-ip>:1313`. Override with `PORT=`, `URL=`, or `HUGO_BASE_URL=` env vars. The `docker-ip` helper is invoked by the Makefile — if it's not on `PATH`, set `HUGO_BASE_URL` explicitly.
-
-## Submodule
-
-The KeepIt theme is a Git submodule at `site/themes/KeepIt`. After cloning, run `git submodule update --init --recursive` or CI's `actions/checkout@v4` step (`submodules: true`) won't have an analog locally and the build will fail with a missing-theme error.
+Run `mise install` first to pull the pinned bun / node / ruby versions from `.mise.toml`.
 
 ## Architecture
 
-Hugo's standard layout under `site/`:
+Astro's standard layout:
 
-- `site/config/_default/config.toml` — site config (baseURL, menu, params, social, share, markup, utterances comments). Development-only overrides live in `site/config/development/config.toml`.
-- `site/content/` — Markdown content. Sections: `blog/` (organized by year, then `<YYYY-MM-DD>-<slug>.md`), `about/`, `cv/`, `talks/`.
-- `site/layouts/` — site-level overrides on top of the theme:
-  - `partials/` — empty placeholder
-  - `shortcodes/` — custom shortcodes: `awesome`, `blockquote`, `github`, `html`, `terminal`
-- `site/static/` — copied verbatim into the output (`CNAME`, favicons, manifests, `assets/`)
-- `site/themes/KeepIt/` — the theme (submodule). Don't edit it here; override by creating a same-named file under `site/layouts/`.
-- `site/archetypes/default.md` — template used by `hugo new` / `make post`.
+- `src/pages/` — file-based routes. Homepage at `index.astro`; blog index at `blog/index.astro`; individual posts at `[year]/[month]/[...slug].astro` (URL shape `/:year/:month/:title/`, intentionally matching the old Hugo permalinks).
+- `src/content/blog/*.mdx` — blog posts as MDX. Frontmatter validated by the strict schema in `src/content/config.ts` (Content Layer API + glob loader). Categories enum: `Tech`, `Leadership`, `Productivity`, `Personal`, `Community`.
+- `src/content/config.ts` — collection schema. Adding fields means updating both the schema and the frontmatter on existing posts.
+- `src/layouts/BaseLayout.astro` — bare HTML shell (skip-link, meta, slot). The real visual treatment lives in `src/styles/global.css`.
+- `src/components/shortcodes/` — MDX-callable components: `Blockquote`, `Terminal`, `TweetQuote`, `GitHubRepo`. Each MDX post imports the ones it needs from `../../components/shortcodes/<Name>.astro`.
+- `src/styles/global.css` — Tailwind v4 (`@import "tailwindcss"`) plus CSS custom-property design tokens. **The token values are scaffold placeholders**; the real palette / typography is shaped via the impeccable skill — see PRODUCT.md.
+- `public/` — served verbatim (favicons, manifest, CNAME, `.well-known/`, post images, portfolio thumbs).
+- `src/assets/` — images imported via `import` (processed by Astro's image pipeline). Distinct from `public/`.
+- `src/data/` — static JSON (portfolio, etc.).
+- `src/lib/` — utilities (Goodreads helper, etc.).
 
-Permalinks for blog posts are `/:year/:month/:title/` (see `Permalinks` in `config.toml`). Comments are powered by [utteranc.es](https://utteranc.es/) backed by issues on this same repo.
+Permalinks for blog posts are `/:year/:month/:title/`. RSS lives at `/rss.xml`. Sitemap is generated by `@astrojs/sitemap`.
 
 ## Deployment
 
-`.github/workflows/build-and-deploy.yml` runs on every push to `source`:
-1. Checks out with submodules.
-2. Pulls/caches the `jojomi/hugo:latest` image.
-3. `make build` equivalent (runs `hugo` in the container against `site/`).
-4. Verifies `site/public/index.html` exists.
-5. Runs `bundle exec rake test` (html-proofer).
-6. Publishes `site/public/` to the `master` branch via `peaceiris/actions-gh-pages@v4`.
-
-Production deploys happen automatically on merge to `source`. There is no separate "deploy" step to run by hand.
-
-## Pull request automation
-
-`Dangerfile` runs on PRs and:
-- Flags titles containing `[Draft]`.
-- Runs `danger-prose` against changed `.md` / `.markdown` files under `site/content/`.
-- Spell-checks them with `mdspell` (installs `orta/node-markdown-spellcheck` if missing).
-
-Disabled proselint linters: `typography.diacritical_marks`, `butterick.symbols.curly_quotes`, `butterick.symbols.multiplication_symbol`.
-
-## Tool versions
-
-`.mise.toml` pins `bun 1.3`, `node 22`, `ruby 3.4`. Use `mise install` to get the right Ruby for the `Gemfile` / `html-proofer` step (`gem install bundler && bundle install`).
-
-## Untracked output directories
-
-`dist/` and `.astro/` exist in the working tree but are not tracked and are not part of the Hugo build. Ignore them unless explicitly working on a migration — Hugo's output is `site/public/`.
+`.github/workflows/build-and-deploy.yml` currently still triggers on push to `source` and builds Hugo. **It is not updated for Astro yet** — the swap happens in the same PR that merges `astro-v2` → `source`. Until then, the Astro branch deploys nowhere; `bun run build` locally is the only way to see production output.
 
 ## Writing content
 
-- New post: `make post TYPE=engineering FILENAME=my-post-slug` (or `TYPE=management`). Front matter follows the archetype; add `tags`, `categories`, and `type: post` as seen in existing posts under `site/content/blog/<year>/`.
-- Drafts: the archetype has `# draft: true` commented out — uncomment to keep a post out of production builds. `make serve` includes drafts (`--buildDrafts`).
-- Custom shortcodes available: `{{< awesome >}}`, `{{< blockquote >}}`, `{{< github >}}`, `{{< html >}}`, `{{< terminal >}}` (see `site/layouts/shortcodes/`).
+- New post: drop a file at `src/content/blog/YYYY-MM-<slug>.mdx`. Frontmatter must satisfy `src/content/config.ts` (`title`, `date`, `category`; `tags`, `description`, `draft`, `featured_image` optional).
+- Drafts: set `draft: true` in frontmatter. Filtered out by `getCollection('blog', ({ data }) => !data.draft)` everywhere.
+- Shortcodes inside MDX: add `import Terminal from '../../components/shortcodes/Terminal.astro';` (or whichever shortcode) at the top of the MDX file. Available: `Blockquote` (cite, source), `Terminal` (prompt), `TweetQuote` (author, username, date), `GitHubRepo` (owner, repo, commit).
+- Code blocks use Shiki with the `github-dark` theme (configured in `astro.config.mjs`).
+
+## Tool versions
+
+`.mise.toml` pins `bun 1.3`, `node 22`, `ruby 3.4`. Node/Ruby are not actively used on `astro-v2` (Ruby was for Hugo's html-proofer), but pinned versions stay consistent across branches.
+
+## Untracked output directories
+
+`dist/` and `.astro/` are build outputs and Astro's content cache. Both `.gitignore`d.
 
 ## Design context
 
 - `PRODUCT.md` at the project root holds the strategic design brief: register (`brand`), three equally-weighted audiences, brand personality (plainspoken, opinionated, idiosyncratic), anti-references, accessibility commitments, and the five design principles. Read it before any visual / UX / copy work.
-- North-star metric: reading depth (people read more than one post per visit). Astro is the design target; the Hugo `source` branch is the live deploy but is sunsetting. Hard-banned aesthetics: cream/sand editorial-warm, generic SaaS landing, Medium-clone, dev-blog-2018.
-- `DESIGN.md` (visual tokens / components / palette) is not written yet. Run `/impeccable document` once the Astro source is in place to capture it.
+- North-star metric: reading depth (people read more than one post per visit). Hard-banned aesthetics: cream/sand editorial-warm, generic SaaS landing, Medium-clone, dev-blog-2018.
+- `DESIGN.md` (visual tokens / components / palette) is not written yet. Run `/impeccable document` once the design system has been shaped + crafted.
+- The scaffold pages and `src/styles/global.css` tokens are intentionally undesigned. Shape the homepage with `/impeccable shape homepage`, then build with `/impeccable craft homepage`.
