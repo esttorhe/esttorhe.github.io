@@ -3,6 +3,7 @@
 // ABOUTME: Permalink shape preserves Hugo's /:year/:month/:title/. Lazy utteranc.es comments at the bottom.
 
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleHero from '../../../components/article/ArticleHero.astro';
 import PostNav from '../../../components/article/PostNav.astro';
 import Comments from '../../../components/article/Comments.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
@@ -63,6 +64,12 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
       <h1 class="article__title">{post.data.title}</h1>
       {post.data.description && <p class="article__lede">{post.data.description}</p>}
     </header>
+
+    {
+      /* Hero sits between the article header (meta+title+lede) and the body,
+        per the shape brief — book-chapter-opener placement. */
+    }
+    <ArticleHero post={post} priority />
 
     <div class="prose">
       <Content />

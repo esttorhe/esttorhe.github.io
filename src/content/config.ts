@@ -12,7 +12,14 @@ const blog = defineCollection({
     description: z.string().optional(),
     tags: z.array(z.string()).default([]),
     category: z.enum(['Tech', 'Leadership', 'Productivity', 'Personal', 'Community']),
+    /** Path or slug of the per-post hero image. Optional — resolver falls back
+        to convention path (src/assets/post-heroes/<slug>.*) and then to a
+        Sigil-generated SVG when both are absent. */
     featured_image: z.string().optional(),
+    /** Accessible alt text for the hero image. Required when the image is
+        meaningful; if omitted the resolver uses a generic "Hero illustration
+        for <title>" string. */
+    featured_image_alt: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
