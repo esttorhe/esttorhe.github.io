@@ -11,6 +11,9 @@ package-lock.json
 # Static assets served verbatim
 public/
 
+# Submodules — their content is owned upstream, never formatted here.
+external/
+
 # Agent infra (kept out of source via .gitignore but included here as a belt-and-suspenders)
 .claude/
 .claude-visual/
