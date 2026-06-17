@@ -1,0 +1,3 @@
+[submodule "external/cv"]
+	path = external/cv
+	url = git@github.com:esttorhe/cv.git

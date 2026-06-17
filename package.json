@@ -23,6 +23,7 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
+    "marked": "^18.0.5",
     "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
     "puppeteer": "^25.1.0"
