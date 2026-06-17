@@ -12,7 +12,13 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://estebantorr.es',
   output: 'static',
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      // /cv/print/ is the PDF source — keep it out of the sitemap (the public CV is /cv/).
+      filter: (page) => !/\/cv\/print\/?$/.test(page),
+    }),
+  ],
   markdown: {
     shikiConfig: {
       themes: {

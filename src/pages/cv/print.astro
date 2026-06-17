@@ -1,0 +1,41 @@
+---
+// ABOUTME: /cv/print/ — full, untruncated CV used as the source for the downloadable PDF.
+// ABOUTME: Robots-noindexed and hidden from the sitemap; render is the same CvBody + src/styles/cv.css used by /cv/.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CvBody from '../../components/cv/CvBody.astro';
+---
+
+<BaseLayout
+  title="CV — Esteban Torres (full / print)"
+  bareTitle
+  description="Full printable CV — used as the source for the downloadable PDF."
+>
+  <slot name="head" slot="head">
+    <meta name="robots" content="noindex,nofollow" />
+  </slot>
+  <article class="cv cv--print reveal">
+    <CvBody full />
+  </article>
+</BaseLayout>
+
+<style>
+  /* Visual reminder for anyone hitting this URL directly that it's the print surface.
+     Hidden in @media print so the PDF doesn't carry it. */
+  .cv--print::before {
+    content: 'Print / PDF view — full CV. The public /cv/ shows a condensed version.';
+    display: block;
+    margin-bottom: var(--space-md);
+    padding: 0.4rem 0.6rem;
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+  @media print {
+    .cv--print::before {
+      display: none !important;
+    }
+  }
+</style>
