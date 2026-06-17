@@ -1,0 +1,310 @@
+---
+// ABOUTME: /blog/ + /blog/2/, /blog/3/, … — paginated writing archive.
+// ABOUTME: Hero-led chronological list. 10 per page; year markers fire when the year flips between consecutive posts.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostListRow from '../../components/blog/PostListRow.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import type { GetStaticPaths, Page } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+    (a, b) => +b.data.date - +a.data.date,
+  );
+  return paginate(posts, { pageSize: 10 });
+};
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>;
+}
+
+const { page } = Astro.props;
+const totalCount = page.total;
+
+// Decorate each post in the current page slice with whether it opens a new
+// year-group. The first post of every page opens its own year header.
+const decorated = page.data.map((post, i) => {
+  const year = new Date(post.data.date).getFullYear();
+  const prevYear = i === 0 ? null : new Date(page.data[i - 1].data.date).getFullYear();
+  return {
+    post,
+    index: i,
+    year,
+    startsYear: prevYear === null || year !== prevYear,
+  };
+});
+
+const pageNumber = page.currentPage;
+const lastPage = page.lastPage;
+const pageTitle = pageNumber === 1 ? 'Writing' : `Writing — page ${pageNumber}`;
+const pageDescription =
+  pageNumber === 1
+    ? `${totalCount} essays on engineering management, the platform side of building software, and the move from Costa Rica to Berlin.`
+    : `Page ${pageNumber} of ${lastPage} — older essays from the archive.`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} current="writing">
+  <section class="writing-page" aria-labelledby="writing-heading">
+    <header class="writing-page__header reveal">
+      <h1 id="writing-heading" class="writing-page__title">Writing</h1>
+      <p class="writing-page__meta tabular">
+        <span>{totalCount} posts</span>
+        <span class="writing-page__sep" aria-hidden="true">·</span>
+        <span>newest first</span>
+        {
+          lastPage > 1 && (
+            <>
+              <span class="writing-page__sep" aria-hidden="true">
+                ·
+              </span>
+              <span>
+                page {pageNumber} of {lastPage}
+              </span>
+            </>
+          )
+        }
+        <span class="writing-page__sep" aria-hidden="true">·</span>
+        <a class="writing-page__rss" href="/rss.xml" rel="alternate" type="application/rss+xml">
+          RSS
+        </a>
+      </p>
+    </header>
+
+    <ol class="writing-page__list reveal-stagger">
+      {
+        decorated.map(({ post, index, year, startsYear }) => (
+          <li class="writing-page__entry">
+            {startsYear && (
+              <h2 class="writing-page__year tabular" aria-label={`Posts from ${year}`}>
+                {year}
+              </h2>
+            )}
+            <PostListRow post={post} index={index} />
+          </li>
+        ))
+      }
+    </ol>
+
+    {
+      lastPage > 1 && (
+        <nav class="writing-page__pagination" aria-label="Pagination">
+          <a
+            class={`writing-page__pageLink writing-page__pageLink--prev ${page.url.prev ? '' : 'is-disabled'}`}
+            href={page.url.prev ?? undefined}
+            aria-disabled={page.url.prev ? 'false' : 'true'}
+          >
+            <span aria-hidden="true">←</span>
+            <span>Newer posts</span>
+          </a>
+
+          <ol class="writing-page__pages tabular" role="list">
+            {Array.from({ length: lastPage }, (_, i) => i + 1).map((n) => (
+              <li>
+                <a
+                  class={`writing-page__pageNum ${n === pageNumber ? 'is-current' : ''}`}
+                  href={n === 1 ? '/blog/' : `/blog/${n}/`}
+                  aria-current={n === pageNumber ? 'page' : undefined}
+                >
+                  {n}
+                </a>
+              </li>
+            ))}
+          </ol>
+
+          <a
+            class={`writing-page__pageLink writing-page__pageLink--next ${page.url.next ? '' : 'is-disabled'}`}
+            href={page.url.next ?? undefined}
+            aria-disabled={page.url.next ? 'false' : 'true'}
+          >
+            <span>Older posts</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </nav>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .writing-page {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding-top: var(--space-md);
+  }
+
+  .writing-page__header {
+    margin-bottom: var(--space-xl);
+    max-width: var(--measure-wide);
+  }
+
+  .writing-page__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 var(--space-xs);
+    text-wrap: balance;
+  }
+
+  .writing-page__meta {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.55ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .writing-page__sep {
+    opacity: 0.5;
+  }
+
+  .writing-page__rss {
+    color: var(--ink-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 60%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      text-decoration-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .writing-page__rss:hover,
+  .writing-page__rss:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+    outline: none;
+  }
+
+  .writing-page__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .writing-page__entry {
+    margin: 0;
+  }
+
+  .writing-page__year {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 400;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    margin: var(--space-lg) 0 var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--rule);
+  }
+
+  .writing-page__list > .writing-page__entry:first-child .writing-page__year {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  /* Pagination — Geist Mono row at the bottom: prev | numbers | next. */
+  .writing-page__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+  }
+
+  .writing-page__pageLink {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5ch;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid transparent;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .writing-page__pageLink:hover,
+  .writing-page__pageLink:focus-visible {
+    color: var(--accent-ink);
+    border-bottom-color: var(--accent);
+    outline: none;
+  }
+
+  .writing-page__pageLink.is-disabled {
+    color: var(--ink-muted);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .writing-page__pages {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4ch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .writing-page__pageNum {
+    display: inline-block;
+    min-width: 1.75rem;
+    padding: 0.3rem 0.5rem;
+    text-align: center;
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-radius: var(--radius-sm, 0.25rem);
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      background-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .writing-page__pageNum:hover,
+  .writing-page__pageNum:focus-visible {
+    color: var(--accent-ink);
+    outline: none;
+  }
+
+  .writing-page__pageNum.is-current {
+    color: var(--ink);
+    background: color-mix(in oklab, var(--accent) 18%, transparent);
+  }
+
+  @media (max-width: 720px) {
+    .writing-page__header {
+      margin-bottom: var(--space-lg);
+    }
+
+    .writing-page__list {
+      gap: var(--space-md);
+    }
+
+    .writing-page__year {
+      margin: var(--space-md) 0 var(--space-xs);
+      padding-top: var(--space-sm);
+    }
+
+    .writing-page__pagination {
+      margin-top: var(--space-xl);
+      gap: var(--space-sm);
+      flex-direction: column;
+    }
+
+    .writing-page__pages {
+      order: -1;
+    }
+  }
+</style>
