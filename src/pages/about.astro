@@ -1,0 +1,163 @@
+---
+// ABOUTME: /about/ — first-person prose. Spine ported forward from the Hugo-era about page and updated to current role.
+// ABOUTME: Voice is Esteban's. Tweak the prose directly in this file; structure + styling stay.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Head of Platform Engineering at Zenjob. Costa Rican transplanted to Berlin."
+  current="about"
+>
+  <article class="about-page">
+    <header class="about-page__header reveal">
+      <h1 class="about-page__title">About</h1>
+    </header>
+
+    <div class="prose about-page__prose reveal">
+      <p>
+        Hi; my name is <strong>Esteban Torres</strong> and I'm currently
+        <code>Head of Platform Engineering</code> at
+        <a href="https://zenjob.com" rel="noopener noreferrer">Zenjob</a>, in Berlin.
+      </p>
+
+      <p>
+        I'm originally from 🇨🇷 Costa Rica, where I started as an
+        <code>Engineer</code> and quickly jumped on the <code>iOS</code> bandwagon. That led me to a job
+        as an <code>iOS</code> engineer at
+        <a href="https://soundcloud.com" rel="noopener noreferrer">SoundCloud</a>, which led to me
+        and my family moving to 🇩🇪.
+      </p>
+
+      <p>
+        During my time at SoundCloud I wore many hats: <code>iOS</code> engineer (<code
+          >Listening Cluster</code
+        >, then <code>Core Clients</code>), <code>Cross Platform</code> engineer (<code
+          >Core Clients</code
+        >, where I got to do <code>Scala</code>, <code>Go</code>, some
+        <code>Production Engineering</code>, <code>iOS</code> and <code>Android</code> development), and
+        most recently <code>Engineering Management</code>. After SoundCloud I went to
+        <a href="https://spotify.com" rel="noopener noreferrer">Spotify</a>, working closely with
+        <a href="https://backstage.spotify.com" rel="noopener noreferrer"><code>Backstage</code></a
+        >. These days I lead Platform Engineering at Zenjob.
+      </p>
+
+      <p>
+        I used to be moderately active in the <code>iOS</code> community and tried to attend different
+        conferences (as an attendee as well as a speaker) but since I switched careers I've slowed down
+        a lot on that front.
+      </p>
+
+      <p>
+        It's been a few years since I started working as an <code>Engineering Manager</code> and lots
+        of things have happened along the way. The day-to-day has shifted from "I have no idea what I
+        am doing" to "I have no idea what I am doing, but I've seen this before". I haven't stopped coding,
+        mainly in <code>Go</code> and very recently started learning <code>Rust</code>.
+      </p>
+
+      <p>
+        I've been jotting down what I learn in a good old paper notebook which I'll try to migrate
+        to a more modern place on this website.
+      </p>
+
+      <p class="about-page__contact">
+        <strong>Best way to reach me</strong>: email at
+        <a href="mailto:me@estebantorr.es">me@estebantorr.es</a>. Elsewhere lives in the footer:
+        GitHub, Mastodon, LinkedIn, Bluesky, RSS.
+      </p>
+    </div>
+
+    <nav class="about-page__elsewhere" aria-label="More on this site">
+      <p class="about-page__elsewhere-label">More on this site</p>
+      <ul>
+        <li><a href="/blog/">Writing</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-page {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding-top: var(--space-md);
+  }
+
+  .about-page__header {
+    max-width: var(--measure);
+    margin-bottom: var(--space-lg);
+  }
+
+  .about-page__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  /* Reuse .prose typography (Vollkorn body + Bricolage headings) — same module the
+     article body uses. The only tweak: a slightly tighter top margin on the first
+     paragraph so the h1 sits closer to the lede. */
+  .about-page__prose :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .about-page__contact {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--rule);
+  }
+
+  .about-page__contact :global(strong) {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  .about-page__elsewhere {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--rule);
+    max-width: var(--measure);
+  }
+
+  .about-page__elsewhere-label {
+    margin: 0 0 var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    letter-spacing: 0.005em;
+  }
+
+  .about-page__elsewhere ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+  }
+
+  .about-page__elsewhere a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 50%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      text-decoration-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .about-page__elsewhere a:hover,
+  .about-page__elsewhere a:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+  }
+</style>
