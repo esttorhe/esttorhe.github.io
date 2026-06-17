@@ -1,0 +1,50 @@
+---
+// ABOUTME: Blog post template preserving Hugo's permalink shape (/:year/:month/:title/).
+// ABOUTME: Bare semantic markup; typography, code-block treatment, TOC, footer pathing land during /impeccable shape + craft.
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => {
+    const date = new Date(post.data.date);
+    const year = String(date.getFullYear());
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+    return {
+      params: { year, month, slug: titleSlug },
+      props: { post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const date = new Date(post.data.date);
+const readingMinutes = Math.max(1, Math.ceil((post.body ?? '').split(/\s+/).length / 200));
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="post-meta">
+        <time datetime={date.toISOString()}>
+          {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: '2-digit' })}
+        </time>
+        <span>·</span>
+        <span class="post-category">{post.data.category}</span>
+        <span>·</span>
+        <span class="post-reading">{readingMinutes} min read</span>
+      </p>
+      {post.data.description && <p class="post-lede">{post.data.description}</p>}
+    </header>
+
+    <div class="post-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

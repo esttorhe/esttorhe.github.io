@@ -1,0 +1,24 @@
+---
+// ABOUTME: Pull-quote / blockquote shortcode used inside MDX posts.
+// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+
+interface Props {
+  cite?: string;
+  source?: string;
+}
+
+const { cite, source } = Astro.props;
+---
+
+<figure class="shortcode-quote">
+  <blockquote cite={source}><slot /></blockquote>
+  {(cite || source) && (
+    <figcaption>
+      {source ? (
+        <cite><a href={source} rel="noopener noreferrer">{cite ?? source}</a></cite>
+      ) : (
+        <cite>{cite}</cite>
+      )}
+    </figcaption>
+  )}
+</figure>

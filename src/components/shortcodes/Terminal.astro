@@ -1,0 +1,12 @@
+---
+// ABOUTME: Terminal / shell session shortcode used inside MDX posts.
+// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+
+interface Props {
+  prompt?: string;
+}
+
+const { prompt = '$' } = Astro.props;
+---
+
+<pre class="shortcode-terminal" data-prompt={prompt}><code><slot /></code></pre>

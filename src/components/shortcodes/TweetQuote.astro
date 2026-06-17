@@ -1,0 +1,22 @@
+---
+// ABOUTME: Archived tweet shortcode used inside MDX posts (no live Twitter embed).
+// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+
+interface Props {
+  author: string;
+  username: string;
+  date?: string;
+}
+
+const { author, username, date } = Astro.props;
+const handleUrl = `https://twitter.com/${username}`;
+---
+
+<figure class="shortcode-tweet">
+  <blockquote><slot /></blockquote>
+  <figcaption>
+    <span class="tweet-author">{author}</span>
+    <a class="tweet-handle" href={handleUrl} rel="noopener noreferrer">@{username}</a>
+    {date && <time class="tweet-date">{date}</time>}
+  </figcaption>
+</figure>

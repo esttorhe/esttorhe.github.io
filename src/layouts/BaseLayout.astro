@@ -1,0 +1,80 @@
+---
+// ABOUTME: Bare HTML shell for every page on estebantorr.es. Skip-link, theme-toggle hooks, semantic structure only.
+// ABOUTME: No visual treatment yet. Header, footer, type system, palette, and motion all land during /impeccable shape + craft.
+
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** When true, suppresses the site-name suffix in the document title. */
+  bareTitle?: boolean;
+}
+
+const {
+  title,
+  description = 'Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin.',
+  bareTitle = false,
+} = Astro.props;
+
+const siteName = 'The mind of Esteban';
+const fullTitle = title
+  ? bareTitle
+    ? title
+    : `${title} — ${siteName}`
+  : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr.es').toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@esttorhe" />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <a class="site-mark" href="/">Esteban Torres</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/blog/">Writing</a>
+        <a href="/talks/">Talks</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; {new Date().getFullYear()} Esteban Torres</p>
+      <nav aria-label="Elsewhere">
+        <a href="https://github.com/esttorhe" rel="me">GitHub</a>
+        <a href="https://mastodon.social/@esttorhe" rel="me">Mastodon</a>
+        <a href="https://linkedin.com/in/estebantorres" rel="me">LinkedIn</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
+    </footer>
+  </body>
+</html>

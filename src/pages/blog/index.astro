@@ -1,0 +1,34 @@
+---
+// ABOUTME: Blog index placeholder. Bare list of all published posts, newest first.
+// ABOUTME: Visual hierarchy, filters, search, pagination all land during /impeccable shape + craft.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => +b.data.date - +a.data.date);
+---
+
+<BaseLayout title="Writing">
+  <h1>Writing</h1>
+  <p>{posts.length} posts. Newest first.</p>
+
+  <ul>
+    {posts.map((post) => {
+      const date = new Date(post.data.date);
+      const year = String(date.getFullYear());
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const titleSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+      const href = `/${year}/${month}/${titleSlug}/`;
+      return (
+        <li>
+          <a href={href}>{post.data.title}</a>
+          <time datetime={date.toISOString()}>
+            {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: '2-digit' })}
+          </time>
+          <span class="post-category">{post.data.category}</span>
+        </li>
+      );
+    })}
+  </ul>
+</BaseLayout>

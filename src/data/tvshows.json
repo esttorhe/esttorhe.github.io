@@ -1,0 +1,23 @@
+{
+  "currentlyWatching": [
+    {
+      "title": "Example Show",
+      "year": 2024,
+      "status": "watching",
+      "season": 2,
+      "episode": 5,
+      "poster": "https://via.placeholder.com/300x450?text=Poster",
+      "link": "https://www.themoviedb.org/tv/12345"
+    }
+  ],
+  "recentlyFinished": [
+    {
+      "title": "Another Show",
+      "year": 2023,
+      "status": "finished",
+      "rating": 4,
+      "poster": "https://via.placeholder.com/300x450?text=Poster",
+      "link": "https://www.themoviedb.org/tv/67890"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# ABOUTME: mise tool version configuration for FitForge local development.
+# ABOUTME: Pins all project tools so developers never need homebrew for build dependencies.
+
+[tools]
+bun = "1.3"
+node = "22"
+ruby = "3.4"
+"npm:impeccable" = "2.3.2"
+
+# Beads (issue tracker / persistent memory) — required by .claude/settings.json
+# SessionStart and PreCompact hooks that call `bd prime`. Without this pin,
+# hooks fail silently for any contributor without bd already on PATH.
+"github:gastownhall/beads" = "1.0.4"
+
+# Database debugging tools
+"pipx:harlequin" = { version = "latest", uvx_args = "--with harlequin-postgres" }

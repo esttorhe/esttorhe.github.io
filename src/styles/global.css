@@ -1,0 +1,326 @@
+/* ABOUTME: Global stylesheet for estebantorr.es. Tailwind v4 is wired but most token + component styling is deliberately deferred. */
+/* ABOUTME: The CSS custom properties below are reservation slots that /impeccable shape + craft will commit to. The fallback values keep the scaffold readable; none of them is a design decision. */
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Color slots — placeholders. Real palette via /impeccable shape. */
+    --ink: oklch(0.18 0 0);
+    --ink-muted: oklch(0.38 0 0);
+    --paper: oklch(0.99 0 0);
+    --surface: oklch(0.96 0 0);
+    --rule: oklch(0.88 0 0);
+    --accent: oklch(0.55 0.20 250);
+
+    /* Type slots — system stack defaults until /impeccable shape commits typefaces. */
+    --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    /* Spacing & radius — minimal scale; refined in shape. */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 4rem;
+
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+
+    --measure: 68ch;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0 0 var(--space-3);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    margin-top: var(--space-5);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-top: var(--space-4);
+  }
+
+  p {
+    margin: 0 0 var(--space-3);
+    max-width: var(--measure);
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+  }
+
+  pre {
+    overflow-x: auto;
+    padding: var(--space-3);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    max-width: 100%;
+  }
+
+  ul,
+  ol {
+    max-width: var(--measure);
+    padding-left: var(--space-4);
+  }
+
+  img,
+  video,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: var(--space-5) 0;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 25%, transparent);
+  }
+}
+
+@layer components {
+  /* Layout chrome — bare scaffolding, designed in /impeccable shape. */
+  .skip-link {
+    position: absolute;
+    inset-inline-start: var(--space-3);
+    top: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-sm);
+    transform: translateY(-200%);
+    transition: transform 120ms ease-out;
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    align-items: baseline;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-4);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .site-mark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .site-nav {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .site-nav a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  main {
+    padding: var(--space-5) var(--space-4);
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .site-footer {
+    padding: var(--space-5) var(--space-4);
+    border-top: 1px solid var(--rule);
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+  }
+
+  .site-footer nav {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+  }
+
+  .site-footer a {
+    color: var(--ink-muted);
+  }
+
+  /* Scaffold-only — these classes only exist on the placeholder homepage. */
+  .scaffold-notice {
+    border: 1px dashed var(--rule);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+  }
+
+  .scaffold-tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    margin: 0 0 var(--space-2);
+  }
+
+  .scaffold-note {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+  }
+
+  .scaffold-note code {
+    background: var(--surface);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  /* Post + list bare semantic styles. */
+  .post-meta {
+    color: var(--ink-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .post-body {
+    max-width: var(--measure);
+  }
+
+  /* Shortcode placeholders — semantic, intentionally undesigned. */
+  .shortcode-quote {
+    margin: var(--space-4) 0;
+    max-width: var(--measure);
+  }
+
+  .shortcode-quote blockquote {
+    margin: 0;
+    padding: var(--space-2) 0 var(--space-2) var(--space-4);
+    font-style: italic;
+  }
+
+  .shortcode-quote figcaption {
+    margin-top: var(--space-2);
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+  }
+
+  .shortcode-terminal {
+    /* Reset; full chrome lands in craft. */
+    padding: var(--space-3);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+  }
+
+  .shortcode-tweet {
+    margin: var(--space-4) 0;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    max-width: var(--measure);
+  }
+
+  .shortcode-tweet blockquote {
+    margin: 0 0 var(--space-2);
+  }
+
+  .shortcode-tweet figcaption {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .shortcode-github {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.15em;
+    padding: 0.15em 0.4em;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .shortcode-github:hover {
+    background: var(--surface);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

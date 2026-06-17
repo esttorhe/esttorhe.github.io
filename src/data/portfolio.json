@@ -1,0 +1,70 @@
+{
+  "featured": [
+    {
+      "title": "BlueTip",
+      "description": "AI writing platform that helps brainstorm, outline, write, and publish content with collaborative review and multi-format export.",
+      "tags": ["AI", "Writing", "SaaS"],
+      "url": "https://www.bluetip.ai/",
+      "role": "Founder",
+      "image": "/assets/images/portfolio/bluetip.png"
+    },
+    {
+      "title": "Zenjob",
+      "description": "Head of Platform – Leading a 12+ engineers platform organization. Supporting DevOps, providing tools and empowering Germany's leading microjobs platform.",
+      "tags": ["Platform Engineering", "Leadership"],
+      "url": "https://www.zenjob.com/",
+      "role": "Head of Platform",
+      "image": "/assets/images/portfolio/zenjob.png"
+    },
+    {
+      "title": "Backstage by Spotify",
+      "description": "Engineering Manager – Lead a 10 engineers team distributed globally in charge of plugins and the foundational work for the plugins marketplace.",
+      "tags": ["Leadership", "Platform", "OSS"],
+      "url": "https://backstage.spotify.com/",
+      "role": "Engineering Manager",
+      "image": "/assets/images/portfolio/backstage.png"
+    },
+    {
+      "title": "SoundCloud",
+      "description": "Engineering Manager of Core Clients and Backend Core teams. Providing foundational frameworks, tools, APIs and foundational mobile work that powered SoundCloud's ecosystem.",
+      "tags": ["Platform Engineering", "Microservices", "DevOps", "APIs"],
+      "url": "https://www.soundcloud.com/",
+      "role": "Engineering Manager",
+      "image": "/assets/images/portfolio/soundcloud.webp"
+    }
+  ],
+  "lab": [
+    {
+      "title": "Elecciones Costa Rica",
+      "description": "Open source platform comparing political party platforms for Costa Rica's 2026 elections using AI analysis of official TSE data.",
+      "tags": ["AI", "Civic Tech", "Open Source"],
+      "url": "https://www.eleccionescostarica.org/",
+      "github": null,
+      "image": "/assets/images/portfolio/elecciones-cr.png"
+    },
+    {
+      "title": "SpicyPills",
+      "description": "AI-powered productivity app for neurodiverse individuals with task breakdown, time estimation, and communication tools.",
+      "tags": ["AI", "Mobile", "Productivity"],
+      "url": "https://spicypills.com/",
+      "github": null,
+      "image": "/assets/images/portfolio/spicypills.svg"
+    },
+    {
+      "title": "blogwatcher-ui",
+      "description": "A modern, self-contained web application for tracking blog articles and managing read/unread status. Works independently without external CLI.",
+      "tags": ["Web", "RSS", "Go"],
+      "url": null,
+      "github": "https://github.com/esttorhe/blogwatcher-ui",
+      "image": "/assets/images/portfolio/github.svg"
+    },
+    {
+      "title": "Stethoscope",
+      "description": "External website monitoring tool with Prometheus metrics integration.",
+      "tags": ["Go", "Monitoring", "Prometheus"],
+      "url": null,
+      "github": "https://github.com/esttorhe/stethoscope",
+      "image": "/assets/images/portfolio/github.svg"
+    }
+  ]
+}

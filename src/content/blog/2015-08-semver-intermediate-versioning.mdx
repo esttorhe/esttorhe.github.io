@@ -1,0 +1,74 @@
+---
+title: "Semver intermediate versioning"
+date: 2015-08-11
+category: Productivity
+description: "Proposing a friendly approach to semantic versioning - releasing deprecation warnings before major versions."
+tags:
+  - tips
+  - programming
+  - semver
+  - versioning
+  - productivity
+draft: false
+---
+
+import TweetQuote from '../../components/shortcodes/TweetQuote.astro';
+
+Lately I've come across multiple tweets and talks about people avoiding jumping over the dreaded `1.0.0` of their `frameworks`, tools, etc.
+
+<TweetQuote
+  author="Boris Bügling"
+  username="NeoNacho"
+  date="August 11, 2015"
+>
+  Staying on 0.x forever to avoid breaking changes anxiety
+</TweetQuote>
+
+<TweetQuote
+  author="Mattt Thompson"
+  username="mattt"
+  date="August 11, 2015"
+>
+  The pressure to never ship 1.0 in open source is real
+</TweetQuote>
+
+---
+
+Sadly that's the current state of «our world» as developers.
+
+## What is `semver`?
+
+[semver](http://semver.org/) stands for `Semantic Versioning`; here's an excerpt from the website:
+
+> Given a version number MAJOR.MINOR.PATCH, increment the:
+>
+> MAJOR version when you make incompatible API changes,
+> MINOR version when you add functionality in a backwards-compatible manner, and
+> PATCH version when you make backwards-compatible bug fixes.
+> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+As you can see semver specifies a series of numbers (3) to correctly determine the versions of your frameworks.
+
+Notice that its based off `MAJOR`.`MINOR`.`PATCH` where `MAJOR` should change when you introduce breaking changes (make incompatible changes to the `API` basically).
+
+## What I propose!
+
+Given the fact that most package managers work using semver as their «tagging» base and that most «consumers» of your work will most likely update to whichever version you release as long as is not `MAJOR` without having to do much refactoring (e.g. using [CocoaPods](https://cocoapods.org) you can specify something like `~> 1.5` which roughly translates to => «update to every new version above 1.5 as long as its < 2.0.0»)
+
+I propose that everyone maintaining public facing frameworks should support an «intermediate» version right before their `MAJOR` release.
+
+### Why?
+
+Simply put most modern languages let us mark methods as deprecated; and depending on the language and the compiling flags we can treat this as `warnings` or `errors` and the compiler will shout at us when a method is marked as deprecated.
+
+I'm proposing we should release a `MINOR` or `PATCH` release right before the `MAJOR` marking all the methods that will either disappear or change drastically on the next `MAJOR` release. This way the consumers will get a warning on their latest automated update and will be prepared what will change on the next `MAJOR`.
+
+With this they can know what to expect instead of trying to update to the latest `MAJOR` and facing a bunch of breaking changes.
+
+To me this seems like a more «friendly» way to alert consumers of what will definitely change/break; also having the compiler warnings there will help some consumers be prepared and start thinking about how to use the new methods BEFORE even having to actually start work to support the latest version of your frameworks.
+
+## That's it
+
+And that's it; nothing too fancy or too techie but worth a blog post and maybe let the ball rolling.
+
+Perhaps someone else will share this vision of things and consumers will start getting «warning» releases before every `MAJOR` one.

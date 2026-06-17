@@ -1,0 +1,20 @@
+---
+// ABOUTME: GitHub repo link shortcode used inside MDX posts.
+// ABOUTME: Visuals deliberately bare; final styling lands during /impeccable shape + craft.
+
+interface Props {
+  owner: string;
+  repo: string;
+  commit?: string;
+}
+
+const { owner, repo, commit } = Astro.props;
+const href = commit
+  ? `https://github.com/${owner}/${repo}/commit/${commit}`
+  : `https://github.com/${owner}/${repo}`;
+const shortCommit = commit ? commit.slice(0, 7) : undefined;
+---
+
+<a class="shortcode-github" href={href} rel="noopener noreferrer" target="_blank">
+  <span class="repo-owner">{owner}</span>/<span class="repo-name">{repo}</span>{shortCommit && <span class="repo-commit"> @ {shortCommit}</span>}
+</a>
