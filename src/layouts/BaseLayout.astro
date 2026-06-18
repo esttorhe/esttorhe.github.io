@@ -25,6 +25,13 @@ const {
 const siteName = 'The mind of Esteban';
 const fullTitle = title ? (bareTitle ? title : `${title} — ${siteName}`) : siteName;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr.es').toString();
+
+// PostHog (EU). Production-only + no-ops when the public key isn't set, so
+// local dev never reports + a missing CF env var fails open instead of breaking
+// the build. Set PUBLIC_POSTHOG_KEY in the Cloudflare Pages env (or .env.local
+// for local production-build testing).
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY;
+const posthogEnabled = import.meta.env.PROD && Boolean(posthogKey);
 ---
 
 <!doctype html>
@@ -72,6 +79,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://estebantorr
 
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1c1714" media="(prefers-color-scheme: dark)" />
+
+    {
+      posthogEnabled && (
+        <script
+          is:inline
+          set:html={`!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init(${JSON.stringify(posthogKey)},{api_host:'https://eu.i.posthog.com',defaults:'2026-01-30',capture_pageview:'history_change'});`}
+        />
+      )
+    }
 
     <slot name="head" />
   </head>
