@@ -1,0 +1,493 @@
+---
+// ABOUTME: /portfolio/ — two-tier portfolio. Featured (4 substantive blocks) + Lab (4 compact tiles).
+// ABOUTME: Data lives in src/data/portfolio.json; images in public/assets/images/portfolio/.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolio } from '../data/portfolio';
+
+const { featured, lab } = portfolio;
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Places I've led work, things I've shipped on my own time."
+  current="portfolio"
+>
+  <section class="portfolio-page" aria-labelledby="portfolio-heading">
+    <header class="portfolio-page__header reveal">
+      <h1 id="portfolio-heading" class="portfolio-page__title">Portfolio</h1>
+      <p class="portfolio-page__lede">Places I've led work. Things I've shipped on my own time.</p>
+    </header>
+
+    <section class="portfolio-featured reveal-stagger" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="sr-only">Featured</h2>
+      <ol class="portfolio-featured__grid">
+        {
+          featured.map((item, i) => (
+            <li class="featured-card" style={`--i: ${i}`}>
+              <a class="featured-card__link" href={item.url} rel="noopener noreferrer">
+                <figure class="featured-card__media">
+                  <img
+                    src={item.image}
+                    alt={`${item.title} — product imagery`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+                <div class="featured-card__text">
+                  <p class="featured-card__role tabular">{item.role}</p>
+                  <h3 class="featured-card__title">
+                    {item.title}
+                    <span class="featured-card__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </h3>
+                  <p class="featured-card__desc">{item.description}</p>
+                  <ul class="featured-card__tags tabular" aria-label="Tags">
+                    {item.tags.map((t) => (
+                      <li>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="portfolio-lab reveal-stagger" aria-labelledby="lab-heading">
+      <header class="portfolio-lab__header">
+        <h2 id="lab-heading" class="portfolio-lab__heading tabular">Lab</h2>
+        <p class="portfolio-lab__hint">Side things — open source, experiments, half-built ideas.</p>
+      </header>
+      <ol class="portfolio-lab__grid">
+        {
+          lab.map((item, i) => {
+            const href = item.url ?? item.github ?? '#';
+            const hasLink = item.url || item.github;
+            return (
+              <li class="lab-card" style={`--i: ${i}`}>
+                {hasLink ? (
+                  <a class="lab-card__link" href={href} rel="noopener noreferrer">
+                    <figure class="lab-card__media">
+                      <img src={item.image} alt={`${item.title}`} loading="lazy" decoding="async" />
+                    </figure>
+                    <div class="lab-card__text">
+                      <h3 class="lab-card__title">
+                        {item.title}
+                        <span class="lab-card__arrow" aria-hidden="true">
+                          {item.url ? '↗' : ''}
+                          {!item.url && item.github ? 'GH' : ''}
+                        </span>
+                      </h3>
+                      <p class="lab-card__desc">{item.description}</p>
+                      <ul class="lab-card__tags tabular" aria-label="Tags">
+                        {item.tags.map((t) => (
+                          <li>{t}</li>
+                        ))}
+                      </ul>
+                      {item.url && item.github && (
+                        <p class="lab-card__secondary tabular">
+                          <a href={item.github} rel="noopener noreferrer">
+                            GitHub →
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  </a>
+                ) : (
+                  <div class="lab-card__link lab-card__link--inert">
+                    <figure class="lab-card__media">
+                      <img src={item.image} alt={`${item.title}`} loading="lazy" decoding="async" />
+                    </figure>
+                    <div class="lab-card__text">
+                      <h3 class="lab-card__title">{item.title}</h3>
+                      <p class="lab-card__desc">{item.description}</p>
+                      <ul class="lab-card__tags tabular" aria-label="Tags">
+                        {item.tags.map((t) => (
+                          <li>{t}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })
+        }
+      </ol>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  .portfolio-page {
+    max-width: var(--max-content);
+    margin: 0 auto;
+    padding-top: var(--space-md);
+  }
+
+  .portfolio-page__header {
+    max-width: var(--measure-wide);
+    margin-bottom: var(--space-xl);
+  }
+
+  .portfolio-page__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 var(--space-xs);
+    text-wrap: balance;
+  }
+
+  .portfolio-page__lede {
+    font-family: var(--font-prose);
+    font-size: var(--text-lead);
+    line-height: 1.4;
+    color: var(--ink-muted);
+    margin: 0;
+    max-width: var(--measure);
+  }
+
+  /* ----- Featured: 2-col grid of substantive cards ----- */
+
+  .portfolio-featured {
+    margin: 0 0 var(--space-2xl);
+  }
+
+  .portfolio-featured__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 720px) {
+    .portfolio-featured__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-xl) var(--space-lg);
+    }
+  }
+
+  .featured-card {
+    margin: 0;
+  }
+
+  .featured-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    color: var(--ink);
+    text-decoration: none;
+    outline: none;
+  }
+
+  .featured-card__media {
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    transition:
+      transform var(--duration-base) var(--ease-out-quart),
+      box-shadow var(--duration-base) var(--ease-out-quart);
+  }
+
+  .featured-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .featured-card__link:hover .featured-card__media,
+  .featured-card__link:focus-visible .featured-card__media {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px color-mix(in oklab, var(--ink) 32%, transparent);
+  }
+
+  .featured-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .featured-card__role {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  .featured-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45ch;
+    text-wrap: balance;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .featured-card__arrow {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    color: var(--ink-muted);
+    transform: translateY(-0.05em);
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .featured-card__link:hover .featured-card__title,
+  .featured-card__link:focus-visible .featured-card__title {
+    color: var(--accent-ink);
+  }
+
+  .featured-card__link:hover .featured-card__arrow,
+  .featured-card__link:focus-visible .featured-card__arrow {
+    color: var(--accent);
+    transform: translate(0.15em, -0.15em);
+  }
+
+  .featured-card__desc {
+    font-family: var(--font-prose);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: var(--space-xs) 0 0;
+    text-wrap: pretty;
+    max-width: 56ch;
+  }
+
+  .featured-card__tags {
+    list-style: none;
+    margin: var(--space-sm) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4ch 0.5ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+  }
+
+  .featured-card__tags li {
+    display: inline-block;
+    padding: 0.1em 0.5em;
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    color: var(--ink-muted);
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.02em;
+    transition: background var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .featured-card__link:hover .featured-card__tags li,
+  .featured-card__link:focus-visible .featured-card__tags li {
+    background: color-mix(in oklab, var(--accent) 16%, transparent);
+  }
+
+  /* ----- Lab: compact auto-fit grid ----- */
+
+  .portfolio-lab {
+    margin: 0;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--rule);
+  }
+
+  .portfolio-lab__header {
+    margin: 0 0 var(--space-lg);
+  }
+
+  .portfolio-lab__heading {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin: 0;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  .portfolio-lab__hint {
+    font-family: var(--font-prose);
+    font-size: var(--text-small);
+    color: var(--ink-muted);
+    margin: var(--space-2xs) 0 0;
+    max-width: var(--measure);
+  }
+
+  .portfolio-lab__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .lab-card {
+    margin: 0;
+  }
+
+  .lab-card__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: var(--ink);
+    text-decoration: none;
+    outline: none;
+  }
+
+  .lab-card__link--inert {
+    cursor: default;
+  }
+
+  .lab-card__media {
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    transition:
+      transform var(--duration-base) var(--ease-out-quart),
+      box-shadow var(--duration-base) var(--ease-out-quart);
+  }
+
+  .lab-card__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 18%;
+    box-sizing: border-box;
+  }
+
+  .lab-card__link:hover:not(.lab-card__link--inert) .lab-card__media,
+  .lab-card__link:focus-visible .lab-card__media {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -14px color-mix(in oklab, var(--ink) 24%, transparent);
+  }
+
+  .lab-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+  }
+
+  .lab-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45ch;
+    text-wrap: balance;
+    transition: color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .lab-card__arrow {
+    font-family: var(--font-mono);
+    font-size: 0.65em;
+    color: var(--ink-muted);
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .lab-card__link:hover:not(.lab-card__link--inert) .lab-card__title,
+  .lab-card__link:focus-visible .lab-card__title {
+    color: var(--accent-ink);
+  }
+
+  .lab-card__link:hover:not(.lab-card__link--inert) .lab-card__arrow,
+  .lab-card__link:focus-visible .lab-card__arrow {
+    color: var(--accent);
+    transform: translate(0.15em, -0.15em);
+  }
+
+  .lab-card__desc {
+    font-family: var(--font-prose);
+    font-size: var(--text-small);
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: var(--space-2xs) 0 0;
+    text-wrap: pretty;
+  }
+
+  .lab-card__tags {
+    list-style: none;
+    margin: var(--space-xs) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3ch 0.4ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+  }
+
+  .lab-card__tags li {
+    display: inline-block;
+    padding: 0.05em 0.4em;
+    background: color-mix(in oklab, var(--accent) 8%, transparent);
+    color: var(--ink-muted);
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.02em;
+    transition: background var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .lab-card__link:hover:not(.lab-card__link--inert) .lab-card__tags li,
+  .lab-card__link:focus-visible .lab-card__tags li {
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
+  }
+
+  .lab-card__secondary {
+    margin: var(--space-xs) 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+
+  .lab-card__secondary a {
+    color: var(--ink-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+    text-underline-offset: 0.2em;
+  }
+
+  /* Stagger reveal — both grids cap at 6 to avoid laggy late entries. */
+  @media (prefers-reduced-motion: no-preference) {
+    .featured-card,
+    .lab-card {
+      opacity: 0;
+      transform: translateY(8px);
+      transition:
+        opacity var(--duration-slow) var(--ease-out-quart),
+        transform var(--duration-slow) var(--ease-out-quart);
+      transition-delay: calc(min(var(--i, 0), 6) * 50ms);
+    }
+    :global(.reveal-in) .featured-card,
+    :global(.reveal-in) .lab-card,
+    :global(.no-js) .featured-card,
+    :global(.no-js) .lab-card {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
