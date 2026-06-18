@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 2,
+  "title": "Design System: The mind of Esteban",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Pure White (body, light)",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.20 0.005 65)",
+          "oklch(0.32 0.008 65)",
+          "oklch(0.46 0.010 65)",
+          "oklch(0.60 0.010 65)",
+          "oklch(0.74 0.010 65)",
+          "oklch(0.86 0.008 65)",
+          "oklch(0.94 0.006 65)",
+          "oklch(1.00 0.000 0)"
+        ]
+      },
+      "bg-dark": {
+        "role": "neutral",
+        "displayName": "Near Black (body, dark)",
+        "canonical": "oklch(0.14 0.006 65)",
+        "tonalRamp": [
+          "oklch(0.10 0.006 65)",
+          "oklch(0.14 0.006 65)",
+          "oklch(0.22 0.008 65)",
+          "oklch(0.32 0.010 65)",
+          "oklch(0.46 0.010 65)",
+          "oklch(0.62 0.010 65)",
+          "oklch(0.78 0.008 65)",
+          "oklch(0.94 0.008 65)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface Warm (light)",
+        "canonical": "oklch(0.965 0.006 65)",
+        "tonalRamp": [
+          "oklch(0.20 0.006 65)",
+          "oklch(0.32 0.008 65)",
+          "oklch(0.46 0.010 65)",
+          "oklch(0.60 0.008 65)",
+          "oklch(0.74 0.008 65)",
+          "oklch(0.86 0.006 65)",
+          "oklch(0.965 0.006 65)",
+          "oklch(1.00 0.000 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink (primary text, light)",
+        "canonical": "oklch(0.2 0.005 65)",
+        "tonalRamp": [
+          "oklch(0.12 0.005 65)",
+          "oklch(0.20 0.005 65)",
+          "oklch(0.32 0.008 65)",
+          "oklch(0.42 0.012 65)",
+          "oklch(0.56 0.012 65)",
+          "oklch(0.70 0.010 65)",
+          "oklch(0.84 0.008 65)",
+          "oklch(0.96 0.006 65)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted (meta, kickers, dates)",
+        "canonical": "oklch(0.42 0.012 65)",
+        "tonalRamp": [
+          "oklch(0.20 0.005 65)",
+          "oklch(0.30 0.010 65)",
+          "oklch(0.42 0.012 65)",
+          "oklch(0.54 0.012 65)",
+          "oklch(0.66 0.012 65)",
+          "oklch(0.78 0.010 65)",
+          "oklch(0.88 0.008 65)",
+          "oklch(0.965 0.006 65)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Workshop Sodium",
+        "canonical": "oklch(0.58 0.155 60)",
+        "tonalRamp": [
+          "oklch(0.30 0.080 60)",
+          "oklch(0.40 0.120 60)",
+          "oklch(0.45 0.170 60)",
+          "oklch(0.58 0.155 60)",
+          "oklch(0.70 0.150 60)",
+          "oklch(0.82 0.155 60)",
+          "oklch(0.90 0.100 60)",
+          "oklch(0.94 0.050 60)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Workshop Sodium Ink (hover, code-pill text)",
+        "canonical": "oklch(0.45 0.17 60)",
+        "tonalRamp": [
+          "oklch(0.30 0.080 60)",
+          "oklch(0.40 0.140 60)",
+          "oklch(0.45 0.170 60)",
+          "oklch(0.58 0.155 60)",
+          "oklch(0.70 0.150 60)",
+          "oklch(0.82 0.155 60)",
+          "oklch(0.86 0.160 60)",
+          "oklch(0.94 0.050 60)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Workshop Sodium Soft (code-pill bg)",
+        "canonical": "oklch(0.94 0.05 60)"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule (1px workhorse divider)",
+        "canonical": "oklch(0.88 0.008 65)"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong (bullet dashes)",
+        "canonical": "oklch(0.78 0.012 65)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page H1s — Writing / Talks / About / CV / individual article titles. Bricolage Grotesque, balanced wrap."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "CV group titles, homepage hero name, larger section blocks. Bricolage Grotesque."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "In-row titles — blog post rows, talk rows, CV section headings. Bricolage Grotesque."
+      },
+      "body": {
+        "displayName": "Body (scan)",
+        "purpose": "General copy in scan-mode surfaces — indexes, navigation, kicker prose. Bricolage Grotesque."
+      },
+      "prose": {
+        "displayName": "Prose (read)",
+        "purpose": "Article body, /about/ prose, talks pitch line. Vollkorn serif. Capped at 65ch measure."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "Dates, kickers, footer, pagination. Geist Mono, +0.04em tracking, lowercase on kickers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hover-lift",
+        "value": "0 8px 24px -12px color-mix(in oklab, var(--ink) 24%, transparent)",
+        "purpose": "Diffuse lift under .post-row__hero on hover/focus-visible. The only resting-state shadow vocabulary in the system."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.165, 0.84, 0.44, 1)",
+        "purpose": "Default easing for state transitions — link color, hover lift, focus ring."
+      },
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Sharper exit for reveal stagger animations on row lists."
+      },
+      {
+        "name": "duration-instant",
+        "value": "80ms",
+        "purpose": "Hover color shifts — fast enough to feel immediate."
+      },
+      {
+        "name": "duration-fast",
+        "value": "140ms",
+        "purpose": "Default state transitions — link underlines, focus rings, kicker color."
+      },
+      {
+        "name": "duration-base",
+        "value": "240ms",
+        "purpose": "Hero hover lift, more deliberate hover states."
+      },
+      {
+        "name": "duration-slow",
+        "value": "420ms",
+        "purpose": "Row reveal stagger, page-load fades."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile-nav-wrap", "value": "540px" },
+      { "name": "row-stack", "value": "720px" },
+      { "name": "wide", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary PDF Button",
+      "kind": "button",
+      "refersTo": "pdf-button",
+      "description": "Bottom-of-CV download CTA. Solid ink fill, mono small text. The strongest single visual the system makes — one per page max.",
+      "html": "<a class=\"ds-pdf-button\" href=\"#\"><span>Download CV (PDF)</span><span aria-hidden=\"true\">↓</span></a>",
+      "css": ".ds-pdf-button { display: inline-flex; align-items: baseline; gap: 0.5ch; padding: 0.7rem 1.1rem; background: oklch(0.2 0.005 65); color: oklch(1 0 0); font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 0.9375rem; text-decoration: none; border-radius: 0.25rem; transition: background 140ms cubic-bezier(0.165,0.84,0.44,1), transform 140ms cubic-bezier(0.165,0.84,0.44,1); } .ds-pdf-button:hover, .ds-pdf-button:focus-visible { background: oklch(0.45 0.17 60); transform: translateY(-1px); outline: none; }"
+    },
+    {
+      "name": "Floating PDF Pill",
+      "kind": "button",
+      "refersTo": "pdf-button",
+      "description": "Quiet repeat of the PDF affordance — top-right floating pill on /cv/. Bordered, surface-tinted, mono.",
+      "html": "<a class=\"ds-pdf-pill\" href=\"#\"><span>Download full PDF</span><span aria-hidden=\"true\">↓</span></a>",
+      "css": ".ds-pdf-pill { display: inline-flex; align-items: baseline; gap: 0.4ch; padding: 0.3rem 0.6rem; border: 1px solid oklch(0.88 0.008 65); border-radius: 0.25rem; background: oklch(0.965 0.006 65); font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 0.8125rem; color: oklch(0.2 0.005 65); text-decoration: none; transition: border-color 140ms cubic-bezier(0.165,0.84,0.44,1), color 140ms cubic-bezier(0.165,0.84,0.44,1); } .ds-pdf-pill:hover, .ds-pdf-pill:focus-visible { border-color: oklch(0.58 0.155 60); color: oklch(0.45 0.17 60); outline: none; }"
+    },
+    {
+      "name": "Code Pill (signature)",
+      "kind": "custom",
+      "refersTo": "code-pill",
+      "description": "In-title technical-noun marker. Inline mono pill in a 14% Workshop Sodium tint with accent-ink text. Appears inside titles and prose only — never in nav, footer, or meta.",
+      "html": "<h2 class=\"ds-row-title\">Building <code class=\"ds-code-pill\">Backstage</code> plugins</h2>",
+      "css": ".ds-row-title { font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: oklch(0.2 0.005 65); margin: 0; } .ds-code-pill { font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 0.85em; font-weight: 600; padding: 0.05em 0.35em; background: color-mix(in oklab, oklch(0.58 0.155 60) 14%, transparent); color: oklch(0.45 0.17 60); border-radius: 0.25rem; letter-spacing: 0; }"
+    },
+    {
+      "name": "Nav Link (sticky header)",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Geist Mono small, ink-muted by default. Bottom-border on hover (ink) or current (accent). Lives inside the sticky header with backdrop blur.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link is-current\" aria-current=\"page\">Writing</a><a href=\"#\" class=\"ds-nav-link\">Talks</a><a href=\"#\" class=\"ds-nav-link\">CV</a><a href=\"#\" class=\"ds-nav-link\">About</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 1.5rem; padding: 0.5rem; } .ds-nav-link { font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em; color: oklch(0.42 0.012 65); text-decoration: none; padding: 0.25rem 0; border-bottom: 1px solid transparent; transition: color 140ms cubic-bezier(0.165,0.84,0.44,1), border-color 140ms cubic-bezier(0.165,0.84,0.44,1); } .ds-nav-link:hover, .ds-nav-link:focus-visible { color: oklch(0.2 0.005 65); border-color: oklch(0.2 0.005 65); outline: none; } .ds-nav-link.is-current { color: oklch(0.2 0.005 65); border-color: oklch(0.58 0.155 60); }"
+    },
+    {
+      "name": "Hero Thumbnail (row)",
+      "kind": "card",
+      "refersTo": "hero-thumbnail",
+      "description": "3:2 aspect frame for blog and talk row thumbnails. Surface-tinted bg, rounded-md, hover lift (the only resting-state shadow vocabulary).",
+      "html": "<a class=\"ds-row-link\" href=\"#\"><figure class=\"ds-hero-thumb\"><svg viewBox=\"0 0 24 24\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"xMidYMid meet\"><path d=\"M12 2.4 C 17.1 2.0, 21.7 6.3, 21.7 12.2 C 22.1 17.7, 17.4 21.9, 11.8 21.9 C 6.4 22.3, 2.1 17.6, 2.3 11.8 C 1.9 6.6, 6.7 2.6, 12 2.4 Z\" stroke=\"oklch(0.58 0.155 60)\" stroke-width=\"1.4\" fill=\"none\" stroke-linecap=\"round\"/><circle cx=\"12.5\" cy=\"12.2\" r=\"3.4\" fill=\"oklch(0.58 0.155 60)\"/></svg></figure></a>",
+      "css": ".ds-row-link { display: block; padding: 1rem; text-decoration: none; } .ds-hero-thumb { margin: 0; width: 17.5rem; aspect-ratio: 3 / 2; border-radius: 0.5rem; overflow: hidden; background: oklch(0.965 0.006 65); display: flex; align-items: center; justify-content: center; transition: transform 240ms cubic-bezier(0.165,0.84,0.44,1), box-shadow 240ms cubic-bezier(0.165,0.84,0.44,1); } .ds-row-link:hover .ds-hero-thumb, .ds-row-link:focus-visible .ds-hero-thumb { transform: translateY(-2px); box-shadow: 0 8px 24px -12px color-mix(in oklab, oklch(0.2 0.005 65) 24%, transparent); }"
+    },
+    {
+      "name": "Mono Kicker (signature)",
+      "kind": "chip",
+      "refersTo": "kicker",
+      "description": "Small mono lowercase tag above a row title — category, conference name, or year marker. Never uppercase, never tracked-eyebrow scaffolding.",
+      "html": "<p class=\"ds-kicker\">leadership</p>",
+      "css": ".ds-kicker { font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 0.8125rem; font-weight: 500; color: oklch(0.42 0.012 65); margin: 0; letter-spacing: 0.04em; text-transform: lowercase; }"
+    },
+    {
+      "name": "Sigil (brand mark)",
+      "kind": "custom",
+      "refersTo": "hero-thumbnail",
+      "description": "Wobbly ring + off-centre filled dot. Honey-colored. Re-used as wordmark suffix, footer dot, favicon, post-hero fallback (slug-seeded position/rotation variants).",
+      "html": "<span class=\"ds-sigil-wrap\"><svg class=\"ds-sigil\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M12 2.4 C 17.1 2.0, 21.7 6.3, 21.7 12.2 C 22.1 17.7, 17.4 21.9, 11.8 21.9 C 6.4 22.3, 2.1 17.6, 2.3 11.8 C 1.9 6.6, 6.7 2.6, 12 2.4 Z\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"12.5\" cy=\"12.2\" r=\"3.4\" fill=\"currentColor\"/></svg></span>",
+      "css": ".ds-sigil-wrap { display: inline-flex; color: oklch(0.58 0.155 60); line-height: 0; } .ds-sigil { width: 0.78em; height: 0.78em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Plainspoken Index",
+    "overview": "An archive that respects the reader's time. Newest-first lists, mono meta, no chrome that doesn't earn its keep. The site is one of three things at any moment — something to read (the writing), something to skim (the indexes / CV / talks shelf), or who is behind this (about + footer avatar). Everything else is gone, demoted, or hiding. The voice is plainspoken, opinionated, idiosyncratic (PRODUCT.md, verbatim).",
+    "keyCharacteristics": [
+      "One sans, one serif, one mono — read-modes vs scan-modes telegraphed by family.",
+      "OKLCH-only color tokens. Display-P3 wide-gamut on capable browsers; sRGB-clipped fallback otherwise.",
+      "Flat surfaces, tonal layering. Shadows are rare; surface tint + 1px rules carry depth.",
+      "Sigil as the brand mark. Reused as wordmark suffix, as post-hero fallback (varied), as the favicon. No second mark.",
+      "Honey accent on ≤10% of any given screen. Rarity is the point."
+    ],
+    "rules": [
+      {
+        "name": "The Workshop Sodium Rule",
+        "body": "The accent appears on ≤10% of any given screen. The Sigil counts. Link underlines count. A 100% sodium fill behind a hero is forbidden — drop it back to --accent-soft (10% tint) or use it as text color via --accent-ink, not as a flood.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warm Neutral Tint Rule",
+        "body": "All neutrals share hue 65 at chroma ≤ 0.012. No grey-blue, no cool slate, no green-tinted off-white. The whole grayscale ramp is one warm family.",
+        "section": "colors"
+      },
+      {
+        "name": "The True White Rule",
+        "body": "The light-mode body bg is oklch(1 0 0) — chroma 0. Tinted near-whites land in --surface, never in --bg. This is the defence against the cream/sand/parchment slop.",
+        "section": "colors"
+      },
+      {
+        "name": "The 65ch Rule",
+        "body": "Prose body lines are capped at var(--measure) (65ch) via max-width. Wider rows look cheap. The wide variant (--measure-wide = 78ch) exists for the CV grouped layout and contact-block prose where strict 65ch is too narrow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Read-vs-Scan Family Rule",
+        "body": "Vollkorn is reserved for surfaces the reader settles into — articles, /about/, the talks pitch. Indexes, CVs, navigation, and all rows use Bricolage. Mixing serif into scan-mode surfaces is forbidden.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lowercase Kicker Rule",
+        "body": "Kickers are lowercase Geist Mono with +0.04em tracking. Never uppercase, never bold, never above a section heading as scaffolding. Lowercase keeps them as content tags and not as the AI-default tracked uppercase eyebrow.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. Shadows are only state responses (hover, focus, drag). Anywhere a shadow appears at rest is a defect.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Rule Over Shadow Rule",
+        "body": "When you want to separate two stacked sections, reach for a 1px border-top: 1px solid var(--rule) first. Shadows always look heavier than rules; the site reads as 'carefully spaced', not 'dimensionally elaborate'.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use oklch() for every color token. The whole palette lives in src/styles/global.css as OKLCH custom properties.",
+      "Do use Bricolage for scan-mode surfaces and Vollkorn for read-mode.",
+      "Do reach for a 1px border-top: 1px solid var(--rule) first to separate stacked sections.",
+      "Do wrap technical proper nouns in backticks inside titles. The renderer translates them to code-pill spans.",
+      "Do respect the 65ch measure on prose.",
+      "Do use the Sigil — not a monogram, not a logo wordmark — as the brand mark.",
+      "Do test light AND dark at 1440 / 768 / 375.",
+      "Do cap the Workshop Sodium accent at ~10% screen coverage."
+    ],
+    "donts": [
+      "Don't ship the cream / sand / parchment editorial-warm template. Body bg is oklch(1 0 0) (pure white) in light mode, period.",
+      "Don't ship generic SaaS landing — no gradient heroes, no big-number metric rows, no triplet of icon-heading-text feature cards.",
+      "Don't ship Medium-clone blog — no grey text on white, no big centred serif headlines without chrome.",
+      "Don't add a second display font. Bricolage Grotesque is the only sans for headings, titles, body in scan-mode, and the hero.",
+      "Don't add tracked uppercase eyebrows. Lowercase Geist Mono kickers are the system's answer.",
+      "Don't add numbered section markers (01 · About / 02 · Process). Numbers only earn their place when the sequence carries information.",
+      "Don't use border-left greater than 1px as a colored stripe.",
+      "Don't use background-clip: text with a gradient. No gradient text anywhere.",
+      "Don't use glassmorphism decoratively. Backdrop-blur is reserved for the sticky header.",
+      "Don't use circular avatars or round profile crops. The site's idiom is square + sigil.",
+      "Don't add box-shadow at rest. Shadows are state responses only.",
+      "Don't add a hero-metric row (SaaS cliché).",
+      "Don't ship a card grid (identical icon-heading-text tiles)."
+    ]
+  }
+}
