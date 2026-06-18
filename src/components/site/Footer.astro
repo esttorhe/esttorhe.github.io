@@ -2,7 +2,9 @@
 // ABOUTME: Site footer — mono dot-separated socials + copyright.
 // ABOUTME: Deliberately quiet; the writing carries the page, not the chrome.
 
+import { Image } from 'astro:assets';
 import Sigil from '../marks/Sigil.astro';
+import mePhoto from '../../assets/me.png';
 
 const year = new Date().getFullYear();
 
@@ -37,6 +39,16 @@ const socials = [
 
   <p class="site-footer__line">
     <span class="site-footer__copyright">
+      <a class="site-footer__avatar" href="/about/" aria-label="About Esteban Torres">
+        <Image
+          src={mePhoto}
+          alt=""
+          widths={[44, 88]}
+          sizes="44px"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
       © {year}
       <a href="/about/">Esteban Torres</a>
     </span>
@@ -107,7 +119,13 @@ const socials = [
     flex-wrap: wrap;
   }
 
-  .site-footer__copyright a {
+  .site-footer__copyright {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6ch;
+  }
+
+  .site-footer__copyright a:not(.site-footer__avatar) {
     color: var(--ink-muted);
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -116,10 +134,36 @@ const socials = [
       border-color var(--duration-fast) var(--ease-out-quart);
   }
 
-  .site-footer__copyright a:hover,
-  .site-footer__copyright a:focus-visible {
+  .site-footer__copyright a:not(.site-footer__avatar):hover,
+  .site-footer__copyright a:not(.site-footer__avatar):focus-visible {
     color: var(--ink);
     border-color: var(--accent);
+  }
+
+  /* Small square photo to the left of the copyright. Honest portrait of who
+     stands behind the words; quiet enough to not dominate the chrome. */
+  .site-footer__avatar {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--surface);
+    margin-right: 0.2ch;
+    transition: transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .site-footer__avatar :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .site-footer__avatar:hover,
+  .site-footer__avatar:focus-visible {
+    transform: translateY(-1px);
+    outline: none;
   }
 
   .site-footer__location {

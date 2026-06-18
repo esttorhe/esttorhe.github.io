@@ -2,7 +2,9 @@
 // ABOUTME: /about/ — first-person prose. Spine ported forward from the Hugo-era about page and updated to current role.
 // ABOUTME: Voice is Esteban's. Tweak the prose directly in this file; structure + styling stay.
 
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import mePhoto from '../assets/me.png';
 ---
 
 <BaseLayout
@@ -15,57 +17,72 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h1 class="about-page__title">About</h1>
     </header>
 
-    <div class="prose about-page__prose reveal">
-      <p>
-        Hi; my name is <strong>Esteban Torres</strong> and I'm currently
-        <code>Head of Platform Engineering</code> at
-        <a href="https://zenjob.com" rel="noopener noreferrer">Zenjob</a>, in Berlin.
-      </p>
+    <div class="about-page__body">
+      <figure class="about-page__photo reveal" aria-hidden="false">
+        <Image
+          src={mePhoto}
+          alt="Esteban Torres — selfie styled as a Spotify 'This Is' playlist cover."
+          widths={[280, 420, 560, 840]}
+          sizes="(max-width: 720px) min(320px, 100vw), 280px"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
 
-      <p>
-        I'm originally from 🇨🇷 Costa Rica, where I started as an
-        <code>Engineer</code> and quickly jumped on the <code>iOS</code> bandwagon. That led me to a job
-        as an <code>iOS</code> engineer at
-        <a href="https://soundcloud.com" rel="noopener noreferrer">SoundCloud</a>, which led to me
-        and my family moving to 🇩🇪.
-      </p>
+      <div class="prose about-page__prose reveal">
+        <p>
+          Hi; my name is <strong>Esteban Torres</strong> and I'm currently
+          <code>Head of Platform Engineering</code> at
+          <a href="https://zenjob.com" rel="noopener noreferrer">Zenjob</a>, in Berlin.
+        </p>
 
-      <p>
-        During my time at SoundCloud I wore many hats: <code>iOS</code> engineer (<code
-          >Listening Cluster</code
-        >, then <code>Core Clients</code>), <code>Cross Platform</code> engineer (<code
-          >Core Clients</code
-        >, where I got to do <code>Scala</code>, <code>Go</code>, some
-        <code>Production Engineering</code>, <code>iOS</code> and <code>Android</code> development), and
-        most recently <code>Engineering Management</code>. After SoundCloud I went to
-        <a href="https://spotify.com" rel="noopener noreferrer">Spotify</a>, working closely with
-        <a href="https://backstage.spotify.com" rel="noopener noreferrer"><code>Backstage</code></a
-        >. These days I lead Platform Engineering at Zenjob.
-      </p>
+        <p>
+          I'm originally from 🇨🇷 Costa Rica, where I started as an
+          <code>Engineer</code> and quickly jumped on the <code>iOS</code> bandwagon. That led me to a
+          job as an <code>iOS</code> engineer at
+          <a href="https://soundcloud.com" rel="noopener noreferrer">SoundCloud</a>, which led to me
+          and my family moving to 🇩🇪.
+        </p>
 
-      <p>
-        I used to be moderately active in the <code>iOS</code> community and tried to attend different
-        conferences (as an attendee as well as a speaker) but since I switched careers I've slowed down
-        a lot on that front.
-      </p>
+        <p>
+          During my time at SoundCloud I wore many hats: <code>iOS</code> engineer (<code
+            >Listening Cluster</code
+          >, then <code>Core Clients</code>), <code>Cross Platform</code> engineer (<code
+            >Core Clients</code
+          >, where I got to do <code>Scala</code>, <code>Go</code>, some
+          <code>Production Engineering</code>, <code>iOS</code> and <code>Android</code> development),
+          and most recently <code>Engineering Management</code>. After SoundCloud I went to
+          <a href="https://spotify.com" rel="noopener noreferrer">Spotify</a>, working closely with
+          <a href="https://backstage.spotify.com" rel="noopener noreferrer"
+            ><code>Backstage</code></a
+          >. These days I lead Platform Engineering at Zenjob.
+        </p>
 
-      <p>
-        It's been a few years since I started working as an <code>Engineering Manager</code> and lots
-        of things have happened along the way. The day-to-day has shifted from "I have no idea what I
-        am doing" to "I have no idea what I am doing, but I've seen this before". I haven't stopped coding,
-        mainly in <code>Go</code> and very recently started learning <code>Rust</code>.
-      </p>
+        <p>
+          I used to be moderately active in the <code>iOS</code> community and tried to attend different
+          conferences (as an attendee as well as a speaker) but since I switched careers I've slowed down
+          a lot on that front.
+        </p>
 
-      <p>
-        I've been jotting down what I learn in a good old paper notebook which I'll try to migrate
-        to a more modern place on this website.
-      </p>
+        <p>
+          It's been a few years since I started working as an <code>Engineering Manager</code> and lots
+          of things have happened along the way. The day-to-day has shifted from "I have no idea what
+          I am doing" to "I have no idea what I am doing, but I've seen this before". I haven't stopped
+          coding, mainly in <code>Go</code> and very recently started learning <code>Rust</code>.
+        </p>
 
-      <p class="about-page__contact">
-        <strong>Best way to reach me</strong>: email at
-        <a href="mailto:me@estebantorr.es">me@estebantorr.es</a>. Elsewhere lives in the footer:
-        GitHub, Mastodon, LinkedIn, Bluesky, RSS.
-      </p>
+        <p>
+          I've been jotting down what I learn in a good old paper notebook which I'll try to migrate
+          to a more modern place on this website.
+        </p>
+
+        <p class="about-page__contact">
+          <strong>Best way to reach me</strong>: email at
+          <a href="mailto:me@estebantorr.es">me@estebantorr.es</a>. Elsewhere lives in the footer:
+          GitHub, Mastodon, LinkedIn, Bluesky, RSS.
+        </p>
+      </div>
     </div>
 
     <nav class="about-page__elsewhere" aria-label="More on this site">
@@ -99,6 +116,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--ink);
     margin: 0;
     text-wrap: balance;
+  }
+
+  /* Two-column body on desktop (prose left, photo right). Stacks on mobile
+     with the photo on top (source order: photo first, prose second, so the
+     stack lands photo → prose naturally). */
+  .about-page__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  @media (min-width: 720px) {
+    .about-page__body {
+      grid-template-columns: minmax(0, 1fr) 280px;
+      column-gap: var(--space-xl);
+    }
+    .about-page__prose {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .about-page__photo {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  .about-page__photo {
+    margin: 0;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .about-page__photo :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Reuse .prose typography (Vollkorn body + Bricolage headings) — same module the
