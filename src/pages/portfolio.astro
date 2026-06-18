@@ -27,7 +27,13 @@ const { featured, lab } = portfolio;
             <li class="featured-card" style={`--i: ${i}`}>
               <a class="featured-card__link" href={item.url} rel="noopener noreferrer">
                 <figure
-                  class={`featured-card__media featured-card__media--${item.imageMode ?? 'cover'}`}
+                  class={[
+                    'featured-card__media',
+                    `featured-card__media--${item.imageMode ?? 'cover'}`,
+                    item.imageInvertOnDark ? 'featured-card__media--invert-dark' : '',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
                 >
                   <img
                     src={item.image}
@@ -217,6 +223,18 @@ const { featured, lab } = portfolio;
     object-fit: contain;
     padding: 14%;
     box-sizing: border-box;
+  }
+
+  /* Invert dark: flip a black-on-transparent logo so it shows in dark mode.
+     Matches both explicit data-theme="dark" and system-dark when the user
+     hasn't picked a theme. */
+  :global(html[data-theme='dark']) .featured-card__media--invert-dark img {
+    filter: invert(1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(html:not([data-theme])) .featured-card__media--invert-dark img {
+      filter: invert(1);
+    }
   }
 
   .featured-card__link:hover .featured-card__media,

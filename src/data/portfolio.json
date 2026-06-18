@@ -32,7 +32,8 @@
       "url": "https://quik.so",
       "role": "Co-founder",
       "image": "/assets/images/portfolio/quik.png",
-      "imageMode": "logo"
+      "imageMode": "logo",
+      "imageInvertOnDark": true
     },
     {
       "title": "Backstage by Spotify",

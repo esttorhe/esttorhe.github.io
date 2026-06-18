@@ -19,6 +19,11 @@ export interface FeaturedItem {
    *   logo PNGs with transparency.
    */
   imageMode?: 'cover' | 'logo';
+  /**
+   * When true, applies a `filter: invert(1)` to the image in dark mode only.
+   * Use for black-on-transparent logos that would disappear on the dark surface.
+   */
+  imageInvertOnDark?: boolean;
 }
 
 export interface LabItem {
