@@ -12,6 +12,13 @@ export interface FeaturedItem {
   role: string;
   /** Absolute path under /assets/images/portfolio/ (lives in public/). */
   image: string;
+  /**
+   * 'cover' (default): image fills the 1:1 frame. Right for branded full-bleed
+   *   screenshots / branded cards.
+   * 'logo': image sits centred with padding on the surface bg. Right for bare
+   *   logo PNGs with transparency.
+   */
+  imageMode?: 'cover' | 'logo';
 }
 
 export interface LabItem {

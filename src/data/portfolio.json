@@ -22,7 +22,8 @@
       "tags": ["SaaS", "B2B", "Platform"],
       "url": "https://fitforge.fit",
       "role": "Co-founder",
-      "image": "/assets/images/portfolio/fitforge.png"
+      "image": "/assets/images/portfolio/fitforge.png",
+      "imageMode": "logo"
     },
     {
       "title": "Quik",
@@ -30,7 +31,8 @@
       "tags": ["AI", "SaaS", "Product"],
       "url": "https://quik.so",
       "role": "Co-founder",
-      "image": "/assets/images/portfolio/quik.png"
+      "image": "/assets/images/portfolio/quik.png",
+      "imageMode": "logo"
     },
     {
       "title": "Backstage by Spotify",
