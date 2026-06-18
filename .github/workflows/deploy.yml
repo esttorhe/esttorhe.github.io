@@ -63,4 +63,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Wrangler 4+ is required for assets-only Workers (no `main` field).
+          # The action's default (3.x) errors with "Missing entry-point".
+          wranglerVersion: '4'
           command: deploy
