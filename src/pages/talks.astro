@@ -1,0 +1,394 @@
+---
+// ABOUTME: /talks/ — talks shelf. Reverse-chrono archive with Speaker Deck cover thumbnails inline.
+// ABOUTME: Mirrors the /blog/ row pattern (hero left, text right) for surface consistency.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sigil from '../components/marks/Sigil.astro';
+import { talks } from '../data/talks';
+
+const totalCount = talks.length;
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit',
+});
+
+/**
+ * Render a title string with backtick-delimited code spans. The Hugo data
+ * uses backticks to flag identifiers / framework names; we preserve that.
+ */
+function renderTitle(s: string): { kind: 'text' | 'code'; value: string }[] {
+  const parts: { kind: 'text' | 'code'; value: string }[] = [];
+  let i = 0;
+  while (i < s.length) {
+    const tickStart = s.indexOf('`', i);
+    if (tickStart === -1) {
+      parts.push({ kind: 'text', value: s.slice(i) });
+      break;
+    }
+    if (tickStart > i) parts.push({ kind: 'text', value: s.slice(i, tickStart) });
+    const tickEnd = s.indexOf('`', tickStart + 1);
+    if (tickEnd === -1) {
+      // Unmatched backtick — render literally.
+      parts.push({ kind: 'text', value: s.slice(tickStart) });
+      break;
+    }
+    parts.push({ kind: 'code', value: s.slice(tickStart + 1, tickEnd) });
+    i = tickEnd + 1;
+  }
+  return parts;
+}
+
+interface DecoratedTalk {
+  talk: (typeof talks)[number];
+  parts: ReturnType<typeof renderTitle>;
+  date: Date;
+  index: number;
+}
+
+const decorated: DecoratedTalk[] = talks.map((talk, index) => ({
+  talk,
+  parts: renderTitle(talk.title),
+  date: new Date(talk.date),
+  index,
+}));
+---
+
+<BaseLayout
+  title="Talks"
+  description={`${totalCount} conference talks. Speaker Deck slides; some with video. iOS architecture, RxSwift, VIPER, and a smattering of meta-tooling.`}
+  current="talks"
+>
+  <section class="talks-page" aria-labelledby="talks-heading">
+    <header class="talks-page__header reveal">
+      <h1 id="talks-heading" class="talks-page__title">Talks</h1>
+      <p class="talks-page__meta tabular">
+        <span>{totalCount} talks</span>
+        <span class="talks-page__sep" aria-hidden="true">·</span>
+        <span>newest first</span>
+      </p>
+      <p class="talks-page__pitch">
+        I'm not on the conference circuit these days, but if you're organising an event and think
+        there's a fit, the door is open. Email
+        <a href="mailto:me@estebantorr.es">me@estebantorr.es</a>.
+      </p>
+    </header>
+
+    <ol class="talks-page__list reveal-stagger">
+      {
+        decorated.map(({ talk, parts, date, index }) => (
+          <li class="talks-page__entry" style={`--i: ${index}`}>
+            <article class="talk-row">
+              <figure
+                class={`talk-row__cover ${talk.coverImage ? 'talk-row__cover--image' : 'talk-row__cover--fallback'}`}
+                aria-hidden="true"
+              >
+                {talk.coverImage ? (
+                  <img src={talk.coverImage} alt="" loading="lazy" decoding="async" />
+                ) : (
+                  <Sigil size="60%" />
+                )}
+              </figure>
+
+              <div class="talk-row__text">
+                <p class="talk-row__kicker tabular">
+                  {talk.conferenceUrl ? (
+                    <a href={talk.conferenceUrl} rel="noopener noreferrer">
+                      {talk.conference}
+                    </a>
+                  ) : (
+                    talk.conference
+                  )}
+                </p>
+
+                <h2 class="talk-row__title">
+                  {parts.map((p) =>
+                    p.kind === 'code' ? <code>{p.value}</code> : <Fragment>{p.value}</Fragment>,
+                  )}
+                </h2>
+
+                {talk.description && <p class="talk-row__lede">{talk.description}</p>}
+
+                <p class="talk-row__meta tabular">
+                  <time datetime={talk.date}>{dateFormat.format(date)}</time>
+                  {talk.location && (
+                    <>
+                      <span class="talk-row__sep" aria-hidden="true">
+                        ·
+                      </span>
+                      <span>{talk.location}</span>
+                    </>
+                  )}
+                  {talk.slidesUrl && (
+                    <>
+                      <span class="talk-row__sep" aria-hidden="true">
+                        ·
+                      </span>
+                      <a class="talk-row__link" href={talk.slidesUrl} rel="noopener noreferrer">
+                        slides <span aria-hidden="true">→</span>
+                      </a>
+                    </>
+                  )}
+                  {talk.videoUrl && (
+                    <>
+                      <span class="talk-row__sep" aria-hidden="true">
+                        ·
+                      </span>
+                      <a class="talk-row__link" href={talk.videoUrl} rel="noopener noreferrer">
+                        video <span aria-hidden="true">→</span>
+                      </a>
+                    </>
+                  )}
+                </p>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .talks-page {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding-top: var(--space-md);
+  }
+
+  .talks-page__header {
+    margin-bottom: var(--space-xl);
+    max-width: var(--measure-wide);
+  }
+
+  .talks-page__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--text-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin: 0 0 var(--space-xs);
+    text-wrap: balance;
+  }
+
+  .talks-page__meta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.55ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0 0 var(--space-md);
+  }
+
+  .talks-page__sep {
+    opacity: 0.5;
+  }
+
+  .talks-page__pitch {
+    font-family: var(--font-prose);
+    font-size: var(--text-body);
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0;
+    max-width: var(--measure);
+  }
+
+  .talks-page__pitch a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      text-decoration-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .talks-page__pitch a:hover,
+  .talks-page__pitch a:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+    outline: none;
+  }
+
+  .talks-page__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .talks-page__entry {
+    margin: 0;
+  }
+
+  /* Row — mirrors the /blog/ PostListRow grid: cover left, text right. */
+  .talk-row {
+    display: grid;
+    grid-template-columns: 17.5rem 1fr;
+    column-gap: var(--space-lg);
+    align-items: start;
+    padding: var(--space-md) 0;
+  }
+
+  .talk-row__cover {
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .talk-row__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .talk-row__cover--fallback {
+    color: var(--accent);
+  }
+
+  .talk-row__text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-top: 0.25rem;
+  }
+
+  .talk-row__kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  .talk-row__kicker a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .talk-row__kicker a:hover,
+  .talk-row__kicker a:focus-visible {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .talk-row__title {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .talk-row__title code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.05em 0.35em;
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
+    color: var(--accent-ink);
+    border-radius: 0.25rem;
+    letter-spacing: 0;
+  }
+
+  .talk-row__lede {
+    font-family: var(--font-prose);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    color: var(--ink-muted);
+    margin: 0;
+    text-wrap: pretty;
+    max-width: 56ch;
+  }
+
+  .talk-row__meta {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.55ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+    margin: 0;
+    margin-top: var(--space-2xs);
+  }
+
+  .talk-row__sep {
+    opacity: 0.55;
+  }
+
+  .talk-row__link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+    text-underline-offset: 0.2em;
+    transition:
+      color var(--duration-fast) var(--ease-out-quart),
+      text-decoration-color var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .talk-row__link:hover,
+  .talk-row__link:focus-visible {
+    color: var(--accent-ink);
+    text-decoration-color: currentColor;
+    outline: none;
+  }
+
+  @media (max-width: 720px) {
+    .talks-page__header {
+      margin-bottom: var(--space-lg);
+    }
+
+    .talk-row {
+      grid-template-columns: 1fr;
+      row-gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+    }
+
+    .talk-row__title {
+      font-size: var(--text-h3);
+    }
+
+    .talk-row__lede {
+      font-size: var(--text-small);
+    }
+  }
+
+  /* Stagger reveal — caps at 6 since 8 entries is short enough that a long
+     cascade would feel sluggish. */
+  @media (prefers-reduced-motion: no-preference) {
+    .talks-page__entry {
+      opacity: 0;
+      transform: translateY(8px);
+      transition:
+        opacity var(--duration-slow) var(--ease-out-quart),
+        transform var(--duration-slow) var(--ease-out-quart);
+      transition-delay: calc(min(var(--i, 0), 6) * 45ms);
+    }
+
+    :global(.reveal-in) .talks-page__entry,
+    :global(.no-js) .talks-page__entry {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
