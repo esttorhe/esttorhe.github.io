@@ -27,7 +27,11 @@ const resolution = resolveHero({
 
 const fallbackSvg =
   resolution.kind === 'fallback'
-    ? generateHeroFallbackSvg({ title: resolution.title, category: resolution.category })
+    ? generateHeroFallbackSvg({
+        title: resolution.title,
+        category: resolution.category,
+        seed: resolution.seed,
+      })
     : null;
 ---
 

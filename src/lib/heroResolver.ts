@@ -36,6 +36,8 @@ export type HeroResolution =
       title: string;
       /** Category used as the small mono kicker above the title. */
       category?: string;
+      /** Slug used to seed deterministic composition variation. */
+      seed: string;
       /** Accessible alt text describing the fallback illustration. */
       alt: string;
     };
@@ -82,6 +84,7 @@ export function resolveHero(input: ResolveInput): HeroResolution {
     kind: 'fallback',
     title,
     category,
+    seed: slug,
     alt: `Brand mark and post title for ${title}`,
   };
 }
