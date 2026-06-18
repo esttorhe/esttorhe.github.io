@@ -12,7 +12,7 @@ on:
   push:
     # Transitional during the astro-v2 → main rename. Once main is the
     # default and a deploy from main has been verified, drop astro-v2.
-    branches: [astro-v2, main]
+    branches: [main]
 
 concurrency:
   group: deploy-${{ github.event.pull_request.number || github.ref }}
