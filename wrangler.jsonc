@@ -1,0 +1,11 @@
+// ABOUTME: Cloudflare Worker (static assets only, no main script) for estebantorr.es.
+// ABOUTME: Astro emits to dist/; CF serves that bucket directly. No SPA fallback — this is an MPA.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "estebantorres-es",
+  "compatibility_date": "2026-06-18",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,66 @@
+# ABOUTME: Builds the Astro site and deploys to Cloudflare (Workers + static assets, not Pages).
+# ABOUTME: Push to astro-v2 = production deploy. PRs run build-only (validate that nothing's broken; no live deploy).
+
+name: Deploy
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+  push:
+    branches: [astro-v2]
+
+concurrency:
+  group: deploy-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    # Public repo + secrets in workflow = forks could try to deploy. Gate the
+    # whole job: push events to astro-v2 (which require push access already),
+    # workflow_dispatch (manual, repo-permissioned), and PRs authored by
+    # esttorhe. Random fork PRs short-circuit before burning CI minutes.
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.user.login == 'esttorhe')
+    permissions:
+      contents: read
+      pull-requests: write
+      deployments: write
+    env:
+      # PUBLIC_POSTHOG_KEY missing = no PostHog snippet emitted (see PR #95).
+      PUBLIC_POSTHOG_KEY: ${{ secrets.PUBLIC_POSTHOG_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install mise + pinned toolchain
+        uses: jdx/mise-action@v2
+        with:
+          install: true
+          cache: true
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build Astro site
+        run: bun run build
+
+      # Production deploy: push to astro-v2 only. Workers + static-assets target
+      # (not Pages — CF deprecated the Pages create flow). `wrangler.jsonc` at
+      # the repo root carries the project name + assets config.
+      - name: Deploy to Cloudflare Workers (production)
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
