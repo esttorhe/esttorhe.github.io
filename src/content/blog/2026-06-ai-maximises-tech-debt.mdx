@@ -1,0 +1,79 @@
+---
+title: 'AI maximises tech debt. Engineers hide it'
+date: 2026-06-18T12:00:00Z
+tags:
+  - ai
+  - tech-debt
+  - engineering
+category: Tech
+description: 'AI accelerates feature delivery, but it multiplies the tech debt engineers quietly take on. How to surface and pay it down with the same tools creating it.'
+featured_image_alt: 'A sloth in jeans rummaging through a pile of broken machinery while small robots toss more debris onto the heap.'
+---
+
+## The AI Acceleration Paradox
+
+In recent months, I've noticed many articles by leaders and software engineers discussing how AI accelerates feature development.
+
+Many articles openly discuss how much code engineers are pushing, the features being released, and how companies use AI to maximize output.
+
+I'm in the same situation, juggling up to 3 projects and running multiple agents to accomplish more in less time. Some detractors call this a mirage or a bubble.
+
+Regardless of opinions, a practical reality often overlooked is this: increased speed and features set higher expectations. This drives a demand for even faster feature delivery, causing us to use every tool available. Just like before AI, one such tool is accruing Tech Debt.
+
+As most know, Tech Debt is a viable development tool. Like a loan, it can accelerate a project or provide a necessary seed to get started. Also like its financial counterpart, we must pay it soon, or interest will accrue and consequences will eventually catch up.
+
+With features deploying faster and under increased pressure, engineers globally are accumulating Tech Debt to meet expectations. Like unforgiving creditors, the neglected code-bases and unmanaged complexity are now presenting dire consequences.
+
+## The Multiplication of Technical Debt
+
+Recently, I spoke with a Staff Engineer at an AI company (one whose core domain is AI and heavily relies on generative AI internally). He honestly asked what could be done to tame AI-powered Tech Debt.
+
+Naively, I suggested tracking it on a board with tags and cost, then allowing agents to address it when appropriate. The added benefit: engineers would feel better seeing the tech debt log diminish.
+
+And sure, this sounds great, which the engineer agreed, but then he asked me, but what if no one is tracking it?
+
+That's a different obstacle, more tied to engineering culture and process gaps, which I mentioned: model expected behavior, raise issues often, etc. But a bigger question remains: there must be a place where this Tech Debt is surfaced. How else do they know they're accruing it? You don't simply open your bank account and find extra money, nor do you accidentally get a loan without knowing.
+
+The same applies to software. Engineers are taking on debt to meet higher expectations and the pressure to deliver faster. Sometimes this is a conscious choice. Other times, it happens unknowingly when we accept AI-generated code we do not entirely grasp.
+
+## The Hidden Nature of Modern Debt
+
+The acceleration of technology and the widespread availability of generative AI are transforming every area, including software engineering. This shift goes beyond just code generation and fundamentally changes how software is developed.
+
+We need to adapt, not out of fear of being left behind, that's not the point. We adapt because the industry has changed. Just as mechanical and digital calculators fundamentally altered calculations, finances, and taxes, AI must similarly reshape software development.
+
+Today, we can debate the use of generative AI, but putting that aside, software engineering is increasingly shifting left. Engineers are focusing more on their strengths: thinking, proposing architectural direction, and utilizing agents to realize their vision.
+
+With this in mind, we also need to accept that just as much as we used to take debt, a lot of agents will also accrue Tech Debt, it needs to be embedded into our harnesses and instructions. There should be an allotted allowance with a threshold that can enable us to keep pushing the limits of what can be delivered and when; without blindly heading towards technical bankruptcy.
+
+### Developer Awareness vs. Systemic Tracking
+
+If we look at Tech Debt reaching code-bases now and infiltrating to production and we take a look at the times before AI, we might just look at a difference of cadence at best. Engineers have always done so, deliberately and responsibly, or, deliberately and sneakily.
+
+What do I mean by this? Well, there are some engineers that take on the loan, and responsibly they document it, sometimes even add the cost or impact of this Tech Debt and try to surface it as often trying to get time to tackle it.
+
+Others take on debt, which is fair and valid, but choose to ignore tracking it. With no paper trail, this creates a hidden time bomb. It eventually explodes, making development harder, introducing incidents and downtime, and causing initial speed gains to vanish as significant time and effort are spent on minimal changes.
+
+The need to systemically track the debt has always been there, and we have been nor great nor terrible at it. We have kind of managed up until now, some companies better than others, but ultimately the need has been there since the beginning of the software engineering adventure.
+
+## Surfacing Debt Through AI Pattern Recognition
+
+Given these issues and their impact, and recognizing that systemic change is needed for this 'different era' of software engineering, we could use the very thing maximizing the problem as a tool to track and pay down this debt.
+
+LLMs are highly effective at recognizing localized code patterns. With careful prompting and strong heuristics, we can guide agents to flag potential hidden Tech Debt in our code-bases, even if human review is still needed for architectural details.
+
+### Tooling for Continuous Discovery
+
+We can implement tooling, or even simple nightly actions, to analyze daily deltas or PR merges. This tooling would check changes, highlight potential hidden debt candidates, track them on a board with detailed analysis and suggested solutions, and perhaps estimate the impact if left unaddressed.
+
+Just by doing this we are already gaining a lot of insights, we are no longer flying blind towards engineering bankruptcy.
+
+The team now can verify if the candidates in the board are correct or false positives, with the impact, effort and size in there, the leaders can use this information to defend time to pay the debt and prevent future issues and eventual slowness in the development of new features.
+
+## Mitigating Debt with Autonomous Agent Harnesses
+
+That is not the final frontier. If we keep using agents to tackle approved debt tickets, we must remain cautious. Once the team validates flagged candidates and the proposed solution is solid, autonomous agents can open PRs to reduce the backlog. We just need strong human oversight so we do not create a feedback loop of AI fixing AI with lower quality code. Opening PRs for the team to check, reducing the Tech Debt backlog, benefiting the company and the speed, maintaining sane code standards; and to make things even better, the cycle won't stop because a new agent can analyze the new changes in tandem with whatever else has been merged to verify that the combination is not going to go unverified as potential debt.
+
+---
+
+Made with BlueTip 🦋 ([https://www.bluetip.ai](https://www.bluetip.ai))
