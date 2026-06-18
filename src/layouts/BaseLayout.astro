@@ -13,6 +13,12 @@ interface Props {
   bareTitle?: boolean;
   /** Which nav item is current, if any. */
   current?: 'home' | 'writing' | 'talks' | 'portfolio' | 'cv' | 'about';
+  /** Absolute URL of the social-card image (og:image / twitter:image). */
+  image?: string;
+  /** Accessible alt text for the social-card image. */
+  imageAlt?: string;
+  /** OpenGraph type — `article` on blog posts, `website` elsewhere. */
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -20,6 +26,9 @@ const {
   description = 'Mostly engineering musings from the mind of a Costarrican who transplanted to Berlin.',
   bareTitle = false,
   current,
+  image,
+  imageAlt,
+  ogType = 'website',
 } = Astro.props;
 
 const siteName = 'The mind of Esteban';
@@ -70,12 +79,16 @@ const posthogEnabled = import.meta.env.PROD && Boolean(posthogKey);
 
     <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
+    {image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@esttorhe" />
+    {image && <meta name="twitter:image" content={image} />}
+    {image && imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1c1714" media="(prefers-color-scheme: dark)" />
