@@ -36,6 +36,19 @@ try {
       )
     }
     <CvBody />
+    {
+      pdfAvailable && (
+        <footer class="cv__bottom">
+          <a class="cv__pdf-button" href={pdfRelPath} download>
+            <span>Download CV (PDF)</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+          <p class="cv__bottom-note tabular">
+            Full version — earlier roles, projects, and education included.
+          </p>
+        </footer>
+      )
+    }
   </article>
 </BaseLayout>
 
@@ -76,6 +89,56 @@ try {
       top: 0;
       right: 0;
       margin: 0;
+    }
+  }
+
+  /* Bottom of the page — a more substantial repeat of the same affordance.
+     Bigger hit target than the top pill, with a one-line note explaining
+     what 'full' means since the web view drops earlier roles + projects. */
+  .cv__bottom {
+    margin: var(--space-xl) 0 0;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .cv__pdf-button {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5ch;
+    padding: 0.7rem 1.1rem;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: var(--text-small);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition:
+      background var(--duration-fast) var(--ease-out-quart),
+      transform var(--duration-fast) var(--ease-out-quart);
+  }
+
+  .cv__pdf-button:hover,
+  .cv__pdf-button:focus-visible {
+    background: var(--accent-ink);
+    color: var(--bg);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .cv__bottom-note {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    color: var(--ink-muted);
+  }
+
+  @media print {
+    .cv__bottom {
+      display: none !important;
     }
   }
 </style>
