@@ -17,6 +17,8 @@ interface Props {
   image?: string;
   /** Accessible alt text for the social-card image. */
   imageAlt?: string;
+  /** OpenGraph type — `article` on blog posts, `website` elsewhere. */
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   current,
   image,
   imageAlt,
+  ogType = 'website',
 } = Astro.props;
 
 const siteName = 'The mind of Esteban';
@@ -76,7 +79,7 @@ const posthogEnabled = import.meta.env.PROD && Boolean(posthogKey);
 
     <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
