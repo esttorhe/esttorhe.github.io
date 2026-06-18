@@ -10,7 +10,9 @@ on:
       - 'docs/**'
       - '**/*.md'
   push:
-    branches: [astro-v2]
+    # Transitional during the astro-v2 → main rename. Once main is the
+    # default and a deploy from main has been verified, drop astro-v2.
+    branches: [main]
 
 concurrency:
   group: deploy-${{ github.event.pull_request.number || github.ref }}
