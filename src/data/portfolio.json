@@ -17,6 +17,25 @@
       "image": "/assets/images/portfolio/zenjob.png"
     },
     {
+      "title": "FitForge",
+      "description": "Fitness management platform for gyms, trainers, and clients.",
+      "tags": ["SaaS", "B2B", "Platform"],
+      "url": "https://fitforge.fit",
+      "role": "Co-founder",
+      "image": "/assets/images/portfolio/fitforge.png",
+      "imageMode": "logo"
+    },
+    {
+      "title": "Quik",
+      "description": "AI-native product discovery. Ingests every signal your org produces, synthesizes patterns, ships features end to end.",
+      "tags": ["AI", "SaaS", "Product"],
+      "url": "https://quik.so",
+      "role": "Co-founder",
+      "image": "/assets/images/portfolio/quik.png",
+      "imageMode": "logo",
+      "imageInvertOnDark": true
+    },
+    {
       "title": "Backstage by Spotify",
       "description": "Engineering Manager – Lead a 10 engineers team distributed globally in charge of plugins and the foundational work for the plugins marketplace.",
       "tags": ["Leadership", "Platform", "OSS"],
