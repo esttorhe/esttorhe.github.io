@@ -20,41 +20,63 @@ const nav = [
 ] as const;
 ---
 
-<header class="site-header">
-  <a
-    class="site-mark"
-    href="/"
-    aria-label="Esteban Torres — home"
-    data-current={current === 'home'}
-  >
-    <span class="site-mark__name">Esteban Torres</span>
-    <span class="site-mark__sigil" aria-hidden="true">
-      <Sigil size="0.7em" />
-    </span>
-  </a>
+<div class="site-header-wrap">
+  <header class="site-header">
+    <a
+      class="site-mark"
+      href="/"
+      aria-label="Esteban Torres — home"
+      data-current={current === 'home'}
+    >
+      <span class="site-mark__name">Esteban Torres</span>
+      <span class="site-mark__sigil" aria-hidden="true">
+        <Sigil size="0.7em" />
+      </span>
+    </a>
 
-  <nav class="site-nav" aria-label="Primary">
-    <ul>
-      {
-        nav.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              aria-current={current === item.id ? 'page' : undefined}
-              class={current === item.id ? 'is-current' : undefined}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={current === item.id ? 'page' : undefined}
+                class={current === item.id ? 'is-current' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
 
-  <ThemeToggle />
-</header>
+    <ThemeToggle />
+  </header>
+</div>
 
 <style>
+  /* Sticky wrapper — full viewport width so the blurred bg covers content on
+     either side of the centered header even on wide viewports. */
+  .site-header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--bg) 84%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Browsers without backdrop-filter (older Firefox, some Android) get a
+     more opaque bg so content underneath doesn't bleed through unreadably. */
+  @supports not (backdrop-filter: blur(1px)) {
+    .site-header-wrap {
+      background: var(--bg);
+    }
+  }
+
   .site-header {
     display: flex;
     align-items: center;
@@ -63,7 +85,6 @@ const nav = [
     max-width: var(--max-content);
     width: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid var(--rule);
   }
 
   .site-mark {
