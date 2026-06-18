@@ -305,3 +305,205 @@
     break-inside: avoid;
   }
 }
+
+/* ---------------------------------------------------------------- *
+ *  Grouped Work Experience — used by web /cv/ only (not the PDF).  *
+ *  Each group: title + date span + narrative paragraph + roles.    *
+ * ---------------------------------------------------------------- */
+.cv-work {
+  margin: var(--space-lg) 0;
+}
+
+.cv-work__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0 0 var(--space-md);
+  color: var(--ink);
+}
+
+.cv-group {
+  margin: 0 0 var(--space-xl);
+}
+
+.cv-group:last-child {
+  margin-bottom: 0;
+}
+
+.cv-group__header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rule);
+}
+
+.cv-group:first-child .cv-group__header {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cv-group__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cv-group__dates {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--ink-muted);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.cv-group__narrative {
+  font-family: var(--font-prose);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0 0 var(--space-md);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.cv-group__roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 1px solid var(--rule);
+}
+
+.cv-role {
+  margin: 0;
+}
+
+.cv-role__head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin: 0 0 var(--space-2xs);
+}
+
+.cv-role__title {
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cv-role__dates {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.cv-role__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--text-small);
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.cv-role__points li {
+  margin: 0 0 var(--space-2xs);
+  padding-left: var(--space-sm);
+  position: relative;
+}
+
+.cv-role__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.4rem;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.cv-role__points code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  color: var(--accent-ink);
+  padding: 0.05em 0.3em;
+  border-radius: 0.2rem;
+}
+
+/* Orphan note — surfaces roles that exist in cv.md but aren't assigned to a
+   group, so an upstream CV edit doesn't silently disappear from the web view. */
+.cv-orphans {
+  margin: var(--space-lg) 0 0;
+  padding: var(--space-md);
+  border: 1px dashed var(--rule-strong);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  color: var(--ink-muted);
+}
+
+.cv-orphans__title {
+  margin: 0 0 var(--space-xs);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cv-orphans ul {
+  list-style: none;
+  margin: 0 0 var(--space-xs);
+  padding: 0;
+}
+
+.cv-orphans li {
+  margin: 0 0 var(--space-2xs);
+  padding: 0;
+}
+
+.cv-orphans li::before {
+  content: none;
+}
+
+.cv-orphans__hint {
+  margin: 0;
+  font-style: italic;
+}
+
+/* Mobile: collapse the two-column header layout so titles don't squeeze the
+   date span; let the date wrap below. */
+@media (max-width: 720px) {
+  .cv-group__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
+  .cv-role__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
+  .cv-group__roles {
+    padding-left: var(--space-sm);
+  }
+}
+
+/* Print: the grouped layout prints fine in a browser print of /cv/. The
+   downloadable PDF goes through /cv/print/ (flat) and never hits these
+   selectors, so no special print rules needed here. */
