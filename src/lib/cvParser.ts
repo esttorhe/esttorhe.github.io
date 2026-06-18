@@ -2,15 +2,15 @@
 // ABOUTME: Leaves the rest of the document (intro, skills, projects, education) intact for downstream markdown rendering.
 
 export interface ParsedRole {
-  /** Company / employer. Backtick-wrapped in cv.md; we strip the backticks. */
+  /** Company / employer — e.g. 'Zenjob'. */
   company: string;
-  /** Role title — e.g. 'Head of Platform Engineering'. */
+  /** Role title — e.g. 'Head of Platform Engineering'. Empty when the entry has no title (e.g. the consolidated 'Earlier Career' block). */
   title: string;
   /** Date-range string as it appears in cv.md — e.g. 'October 2025 to present'. */
   dateRange: string;
   /** Description text — joined lines from the role block, raw markdown preserved. */
   description: string;
-  /** Stable id used to map roles to groups: `${company}|${title}`. */
+  /** Stable id used to map roles to groups: `${company}|${title}` (title may be empty). */
   key: string;
 }
 
@@ -25,8 +25,9 @@ export interface ParsedCv {
 
 const WORK_HEADING = /^###\s+Work\s+Experience\s*$/m;
 const NEXT_SECTION_HEADING = /^###\s+/m;
-const ROLE_LINE = /^\*\*`([^`]+)`\*\*\s*\*([^*]+)\*\s*\*\*([^*]+)\*\*\s*$/;
-const ROLE_SEPARATOR = /<h3>\s*<\/h3>/g;
+// New cv.md format: `**Company** -- *Title* -- **Dates**` and (no-title variant) `**Company** -- **Dates**`.
+const ROLE_LINE_WITH_TITLE = /^\*\*([^*]+)\*\*\s+--\s+\*([^*]+)\*\s+--\s+\*\*([^*]+)\*\*\s*$/;
+const ROLE_LINE_NO_TITLE = /^\*\*([^*]+)\*\*\s+--\s+\*\*([^*]+)\*\*\s*$/;
 const SECTION_DIVIDER = /^-{3,}\s*$/m;
 
 /**
@@ -71,41 +72,54 @@ export function parseCv(source: string): ParsedCv {
 }
 
 function parseRoles(body: string): ParsedRole[] {
-  // Roles are separated by `<h3></h3>` literal tags (a Hugo-era quirk).
-  const blocks = body
-    .split(ROLE_SEPARATOR)
-    .map((b) => b.trim())
-    .filter(Boolean);
+  // Roles are no longer separated by `<h3></h3>` tags. We scan line-by-line,
+  // treating every line that matches a role-header pattern as the start of a
+  // new block. Everything until the next header (or EOF) is the description.
+  const lines = body.split('\n').map((l) => l.replace(/\r$/, ''));
+
+  type HeaderHit = { line: number; company: string; title: string; dateRange: string };
+  const headers: HeaderHit[] = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const stripped = lines[i].trim();
+    if (!stripped) continue;
+    const withTitle = stripped.match(ROLE_LINE_WITH_TITLE);
+    if (withTitle) {
+      headers.push({
+        line: i,
+        company: withTitle[1].trim(),
+        title: withTitle[2].trim(),
+        dateRange: withTitle[3].trim(),
+      });
+      continue;
+    }
+    const noTitle = stripped.match(ROLE_LINE_NO_TITLE);
+    if (noTitle) {
+      headers.push({
+        line: i,
+        company: noTitle[1].trim(),
+        title: '',
+        dateRange: noTitle[2].trim(),
+      });
+    }
+  }
 
   const roles: ParsedRole[] = [];
-  for (const block of blocks) {
-    const lines = block.split('\n').map((l) => l.replace(/\r$/, ''));
-    // First non-empty line is the role header; rest is the description body.
-    const headerIdx = lines.findIndex((l) => l.trim().length > 0);
-    if (headerIdx === -1) continue;
-
-    const headerLine = lines[headerIdx].trim();
-    const headerMatch = headerLine.match(ROLE_LINE);
-    if (!headerMatch) continue;
-
-    const [, companyRaw, titleRaw, dateRaw] = headerMatch;
-    const company = companyRaw.trim();
-    const title = titleRaw.trim();
-    const dateRange = dateRaw.trim();
-
+  for (let i = 0; i < headers.length; i += 1) {
+    const header = headers[i];
+    const endLine = i + 1 < headers.length ? headers[i + 1].line : lines.length;
     const descriptionLines = lines
-      .slice(headerIdx + 1)
-      .map((l) => l.trimStart())
+      .slice(header.line + 1, endLine)
+      .map((l) => l.trim())
       .filter((l) => l.length > 0);
-    const description = descriptionLines.join('\n');
 
     roles.push({
-      company,
-      title,
-      dateRange,
-      description,
-      key: `${company}|${title}`,
+      company: header.company,
+      title: header.title,
+      dateRange: header.dateRange,
+      description: descriptionLines.join('\n'),
+      key: `${header.company}|${header.title}`,
     });
   }
+
   return roles;
 }

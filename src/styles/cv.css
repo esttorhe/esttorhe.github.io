@@ -448,6 +448,19 @@
   border-radius: 0.2rem;
 }
 
+/* Title-less roles (e.g. consolidated 'Earlier Career' paragraph from cv.md).
+   Renders as: standalone date kicker + prose paragraph (no bullets). */
+.cv-role__dates--standalone {
+  margin: 0 0 var(--space-2xs);
+}
+
+.cv-role__prose {
+  font-size: var(--text-small);
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* Orphan note — surfaces roles that exist in cv.md but aren't assigned to a
    group, so an upstream CV edit doesn't silently disappear from the web view. */
 .cv-orphans {

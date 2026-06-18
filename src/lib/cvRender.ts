@@ -80,19 +80,25 @@ async function renderGroup(group: CvGroup, roles: ParsedRole[]): Promise<string>
 }
 
 async function renderRole(role: ParsedRole): Promise<string> {
-  const description = await renderDescription(role.description);
-  return [
-    '<li class="cv-role">',
-    '<div class="cv-role__head">',
-    `<h5 class="cv-role__title">${escapeHtml(role.title)}</h5>`,
-    `<p class="cv-role__dates tabular">${escapeHtml(role.dateRange)}</p>`,
-    '</div>',
-    description,
-    '</li>',
-  ].join('');
+  const hasTitle = role.title.length > 0;
+  const description = hasTitle
+    ? await renderDescriptionBullets(role.description)
+    : await renderDescriptionProse(role.description);
+
+  const head = hasTitle
+    ? [
+        '<div class="cv-role__head">',
+        `<h5 class="cv-role__title">${escapeHtml(role.title)}</h5>`,
+        `<p class="cv-role__dates tabular">${escapeHtml(role.dateRange)}</p>`,
+        '</div>',
+      ].join('')
+    : `<p class="cv-role__dates cv-role__dates--standalone tabular">${escapeHtml(role.dateRange)}</p>`;
+
+  return ['<li class="cv-role">', head, description, '</li>'].join('');
 }
 
-async function renderDescription(desc: string): Promise<string> {
+/** One bullet per source line — used for normal roles with a title. */
+async function renderDescriptionBullets(desc: string): Promise<string> {
   const lines = desc
     .split('\n')
     .map((l) => l.trim())
@@ -100,6 +106,18 @@ async function renderDescription(desc: string): Promise<string> {
   if (lines.length === 0) return '';
   const items = await Promise.all(lines.map((l) => marked.parseInline(l)));
   return `<ul class="cv-role__points">${items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
+}
+
+/** Single prose paragraph — used for entries without a title (e.g. consolidated 'Earlier Career'). */
+async function renderDescriptionProse(desc: string): Promise<string> {
+  const text = desc
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .join(' ');
+  if (text.length === 0) return '';
+  const inline = await marked.parseInline(text);
+  return `<p class="cv-role__prose">${inline}</p>`;
 }
 
 function renderOrphans(orphans: ParsedRole[]): string {
