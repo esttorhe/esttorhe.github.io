@@ -7,6 +7,8 @@ import ArticleHero from '../../../components/article/ArticleHero.astro';
 import PostNav from '../../../components/article/PostNav.astro';
 import Comments from '../../../components/article/Comments.astro';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { resolveHero } from '../../../lib/heroResolver';
 import type { GetStaticPaths } from 'astro';
 
 type Post = CollectionEntry<'blog'>;
@@ -47,9 +49,39 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
   month: 'long',
   day: '2-digit',
 });
+
+// Resolve the post's hero once and reuse for OG/Twitter cards. Sigil-fallback
+// posts (no raster hero) ship without og:image — SVG OG is poorly supported by
+// social previewers and RSS readers, so the omission is intentional.
+const heroSlug = post.id.replace(/^\d{4}-\d{2}-/, '').replace(/\.mdx?$/, '');
+const heroResolution = resolveHero({
+  slug: heroSlug,
+  title: post.data.title,
+  category: post.data.category,
+  featuredImage: post.data.featured_image,
+  featuredImageAlt: post.data.featured_image_alt,
+});
+
+let socialImage: string | undefined;
+let socialImageAlt: string | undefined;
+if (heroResolution.kind === 'image') {
+  const rendered = await getImage({
+    src: heroResolution.image,
+    width: 1200,
+    format: 'jpg',
+  });
+  socialImage = new URL(rendered.src, Astro.site ?? 'https://estebantorr.es').toString();
+  socialImageAlt = heroResolution.alt;
+}
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} current="writing">
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  current="writing"
+  image={socialImage}
+  imageAlt={socialImageAlt}
+>
   <article class="article">
     <header class="article__header reveal">
       <p class="article__meta">
