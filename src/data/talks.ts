@@ -51,7 +51,7 @@ export const talks: Talk[] = [
       'https://files.speakerdeck.com/presentations/badd9436b19b4f2ea7ee6d41c788d279/slide_0.jpg?7604246',
   },
   {
-    title: 'Hacking (?) `SiriKi`',
+    title: 'Hacking (?) `SiriKit`',
     date: '2016-10-16',
     conference: 'Mobilization',
     conferenceUrl: 'http://2016.mobilization.pl',
