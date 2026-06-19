@@ -15,3 +15,7 @@ node = "22.22.2"
 # SessionStart and PreCompact hooks that call `bd prime`. Without this pin,
 # hooks fail silently for any contributor without bd already on PATH.
 "github:gastownhall/beads" = "1.0.4"
+
+[tasks.new-post]
+description = "Scaffold a new MDX blog post (prompts for title, category, hero image, etc.)"
+run = "node scripts/new-post.mjs"
