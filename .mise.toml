@@ -19,3 +19,7 @@ node = "22.22.2"
 [tasks.new-post]
 description = "Scaffold a new MDX blog post (prompts for title, category, hero image, etc.)"
 run = "node scripts/new-post.mjs"
+
+[tasks.dev]
+description = "Runs the website locally"
+run = "bun run dev"
